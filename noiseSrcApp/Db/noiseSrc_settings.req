@@ -1,0 +1,13 @@
+# This file specifies which PVs of the corresponding database should be saved.
+
+# Enable
+$(P)$(R)Enbl-Sel
+
+# Span
+$(P)$(R)Span-SP
+
+# Center Freq
+$(P)$(R)CenterFreq-SP
+
+# Center Freq Threshold
+$(P)$(R)CenterFreqThold-SP

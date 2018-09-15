@@ -1,0 +1,237 @@
+############################################################
+#
+#                   NOISE SOURCE SOFT IOC
+#                      RECORD DATABASE
+#
+############################################################
+# LOW LEVEL INFO
+#
+# Desc: Low level IOCs info.
+
+# Corresponding Noise Generator
+
+record(stringout, "$(P)$(R)NoiseGen-Cte"){
+  field(DESC, "Corresponding Noise Generator")
+  field(VAL, "$(NOISE_GEN)")
+}
+
+# Corresponding Carrier Freq Generator
+
+record(stringout, "$(P)$(R)CarrierGen-Cte"){
+  field(DESC, "Corresponding Carrier Freq Generator")
+  field(VAL, "$(CARRIER_GEN)")
+}
+
+############################################################
+# GENERAL
+#
+# Desc: General control parameters.
+
+# Enable
+
+record(bo, "$(P)$(R)Enbl-Sel"){
+  field(DESC, "Enable noise source")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)EnblCalc")
+}
+
+record(calcout, "$(P)$(R)EnblCalc"){
+  field(DESC, "Calc sequence enable options")
+  field(INPA, "$(P)$(R)Enbl-Sel")
+  field(CALC, "A>0?12:3")
+  field(FLNK, "$(P)$(R)EnblSeq")
+}
+
+record(seq, "$(P)$(R)EnblSeq"){
+  field(DESC, "Enable/disable sequence")
+  field(SELM, "Mask")
+  field(SELL, "$(P)$(R)EnblCalc")
+  field(DO1, "0")
+  field(LNK1, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
+  field(DO2, "0")
+  field(LNK2, "$(NOISE_GEN)ChanOut-Sel PP")
+  field(DO3, "1")
+  field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
+  field(DO4, "1")
+  field(LNK4, "$(NOISE_GEN)ChanOut-Sel PP")
+}
+
+record(calcout, "$(P)$(R)EnblMonCalc"){
+  field(DESC, "Calc enable status")
+  field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP")
+  field(INPB, "$(NOISE_GEN)ChanOut-Sts CPP")
+  field(CALC, "A&&B?2:((!A)&&(!B)?1:0)")
+  field(OUT, "$(P)$(R)Enbl-Sts PP")
+}
+
+record(mbbi, "$(P)$(R)Enbl-Sts"){
+  field(DESC, "Enable noise source status")
+  field(ZRST, "Misconfig")
+  field(ZRSV, "MINOR")                       # misconfiguration generates a minor alarm
+  field(ONST, "Off")
+  field(TWST, "On")
+}
+
+############################################################
+# WHITE NOISE CONTROL
+#
+# Desc: Parameters to control noise generator.
+
+# Span
+
+record(ao, "$(P)$(R)Span-SP"){
+  field(DESC, "Noise span")
+  field(DRVH, "20000000")
+  field(DRVL, "0.001")
+  field(EGU, "Hz")
+  field(OUT, "$(NOISE_GEN)NoiseBw-SP PP")
+}
+
+record(ai, "$(P)$(R)Span-RB"){
+  field(DESC, "Noise span RB")
+  field(EGU, "Hz")
+  field(INP, "$(NOISE_GEN)NoiseBw-RB CPP")
+}
+
+############################################################
+# CARRIER FREQUENCY CONTROL
+#
+# Desc: Parameters to control the carrier frequency
+#       generator.
+
+# Center Frequency
+
+record(ao, "$(P)$(R)CenterFreq-SP"){
+  field(DESC, "Noise center freq")
+  field(DRVH, "6000")
+  field(DRVL, "23.5")
+  field(EGU, "MHz")
+  field(FLNK, "$(P)$(R)CenterFreqCalc")
+}
+
+record(calcout, "$(P)$(R)CenterFreqCalc"){
+  field(DESC, "Calc for selecting carrier output src")
+  field(INPA, "$(P)$(R)CenterFreq-SP")
+  field(INPB, "$(P)$(R)CenterFreqThold-RB")
+  field(CALC, "A<B?7:56")               # A<B ? links 1,2,3 : links 4,5,6
+  field(FLNK, "$(P)$(R)CenterFreqSeq")
+}
+
+record(seq, "$(P)$(R)CenterFreqSeq"){
+  field(DESC, "Select carrier output src")
+  field(SELM, "Mask")
+  field(SELL, "$(P)$(R)CenterFreqCalc")
+  field(DO1, "0")
+  field(LNK1, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
+  field(DOL2, "$(P)$(R)CenterFreq-SP")
+  field(LNK2, "$(CARRIER_GEN)Src1Freq-SP PP")
+  field(DLY2, "0.5")
+  field(DO3, "1")
+  field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
+  field(DO4, "0")
+  field(LNK4, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
+  field(DOL5, "$(P)$(R)CenterFreq-SP")
+  field(LNK5, "$(CARRIER_GEN)Src2Freq-SP PP")
+  field(DLY5, "0.5")
+  field(DO6, "1")
+  field(LNK6, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
+}
+
+record(calcout, "$(P)$(R)FreqSrc1MonCalc"){
+  field(DESC, "Get center freq status from src 1")
+  field(INPA, "$(CARRIER_GEN)Src1Freq-RB CPP")
+  field(INPB, "$(P)$(R)CenterFreqThold-RB")
+  field(INPC, "$(CARRIER_GEN)Src1PwrOn-Sts")
+  field(INPD, "$(CARRIER_GEN)Src2PwrOn-Sts")
+  field(CALC, "A<B&&C>0&&D=0?1:0")
+  field(OOPT, "When Non-zero")
+  field(DOPT, "Use OCAL")
+  field(OCAL, "A")
+  field(OUT, "$(P)$(R)CenterFreq-RB PP")
+}
+
+record(calcout, "$(P)$(R)FreqSrc2MonCalc"){
+  field(DESC, "Get center freq status from src 2")
+  field(INPA, "$(CARRIER_GEN)Src2Freq-RB CPP")
+  field(INPB, "$(P)$(R)CenterFreqThold-RB")
+  field(INPC, "$(CARRIER_GEN)Src1PwrOn-Sts")
+  field(INPD, "$(CARRIER_GEN)Src2PwrOn-Sts")
+  field(CALC, "A>=B&&C=0&&D>0?1:0")
+  field(OOPT, "When Non-zero")
+  field(DOPT, "Use OCAL")
+  field(OCAL, "A")
+  field(OUT, "$(P)$(R)CenterFreq-RB PP")
+}
+
+record(ai, "$(P)$(R)CenterFreq-RB"){
+  field(DESC, "Noise center freq RB")
+  field(EGU, "MHz")
+}
+
+# Center Frequency Threshold
+# (used for changing source used)
+
+record(ao, "$(P)$(R)CenterFreqThold-SP"){
+  field(DESC, "Freq threshold for changing source")
+  field(PINI, "YES")
+  field(DRVH, "6000")
+  field(DRVL, "23.5")
+  field(EGU, "MHz")
+  field(FLNK, "$(P)$(R)CenterFreqThold-RB")
+}
+
+record(ai, "$(P)$(R)CenterFreqThold-RB"){
+  field(DESC, "Freq threshold for changing source RB")
+  field(EGU, "MHz")
+  field(INP, "$(P)$(R)CenterFreqThold-SP")
+}
+
+############################################################
+# INITIALIZATION
+#
+# Desc: Initialization of devices.
+
+# Download
+
+record(bo, "$(P)$(R)Download-Cmd"){
+  field(DESC, "Download IOC parameters")
+  field(PINI, "YES")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(HIGH, "2")
+  field(VAL, "1")
+  field(FLNK, "$(P)$(R)ValidDownload")
+}
+
+record(calcout, "$(P)$(R)ValidDownload"){
+  field(DESC, "Validate download cmd")
+  field(INPA, "$(P)$(R)Download-Cmd")
+  field(CALC, "A")
+  field(OOPT, "When Non-zero")
+  field(OUT, "$(P)$(R)InitSeq1.PROC PP")
+}
+
+# Init Noise Gen parameters
+
+record(sseq, "$(P)$(R)InitSeq1"){
+  field(DESC, "Init sequence 1")
+  field(SELM, "All")
+  field(STR1, "Noise")
+  field(LNK1, "$(NOISE_GEN)WfmFunction-Sel PP") # Select 'Noise' function
+  field(DLY1, "1")                              # Wait 1 sec
+  field(DO2, "1")
+  field(LNK2, "$(P)$(R)Span-SP.PROC PP")        # Process span
+  field(FLNK, "$(P)$(R)InitSeq2")
+}
+
+# Init Carrier Gen parameters
+
+record(sseq, "$(P)$(R)InitSeq2"){
+  field(DESC, "Init sequence 2")
+  field(SELM, "All")
+  field(DO1, "1")
+  field(LNK1, "$(P)$(R)CenterFreq-SP.PROC PP") # Process center freq
+  field(DO2, "1")
+  field(LNK2, "$(P)$(R)Enbl-Sel.PROC PP")      # Process noise and carrier enable
+}
