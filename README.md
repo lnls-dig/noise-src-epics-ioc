@@ -33,7 +33,7 @@ the Noise Generator and Carrier Frequency Generator IOCs, respectively.
 The options that you can specify (after `./runNoiseSrc.sh`) are:
 
 - `-n NOISE_GEN`: PV prefix of the Noise Generator IOC (required)
-- `-c NOISE_GEN`: PV prefix of the Carrier Frequency Generator IOC (required)
+- `-c CARRIER_GEN`: PV prefix of the Carrier Frequency Generator IOC (required)
 - `-P PREFIX1`: the value of the EPICS `$(P)` macro used to prefix the PV names
 - `-R PREFIX2`: the value of the EPICS `$(R)` macro used to prefix the PV names
 
