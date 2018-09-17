@@ -39,6 +39,7 @@ record(mbbi, "$(P)$(R)CarrierGenSrc-Mon"){
   field(ONST, "Src 1")
   field(TWST, "Src 2")
   field(THST, "Src misconfig")
+  field(THSV, "MINOR")
 }
 
 ############################################################
