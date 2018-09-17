@@ -30,13 +30,15 @@ record(calcout, "$(P)$(R)CarrierGenSrcCalc"){
   field(INPB, "$(CARRIER_GEN)Src2PwrOn-Sts CPP")
   field(INPC, "$(P)$(R)CenterFreqThold-RB CPP")
   field(INPD, "$(P)$(R)CenterFreq-RB CPP")
-  field(CALC, "C<D&&(B>0||A=0)?1:(C>=D&&(B=0||A>0)?1:0)")
+  field(CALC, "C<D&&(B>0||A=0)?3:(C>=D&&(B=0||A>0)?3:(A>0?1:(B>0?2:0)))")
   field(OUT, "$(P)$(R)CarrierGenSrc-Mon PP")
 }
 
 record(mbbi, "$(P)$(R)CarrierGenSrc-Mon"){
-  field(ZRST, "Ok")
-  field(ONST, "Src misconfig")
+  field(ZRST, "None")
+  field(ONST, "Src 1")
+  field(TWST, "Src 2")
+  field(THST, "Src misconfig")
 }
 
 ############################################################
