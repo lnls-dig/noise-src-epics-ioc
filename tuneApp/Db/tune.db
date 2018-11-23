@@ -1,6 +1,6 @@
 ############################################################
 #
-#                   NOISE SOURCE SOFT IOC
+#                       TUNE SOFT IOC
 #                      RECORD DATABASE
 #
 ############################################################
@@ -22,6 +22,26 @@ record(stringout, "$(P)$(R)CarrierGen-Cte"){
   field(VAL, "$(CARRIER_GEN)")
 }
 
+# Carrier generator source 1 status
+
+record(calcout, "$(P)$(R)CarrierGenSrcCalc"){
+  field(DESC, "Carrier gen src status calc")
+  field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP")
+  field(INPB, "$(CARRIER_GEN)Src2PwrOn-Sts CPP")
+  field(INPC, "$(P)$(R)CenterFreqThold-RB CPP")
+  field(INPD, "$(P)$(R)CenterFreq-RB CPP")
+  field(CALC, "C<D&&(B>0||A=0)?3:(C>=D&&(B=0||A>0)?3:(A>0?1:(B>0?2:0)))")
+  field(OUT, "$(P)$(R)CarrierGenSrc-Mon PP")
+}
+
+record(mbbi, "$(P)$(R)CarrierGenSrc-Mon"){
+  field(ZRST, "None")
+  field(ONST, "Src 1")
+  field(TWST, "Src 2")
+  field(THST, "Src misconfig")
+  field(THSV, "MINOR")
+}
+
 ############################################################
 # GENERAL
 #
@@ -33,44 +53,26 @@ record(bo, "$(P)$(R)Enbl-Sel"){
   field(DESC, "Enable noise source")
   field(ZNAM, "Off")
   field(ONAM, "On")
-  field(FLNK, "$(P)$(R)EnblCalc")
-}
-
-record(calcout, "$(P)$(R)EnblCalc"){
-  field(DESC, "Calc sequence enable options")
-  field(INPA, "$(P)$(R)Enbl-Sel")
-  field(CALC, "A>0?12:3")
-  field(FLNK, "$(P)$(R)EnblSeq")
-}
-
-record(seq, "$(P)$(R)EnblSeq"){
-  field(DESC, "Enable/disable sequence")
-  field(SELM, "Mask")
-  field(SELL, "$(P)$(R)EnblCalc")
-  field(DO1, "0")
-  field(LNK1, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
-  field(DO2, "0")
-  field(LNK2, "$(NOISE_GEN)ChanOut-Sel PP")
-  field(DO3, "1")
-  field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
-  field(DO4, "1")
-  field(LNK4, "$(NOISE_GEN)ChanOut-Sel PP")
+  field(FLNK, "$(P)$(R)CenterFreq-SP")
 }
 
 record(calcout, "$(P)$(R)EnblMonCalc"){
   field(DESC, "Calc enable status")
   field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP")
-  field(INPB, "$(NOISE_GEN)ChanOut-Sts CPP")
-  field(CALC, "A&&B?2:((!A)&&(!B)?1:0)")
+  field(INPB, "$(CARRIER_GEN)Src2PwrOn-Sts CPP")
+  field(INPC, "$(NOISE_GEN)ChanOut-Sts CPP")
+  field(CALC, "(A||B)&&C?3:(C>0?1:(A||B?2:0))")
   field(OUT, "$(P)$(R)Enbl-Sts PP")
 }
 
 record(mbbi, "$(P)$(R)Enbl-Sts"){
   field(DESC, "Enable noise source status")
-  field(ZRST, "Misconfig")
-  field(ZRSV, "MINOR")                       # misconfiguration generates a minor alarm
-  field(ONST, "Off")
-  field(TWST, "On")
+  field(ZRST, "Off")
+  field(ONST, "Noise gen only")
+  field(ONSV, "MINOR")                       # noise gen only = minor alarm
+  field(TWST, "Carrier gen only")
+  field(TWSV, "MINOR")                       # carrier gen only = minor alarm
+  field(THST, "On")
 }
 
 ############################################################
@@ -107,60 +109,64 @@ record(ao, "$(P)$(R)CenterFreq-SP"){
   field(DRVH, "6000")
   field(DRVL, "23.5")
   field(EGU, "MHz")
-  field(FLNK, "$(P)$(R)CenterFreqCalc")
+  field(FLNK, "$(P)$(R)CenterFreqCalc1")
 }
 
-record(calcout, "$(P)$(R)CenterFreqCalc"){
+record(calcout, "$(P)$(R)CenterFreqCalc1"){
   field(DESC, "Calc for selecting carrier output src")
   field(INPA, "$(P)$(R)CenterFreq-SP")
   field(INPB, "$(P)$(R)CenterFreqThold-RB")
-  field(CALC, "A<B?7:56")               # A<B ? links 1,2,3 : links 4,5,6
-  field(FLNK, "$(P)$(R)CenterFreqSeq")
+  field(CALC, "A<B?3:12")               # A<B ? links 1,2 : links 3,4
+  field(FLNK, "$(P)$(R)CenterFreqSeq1")
 }
 
-record(seq, "$(P)$(R)CenterFreqSeq"){
+record(seq, "$(P)$(R)CenterFreqSeq1"){
   field(DESC, "Select carrier output src")
   field(SELM, "Mask")
-  field(SELL, "$(P)$(R)CenterFreqCalc")
+  field(SELL, "$(P)$(R)CenterFreqCalc1")
   field(DO1, "0")
-  field(LNK1, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
+  field(LNK1, "$(CARRIER_GEN)Src2PwrOn-Sel PP")  # Disable src 2 &
   field(DOL2, "$(P)$(R)CenterFreq-SP")
-  field(LNK2, "$(CARRIER_GEN)Src1Freq-SP PP")
-  field(DLY2, "0.5")
-  field(DO3, "1")
-  field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
-  field(DO4, "0")
-  field(LNK4, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
-  field(DOL5, "$(P)$(R)CenterFreq-SP")
-  field(LNK5, "$(CARRIER_GEN)Src2Freq-SP PP")
-  field(DLY5, "0.5")
-  field(DO6, "1")
-  field(LNK6, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
+  field(LNK2, "$(CARRIER_GEN)Src1Freq-SP PP")    # Set src 1 freq;
+  field(DO3, "0")
+  field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Disable src 1 &
+  field(DOL4, "$(P)$(R)CenterFreq-SP")
+  field(LNK4, "$(CARRIER_GEN)Src2Freq-SP PP")    # Set src 2 freq;
+  field(FLNK, "$(P)$(R)CenterFreqCalc2")
 }
 
-record(calcout, "$(P)$(R)FreqSrc1MonCalc"){
+record(calcout, "$(P)$(R)CenterFreqCalc2"){
+  field(DESC, "Calc for enabling carrier output src")
+  field(INPA, "$(P)$(R)Enbl-Sel")
+  field(INPB, "$(P)$(R)CenterFreqCalc1")
+  field(CALC, "A>0?(B=12?2:1):12")               # A<B ? links 1 : links 2
+  field(FLNK, "$(P)$(R)CenterFreqSeq2")
+}
+
+record(seq, "$(P)$(R)CenterFreqSeq2"){
+  field(DESC, "Select output src to enable")
+  field(SELM, "Mask")
+  field(SELL, "$(P)$(R)CenterFreqCalc2")
+  field(DO1, "1")
+  field(LNK1, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Enable src 1;
+  field(DO1, "1")
+  field(LNK2, "$(CARRIER_GEN)Src2PwrOn-Sel PP")  # Enable src 2;
+  field(DO3, "0")
+  field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Disable src 1 &
+  field(DO4, "0")
+  field(LNK4, "$(CARRIER_GEN)Src2PwrOn-Sel PP")  # Disable src 2;
+}
+
+record(calcout, "$(P)$(R)FreqSrcMonCalc"){
   field(DESC, "Get center freq status from src 1")
   field(INPA, "$(CARRIER_GEN)Src1Freq-RB CPP")
-  field(INPB, "$(P)$(R)CenterFreqThold-RB")
+  field(INPB, "$(CARRIER_GEN)Src2Freq-RB CPP")
   field(INPC, "$(CARRIER_GEN)Src1PwrOn-Sts")
   field(INPD, "$(CARRIER_GEN)Src2PwrOn-Sts")
-  field(CALC, "A<B&&C>0&&D=0?1:0")
+  field(CALC, "C>0||D>0")
   field(OOPT, "When Non-zero")
   field(DOPT, "Use OCAL")
-  field(OCAL, "A")
-  field(OUT, "$(P)$(R)CenterFreq-RB PP")
-}
-
-record(calcout, "$(P)$(R)FreqSrc2MonCalc"){
-  field(DESC, "Get center freq status from src 2")
-  field(INPA, "$(CARRIER_GEN)Src2Freq-RB CPP")
-  field(INPB, "$(P)$(R)CenterFreqThold-RB")
-  field(INPC, "$(CARRIER_GEN)Src1PwrOn-Sts")
-  field(INPD, "$(CARRIER_GEN)Src2PwrOn-Sts")
-  field(CALC, "A>=B&&C=0&&D>0?1:0")
-  field(OOPT, "When Non-zero")
-  field(DOPT, "Use OCAL")
-  field(OCAL, "A")
+  field(OCAL, "C>0?A:B")
   field(OUT, "$(P)$(R)CenterFreq-RB PP")
 }
 

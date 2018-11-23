@@ -1,6 +1,6 @@
 #!/bin/sh
 
-IOC_NAME="noiseSrc"
+IOC_NAME="tune"
 
 IOC_BOOT_DIR="$(dirname "$0")"
 IOC_BIN_DIR="$IOC_BOOT_DIR/../../bin"
