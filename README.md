@@ -1,4 +1,4 @@
-# noise-src-epics-ioc
+# tune-epics-ioc
 
 ### Overall
 
@@ -24,13 +24,13 @@ $ make clean uninstall install
 In order to run the IOC, from the top level directory, run:
 
 ```sh
-$ cd iocBoot/iocNoiseSrc &&
-$ ./runNoiseSrc.sh -n "NOISE_GEN" -c "CARRIER_GEN"
+$ cd iocBoot/iocTune &&
+$ ./runTune.sh -n "NOISE_GEN" -c "CARRIER_GEN"
 ```
 
 where `NOISE_GEN` and `CARRIEN_GEN` are the PV prefixes used for
 the Noise Generator and Carrier Frequency Generator IOCs, respectively.
-The options that you can specify (after `./runNoiseSrc.sh`) are:
+The options that you can specify (after `./runTune.sh`) are:
 
 - `-n NOISE_GEN`: PV prefix of the Noise Generator IOC (required)
 - `-c CARRIER_GEN`: PV prefix of the Carrier Frequency Generator IOC (required)

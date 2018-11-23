@@ -1,6 +1,6 @@
 ############################################################
 #
-#                   NOISE SOURCE SOFT IOC
+#                       TUNE SOFT IOC
 #                      RECORD DATABASE
 #
 ############################################################
@@ -109,7 +109,7 @@ record(ao, "$(P)$(R)CenterFreq-SP"){
   field(DRVH, "6000")
   field(DRVL, "23.5")
   field(EGU, "MHz")
-  field(FLNK, "$(P)$(R)CenterFreqCalc")
+  field(FLNK, "$(P)$(R)CenterFreqCalc1")
 }
 
 record(calcout, "$(P)$(R)CenterFreqCalc1"){
@@ -149,7 +149,7 @@ record(seq, "$(P)$(R)CenterFreqSeq2"){
   field(SELL, "$(P)$(R)CenterFreqCalc2")
   field(DO1, "1")
   field(LNK1, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Enable src 1;
-  field(DO1, "2")
+  field(DO1, "1")
   field(LNK2, "$(CARRIER_GEN)Src2PwrOn-Sel PP")  # Enable src 2;
   field(DO3, "0")
   field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Disable src 1 &

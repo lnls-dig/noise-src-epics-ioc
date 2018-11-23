@@ -31,4 +31,4 @@ fi
 
 cd "$IOC_BOOT_DIR"
 
-P="$P" R="$R" NOISE_GEN="$NOISE_GEN" CARRIER_GEN="$CARRIER_GEN" "$IOC_BIN" stNoiseSrc.cmd
+P="$P" R="$R" NOISE_GEN="$NOISE_GEN" CARRIER_GEN="$CARRIER_GEN" "$IOC_BIN" stTune.cmd
