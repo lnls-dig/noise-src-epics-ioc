@@ -28,9 +28,10 @@ record(calcout, "$(P)$(R)CarrierGenSrcCalc"){
   field(DESC, "Carrier gen src status calc")
   field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP")
   field(INPB, "$(CARRIER_GEN)Src2PwrOn-Sts CPP")
-  field(INPC, "$(P)$(R)CenterFreqThold-RB CPP")
-  field(INPD, "$(P)$(R)CenterFreq-RB CPP")
-  field(CALC, "C<D&&(B>0||A=0)?3:(C>=D&&(B=0||A>0)?3:(A>0?1:(B>0?2:0)))")
+  field(INPC, "$(P)$(R)CenterFreq-RB CPP")
+  field(INPD, "$(P)$(R)CenterFreqThold-RB CPP")
+  field(INPE, "$(P)$(R)Enbl-Sts CPP")
+  field(CALC, "E=0&&A=0&&B=0?0:(C<D&&(B>0||A=0)?3:(C>=D&&(B=0||A>0)?3:(A>0?1:2)))")
   field(OUT, "$(P)$(R)CarrierGenSrc-Mon PP")
 }
 
@@ -149,7 +150,7 @@ record(seq, "$(P)$(R)CenterFreqSeq2"){
   field(SELL, "$(P)$(R)CenterFreqCalc2")
   field(DO1, "1")
   field(LNK1, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Enable src 1;
-  field(DO1, "1")
+  field(DO2, "1")
   field(LNK2, "$(CARRIER_GEN)Src2PwrOn-Sel PP")  # Enable src 2;
   field(DO3, "0")
   field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Disable src 1 &
@@ -161,8 +162,8 @@ record(calcout, "$(P)$(R)FreqSrcMonCalc"){
   field(DESC, "Get center freq status from src 1")
   field(INPA, "$(CARRIER_GEN)Src1Freq-RB CPP")
   field(INPB, "$(CARRIER_GEN)Src2Freq-RB CPP")
-  field(INPC, "$(CARRIER_GEN)Src1PwrOn-Sts")
-  field(INPD, "$(CARRIER_GEN)Src2PwrOn-Sts")
+  field(INPC, "$(CARRIER_GEN)Src1PwrOn-Sts CPP")
+  field(INPD, "$(CARRIER_GEN)Src2PwrOn-Sts CPP")
   field(CALC, "C>0||D>0")
   field(OOPT, "When Non-zero")
   field(DOPT, "Use OCAL")
