@@ -117,7 +117,7 @@ record(calcout, "$(P)$(R)CenterFreqCalc1"){
   field(DESC, "Calc for selecting carrier output src")
   field(INPA, "$(P)$(R)CenterFreq-SP")
   field(INPB, "$(P)$(R)CenterFreqThold-RB")
-  field(CALC, "A<B?3:12")               # A<B ? links 1,2 : links 3,4
+  field(CALC, "A<B?19:28")             # A<B ? links 1,2 : links 3,4
   field(FLNK, "$(P)$(R)CenterFreqSeq1")
 }
 
@@ -133,6 +133,8 @@ record(seq, "$(P)$(R)CenterFreqSeq1"){
   field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Disable src 1 &
   field(DOL4, "$(P)$(R)CenterFreq-SP")
   field(LNK4, "$(CARRIER_GEN)Src2Freq-SP PP")    # Set src 2 freq;
+  field(DO5, "0")
+  field(LNK5, "$(NOISE_GEN)ChanOut-Sel PP")      # Disable noise generator;
   field(FLNK, "$(P)$(R)CenterFreqCalc2")
 }
 
@@ -140,7 +142,7 @@ record(calcout, "$(P)$(R)CenterFreqCalc2"){
   field(DESC, "Calc for enabling carrier output src")
   field(INPA, "$(P)$(R)Enbl-Sel")
   field(INPB, "$(P)$(R)CenterFreqCalc1")
-  field(CALC, "A>0?(B=12?2:1):12")               # A<B ? links 1 : links 2
+  field(CALC, "A>0?(B=28?18:17):12")               # A<B ? links 1 : links 2
   field(FLNK, "$(P)$(R)CenterFreqSeq2")
 }
 
@@ -156,6 +158,8 @@ record(seq, "$(P)$(R)CenterFreqSeq2"){
   field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Disable src 1 &
   field(DO4, "0")
   field(LNK4, "$(CARRIER_GEN)Src2PwrOn-Sel PP")  # Disable src 2;
+  field(DO5, "1")
+  field(LNK5, "$(NOISE_GEN)ChanOut-Sel PP")      # Enable noise generator;
 }
 
 record(calcout, "$(P)$(R)FreqSrcMonCalc"){
