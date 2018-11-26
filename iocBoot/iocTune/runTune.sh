@@ -15,13 +15,13 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-if [ -z "$NOISE_GEN" ]; then
-    echo "\$NOISE_GEN is not set, Please use -n option" >&2
+if [ -z "$SPEC_ANA" ]; then
+    echo "\$SPEC_ANA is not set, Please use -s option" >&2
     exit 2
 fi
 
-if [ -z "$CARRIER_GEN" ]; then
-    echo "\$CARRIER_GEN is not set, Please use -c option" >&2
+if [ -z "$AMP" ]; then
+    echo "\$AMP is not set, Please use -a option" >&2
     exit 3
 fi
 
@@ -31,4 +31,4 @@ fi
 
 cd "$IOC_BOOT_DIR"
 
-P="$P" R="$R" NOISE_GEN="$NOISE_GEN" CARRIER_GEN="$CARRIER_GEN" "$IOC_BIN" stTune.cmd
+P="$P" R="$R" SPEC_ANA="$SPEC_ANA" AMP="$AMP" NOISE_GEN="$NOISE_GEN" CARRIER_GEN="$CARRIER_GEN" "$IOC_BIN" stTune.cmd
