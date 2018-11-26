@@ -22,6 +22,20 @@ record(stringout, "$(P)$(R)CarrierGen-Cte"){
   field(VAL, "$(CARRIER_GEN)")
 }
 
+# Corresponding Spectrum Analyzer Freq Generator
+
+record(stringout, "$(P)$(R)SpecAna-Cte"){
+  field(DESC, "Corresponding Spectrum Analyzer")
+  field(VAL, "$(SPEC_ANA)")
+}
+
+# Corresponding Amplifier
+
+record(stringout, "$(P)$(R)Amp-Cte"){
+  field(DESC, "Corresponding Amplifier")
+  field(VAL, "$(AMP)")
+}
+
 # Carrier generator source 1 status
 
 record(calcout, "$(P)$(R)CarrierGenSrcCalc"){
