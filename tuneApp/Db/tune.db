@@ -428,8 +428,6 @@ record(calcout, "$(P)$(R)CarCentSrc1FreqConvIn"){
 
 record(ai, "$(P)$(R)CarCentSrc1Freq-RB"){
   field(DESC, "Get Carrier Gen Freq. 1")
-  field(DRVH, "6000000000")
-  field(DRVL, "23500000")
   field(INP,  "$(P)$(R)CarCentSrc1FreqConvIn")
   field(EGU, "Hz")
 }
@@ -464,8 +462,6 @@ record(calcout, "$(P)$(R)CarCentSrc2FreqConvIn"){
 
 record(ai, "$(P)$(R)CarCentSrc2Freq-RB"){
   field(DESC, "Get Carrier Gen Freq. 2")
-  field(DRVH, "6000000000")
-  field(DRVL, "23500000")
   field(INP,  "$(P)$(R)CarCentSrc2FreqConvIn")
   field(EGU, "Hz")
 }
