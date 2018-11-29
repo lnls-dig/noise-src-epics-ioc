@@ -11,3 +11,24 @@ $(P)$(R)CenterFreq-SP
 
 # Center Freq Threshold
 $(P)$(R)CarCentFreqThold-SP
+
+# Offset
+$(P)$(R)FreqOff-SP
+
+# Revolution N
+$(P)$(R)RevN-SP
+
+# Center Frequency
+$(P)$(R)CenterFreq-SP
+
+# Automatic frequency selection
+$(P)$(R)CenterFreqAuto-Sel
+
+# Spec Analyzer RBW
+$(P)$(R)SpecAnaRBW-Sel
+
+# Autoatic drive selection
+$(P)$(R)DriveAuto-Sel
+
+# Enable Spec. Analyzer
+$(P)$(R)SpecAnaGetSpec-Sel
