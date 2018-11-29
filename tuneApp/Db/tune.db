@@ -201,7 +201,7 @@ record(sseq, "$(P)$(R)CenterFreqAutoPropSseq"){
 # to the CenterFreq even if the "Span" value didn't
 # change
 record(calcout, "$(P)$(R)CenterFreqAutoFilter-SP"){
-    field(DESC, "Set FLNK to records if CenterFreqAutoProp")
+    field(DESC, "Set FLNK to records")
     field(INPA, "$(P)$(R)CenterFreqAuto-Sts NPP NMS")
     field(CALC, "A>0")
     field(OOPT, "When Non-zero")
