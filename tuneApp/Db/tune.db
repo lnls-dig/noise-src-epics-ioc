@@ -185,7 +185,7 @@ record(sseq, "$(P)$(R)CenterFreqAutoPropSseq"){
     field(STR1, "supervisory")
     field(STR2, "closed_loop")
     field(STR3, "0")
-    field(STR4, "$(P)$(R)CenterFreqCalc CPP MS")
+    field(STR4, "$(P)$(R)CenterFreqCalc.OVAL CPP MS")
     field(LNK1, "$(P)$(R)CenterFreq-SP.OMSL NPP NMS")
     field(LNK2, "$(P)$(R)CenterFreq-SP.OMSL NPP NMS")
     field(LNK3, "$(P)$(R)CenterFreq-SP.DOL CA NMS")
@@ -218,16 +218,40 @@ record(ao, "$(P)$(R)CenterFreq-SP") {
   field(DESC, "Set center freq")
   field(PINI, "YES")
   field(EGU,  "Hz")
-  field(DOL,  "$(P)$(R)CenterFreqCalc CPP MS")
+  field(DOL,  "$(P)$(R)CenterFreqCalc.OVAL CPP MS")
   field(OMSL, "closed_loop")
   field(OUT,  "$(SPEC_ANA)FreqCenter-SP")
   field(FLNK, "$(P)$(R)CenterFreq-RB")
 }
 
+# Center Frequency, if not in auto mode, sets RevN and Offset
 record(ai, "$(P)$(R)CenterFreq-RB") {
   field(DESC, "Get center freq")
   field(EGU,  "Hz")
   field(INP, "$(P)$(R)CenterFreq-SP")
+  field(FLNK, "$(P)$(R)RevNCalc")
+}
+
+record(calcout, "$(P)$(R)RevNCalc") {
+  field(DESC, "Rev. N from Center Freq.")
+  field(INPA, "$(P)$(R)CenterFreq-RB")
+  field(INPB, "$(P)$(R)FreqRev-Mon CPP")
+  field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
+  field(CALC, "C=0?((A/B)>1?FLOOR(A/B):1):0")
+  field(OOPT, "When Non-zero")
+  field(OUT, "$(P)$(R)RevN-SP PP")
+  field(FLNK, "$(P)$(R)FreqOffCalc")
+}
+
+record(calcout, "$(P)$(R)FreqOffCalc") {
+  field(DESC, "Offset frequency from Center Freq.")
+  field(INPA, "$(P)$(R)CenterFreq-RB")
+  field(INPB, "$(P)$(R)FreqRev-Mon CPP")
+  field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
+  field(INPD, "$(P)$(R)RevNCalc")
+  field(CALC, "C=0?(A-B*D):0")
+  field(OOPT, "When Non-zero")
+  field(OUT, "$(P)$(R)FreqOff-SP PP")
 }
 
 record(bo, "$(P)$(R)DriveAuto-Sel"){
@@ -692,10 +716,15 @@ record(ai, "$(P)$(R)FreqOff-RB") {
 }
 
 record(calcout, "$(P)$(R)CenterFreqCalc") {
+  field(DESC, "Monitored calculated frequency")
   field(EGU, "Hz")
   field(INPA, "$(P)$(R)FreqOff-RB CPP")
   field(INPB, "$(P)$(R)FreqRevN-Mon CPP")
-  field(CALC, "A+B")
+  field(INPC, "$(P)$(R)CenterFreqAuto-Sts CPP")
+  field(CALC, "C>0")
+  field(OOPT, "When Non-zero")
+  field(DOPT, "Use OCAL")
+  field(OCAL, "A+B")
   field(OUT,  "$(P)$(R)CenterFreq-SP.VAL PP")
 }
 
