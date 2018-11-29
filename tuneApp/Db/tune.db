@@ -185,7 +185,7 @@ record(sseq, "$(P)$(R)CenterFreqAutoPropSseq"){
     field(STR1, "supervisory")
     field(STR2, "closed_loop")
     field(STR3, "")                                     # When supervisory
-    field(STR4, "$(P)$(R)CenterFreqCalc-Mon CPP MS")    # When closed_loop
+    field(STR4, "$(P)$(R)CenterFreqCalc CPP MS")
     field(LNK1, "$(P)$(R)CenterFreq-SP.OMSL NPP NMS")
     field(LNK2, "$(P)$(R)CenterFreq-SP.OMSL NPP NMS")
     field(LNK3, "$(P)$(R)CenterFreq-SP.DOL CPP NMS")
@@ -218,7 +218,7 @@ record(ao, "$(P)$(R)CenterFreq-SP") {
   field(DESC, "Set center freq")
   field(PINI, "YES")
   field(EGU,  "Hz")
-  field(DOL,  "$(P)$(R)CenterFreqCalc-Mon CPP MS")
+  field(DOL,  "$(P)$(R)CenterFreqCalc CPP MS")
   field(OMSL, "closed_loop")
   field(OUT,  "$(SPEC_ANA)FreqCenter-SP")
   field(FLNK, "$(P)$(R)CenterFreq-RB")
@@ -674,8 +674,7 @@ record(ai, "$(P)$(R)FreqOff-RB") {
   field(INP, "$(P)$(R)FreqOff-SP")
 }
 
-record(calcout, "$(P)$(R)CenterFreqCalc-Mon") {
-  field(DESC, "Monitor calculated frequency from harmonic freq")
+record(calcout, "$(P)$(R)CenterFreqCalc") {
   field(EGU, "Hz")
   field(INPA, "$(P)$(R)FreqOff-RB CPP")
   field(INPB, "$(P)$(R)FreqRevN-Mon CPP")
