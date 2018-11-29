@@ -412,7 +412,7 @@ record(calcout, "$(P)$(R)CarCentSrc1FreqConvOut") {
   field(EGU, "MHz")
   field(INPA, "$(P)$(R)CarCentSrc1Freq-SP")
   field(CALC, "A/1000000")
-  field(OOPT, "Everytime")
+  field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src1Freq-SP PP")
   field(FLNK, "$(P)$(R)CarCentSrc1FreqConvIn PP")
 }
@@ -422,7 +422,7 @@ record(calcout, "$(P)$(R)CarCentSrc1FreqConvIn"){
   field(EGU, "MHz")
   field(INPA, "$(CARRIER_GEN)Src1Freq-RB")
   field(CALC, "A*1000000")
-  field(OOPT, "Everytime")
+  field(OOPT, "Every Time")
   field(OUT,  "$(P)$(R)CarCentSrc1Freq-RB PP")
 }
 
@@ -446,7 +446,7 @@ record(calcout, "$(P)$(R)CarCentSrc2FreqConvOut") {
   field(EGU, "MHz")
   field(INPA, "$(P)$(R)CarCentSrc2Freq-SP")
   field(CALC, "A/1000000")
-  field(OOPT, "Everytime")
+  field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src2Freq-SP PP")
   field(FLNK, "$(P)$(R)CarCentSrc2FreqConvIn PP")
 }
@@ -456,7 +456,7 @@ record(calcout, "$(P)$(R)CarCentSrc2FreqConvIn"){
   field(EGU, "MHz")
   field(INPA, "$(CARRIER_GEN)Src2Freq-RB")
   field(CALC, "A*1000000")
-  field(OOPT, "Everytime")
+  field(OOPT, "Every Time")
   field(OUT,  "$(P)$(R)CarCentSrc2Freq-RB PP")
 }
 
