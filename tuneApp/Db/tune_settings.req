@@ -10,4 +10,4 @@ $(P)$(R)Span-SP
 $(P)$(R)CenterFreq-SP
 
 # Center Freq Threshold
-$(P)$(R)CenterFreqThold-SP
+$(P)$(R)CarCentFreqThold-SP
