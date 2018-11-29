@@ -662,7 +662,7 @@ record(ao, "$(P)$(R)FreqOff-SP") {
   field(PINI, "YES")
   field(EGU, "Hz")
   field(DRVL, "0.0")
-  field(DRVH, "(P)$(R)FreqRev-Mon")
+  field(DRVH, "10000000")
   field(FLNK, "$(P)$(R)FreqOff-RB")
 }
 
