@@ -561,6 +561,7 @@ record(ao, "$(P)$(R)CarCentFreqThold-SP"){
   field(DRVL, "23500000")
   field(EGU, "Hz")
   field(FLNK, "$(P)$(R)CarCentFreqThold-RB")
+  field(VAL, "255000000")
 }
 
 record(ai, "$(P)$(R)CarCentFreqThold-RB"){
