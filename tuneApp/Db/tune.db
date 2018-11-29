@@ -184,7 +184,7 @@ record(sseq, "$(P)$(R)CenterFreqAutoPropSseq"){
     field(PINI, "YES")
     field(STR1, "supervisory")
     field(STR2, "closed_loop")
-    field(STR3, "")                                     # When supervisory
+    field(STR3, "0")
     field(STR4, "$(P)$(R)CenterFreqCalc CPP MS")
     field(LNK1, "$(P)$(R)CenterFreq-SP.OMSL NPP NMS")
     field(LNK2, "$(P)$(R)CenterFreq-SP.OMSL NPP NMS")
@@ -261,10 +261,10 @@ record(sseq, "$(P)$(R)DriveAutoPropSseq"){
     field(STR2, "closed_loop")
     field(STR3, "supervisory")
     field(STR4, "closed_loop")
-    field(STR5, "")                                 # When supervisory
-    field(STR6, "$(P)$(R)Span-RB CPP MS")           # When closed_loop
-    field(STR7, "")                                 # When supervisory
-    field(STR8, "$(P)$(R)CenterFreq-RB CPP MS")     # When closed_loop
+    field(STR5, "0")
+    field(STR6, "$(P)$(R)Span-RB CPP MS")
+    field(STR7, "0")
+    field(STR8, "$(P)$(R)CenterFreq-RB CPP MS")
     field(LNK1, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
     field(LNK2, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
     field(LNK3, "$(P)$(R)CarCentFreq-SP.OMSL NPP NMS")
