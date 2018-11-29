@@ -366,6 +366,22 @@ record(mbbi, "$(P)$(R)SpecAnaRBW-Sts"){
   field(INP, "$(SPEC_ANA)Rbw-Sts CPP")
 }
 
+record(bo, "$(P)$(R)SpecAnaGetSpec-Sel"){
+  field(DESC, "Set enable spec. analyzer status")
+  field(PINI, "YES")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(OUT,  "$(SPEC_ANA)GetSpectrum-Sel PP")
+  field(FLNK, "$(P)$(R)SpecAnaSpec-Sts")
+}
+
+record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
+  field(DESC, "Get enable spec. analyzer status")
+  field(INP,  "$(SPEC_ANA)GetSpectrum-Sts CPP")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+}
+
 ############################################################
 # WHITE NOISE CONTROL
 #
