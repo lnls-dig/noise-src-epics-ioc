@@ -775,3 +775,16 @@ record(sseq, "$(P)$(R)InitSeq2"){
   field(DO2, "1")
   field(LNK2, "$(P)$(R)Enbl-Sel.PROC PP")      # Process noise and carrier enable
 }
+
+############################################################
+# AUTOSAVE
+#
+# Desc: autosave.
+
+record(bo, "$(P)$(R)Save-Cmd"){
+  field(DESC, "Manual 'Save Settings' command")
+  field(MASK, "1")
+  field(ZNAM, "Dsbl")
+  field(ONAM, "Enbl")
+  field(HIGH, "1")
+}

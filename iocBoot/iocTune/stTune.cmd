@@ -20,4 +20,5 @@ iocInit
 
 # Create periodic trigger for Autosave
 create_monitor_set("auto_settings_tune.req", 5, "P=${P}, R=${R}")
+create_triggered_set("auto_settings_rsfsl.req", "${P}${R}Save-Cmd", "P=${P}, R=${R}")
 set_savefile_name("auto_settings_tune.req", "auto_settings_${P}${R}.sav")
