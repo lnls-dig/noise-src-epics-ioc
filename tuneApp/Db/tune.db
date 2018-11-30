@@ -725,7 +725,6 @@ record(calcout, "$(P)$(R)CFreqCalc") {
   field(OOPT, "When Non-zero")
   field(DOPT, "Use OCAL")
   field(OCAL, "A+B")
-  field(OUT,  "$(P)$(R)CenterFreq-SP.VAL PP")
 }
 
 ############################################################
