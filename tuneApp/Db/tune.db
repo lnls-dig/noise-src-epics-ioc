@@ -65,10 +65,10 @@ record(mbbi, "$(P)$(R)CarrierGenSrc-Mon"){
 # Enable
 
 record(bo, "$(P)$(R)Enbl-Sel"){
-  field(DESC, "Enable noise source")
+  field(DESC, "Enable excitation sources")
   field(ZNAM, "Off")
   field(ONAM, "On")
-  field(FLNK, "$(P)$(R)CarCentFreq-SP")
+  field(FLNK, "$(P)$(R)EnblExctCalc")
 }
 
 record(calcout, "$(P)$(R)EnblMonCalc"){
@@ -221,20 +221,18 @@ record(ao, "$(P)$(R)CenterFreq-SP") {
   field(DOL,  "$(P)$(R)CFreqCalc.OVAL CPP MS")
   field(OMSL, "closed_loop")
   field(OUT,  "$(SPEC_ANA)FreqCenter-SP")
-  field(FLNK, "$(P)$(R)CenterFreq-RB")
 }
 
 # Center Frequency, if not in auto mode, sets RevN and Offset
 record(ai, "$(P)$(R)CenterFreq-RB") {
   field(DESC, "Get center freq")
   field(EGU,  "Hz")
-  field(INP, "$(P)$(R)CenterFreq-SP")
   field(FLNK, "$(P)$(R)RevNCalc")
 }
 
 record(calcout, "$(P)$(R)RevNCalc") {
   field(DESC, "Rev. N from Center Freq.")
-  field(INPA, "$(P)$(R)CenterFreq-RB")
+  field(INPA, "$(P)$(R)CenterFreq-SP")
   field(INPB, "$(P)$(R)FreqRev-Mon CPP")
   field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
   field(CALC, "C=0?((A/B)>1?FLOOR(A/B):1):0")
@@ -245,7 +243,7 @@ record(calcout, "$(P)$(R)RevNCalc") {
 
 record(calcout, "$(P)$(R)FreqOffCalc") {
   field(DESC, "Offset frequency from Center Freq.")
-  field(INPA, "$(P)$(R)CenterFreq-RB")
+  field(INPA, "$(P)$(R)CenterFreq-SP")
   field(INPB, "$(P)$(R)FreqRev-Mon CPP")
   field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
   field(INPD, "$(P)$(R)RevNCalc")
@@ -288,7 +286,7 @@ record(sseq, "$(P)$(R)DriveAutoPropSseq"){
     field(STR5, "0")
     field(STR6, "$(P)$(R)Span-RB CPP MS")
     field(STR7, "0")
-    field(STR8, "$(P)$(R)CenterFreq-RB CPP MS")
+    field(STR8, "$(P)$(R)CenterFreq-SP CPP MS")
     field(LNK1, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
     field(LNK2, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
     field(LNK3, "$(P)$(R)CarFreq-SP.OMSL NPP NMS")
@@ -605,7 +603,7 @@ record(ao, "$(P)$(R)CarFreq-SP"){
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
-  field(DOL, "$(P)$(R)CenterFreq-RB CPP MS")
+  field(DOL, "$(P)$(R)CenterFreq-SP CPP MS")
   field(OMSL,"closed_loop")
   field(FLNK, "$(P)$(R)CarFreqCalc1")
 }
@@ -614,10 +612,12 @@ record(calcout, "$(P)$(R)CarFreqCalc1"){
   field(DESC, "Calc for selecting carrier output src")
   field(INPA, "$(P)$(R)CarFreq-SP")
   field(INPB, "$(P)$(R)CarFreqThold-RB")
-  field(CALC, "A<B?51:60")             # A<B ? links 1,2,5,6 : links 3,4,5,6
+  field(CALC, "A<B?19:44")             # A<B ? links 1,2,5 : links 3,4,6
   field(FLNK, "$(P)$(R)CarFreqSeq1")
 }
 
+# Don't disable sources unnecessarilly, just set
+# the frequency on correct carrier gen channel
 record(seq, "$(P)$(R)CarFreqSeq1"){
   field(DESC, "Select carrier output src")
   field(SELM, "Mask")
@@ -627,53 +627,28 @@ record(seq, "$(P)$(R)CarFreqSeq1"){
   field(DOL2, "$(P)$(R)CarFreq-SP")
   field(LNK2, "$(P)$(R)CarSrc1Freq-SP PP")   # Set src 1 freq;
   field(DO3, "0")
-  field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Disable src 1 &
-  field(DOL4, "$(P)$(R)CarCentFreq-SP")
-  field(LNK4, "$(P)$(R)CarCentSrc2Freq-SP PP")    # Set src 2 freq;
-  field(DO5, "0")
-  field(LNK5, "$(NOISE_GEN)ChanOut-Sel PP")      # Disable noise generator;
-  field(DO6, "0")
-  field(LNK6, "$(AMP)Enbl-Sel PP")               # Disable amplifier;
-  field(FLNK, "$(P)$(R)CarCentFreqCalc2")
-}
-
-record(calcout, "$(P)$(R)CarCentFreqCalc2"){
-  field(DESC, "Calc for enabling carrier output src")
-  field(INPA, "$(P)$(R)Enbl-Sel")
-  field(INPB, "$(P)$(R)CarCentFreqCalc1")
-  field(CALC, "A>0?(B=60?50:49):12")               # A<B ? links 1 : links 2
-  field(FLNK, "$(P)$(R)CarCentFreqSeq2")
-}
-
-record(seq, "$(P)$(R)CarCentFreqSeq2"){
-  field(DESC, "Select output src to enable")
-  field(SELM, "Mask")
-  field(SELL, "$(P)$(R)CarCentFreqCalc2")
-  field(DO1, "1")
-  field(LNK1, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Enable src 1;
-  field(DO2, "1")
-  field(LNK2, "$(CARRIER_GEN)Src2PwrOn-Sel PP")  # Enable src 2;
-  field(DO3, "0")
-  field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Disable src 1 &
-  field(DO4, "0")
-  field(LNK4, "$(CARRIER_GEN)Src2PwrOn-Sel PP")  # Disable src 2;
+  field(LNK3, "$(P)$(R)CarSrc1En-Sel PP")   # Disable src 1 &
+  field(DOL4, "$(P)$(R)CarFreq-SP")
+  field(LNK4, "$(P)$(R)CarSrc2Freq-SP PP")   # Set src 2 freq;
   field(DO5, "1")
-  field(LNK5, "$(NOISE_GEN)ChanOut-Sel PP")      # Enable noise generator;
+  field(LNK5, "$(P)$(R)CarSrc1En-Sel PP")   # Wait a while so values are settled in the carrier gen, then Enable src 1
+  field(DLY5, "1")
   field(DO6, "1")
-  field(LNK6, "$(AMP)Enbl-Sel PP")               # Enable amplifier;
+  field(LNK6, "$(P)$(R)CarSrc2En-Sel PP")   # Wait a while so values are settled in the carrier gen, then Enable src 2
+  field(DLY6, "1")
 }
 
 record(calcout, "$(P)$(R)FreqSrcMonCalc"){
-  field(DESC, "Get center freq status from src 1")
-  field(INPA, "$(P)$(R)CarCentSrc1Freq-RB CPP")
-  field(INPB, "$(P)$(R)CarCentSrc2Freq-RB CPP")
-  field(INPC, "$(CARRIER_GEN)Src1PwrOn-Sts CPP")
-  field(INPD, "$(CARRIER_GEN)Src2PwrOn-Sts CPP")
+  field(DESC, "Get center freq value")
+  field(INPA, "$(P)$(R)CarSrc1Freq-RB CPP MSS")
+  field(INPB, "$(P)$(R)CarSrc2Freq-RB CPP MSS")
+  field(INPC, "$(P)$(R)CarSrc1En-Sts CPP")
+  field(INPD, "$(P)$(R)CarSrc2En-Sts CPP")
   field(CALC, "C>0||D>0")
   field(OOPT, "When Non-zero")
   field(DOPT, "Use OCAL")
   field(OCAL, "C>0?A:B")
-  field(OUT, "$(P)$(R)CarCentFreq-RB PP")
+  field(OUT, "$(P)$(R)CarFreq-RB PP MSS")
 }
 
 record(ai, "$(P)$(R)CarFreq-RB"){
@@ -699,6 +674,37 @@ record(ai, "$(P)$(R)CarFreqThold-RB"){
   field(EGU, "Hz")
   field(INP, "$(P)$(R)CarFreqThold-SP")
 }
+
+# C=0? link 1, 2, 3, 4 : C=1: A<B ? link 6, 7, 8 : links 5, 7, 8
+record(calcout, "$(P)$(R)EnblExctCalc"){
+  field(DESC, "Enable/Disable excitation sources")
+  field(INPA, "$(P)$(R)CarFreq-SP")
+  field(INPB, "$(P)$(R)CarFreqThold-RB")
+  field(INPC, "$(P)$(R)Enbl-Sel")
+  field(CALC, "C=0?15:(A<B?224:208)")
+  field(FLNK, "$(P)$(R)EnblCarNoiseSrcSeq")
+}
+
+record(seq, "$(P)$(R)EnblCarNoiseSrcSeq"){
+  field(DESC, "Select carrier output src")
+  field(SELM, "Mask")
+  field(SELL, "$(P)$(R)EnblExctCalc")
+  field(DO1, "0")
+  field(LNK1, "$(P)$(R)CarSrc2En-Sel")      # Disable src 2 &
+  field(DO2, "0")
+  field(LNK2, "$(P)$(R)CarSrc1En-Sel")      # Disable src 1 &
+  field(DO3, "0")
+  field(LNK3, "$(NOISE_GEN)ChanOut-Sel")      # Disable noise generator;
+  field(DO4, "0")
+  field(LNK4, "$(AMP)Enbl-Sel")               # Disable amplifier;
+  field(DO5, "1")
+  field(LNK5, "$(P)$(R)CarSrc2En-Sel")      # Enable src 2 &
+  field(DO6, "1")
+  field(LNK6, "$(P)$(R)CarSrc1En-Sel")      # Enable src 1 &
+  field(DO7, "1")
+  field(LNK7, "$(NOISE_GEN)ChanOut-Sel")      # Enable noise generator;
+  field(DO8, "1")
+  field(LNK8, "$(AMP)Enbl-Sel PP")               # Enable amplifier;
 }
 
 ############################################################
