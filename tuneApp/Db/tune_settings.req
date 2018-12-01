@@ -10,7 +10,7 @@ $(P)$(R)Span-SP
 $(P)$(R)CenterFreq-SP
 
 # Center Freq Threshold
-$(P)$(R)CarCentFreqThold-SP
+$(P)$(R)CarFreqThold-SP
 
 # Offset
 $(P)$(R)FreqOff-SP
