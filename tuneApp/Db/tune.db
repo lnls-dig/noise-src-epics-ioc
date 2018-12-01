@@ -394,7 +394,7 @@ record(bo, "$(P)$(R)SpecAnaGetSpec-Sel"){
   field(ZNAM, "OFF")
   field(ONAM, "ON")
   field(OUT,  "$(SPEC_ANA)GetSpectrum-Sel PP")
-  field(FLNK, "$(P)$(R)SpecAnaSpec-Sts")
+  field(FLNK, "$(P)$(R)SpecAnaGetSpec-Sts")
 }
 
 record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
