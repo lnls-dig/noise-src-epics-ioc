@@ -223,9 +223,28 @@ record(ao, "$(P)$(R)CenterFreq-SP") {
   field(OUT,  "$(SPEC_ANA)FreqCenter-SP")
 }
 
-# Center Frequency, if not in auto mode, sets RevN and Offset
+# Gets frequency either from spectrum analyzer
+# or Carrier Generator
+# FIXME. Sometimes, a MINOR alaram might occur,
+# but that's just because we compared an old value
+# of CarFreq-RB
+record(calcout, "$(P)$(R)CenterFreqRBCalc") {
+  field(DESC, "Get frequency readback")
+  field(INPA, "$(SPEC_ANA)FreqCenter-RB CPP MSS")
+  field(INPB, "$(P)$(R)CarFreq-RB CPP MSS")
+  field(INPC, "$(P)$(R)DriveAuto-Sts CPP NMS")
+  field(CALC, "C=0?1:(ABS(A-B)<=0.1?1:0)")
+  field(LOW,  "0")
+  field(LSV,  "MINOR")
+  field(OOPT, "Every Time")
+  field(OCAL, "A")
+  field(DOPT, "Use OCAL")
+  field(OUT,  "0")
+}
+
 record(ai, "$(P)$(R)CenterFreq-RB") {
   field(DESC, "Get center freq")
+  field(INP,  "$(P)$(R)CenterFreqRBCalc.OVAL CPP MSS")
   field(EGU,  "Hz")
   field(FLNK, "$(P)$(R)RevNCalc")
 }
