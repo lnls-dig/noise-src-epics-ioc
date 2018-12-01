@@ -42,8 +42,8 @@ record(calcout, "$(P)$(R)CarrierGenSrcCalc"){
   field(DESC, "Carrier gen src status calc")
   field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP")
   field(INPB, "$(CARRIER_GEN)Src2PwrOn-Sts CPP")
-  field(INPC, "$(P)$(R)CarCentFreq-RB CPP")
-  field(INPD, "$(P)$(R)CarCentFreqThold-RB CPP")
+  field(INPC, "$(P)$(R)CarFreq-RB CPP")
+  field(INPD, "$(P)$(R)CarFreqThold-RB CPP")
   field(INPE, "$(P)$(R)EnblNoiseGenAmp-Sts CPP")
   field(CALC, "E=0&&A=0&&B=0?0:(C<D&&(B>0||A=0)?3:(C>=D&&(B=0||A>0)?3:(A>0?1:2)))")
   field(OUT, "$(P)$(R)CarrierGenSrc-Mon PP")
@@ -291,12 +291,12 @@ record(sseq, "$(P)$(R)DriveAutoPropSseq"){
     field(STR8, "$(P)$(R)CenterFreq-RB CPP MS")
     field(LNK1, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
     field(LNK2, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
-    field(LNK3, "$(P)$(R)CarCentFreq-SP.OMSL NPP NMS")
-    field(LNK4, "$(P)$(R)CarCentFreq-SP.OMSL NPP NMS")
+    field(LNK3, "$(P)$(R)CarFreq-SP.OMSL NPP NMS")
+    field(LNK4, "$(P)$(R)CarFreq-SP.OMSL NPP NMS")
     field(LNK5, "$(P)$(R)NoiseGenSpan-SP.DOL CA NMS")
     field(LNK6, "$(P)$(R)NoiseGenSpan-SP.DOL CA NMS")
-    field(LNK7, "$(P)$(R)CarCentFreq-SP.DOL CA NMS")
-    field(LNK8, "$(P)$(R)CarCentFreq-SP.DOL CA NMS")
+    field(LNK7, "$(P)$(R)CarFreq-SP.DOL CA NMS")
+    field(LNK8, "$(P)$(R)CarFreq-SP.DOL CA NMS")
     field(SELL, "$(P)$(R)DriveAutoIdxCalc CPP MS")
     field(SELM, "Mask")
     field(SELN, "1")
@@ -319,7 +319,7 @@ record(fanout, "$(P)$(R)DriveAutoFout"){
     field(DESC, "Fanout drive auto FLNK")
     field(SELM, "All")
     field(LNK1, "$(P)$(R)NoiseGenSpan-SP")
-    field(LNK2, "$(P)$(R)CarCentFreq-SP")
+    field(LNK2, "$(P)$(R)CarFreq-SP")
 }
 
 ############################################################
@@ -440,26 +440,26 @@ record(ai, "$(P)$(R)NoiseGenSpan-RB"){
 # Simple conversion between Hz and MHz as the Carrier
 # Generator works in MHz but we work in Hz
 
-record(ao, "$(P)$(R)CarCentSrc1Freq-SP"){
+record(ao, "$(P)$(R)CarSrc1Freq-SP"){
   field(DESC, "Set Carrier Gen Freq. 1")
   field(PINI, "YES")
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
-  field(FLNK, "$(P)$(R)CarCentSrc1FreqConvOut PP")
+  field(FLNK, "$(P)$(R)CarSrc1FreqConvOut PP")
 }
 
-record(calcout, "$(P)$(R)CarCentSrc1FreqConvOut") {
+record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
   field(DESC, "Carrier Freq. 1 conversion")
   field(EGU, "MHz")
-  field(INPA, "$(P)$(R)CarCentSrc1Freq-SP")
+  field(INPA, "$(P)$(R)CarSrc1Freq-SP")
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src1Freq-SP PP")
-  field(FLNK, "$(P)$(R)CarCentSrc1FreqConvIn PP")
+  field(FLNK, "$(P)$(R)CarSrc1FreqConvIn PP")
 }
 
-record(calcout, "$(P)$(R)CarCentSrc1FreqConvIn"){
+record(calcout, "$(P)$(R)CarSrc1FreqConvIn"){
   field(DESC, "Get Carrier Gen Freq. 1")
   field(EGU, "MHz")
   field(INPA, "$(CARRIER_GEN)Src1Freq-RB")
@@ -468,32 +468,32 @@ record(calcout, "$(P)$(R)CarCentSrc1FreqConvIn"){
   field(OUT,  "$(P)$(R)CarCentSrc1Freq-RB PP")
 }
 
-record(ai, "$(P)$(R)CarCentSrc1Freq-RB"){
+record(ai, "$(P)$(R)CarSrc1Freq-RB"){
   field(DESC, "Get Carrier Gen Freq. 1")
-  field(INP,  "$(P)$(R)CarCentSrc1FreqConvIn")
+  field(INP,  "$(P)$(R)CarSrc1FreqConvIn")
   field(EGU, "Hz")
 }
 
-record(ao, "$(P)$(R)CarCentSrc2Freq-SP"){
+record(ao, "$(P)$(R)CarSrc2Freq-SP"){
   field(DESC, "Set Carrier Gen Freq. 2")
   field(PINI, "YES")
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
-  field(FLNK, "$(P)$(R)CarCentSrc2FreqConvOut PP")
+  field(FLNK, "$(P)$(R)CarSrc2FreqConvOut PP")
 }
 
-record(calcout, "$(P)$(R)CarCentSrc2FreqConvOut") {
+record(calcout, "$(P)$(R)CarSrc2FreqConvOut") {
   field(DESC, "Carrier Freq. 2 conversion")
   field(EGU, "MHz")
-  field(INPA, "$(P)$(R)CarCentSrc2Freq-SP")
+  field(INPA, "$(P)$(R)CarSrc2Freq-SP")
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src2Freq-SP PP")
-  field(FLNK, "$(P)$(R)CarCentSrc2FreqConvIn PP")
+  field(FLNK, "$(P)$(R)CarSrc2FreqConvIn PP")
 }
 
-record(calcout, "$(P)$(R)CarCentSrc2FreqConvIn"){
+record(calcout, "$(P)$(R)CarSrc2FreqConvIn"){
   field(DESC, "Get Carrier Gen Freq. 2")
   field(EGU, "MHz")
   field(INPA, "$(CARRIER_GEN)Src2Freq-RB")
@@ -502,40 +502,40 @@ record(calcout, "$(P)$(R)CarCentSrc2FreqConvIn"){
   field(OUT,  "$(P)$(R)CarCentSrc2Freq-RB PP")
 }
 
-record(ai, "$(P)$(R)CarCentSrc2Freq-RB"){
+record(ai, "$(P)$(R)CarSrc2Freq-RB"){
   field(DESC, "Get Carrier Gen Freq. 2")
-  field(INP,  "$(P)$(R)CarCentSrc2FreqConvIn")
+  field(INP,  "$(P)$(R)CarSrc2FreqConvIn")
   field(EGU, "Hz")
 }
 
 ############################################################
 
-record(ao, "$(P)$(R)CarCentFreq-SP"){
+record(ao, "$(P)$(R)CarFreq-SP"){
   field(DESC, "Noise center freq")
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
   field(DOL, "$(P)$(R)CenterFreq-RB CPP MS")
   field(OMSL,"closed_loop")
-  field(FLNK, "$(P)$(R)CarCentFreqCalc1")
+  field(FLNK, "$(P)$(R)CarFreqCalc1")
 }
 
-record(calcout, "$(P)$(R)CarCentFreqCalc1"){
+record(calcout, "$(P)$(R)CarFreqCalc1"){
   field(DESC, "Calc for selecting carrier output src")
-  field(INPA, "$(P)$(R)CarCentFreq-SP")
-  field(INPB, "$(P)$(R)CarCentFreqThold-RB")
+  field(INPA, "$(P)$(R)CarFreq-SP")
+  field(INPB, "$(P)$(R)CarFreqThold-RB")
   field(CALC, "A<B?51:60")             # A<B ? links 1,2,5,6 : links 3,4,5,6
-  field(FLNK, "$(P)$(R)CarCentFreqSeq1")
+  field(FLNK, "$(P)$(R)CarFreqSeq1")
 }
 
-record(seq, "$(P)$(R)CarCentFreqSeq1"){
+record(seq, "$(P)$(R)CarFreqSeq1"){
   field(DESC, "Select carrier output src")
   field(SELM, "Mask")
-  field(SELL, "$(P)$(R)CarCentFreqCalc1")
+  field(SELL, "$(P)$(R)CarFreqCalc1")
   field(DO1, "0")
   field(LNK1, "$(CARRIER_GEN)Src2PwrOn-Sel PP")  # Disable src 2 &
-  field(DOL2, "$(P)$(R)CarCentFreq-SP")
-  field(LNK2, "$(P)$(R)CarCentSrc1Freq-SP PP")    # Set src 1 freq;
+  field(DOL2, "$(P)$(R)CarFreq-SP")
+  field(LNK2, "$(P)$(R)CarSrc1Freq-SP PP")   # Set src 1 freq;
   field(DO3, "0")
   field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")  # Disable src 1 &
   field(DOL4, "$(P)$(R)CarCentFreq-SP")
@@ -586,7 +586,7 @@ record(calcout, "$(P)$(R)FreqSrcMonCalc"){
   field(OUT, "$(P)$(R)CarCentFreq-RB PP")
 }
 
-record(ai, "$(P)$(R)CarCentFreq-RB"){
+record(ai, "$(P)$(R)CarFreq-RB"){
   field(DESC, "Noise center freq RB")
   field(EGU, "Hz")
 }
@@ -594,20 +594,21 @@ record(ai, "$(P)$(R)CarCentFreq-RB"){
 # Center Frequency Threshold
 # (used for changing source used)
 
-record(ao, "$(P)$(R)CarCentFreqThold-SP"){
+record(ao, "$(P)$(R)CarFreqThold-SP"){
   field(DESC, "Freq threshold for changing source")
   field(PINI, "YES")
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
-  field(FLNK, "$(P)$(R)CarCentFreqThold-RB")
+  field(FLNK, "$(P)$(R)CarFreqThold-RB")
   field(VAL, "255000000")
 }
 
-record(ai, "$(P)$(R)CarCentFreqThold-RB"){
+record(ai, "$(P)$(R)CarFreqThold-RB"){
   field(DESC, "Freq threshold for changing source RB")
   field(EGU, "Hz")
-  field(INP, "$(P)$(R)CarCentFreqThold-SP")
+  field(INP, "$(P)$(R)CarFreqThold-SP")
+}
 }
 
 ############################################################
@@ -771,7 +772,7 @@ record(sseq, "$(P)$(R)InitSeq2"){
   field(DESC, "Init sequence 2")
   field(SELM, "All")
   field(DO1, "1")
-  field(LNK1, "$(P)$(R)CarCentFreq-SP.PROC PP") # Process center freq
+  field(LNK1, "$(P)$(R)CarFreq-SP.PROC PP") # Process center freq
   field(DO2, "1")
   field(LNK2, "$(P)$(R)Enbl-Sel.PROC PP")      # Process noise and carrier enable
 }
