@@ -40,8 +40,8 @@ record(stringout, "$(P)$(R)Amp-Cte"){
 
 record(calcout, "$(P)$(R)CarrierGenSrcCalc"){
   field(DESC, "Carrier gen src status calc")
-  field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP")
-  field(INPB, "$(CARRIER_GEN)Src2PwrOn-Sts CPP")
+  field(INPA, "$(P)$(R)CarSrc1En-Sts CPP")
+  field(INPB, "$(P)$(R)CarSrc2En-Sts CPP")
   field(INPC, "$(P)$(R)CarFreq-RB CPP")
   field(INPD, "$(P)$(R)CarFreqThold-RB CPP")
   field(INPE, "$(P)$(R)EnblNoiseGenAmp-Sts CPP")
@@ -73,8 +73,8 @@ record(bo, "$(P)$(R)Enbl-Sel"){
 
 record(calcout, "$(P)$(R)EnblMonCalc"){
   field(DESC, "Noise Generator Calc enable status")
-  field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP")
-  field(INPB, "$(CARRIER_GEN)Src2PwrOn-Sts CPP")
+  field(INPA, "$(P)$(R)CarSrc1En-Sts CPP")
+  field(INPB, "$(P)$(R)CarSrc2En-Srs CPP")
   field(INPC, "$(NOISE_GEN)ChanOut-Sts CPP")
   field(CALC, "(A||B)&&C?3:(C>0?1:(A||B?2:0))")
   field(OUT, "$(P)$(R)EnblNoiseGenAmp-Sts PP")
@@ -97,8 +97,8 @@ record(bi, "$(P)$(R)EnblNoiseGen-Sts"){
 
 record(calcout, "$(P)$(R)EnblCarrierGenMonCalc"){
   field(DESC, "Carrier calc enable status")
-  field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP")
-  field(INPB, "$(CARRIER_GEN)Src2PwrOn-Sts CPP")
+  field(INPA, "$(P)$(R)CarSrc1En-Sts CPP")
+  field(INPB, "$(P)$(R)CarSrc2En-Sts CPP")
   field(CALC, "(A||B)?1:0")
   field(OUT, "$(P)$(R)EnblCarrierGen-Sts PP")
 }
@@ -462,10 +462,10 @@ record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
 record(calcout, "$(P)$(R)CarSrc1FreqConvIn"){
   field(DESC, "Get Carrier Gen Freq. 1")
   field(EGU, "MHz")
-  field(INPA, "$(CARRIER_GEN)Src1Freq-RB")
+  field(INPA, "$(CARRIER_GEN)Src1Freq-RB CA MMS")
   field(CALC, "A*1000000")
   field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)CarCentSrc1Freq-RB PP")
+  field(OUT,  "$(P)$(R)CarSrc1Freq-RB PP MSS")
 }
 
 record(ai, "$(P)$(R)CarSrc1Freq-RB"){
@@ -496,16 +496,106 @@ record(calcout, "$(P)$(R)CarSrc2FreqConvOut") {
 record(calcout, "$(P)$(R)CarSrc2FreqConvIn"){
   field(DESC, "Get Carrier Gen Freq. 2")
   field(EGU, "MHz")
-  field(INPA, "$(CARRIER_GEN)Src2Freq-RB")
+  field(INPA, "$(CARRIER_GEN)Src2Freq-RB CA MSS")
   field(CALC, "A*1000000")
   field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)CarCentSrc2Freq-RB PP")
+  field(OUT,  "$(P)$(R)CarSrc2Freq-RB PP MSS")
 }
 
 record(ai, "$(P)$(R)CarSrc2Freq-RB"){
   field(DESC, "Get Carrier Gen Freq. 2")
   field(INP,  "$(P)$(R)CarSrc2FreqConvIn")
   field(EGU, "Hz")
+}
+
+###########
+# Enable/Disable Output and Buffers
+##########
+
+record(bo, "$(P)$(R)CarSrc1En-Sel"){
+  field(DESC, "Enable Carrier Gen Source 1")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)CarSrc1EnCalcOut PP")
+}
+
+record(calc, "$(P)$(R)CarSrc1EnCalcOut"){
+  field(DESC, "Enable Carrier Gen Source 1")
+  field(INPA, "$(P)$(R)CarSrc1En-Sel")
+  field(CALC, "A=0?3:12")                         # A=0? Link 1, 2 : Link 3, 4
+  field(FLNK, "$(P)$(R)CarSrc1EnSeq")
+}
+
+record(seq, "$(P)$(R)CarSrc1EnSeq") {
+  field(DESC, "Enable Carrier Gen Source 1")
+  field(SELM, "Mask")
+  field(SELL, "$(P)$(R)CarSrc1EnCalcOut")
+  field(DO1, "0")
+  field(LNK1, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
+  field(DO2, "0")
+  field(LNK2, "$(CARRIER_GEN)Src1EnblBuffAmp-Sel PP")
+  field(DO3, "1")
+  field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
+  field(DO4, "1")
+  field(LNK4, "$(CARRIER_GEN)Src1EnblBuffAmp-Sel PP")
+}
+
+record(calcout, "$(P)$(R)CarSrc1EnCalcIn"){
+  field(DESC, "Get Carrier Gen Source 1 status")
+  field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP MSS")
+  field(INPB, "$(CARRIER_GEN)Src1EnblBuffAmp-Sts CPP MSS")
+  field(CALC, "A=1&&B=1?1:0")
+  field(FLNK, "$(P)$(R)EnblCarNoiseSrcSeq")
+  field(OUT,  "$(P)$(R)CarSrc1En-Sts PP")
+}
+
+record(bi, "$(P)$(R)CarSrc1En-Sts"){
+  field(DESC, "Get Carrier Gen Source 1 Status")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+}
+
+record(bo, "$(P)$(R)CarSrc2En-Sel"){
+  field(DESC, "Enable Carrier Gen Source 2")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)CarSrc2EnCalcOut PP")
+}
+
+record(calc, "$(P)$(R)CarSrc2EnCalcOut"){
+  field(DESC, "Enable Carrier Gen Source 2")
+  field(INPA, "$(P)$(R)CarSrc2En-Sel")
+  field(CALC, "A=0?3:12")                         # A=0? Link 1, 2 : Link 3, 4
+  field(FLNK, "$(P)$(R)CarSrc2EnSeq")
+}
+
+record(seq, "$(P)$(R)CarSrc2EnSeq") {
+  field(DESC, "Enable Carrier Gen Source 2")
+  field(SELM, "Mask")
+  field(SELL, "$(P)$(R)CarSrc2EnCalcOut")
+  field(DO1, "0")
+  field(LNK1, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
+  field(DO2, "0")
+  field(LNK2, "$(CARRIER_GEN)Src2EnblBuffAmp-Sel PP")
+  field(DO3, "1")
+  field(LNK3, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
+  field(DO4, "1")
+  field(LNK4, "$(CARRIER_GEN)Src2EnblBuffAmp-Sel PP")
+}
+
+record(calcout, "$(P)$(R)CarSrc2EnCalcIn"){
+  field(DESC, "Get Carrier Gen Source 2 status")
+  field(INPA, "$(CARRIER_GEN)Src2PwrOn-Sts CPP MSS")
+  field(INPB, "$(CARRIER_GEN)Src2EnblBuffAmp-Sts CPP MSS")
+  field(CALC, "A=1&&B=1?1:0")
+  field(FLNK, "$(P)$(R)EnblCarNoiseSrcSeq")
+  field(OUT,  "$(P)$(R)CarSrc2En-Sts PP")
+}
+
+record(bi, "$(P)$(R)CarSrc2En-Sts"){
+  field(DESC, "Get Carrier Gen Source 2 Status")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
 }
 
 ############################################################
@@ -533,7 +623,7 @@ record(seq, "$(P)$(R)CarFreqSeq1"){
   field(SELM, "Mask")
   field(SELL, "$(P)$(R)CarFreqCalc1")
   field(DO1, "0")
-  field(LNK1, "$(CARRIER_GEN)Src2PwrOn-Sel PP")  # Disable src 2 &
+  field(LNK1, "$(P)$(R)CarSrc2En-Sel PP")   # Disable src 2 &
   field(DOL2, "$(P)$(R)CarFreq-SP")
   field(LNK2, "$(P)$(R)CarSrc1Freq-SP PP")   # Set src 1 freq;
   field(DO3, "0")
