@@ -218,7 +218,7 @@ record(ao, "$(P)$(R)CenterFreq-SP") {
   field(DESC, "Set center freq")
   field(PINI, "YES")
   field(EGU,  "Hz")
-  field(DOL,  "$(P)$(R)CFreqCalc.OVAL CPP MS")
+  field(DOL,  "$(P)$(R)CFreqCalc.OVAL CPP MSS")
   field(OMSL, "closed_loop")
   field(OUT,  "$(SPEC_ANA)FreqCenter-SP")
 }
