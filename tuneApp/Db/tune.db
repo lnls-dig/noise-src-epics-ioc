@@ -249,6 +249,7 @@ record(ai, "$(P)$(R)CenterFreq-RB") {
   field(FLNK, "$(P)$(R)RevNCalc")
 }
 
+# Center Frequency, if not in auto mode, sets RevN and Offset
 record(calcout, "$(P)$(R)RevNCalc") {
   field(DESC, "Rev. N from Center Freq.")
   field(INPA, "$(P)$(R)CenterFreq-SP")
@@ -651,10 +652,10 @@ record(seq, "$(P)$(R)CarFreqSeq1"){
   field(LNK4, "$(P)$(R)CarSrc2Freq-SP PP")   # Set src 2 freq;
   field(DO5, "1")
   field(LNK5, "$(P)$(R)CarSrc1En-Sel PP")   # Wait a while so values are settled in the carrier gen, then Enable src 1
-  field(DLY5, "1")
+  field(DLY5, "0.5")
   field(DO6, "1")
   field(LNK6, "$(P)$(R)CarSrc2En-Sel PP")   # Wait a while so values are settled in the carrier gen, then Enable src 2
-  field(DLY6, "1")
+  field(DLY6, "0.5")
 }
 
 record(calcout, "$(P)$(R)FreqSrcMonCalc"){
