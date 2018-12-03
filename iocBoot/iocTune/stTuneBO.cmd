@@ -1,6 +1,7 @@
 < envPaths
 epicsEnvSet("TOP", "../..")
 < tune.config
+< tuneBO.config
 
 ####################################################
 
@@ -14,6 +15,8 @@ dbLoadRecords("${TOP}/db/tune.db", "P=$(P), R=$(R), SPEC_ANA=$(SPEC_ANA), AMP=$(
 < save_restore.cmd
 
 iocInit
+
+< initTuneCommands
 
 ## Start any sequence programs
 # No sequencer program

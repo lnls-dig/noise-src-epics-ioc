@@ -14,9 +14,10 @@ usage () {
     echo "  -c                  Configure corresponding carrier freq generator PV prefix" >&2
     echo "  -s                  Configure corresponding spectrum analyzer PV prefix" >&2
     echo "  -a                  Configure corresponding amplifier PV prefix" >&2
+    echo "  -d                  Device Type [SI=Storage Ring|BO=Booster]" >&2
 }
 
-while getopts ":t:P:R:n:c:s:a:" opt; do
+while getopts ":t:P:R:n:c:s:a:d:" opt; do
   case $opt in
     t) DEVICE_TELNET_PORT="$OPTARG" ;;
     P) P="$OPTARG" ;;
@@ -25,6 +26,7 @@ while getopts ":t:P:R:n:c:s:a:" opt; do
     c) CARRIER_GEN="$OPTARG" ;;
     s) SPEC_ANA="$OPTARG" ;;
     a) AMP="$OPTARG" ;;
+    d) DEVICE_TYPE="$OPTARG" ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
       usage $0

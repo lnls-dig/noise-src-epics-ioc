@@ -1,0 +1,2 @@
+# Set machine type
+dbpf "${P}${R}Machine-Sel" "${MACHINE_TYPE}"
