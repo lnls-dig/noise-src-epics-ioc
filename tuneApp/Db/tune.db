@@ -304,7 +304,7 @@ record(sseq, "$(P)$(R)DriveAutoPropSseq"){
     field(STR3, "supervisory")
     field(STR4, "closed_loop")
     field(STR5, "0")
-    field(STR6, "$(P)$(R)Span-RB CPP MS")
+    field(STR6, "$(P)$(R)NoiseCalc CPP MSS")
     field(STR7, "0")
     field(STR8, "$(P)$(R)CenterFreq-SP CPP MS")
     field(LNK1, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
@@ -429,14 +429,19 @@ record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
 #
 # Desc: Parameters to control noise generator.
 
-# Span
+# Span meaning for Noise Generator is half of the measurement span
+record(calc, "$(P)$(R)NoiseCalc"){
+  field(DESC, "Noise Span calculation to instrument")
+  field(INPA, "$(P)$(R)Span-RB CPP MSS")
+  field(CALC, "A/2")
+}
 
 record(ao, "$(P)$(R)NoiseGenSpan-SP"){
   field(DESC, "Noise span")
   field(DRVH, "20000000")
   field(DRVL, "0.001")
   field(EGU, "Hz")
-  field(DOL, "$(P)$(R)Span-RB CPP MS")
+  field(DOL, "$(P)$(R)NoiseCalc CPP MSS")
   field(OMSL,"closed_loop")
   field(OUT, "$(NOISE_GEN)NoiseBw-SP PP")
 }
