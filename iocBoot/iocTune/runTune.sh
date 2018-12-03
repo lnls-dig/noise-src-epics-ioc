@@ -25,6 +25,15 @@ if [ -z "$AMP" ]; then
     exit 3
 fi
 
+if [ -z "$NOISE_GEN" ]; then
+    echo "\$NOISE_GEN is not set, Please use -n option" >&2
+    exit 4
+fi
+
+if [ -z "$CARRIER_GEN" ]; then
+    echo "\$CARRIER_GEN is not set, Please use -c option" >&2
+    exit 5
+fi
 if [ -z "$EPICS_CA_MAX_ARRAY_BYTES" ]; then
     export EPICS_CA_MAX_ARRAY_BYTES="50000000"
 fi
