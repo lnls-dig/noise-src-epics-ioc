@@ -643,7 +643,7 @@ $(pv_value)</tooltip>
       <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
         <actions hook="false" hook_all="false">
           <action type="OPEN_DISPLAY">
-            <path>../awg/agilent33521a.opi</path>
+            <path>../agilent33521a-epics-ioc/agilent33521a.opi</path>
             <macros>
               <include_parent_macros>false</include_parent_macros>
               <P>$(P_NOISE_GEN)</P>
@@ -700,7 +700,7 @@ $(pv_value)</tooltip>
       <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
         <actions hook="false" hook_all="false">
           <action type="OPEN_DISPLAY">
-            <path>../valon/valon5009.opi</path>
+            <path>../valon5009-epics-ioc/valon5009.opi</path>
             <macros>
               <include_parent_macros>false</include_parent_macros>
               <P>$(P_CARRIER_GEN)</P>
@@ -757,7 +757,7 @@ $(pv_value)</tooltip>
       <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
         <actions hook="false" hook_all="false">
           <action type="OPEN_DISPLAY">
-            <path>../fsx/FSx.opi</path>
+            <path>../rsfsx-epics-ioc/FSx.opi</path>
             <macros>
               <include_parent_macros>false</include_parent_macros>
               <P>$(P_SPEC_ANA)</P>
@@ -814,7 +814,7 @@ $(pv_value)</tooltip>
       <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
         <actions hook="false" hook_all="false">
           <action type="OPEN_DISPLAY">
-            <path>../aramp/ar_amp.opi</path>
+            <path>../ar-amp-epics-ioc/ar_amp.opi</path>
             <macros>
               <include_parent_macros>false</include_parent_macros>
               <P>$(P_AMP)</P>
