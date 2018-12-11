@@ -339,7 +339,7 @@ $(pv_value)</tooltip>
             <color red="192" green="192" blue="192" />
           </foreground_color>
           <group_name></group_name>
-          <height>924</height>
+          <height>948</height>
           <macros>
             <include_parent_macros>true</include_parent_macros>
           </macros>
@@ -357,8 +357,8 @@ $(pv_value)</tooltip>
           <visible>true</visible>
           <widget_type>Linking Container</widget_type>
           <width>346</width>
-          <wuid>67bdec06:1675a718dc8:-3c87</wuid>
-          <x>1</x>
+          <wuid>67bdec06:1675a718dc8:4dc8</wuid>
+          <x>0</x>
           <y>30</y>
         </widget>
       </widget>
