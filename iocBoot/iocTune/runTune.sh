@@ -15,15 +15,26 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
+if [ -z "$SPEC_ANA" ]; then
+    echo "\$SPEC_ANA is not set, Please use -s option" >&2
+    exit 2
+fi
+
+if [ -z "$AMP" ]; then
+    echo "\$AMP is not set, Please use -a option" >&2
+    exit 3
+fi
+
 if [ -z "$NOISE_GEN" ]; then
     echo "\$NOISE_GEN is not set, Please use -n option" >&2
-    exit 2
+    exit 4
 fi
 
 if [ -z "$CARRIER_GEN" ]; then
     echo "\$CARRIER_GEN is not set, Please use -c option" >&2
-    exit 3
+    exit 5
 fi
+
 
 if [ -z "$EPICS_CA_MAX_ARRAY_BYTES" ]; then
     export EPICS_CA_MAX_ARRAY_BYTES="50000000"
@@ -31,4 +42,23 @@ fi
 
 cd "$IOC_BOOT_DIR"
 
-P="$P" R="$R" NOISE_GEN="$NOISE_GEN" CARRIER_GEN="$CARRIER_GEN" "$IOC_BIN" stTune.cmd
+ST_CMD_FILE=
+# Select the appropriate ST_CMD file and
+# Generate .proto from .proto.in depending on $DEVICE_TYPE
+case ${DEVICE_TYPE} in
+    SI)
+        ST_CMD_FILE=stTuneSI.cmd
+        ;;
+
+    BO)
+        ST_CMD_FILE=stTuneBO.cmd
+        ;;
+    *)
+        echo "Invalid Device type: "${DEVICE_TYPE} >&2
+        exit 1
+        ;;
+esac
+
+echo "Using st.cmd file: "${ST_CMD_FILE}
+
+P="$P" R="$R" SPEC_ANA="$SPEC_ANA" AMP="$AMP" NOISE_GEN="$NOISE_GEN" CARRIER_GEN="$CARRIER_GEN" "$IOC_BIN" ${ST_CMD_FILE}
