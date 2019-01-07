@@ -695,6 +695,25 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P)$(R)SwePts-RB</pv>
           <pv trig="true">$(P)$(R)SpecArray-Mon.NELM</pv>
         </rule>
+          <rule name="Y Max Rule" prop_id="y_axis_maximum" out_exp="true">
+            <exp bool_exp="1">
+              <value>pv0</value>
+            </exp>
+            <pv trig="true">$(P)$(R)TimeDelta-Mon</pv>
+          </rule>
+          <rule name="Max Rule" prop_id="maximum" out_exp="true">
+            <exp bool_exp="1">
+              <value>pv0</value>
+            </exp>
+            <pv trig="true">$(P)$(R)RefLvl-RB</pv>
+          </rule>
+          <rule name="Min Rule" prop_id="minimum" out_exp="true">
+            <exp bool_exp="1">
+              <value>pv1-pv0</value>
+            </exp>
+            <pv trig="true">$(P)$(R)DispRange-RB</pv>
+            <pv trig="true">$(P)$(R)RefLvl-RB</pv>
+          </rule>
       </rules>
       <scale_options>
         <width_scalable>true</width_scalable>
@@ -1137,6 +1156,25 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P)$(R)SwePts-RB</pv>
           <pv trig="true">$(P)$(R)SpecArray-Mon.NELM</pv>
         </rule>
+          <rule name="Y Max Rule" prop_id="y_axis_maximum" out_exp="true">
+            <exp bool_exp="1">
+              <value>pv0</value>
+            </exp>
+            <pv trig="true">$(P)$(R)TimeDelta-Mon</pv>
+          </rule>
+          <rule name="Max Rule" prop_id="maximum" out_exp="true">
+            <exp bool_exp="1">
+              <value>pv0</value>
+            </exp>
+            <pv trig="true">$(P)$(R)RefLvl-RB</pv>
+          </rule>
+          <rule name="Min Rule" prop_id="minimum" out_exp="true">
+            <exp bool_exp="1">
+              <value>pv1-pv0</value>
+            </exp>
+            <pv trig="true">$(P)$(R)DispRange-RB</pv>
+            <pv trig="true">$(P)$(R)RefLvl-RB</pv>
+          </rule>
       </rules>
       <scale_options>
         <width_scalable>true</width_scalable>
