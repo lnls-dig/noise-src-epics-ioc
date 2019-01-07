@@ -849,6 +849,45 @@ record(calcout, "$(P)$(R)CFreqCalc") {
   field(OCAL, "A+B")
 }
 
+# Calculate Fractional Tune parameters
+record(acalcout, "$(P)$(R)TuneFracArray-Mon") {
+  field(DESC, "Factional Tune Array")
+  field(PREC, "3")
+  field(NELM, "32001")
+  field(EGU, "Hz")
+  field(INAA, "$(SPEC_ANA)FreqArray-Mon.AVAL CPP")
+  field(INPA, "$(P)$(R)RFFreq-Mon")
+  field(INPB, "$(P)$(R)H-RB")
+  field(INPC, "$(P)$(R)RevN-RB")
+  field(CALC, "AA*B/A-C")
+}
+
+record(calc, "$(P)$(R)TuneFracStart-Mon") {
+  field(DESC, "Factional Tune start number")
+  field(PREC, "3")
+  field(INPA, "$(SPEC_ANA)FreqStart-RB")
+  field(INPB, "$(P)$(R)RFFreq-Mon")
+  field(INPC, "$(P)$(R)H-RB")
+  field(INPD, "$(P)$(R)RevN-RB")
+  field(CALC, "A*C/B-D")
+}
+
+record(calc, "$(P)$(R)TuneFracStop-Mon") {
+  field(DESC, "Factional Tune stop number")
+  field(PREC, "3")
+  field(INPA, "$(SPEC_ANA)FreqStop-RB")
+  field(INPB, "$(P)$(R)RFFreq-Mon")
+  field(INPC, "$(P)$(R)H-RB")
+  field(INPD, "$(P)$(R)RevN-RB")
+  field(CALC, "A*C/B-D")
+}
+
+record(bo, "$(P)$(R)TuneXaxis-Sel") {
+  field(DESC, "Toggle Frac Tune or Frequency")
+  field(ONAM, "Frac Tune")
+  field(ZNAM, "Frequency")
+}
+
 ############################################################
 # AUTOSAVE
 #

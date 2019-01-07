@@ -662,7 +662,7 @@ $(pv_value)</tooltip>
       <name>Intensity Graph</name>
       <pixel_info_pv_name></pixel_info_pv_name>
       <pixel_info_pv_value />
-      <pv_name>$(P)$(R)SpecArray-Mon.AVAL</pv_name>
+      <pv_name>$(P)$(R)SpecArray-Mon</pv_name>
       <pv_value />
       <rgb_mode>false</rgb_mode>
       <roi_color>
@@ -670,18 +670,28 @@ $(pv_value)</tooltip>
       </roi_color>
       <roi_count>0</roi_count>
       <rules>
-        <rule name="X Min Rule" prop_id="x_axis_minimum" out_exp="true">
-          <exp bool_exp="1">
-            <value>pv0</value>
-          </exp>
-          <pv trig="true">$(P)$(R)FreqStart-RB</pv>
-        </rule>
-        <rule name="X Max Rule" prop_id="x_axis_maximum" out_exp="true">
-          <exp bool_exp="pv0&gt;0">
-            <value>pv0</value>
-          </exp>
-          <pv trig="true">$(P)$(R)FreqStop-RB</pv>
-        </rule>
+          <rule name="X Min Rule" prop_id="x_axis_minimum" out_exp="true">
+            <exp bool_exp="pv2==0">
+              <value>pv0</value>
+            </exp>
+            <exp bool_exp="pv2==1">
+              <value>pv1</value>
+            </exp>
+            <pv trig="true">$(P)$(R)FreqStart-RB</pv>
+            <pv trig="true">$(TUNE_BO_H_AREA)$(TUNE_BO_H_DEV)TuneFracStart-Mon</pv>
+            <pv trig="true">$(TUNE_BO_H_AREA)$(TUNE_BO_H_DEV)TuneXaxis-Sel</pv>
+          </rule>
+          <rule name="X Max Rule" prop_id="x_axis_maximum" out_exp="true">
+            <exp bool_exp="pv2==0">
+              <value>pv0</value>
+            </exp>
+            <exp bool_exp="pv2==1">
+              <value>pv1</value>
+            </exp>
+            <pv trig="true">$(P)$(R)FreqStop-RB</pv>
+            <pv trig="true">$(TUNE_BO_H_AREA)$(TUNE_BO_H_DEV)TuneFracStop-Mon</pv>
+            <pv trig="true">$(TUNE_BO_H_AREA)$(TUNE_BO_H_DEV)TuneXaxis-Sel</pv>
+          </rule>
         <rule name="Data_Width Rule" prop_id="data_width" out_exp="true">
           <exp bool_exp="1">
             <value>pv0</value>
@@ -695,25 +705,34 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P)$(R)SwePts-RB</pv>
           <pv trig="true">$(P)$(R)SpecArray-Mon.NELM</pv>
         </rule>
-          <rule name="Y Max Rule" prop_id="y_axis_maximum" out_exp="true">
-            <exp bool_exp="1">
-              <value>pv0</value>
-            </exp>
-            <pv trig="true">$(P)$(R)TimeDelta-Mon</pv>
-          </rule>
-          <rule name="Max Rule" prop_id="maximum" out_exp="true">
-            <exp bool_exp="1">
-              <value>pv0</value>
-            </exp>
-            <pv trig="true">$(P)$(R)RefLvl-RB</pv>
-          </rule>
-          <rule name="Min Rule" prop_id="minimum" out_exp="true">
-            <exp bool_exp="1">
-              <value>pv1-pv0</value>
-            </exp>
-            <pv trig="true">$(P)$(R)DispRange-RB</pv>
-            <pv trig="true">$(P)$(R)RefLvl-RB</pv>
-          </rule>
+        <rule name="Y Max Rule" prop_id="y_axis_maximum" out_exp="true">
+          <exp bool_exp="1">
+            <value>pv0</value>
+          </exp>
+          <pv trig="true">$(P)$(R)TimeDelta-Mon</pv>
+        </rule>
+        <rule name="Max Rule" prop_id="maximum" out_exp="true">
+          <exp bool_exp="1">
+            <value>pv0</value>
+          </exp>
+          <pv trig="true">$(P)$(R)RefLvl-RB</pv>
+        </rule>
+        <rule name="Min Rule" prop_id="minimum" out_exp="true">
+          <exp bool_exp="1">
+            <value>pv1-pv0</value>
+          </exp>
+          <pv trig="true">$(P)$(R)DispRange-RB</pv>
+          <pv trig="true">$(P)$(R)RefLvl-RB</pv>
+        </rule>
+        <rule name="X Label Rule" prop_id="x_axis_axis_title" out_exp="true">
+          <exp bool_exp="pv0==0">
+            <value>"Frequency [Hz]"</value>
+          </exp>
+          <exp bool_exp="pv0==1">
+            <value>"Fractional Tune"</value>
+          </exp>
+          <pv trig="true">$(TUNE_BO_H_AREA)$(TUNE_BO_H_DEV)TuneXaxis-Sel</pv>
+        </rule>
       </rules>
       <scale_options>
         <width_scalable>true</width_scalable>
@@ -752,7 +771,7 @@ $(pv_value)</tooltip>
       <y_axis_axis_color>
         <color red="0" green="0" blue="0" />
       </y_axis_axis_color>
-      <y_axis_axis_title>Time</y_axis_axis_title>
+      <y_axis_axis_title>Time [ms]</y_axis_axis_title>
       <y_axis_major_tick_step_hint>50</y_axis_major_tick_step_hint>
       <y_axis_maximum>1000.0</y_axis_maximum>
       <y_axis_minimum>0.0</y_axis_minimum>
@@ -780,7 +799,7 @@ $(pv_value)</tooltip>
       <border_width>1</border_width>
       <enabled>true</enabled>
       <font>
-        <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
       </font>
       <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
       <foreground_color>
@@ -824,7 +843,7 @@ $(pv_value)</tooltip>
       <confirm_message></confirm_message>
       <enabled>true</enabled>
       <font>
-        <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
       </font>
       <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
       <foreground_color>
@@ -877,7 +896,7 @@ $(pv_value)</tooltip>
       <border_width>1</border_width>
       <enabled>true</enabled>
       <font>
-        <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
       </font>
       <foreground_color>
         <color red="0" green="0" blue="0" />
@@ -920,7 +939,7 @@ $(pv_value)</tooltip>
       <border_width>1</border_width>
       <enabled>true</enabled>
       <font>
-        <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
       </font>
       <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
       <foreground_color>
@@ -969,7 +988,7 @@ $(pv_value)</tooltip>
       <border_width>1</border_width>
       <enabled>true</enabled>
       <font>
-        <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
       </font>
       <foreground_color>
         <color red="0" green="0" blue="0" />
@@ -995,6 +1014,48 @@ $(pv_value)</tooltip>
       <wuid>60061164:168145a4e41:-6d6d</wuid>
       <x>502</x>
       <y>7</y>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.combo" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <alarm_pulsing>false</alarm_pulsing>
+      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+      <background_color>
+        <color red="255" green="255" blue="255" />
+      </background_color>
+      <border_alarm_sensitive>true</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <font>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+      </font>
+      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+      <foreground_color>
+        <color red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>31</height>
+      <items_from_pv>true</items_from_pv>
+      <name>Combo</name>
+      <pv_name>$(TUNE_BO_H_AREA)$(TUNE_BO_H_DEV)TuneXaxis-Sel</pv_name>
+      <pv_value />
+      <rules />
+      <scale_options>
+        <width_scalable>true</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>false</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+      <visible>true</visible>
+      <widget_type>Combo</widget_type>
+      <width>120</width>
+      <wuid>60061164:168145a4e41:-62ce</wuid>
+      <x>690</x>
+      <y>0</y>
     </widget>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
@@ -1123,7 +1184,7 @@ $(pv_value)</tooltip>
       <name>Intensity Graph</name>
       <pixel_info_pv_name></pixel_info_pv_name>
       <pixel_info_pv_value />
-      <pv_name>$(P)$(R)SpecArray-Mon.AVAL</pv_name>
+      <pv_name>$(P)$(R)SpecArray-Mon</pv_name>
       <pv_value />
       <rgb_mode>false</rgb_mode>
       <roi_color>
@@ -1131,18 +1192,28 @@ $(pv_value)</tooltip>
       </roi_color>
       <roi_count>0</roi_count>
       <rules>
-        <rule name="X Min Rule" prop_id="x_axis_minimum" out_exp="true">
-          <exp bool_exp="1">
-            <value>pv0</value>
-          </exp>
-          <pv trig="true">$(P)$(R)FreqStart-RB</pv>
-        </rule>
-        <rule name="X Max Rule" prop_id="x_axis_maximum" out_exp="true">
-          <exp bool_exp="pv0&gt;0">
-            <value>pv0</value>
-          </exp>
-          <pv trig="true">$(P)$(R)FreqStop-RB</pv>
-        </rule>
+          <rule name="X Min Rule" prop_id="x_axis_minimum" out_exp="true">
+            <exp bool_exp="pv2==0">
+              <value>pv0</value>
+            </exp>
+            <exp bool_exp="pv2==1">
+              <value>pv1</value>
+            </exp>
+            <pv trig="true">$(P)$(R)FreqStart-RB</pv>
+            <pv trig="true">$(TUNE_BO_V_AREA)$(TUNE_BO_V_DEV)TuneFracStart-Mon</pv>
+            <pv trig="true">$(TUNE_BO_V_AREA)$(TUNE_BO_V_DEV)TuneXaxis-Sel</pv>
+          </rule>
+          <rule name="X Max Rule" prop_id="x_axis_maximum" out_exp="true">
+            <exp bool_exp="pv2==0">
+              <value>pv0</value>
+            </exp>
+            <exp bool_exp="pv2==1">
+              <value>pv1</value>
+            </exp>
+            <pv trig="true">$(P)$(R)FreqStop-RB</pv>
+            <pv trig="true">$(TUNE_BO_V_AREA)$(TUNE_BO_V_DEV)TuneFracStop-Mon</pv>
+            <pv trig="true">$(TUNE_BO_V_AREA)$(TUNE_BO_V_DEV)TuneXaxis-Sel</pv>
+          </rule>
         <rule name="Data_Width Rule" prop_id="data_width" out_exp="true">
           <exp bool_exp="1">
             <value>pv0</value>
@@ -1156,25 +1227,34 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P)$(R)SwePts-RB</pv>
           <pv trig="true">$(P)$(R)SpecArray-Mon.NELM</pv>
         </rule>
-          <rule name="Y Max Rule" prop_id="y_axis_maximum" out_exp="true">
-            <exp bool_exp="1">
-              <value>pv0</value>
-            </exp>
-            <pv trig="true">$(P)$(R)TimeDelta-Mon</pv>
-          </rule>
-          <rule name="Max Rule" prop_id="maximum" out_exp="true">
-            <exp bool_exp="1">
-              <value>pv0</value>
-            </exp>
-            <pv trig="true">$(P)$(R)RefLvl-RB</pv>
-          </rule>
-          <rule name="Min Rule" prop_id="minimum" out_exp="true">
-            <exp bool_exp="1">
-              <value>pv1-pv0</value>
-            </exp>
-            <pv trig="true">$(P)$(R)DispRange-RB</pv>
-            <pv trig="true">$(P)$(R)RefLvl-RB</pv>
-          </rule>
+        <rule name="Y Max Rule" prop_id="y_axis_maximum" out_exp="true">
+          <exp bool_exp="1">
+            <value>pv0</value>
+          </exp>
+          <pv trig="true">$(P)$(R)TimeDelta-Mon</pv>
+        </rule>
+        <rule name="Max Rule" prop_id="maximum" out_exp="true">
+          <exp bool_exp="1">
+            <value>pv0</value>
+          </exp>
+          <pv trig="true">$(P)$(R)RefLvl-RB</pv>
+        </rule>
+        <rule name="Min Rule" prop_id="minimum" out_exp="true">
+          <exp bool_exp="1">
+            <value>pv1-pv0</value>
+          </exp>
+          <pv trig="true">$(P)$(R)DispRange-RB</pv>
+          <pv trig="true">$(P)$(R)RefLvl-RB</pv>
+        </rule>
+        <rule name="X Label Rule" prop_id="x_axis_axis_title" out_exp="true">
+          <exp bool_exp="pv0==0">
+            <value>"Frequency [Hz]"</value>
+          </exp>
+          <exp bool_exp="pv0==1">
+            <value>"Fractional Tune"</value>
+          </exp>
+          <pv trig="true">$(TUNE_BO_V_AREA)$(TUNE_BO_V_DEV)TuneXaxis-Sel</pv>
+        </rule>
       </rules>
       <scale_options>
         <width_scalable>true</width_scalable>
@@ -1213,7 +1293,7 @@ $(pv_value)</tooltip>
       <y_axis_axis_color>
         <color red="0" green="0" blue="0" />
       </y_axis_axis_color>
-      <y_axis_axis_title>Time</y_axis_axis_title>
+      <y_axis_axis_title>Time [ms]</y_axis_axis_title>
       <y_axis_major_tick_step_hint>50</y_axis_major_tick_step_hint>
       <y_axis_maximum>1000.0</y_axis_maximum>
       <y_axis_minimum>0.0</y_axis_minimum>
@@ -1241,7 +1321,7 @@ $(pv_value)</tooltip>
       <border_width>1</border_width>
       <enabled>true</enabled>
       <font>
-        <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
       </font>
       <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
       <foreground_color>
@@ -1285,7 +1365,7 @@ $(pv_value)</tooltip>
       <confirm_message></confirm_message>
       <enabled>true</enabled>
       <font>
-        <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
       </font>
       <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
       <foreground_color>
@@ -1338,7 +1418,7 @@ $(pv_value)</tooltip>
       <border_width>1</border_width>
       <enabled>true</enabled>
       <font>
-        <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
       </font>
       <foreground_color>
         <color red="0" green="0" blue="0" />
@@ -1381,7 +1461,7 @@ $(pv_value)</tooltip>
       <border_width>1</border_width>
       <enabled>true</enabled>
       <font>
-        <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
       </font>
       <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
       <foreground_color>
@@ -1430,7 +1510,7 @@ $(pv_value)</tooltip>
       <border_width>1</border_width>
       <enabled>true</enabled>
       <font>
-        <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
       </font>
       <foreground_color>
         <color red="0" green="0" blue="0" />
@@ -1456,6 +1536,48 @@ $(pv_value)</tooltip>
       <wuid>60061164:168145a4e41:-6c3e</wuid>
       <x>502</x>
       <y>7</y>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.combo" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <alarm_pulsing>false</alarm_pulsing>
+      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+      <background_color>
+        <color red="255" green="255" blue="255" />
+      </background_color>
+      <border_alarm_sensitive>true</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <font>
+        <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+      </font>
+      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+      <foreground_color>
+        <color red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>31</height>
+      <items_from_pv>true</items_from_pv>
+      <name>Combo</name>
+      <pv_name>$(TUNE_BO_V_AREA)$(TUNE_BO_V_DEV)TuneXaxis-Sel</pv_name>
+      <pv_value />
+      <rules />
+      <scale_options>
+        <width_scalable>true</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>false</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+      <visible>true</visible>
+      <widget_type>Combo</widget_type>
+      <width>120</width>
+      <wuid>60061164:168145a4e41:-62c4</wuid>
+      <x>690</x>
+      <y>0</y>
     </widget>
   </widget>
 </display>
