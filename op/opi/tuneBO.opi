@@ -677,7 +677,7 @@ $(pv_value)</tooltip>
             <exp bool_exp="pv2==1">
               <value>pv1</value>
             </exp>
-            <pv trig="true">$(P)$(R)FreqStart-RB</pv>
+            <pv trig="true">$(P)$(R)FreqStartDisp-Mon</pv>
             <pv trig="true">$(TUNE_BO_H_AREA)$(TUNE_BO_H_DEV)TuneFracStart-Mon</pv>
             <pv trig="true">$(TUNE_BO_H_AREA)$(TUNE_BO_H_DEV)TuneXaxis-Sel</pv>
           </rule>
@@ -688,7 +688,7 @@ $(pv_value)</tooltip>
             <exp bool_exp="pv2==1">
               <value>pv1</value>
             </exp>
-            <pv trig="true">$(P)$(R)FreqStop-RB</pv>
+            <pv trig="true">$(P)$(R)FreqStopDisp-Mon</pv>
             <pv trig="true">$(TUNE_BO_H_AREA)$(TUNE_BO_H_DEV)TuneFracStop-Mon</pv>
             <pv trig="true">$(TUNE_BO_H_AREA)$(TUNE_BO_H_DEV)TuneXaxis-Sel</pv>
           </rule>
@@ -726,7 +726,7 @@ $(pv_value)</tooltip>
         </rule>
         <rule name="X Label Rule" prop_id="x_axis_axis_title" out_exp="true">
           <exp bool_exp="pv0==0">
-            <value>"Frequency [Hz]"</value>
+            <value>"Frequency [MHz]"</value>
           </exp>
           <exp bool_exp="pv0==1">
             <value>"Fractional Tune"</value>
@@ -756,7 +756,7 @@ $(pv_value)</tooltip>
         <color red="0" green="0" blue="0" />
       </x_axis_axis_color>
       <x_axis_axis_title>Frequency</x_axis_axis_title>
-      <x_axis_major_tick_step_hint>50</x_axis_major_tick_step_hint>
+      <x_axis_major_tick_step_hint>100</x_axis_major_tick_step_hint>
       <x_axis_maximum>100.0</x_axis_maximum>
       <x_axis_minimum>50.0</x_axis_minimum>
       <x_axis_scale_font>
@@ -1199,7 +1199,7 @@ $(pv_value)</tooltip>
             <exp bool_exp="pv2==1">
               <value>pv1</value>
             </exp>
-            <pv trig="true">$(P)$(R)FreqStart-RB</pv>
+            <pv trig="true">$(P)$(R)FreqStartDisp-Mon</pv>
             <pv trig="true">$(TUNE_BO_V_AREA)$(TUNE_BO_V_DEV)TuneFracStart-Mon</pv>
             <pv trig="true">$(TUNE_BO_V_AREA)$(TUNE_BO_V_DEV)TuneXaxis-Sel</pv>
           </rule>
@@ -1210,7 +1210,7 @@ $(pv_value)</tooltip>
             <exp bool_exp="pv2==1">
               <value>pv1</value>
             </exp>
-            <pv trig="true">$(P)$(R)FreqStop-RB</pv>
+            <pv trig="true">$(P)$(R)FreqStopDisp-Mon</pv>
             <pv trig="true">$(TUNE_BO_V_AREA)$(TUNE_BO_V_DEV)TuneFracStop-Mon</pv>
             <pv trig="true">$(TUNE_BO_V_AREA)$(TUNE_BO_V_DEV)TuneXaxis-Sel</pv>
           </rule>
@@ -1248,7 +1248,7 @@ $(pv_value)</tooltip>
         </rule>
         <rule name="X Label Rule" prop_id="x_axis_axis_title" out_exp="true">
           <exp bool_exp="pv0==0">
-            <value>"Frequency [Hz]"</value>
+            <value>"Frequency [MHz]"</value>
           </exp>
           <exp bool_exp="pv0==1">
             <value>"Fractional Tune"</value>
@@ -1278,7 +1278,7 @@ $(pv_value)</tooltip>
         <color red="0" green="0" blue="0" />
       </x_axis_axis_color>
       <x_axis_axis_title>Frequency</x_axis_axis_title>
-      <x_axis_major_tick_step_hint>50</x_axis_major_tick_step_hint>
+      <x_axis_major_tick_step_hint>100</x_axis_major_tick_step_hint>
       <x_axis_maximum>100.0</x_axis_maximum>
       <x_axis_minimum>50.0</x_axis_minimum>
       <x_axis_scale_font>
