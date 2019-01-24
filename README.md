@@ -25,7 +25,7 @@ In order to run the IOC, from the top level directory, run:
 
 ```sh
 $ cd iocBoot/iocTune &&
-$ ./runTune.sh -d "MACHINE_TYPE" -n "NOISE_GEN" -c "CARRIER_GEN" -s "TUNE_PROC" -a "AMPLIFIER" -P "PREFIX_AREA" -R "PREFIX_DEV"
+$ ./runTune.sh -d "DEVICE_TYPE" -n "NOISE_GEN" -c "CARRIER_GEN" -s "TUNE_PROC" -a "AMPLIFIER" -P "PREFIX_AREA" -R "PREFIX_DEV"
 ```
 
 where `NOISE_GEN`, `CARRIEN_GEN`, `TUNE_PROC` and `AMPLIFIER`
