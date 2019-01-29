@@ -74,7 +74,7 @@ record(sseq, "$(P)$(R)InitSeqSpecAna"){
   field(DESC, "Init sequence Spec. Analyzer")
   field(SELM, "All")
   field(STR1, "OFF")
-  field(LNK1, "$(SPEC_ANA)EnblOutp-Sel PP")            # Set Tracking Generator to OFF
+  field(LNK1, "$(SPEC_ANA)EnblTrkGen-Sel PP")            # Set Tracking Generator to OFF
   field(DLY1,  "0.5")
   field(STR2, "FFT")
   field(LNK2, "$(SPEC_ANA)FiltType-Sel PP")            # Set mode to FFT
