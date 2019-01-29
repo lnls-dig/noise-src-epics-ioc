@@ -60,8 +60,11 @@ record(sseq, "$(P)$(R)InitSeqCarGen"){
 record(sseq, "$(P)$(R)InitSeqAmp"){
   field(DESC, "Init sequence Amplifier")
   field(SELM, "All")
-#  field(DO1,  "32")
-#  field(LNK1, "$(P)$(R)Gain-SP PP")             # Set minimal Gain
+  field(DO1,  "1")
+  field(LNK1, "$(AMP)GainAuto-Sel")             # Lock dBs with steps
+  field(DLY1,  "0.5")
+  field(DO2,  "32")
+  field(LNK2, "$(P)$(R)Gain-SP PP")             # Set minimal Gain
   field(FLNK, "$(P)$(R)InitSeqSpecAna")
 }
 
