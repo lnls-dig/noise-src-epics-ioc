@@ -851,7 +851,7 @@ record(calcout, "$(P)$(R)CFreqCalc") {
 
 # Calculate Fractional Tune parameters
 record(acalcout, "$(P)$(R)TuneFracArray-Mon") {
-  field(DESC, "Factional Tune Array")
+  field(DESC, "Fractional Tune Array")
   field(PREC, "3")
   field(NELM, "32001")
   field(EGU, "Hz")
@@ -863,7 +863,7 @@ record(acalcout, "$(P)$(R)TuneFracArray-Mon") {
 }
 
 record(calc, "$(P)$(R)TuneFracStart-Mon") {
-  field(DESC, "Factional Tune start number")
+  field(DESC, "Fractional Tune start number")
   field(PREC, "3")
   field(INPA, "$(SPEC_ANA)FreqStart-RB")
   field(INPB, "$(P)$(R)RFFreq-Mon")
@@ -873,7 +873,7 @@ record(calc, "$(P)$(R)TuneFracStart-Mon") {
 }
 
 record(calc, "$(P)$(R)TuneFracStop-Mon") {
-  field(DESC, "Factional Tune stop number")
+  field(DESC, "Fractional Tune stop number")
   field(PREC, "3")
   field(INPA, "$(SPEC_ANA)FreqStop-RB")
   field(INPB, "$(P)$(R)RFFreq-Mon")
