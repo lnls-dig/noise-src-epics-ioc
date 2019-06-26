@@ -87,6 +87,12 @@ record(sseq, "$(P)$(R)InitSeqSpecAna"){
   field(DLY5,  "0.5")
   field(STR6, "ON")
   field(LNK6, "$(P)$(R)SpecAnaGetSpec-Sel PP")         # Turn acquisition on
+  field(STR7, "EXT")
+  field(LNK7, "$(SPEC_ANA)TrigSrc-Sel PP")             # External Trigger
+  field(STR8, "CONTINUOUS")
+  field(LNK8, "$(SPEC_ANA)EnblContSwe-Sel PP")         # Continuous sweep
+  field(STR9, "ON")
+  field(LNK9, "$(SPEC_ANA)EnblVbwAuto-Sel PP")         # Auto Video Bandwidth
   field(FLNK, "$(P)$(R)InitSeqEnbl")
 }
 
