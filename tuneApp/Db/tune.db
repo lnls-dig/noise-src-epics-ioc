@@ -568,7 +568,6 @@ record(calcout, "$(P)$(R)CarSrc1EnCalcIn"){
   field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP MSS")
   field(INPB, "$(CARRIER_GEN)Src1EnblBuffAmp-Sts CPP MSS")
   field(CALC, "A=1&&B=1?1:0")
-  field(FLNK, "$(P)$(R)EnblCarNoiseSrcSeq")
   field(OUT,  "$(P)$(R)CarSrc1En-Sts PP")
 }
 
@@ -611,7 +610,6 @@ record(calcout, "$(P)$(R)CarSrc2EnCalcIn"){
   field(INPA, "$(CARRIER_GEN)Src2PwrOn-Sts CPP MSS")
   field(INPB, "$(CARRIER_GEN)Src2EnblBuffAmp-Sts CPP MSS")
   field(CALC, "A=1&&B=1?1:0")
-  field(FLNK, "$(P)$(R)EnblCarNoiseSrcSeq")
   field(OUT,  "$(P)$(R)CarSrc2En-Sts PP")
 }
 
