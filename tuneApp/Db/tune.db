@@ -469,7 +469,7 @@ record(ao, "$(P)$(R)CarSrc1Freq-SP"){
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
-  field(FLNK, "$(P)$(R)CarSrc1FreqConvOut PP")
+  field(FLNK, "$(P)$(R)CarSrc1FreqConvOut")
 }
 
 record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
@@ -479,7 +479,7 @@ record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src1Freq-SP PP")
-  field(FLNK, "$(P)$(R)CarSrc1FreqConvIn PP")
+  field(FLNK, "$(P)$(R)CarSrc1FreqConvIn")
 }
 
 record(calcout, "$(P)$(R)CarSrc1FreqConvIn"){
@@ -503,7 +503,7 @@ record(ao, "$(P)$(R)CarSrc2Freq-SP"){
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
-  field(FLNK, "$(P)$(R)CarSrc2FreqConvOut PP")
+  field(FLNK, "$(P)$(R)CarSrc2FreqConvOut")
 }
 
 record(calcout, "$(P)$(R)CarSrc2FreqConvOut") {
@@ -513,7 +513,7 @@ record(calcout, "$(P)$(R)CarSrc2FreqConvOut") {
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src2Freq-SP PP")
-  field(FLNK, "$(P)$(R)CarSrc2FreqConvIn PP")
+  field(FLNK, "$(P)$(R)CarSrc2FreqConvIn")
 }
 
 record(calcout, "$(P)$(R)CarSrc2FreqConvIn"){
@@ -539,7 +539,7 @@ record(bo, "$(P)$(R)CarSrc1En-Sel"){
   field(DESC, "Enable Carrier Gen Source 1")
   field(ZNAM, "Off")
   field(ONAM, "On")
-  field(FLNK, "$(P)$(R)CarSrc1EnCalcOut PP")
+  field(FLNK, "$(P)$(R)CarSrc1EnCalcOut")
 }
 
 record(calc, "$(P)$(R)CarSrc1EnCalcOut"){
@@ -582,7 +582,7 @@ record(bo, "$(P)$(R)CarSrc2En-Sel"){
   field(DESC, "Enable Carrier Gen Source 2")
   field(ZNAM, "Off")
   field(ONAM, "On")
-  field(FLNK, "$(P)$(R)CarSrc2EnCalcOut PP")
+  field(FLNK, "$(P)$(R)CarSrc2EnCalcOut")
 }
 
 record(calc, "$(P)$(R)CarSrc2EnCalcOut"){
