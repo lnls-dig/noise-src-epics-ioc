@@ -86,7 +86,7 @@ record(sseq, "$(P)$(R)InitSeqSpecAna"){
   field(LNK5, "$(SPEC_ANA)Rbw-Sel PP")                 # Resolution bandwidth
   field(DLY5,  "0.5")
   field(STR6, "ON")
-  field(LNK6, "$(SPEC_ANA)GetSpectrum-Sel PP")         # Turn acquisition on
+  field(LNK6, "$(P)$(R)SpecAnaGetSpec-Sel PP")         # Turn acquisition on
   field(FLNK, "$(P)$(R)InitSeqEnbl")
 }
 
