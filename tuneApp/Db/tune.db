@@ -469,7 +469,7 @@ record(ao, "$(P)$(R)CarSrc1Freq-SP"){
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
-  field(FLNK, "$(P)$(R)CarSrc1FreqConvOut PP")
+  field(FLNK, "$(P)$(R)CarSrc1FreqConvOut")
 }
 
 record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
@@ -479,7 +479,7 @@ record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src1Freq-SP PP")
-  field(FLNK, "$(P)$(R)CarSrc1FreqConvIn PP")
+  field(FLNK, "$(P)$(R)CarSrc1FreqConvIn")
 }
 
 record(calcout, "$(P)$(R)CarSrc1FreqConvIn"){
@@ -503,7 +503,7 @@ record(ao, "$(P)$(R)CarSrc2Freq-SP"){
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
-  field(FLNK, "$(P)$(R)CarSrc2FreqConvOut PP")
+  field(FLNK, "$(P)$(R)CarSrc2FreqConvOut")
 }
 
 record(calcout, "$(P)$(R)CarSrc2FreqConvOut") {
@@ -513,7 +513,7 @@ record(calcout, "$(P)$(R)CarSrc2FreqConvOut") {
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src2Freq-SP PP")
-  field(FLNK, "$(P)$(R)CarSrc2FreqConvIn PP")
+  field(FLNK, "$(P)$(R)CarSrc2FreqConvIn")
 }
 
 record(calcout, "$(P)$(R)CarSrc2FreqConvIn"){
@@ -539,7 +539,7 @@ record(bo, "$(P)$(R)CarSrc1En-Sel"){
   field(DESC, "Enable Carrier Gen Source 1")
   field(ZNAM, "Off")
   field(ONAM, "On")
-  field(FLNK, "$(P)$(R)CarSrc1EnCalcOut PP")
+  field(FLNK, "$(P)$(R)CarSrc1EnCalcOut")
 }
 
 record(calc, "$(P)$(R)CarSrc1EnCalcOut"){
@@ -568,7 +568,6 @@ record(calcout, "$(P)$(R)CarSrc1EnCalcIn"){
   field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP MSS")
   field(INPB, "$(CARRIER_GEN)Src1EnblBuffAmp-Sts CPP MSS")
   field(CALC, "A=1&&B=1?1:0")
-  field(FLNK, "$(P)$(R)EnblCarNoiseSrcSeq")
   field(OUT,  "$(P)$(R)CarSrc1En-Sts PP")
 }
 
@@ -582,7 +581,7 @@ record(bo, "$(P)$(R)CarSrc2En-Sel"){
   field(DESC, "Enable Carrier Gen Source 2")
   field(ZNAM, "Off")
   field(ONAM, "On")
-  field(FLNK, "$(P)$(R)CarSrc2EnCalcOut PP")
+  field(FLNK, "$(P)$(R)CarSrc2EnCalcOut")
 }
 
 record(calc, "$(P)$(R)CarSrc2EnCalcOut"){
@@ -611,7 +610,6 @@ record(calcout, "$(P)$(R)CarSrc2EnCalcIn"){
   field(INPA, "$(CARRIER_GEN)Src2PwrOn-Sts CPP MSS")
   field(INPB, "$(CARRIER_GEN)Src2EnblBuffAmp-Sts CPP MSS")
   field(CALC, "A=1&&B=1?1:0")
-  field(FLNK, "$(P)$(R)EnblCarNoiseSrcSeq")
   field(OUT,  "$(P)$(R)CarSrc2En-Sts PP")
 }
 
@@ -715,19 +713,19 @@ record(seq, "$(P)$(R)EnblCarNoiseSrcSeq"){
   field(SELM, "Mask")
   field(SELL, "$(P)$(R)EnblExctCalc")
   field(DO1, "0")
-  field(LNK1, "$(P)$(R)CarSrc2En-Sel")      # Disable src 2 &
+  field(LNK1, "$(P)$(R)CarSrc2En-Sel PP")      # Disable src 2 &
   field(DO2, "0")
-  field(LNK2, "$(P)$(R)CarSrc1En-Sel")      # Disable src 1 &
+  field(LNK2, "$(P)$(R)CarSrc1En-Sel PP")      # Disable src 1 &
   field(DO3, "0")
-  field(LNK3, "$(NOISE_GEN)ChanOut-Sel")      # Disable noise generator;
+  field(LNK3, "$(NOISE_GEN)ChanOut-Sel PP")      # Disable noise generator;
   field(DO4, "0")
-  field(LNK4, "$(AMP)Enbl-Sel")               # Disable amplifier;
+  field(LNK4, "$(AMP)Enbl-Sel PP")               # Disable amplifier;
   field(DO5, "1")
-  field(LNK5, "$(P)$(R)CarSrc2En-Sel")      # Enable src 2 &
+  field(LNK5, "$(P)$(R)CarSrc2En-Sel PP")      # Enable src 2 &
   field(DO6, "1")
-  field(LNK6, "$(P)$(R)CarSrc1En-Sel")      # Enable src 1 &
+  field(LNK6, "$(P)$(R)CarSrc1En-Sel PP")      # Enable src 1 &
   field(DO7, "1")
-  field(LNK7, "$(NOISE_GEN)ChanOut-Sel")      # Enable noise generator;
+  field(LNK7, "$(NOISE_GEN)ChanOut-Sel PP")      # Enable noise generator;
   field(DO8, "1")
   field(LNK8, "$(AMP)Enbl-Sel PP")               # Enable amplifier;
 }
@@ -851,7 +849,7 @@ record(calcout, "$(P)$(R)CFreqCalc") {
 
 # Calculate Fractional Tune parameters
 record(acalcout, "$(P)$(R)TuneFracArray-Mon") {
-  field(DESC, "Factional Tune Array")
+  field(DESC, "Fractional Tune Array")
   field(PREC, "3")
   field(NELM, "32001")
   field(EGU, "Hz")
@@ -863,7 +861,7 @@ record(acalcout, "$(P)$(R)TuneFracArray-Mon") {
 }
 
 record(calc, "$(P)$(R)TuneFracStart-Mon") {
-  field(DESC, "Factional Tune start number")
+  field(DESC, "Fractional Tune start number")
   field(PREC, "3")
   field(INPA, "$(SPEC_ANA)FreqStart-RB")
   field(INPB, "$(P)$(R)RFFreq-Mon")
@@ -873,7 +871,7 @@ record(calc, "$(P)$(R)TuneFracStart-Mon") {
 }
 
 record(calc, "$(P)$(R)TuneFracStop-Mon") {
-  field(DESC, "Factional Tune stop number")
+  field(DESC, "Fractional Tune stop number")
   field(PREC, "3")
   field(INPA, "$(SPEC_ANA)FreqStop-RB")
   field(INPB, "$(P)$(R)RFFreq-Mon")

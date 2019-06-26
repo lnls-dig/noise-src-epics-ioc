@@ -36,12 +36,14 @@ record(sseq, "$(P)$(R)InitSeqNoiseGen"){
   field(STR1, "Noise")
   field(LNK1, "$(NOISE_GEN)WfmFunction-Sel PP") # Select 'Noise' function
   field(DLY1,  "0.5")
-  field(DO2,  "-3")
+  field(DO2,  "0.2")
   field(LNK2, "$(NOISE_GEN)Ampl-SP PP")         # Set sanity Amplitude
-  field(DO3,  "-0.0")
+  field(DO3,  "0.2")
   field(LNK3, "$(NOISE_GEN)Offset-SP PP")       # Set sanity Offset
-  field(DO4,  "0")
+  field(DO4,  "1000")
   field(LNK4, "$(P)$(R)Span-SP.PROC PP")        # Process span
+  field(DO5,  "OFF")
+  field(LNK5, "$(NOISE_GEN)SweepState-Sel PP")  # Turn sweep off
   field(FLNK, "$(P)$(R)InitSeqCarGen")
 }
 
@@ -60,8 +62,11 @@ record(sseq, "$(P)$(R)InitSeqCarGen"){
 record(sseq, "$(P)$(R)InitSeqAmp"){
   field(DESC, "Init sequence Amplifier")
   field(SELM, "All")
-#  field(DO1,  "32")
-#  field(LNK1, "$(P)$(R)Gain-SP PP")             # Set minimal Gain
+  field(DO1,  "1")
+  field(LNK1, "$(AMP)GainAuto-Sel")             # Lock dBs with steps
+  field(DLY1,  "0.5")
+  field(DO2,  "32")
+  field(LNK2, "$(P)$(R)Gain-SP PP")             # Set minimal Gain
   field(FLNK, "$(P)$(R)InitSeqSpecAna")
 }
 
@@ -71,7 +76,7 @@ record(sseq, "$(P)$(R)InitSeqSpecAna"){
   field(DESC, "Init sequence Spec. Analyzer")
   field(SELM, "All")
   field(STR1, "OFF")
-  field(LNK1, "$(SPEC_ANA)EnblOutp-Sel PP")            # Set Tracking Generator to OFF
+  field(LNK1, "$(SPEC_ANA)EnblTrkGen-Sel PP")            # Set Tracking Generator to OFF
   field(DLY1,  "0.5")
   field(STR2, "FFT")
   field(LNK2, "$(SPEC_ANA)FiltType-Sel PP")            # Set mode to FFT
@@ -79,6 +84,17 @@ record(sseq, "$(P)$(R)InitSeqSpecAna"){
   field(LNK3, "$(SPEC_ANA)EnblSweTimeAuto-Sel PP")     # Set Time Coupling
   field(STR4, "ON")
   field(LNK4, "$(SPEC_ANA)EnblAttAuto-Sel PP")         # Enable Ref. Level Att.
+  field(STR5, "300 kHz")
+  field(LNK5, "$(SPEC_ANA)Rbw-Sel PP")                 # Resolution bandwidth
+  field(DLY5,  "0.5")
+  field(STR6, "ON")
+  field(LNK6, "$(P)$(R)SpecAnaGetSpec-Sel PP")         # Turn acquisition on
+  field(STR7, "EXT")
+  field(LNK7, "$(SPEC_ANA)TrigSrc-Sel PP")             # External Trigger
+  field(STR8, "CONTINUOUS")
+  field(LNK8, "$(SPEC_ANA)EnblContSwe-Sel PP")         # Continuous sweep
+  field(STR9, "ON")
+  field(LNK9, "$(SPEC_ANA)EnblVbwAuto-Sel PP")         # Auto Video Bandwidth
   field(FLNK, "$(P)$(R)InitSeqEnbl")
 }
 

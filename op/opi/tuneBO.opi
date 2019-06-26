@@ -10,12 +10,12 @@
   <background_color>
     <color red="61" green="72" blue="78" />
   </background_color>
-  <boy_version>5.1.0.201708041818</boy_version>
+  <boy_version>5.1.0</boy_version>
   <foreground_color>
     <color red="192" green="192" blue="192" />
   </foreground_color>
   <grid_space>6</grid_space>
-  <height>1080</height>
+  <height>1100</height>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
@@ -28,7 +28,7 @@
   <show_ruler>true</show_ruler>
   <snap_to_geometry>true</snap_to_geometry>
   <widget_type>Display</widget_type>
-  <width>1400</width>
+  <width>1280</width>
   <wuid>-414f0901:162d53a2762:-5c46</wuid>
   <x>110</x>
   <y>0</y>
@@ -85,7 +85,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <visible>true</visible>
     <widget_type>Rectangle</widget_type>
-    <width>1350</width>
+    <width>1180</width>
     <wuid>-121d7f33:1646036f9e2:200f</wuid>
     <x>24</x>
     <y>62</y>
@@ -616,7 +616,7 @@ $(pv_value)</tooltip>
     <transparent>true</transparent>
     <visible>true</visible>
     <widget_type>Grouping Container</widget_type>
-    <width>999</width>
+    <width>793</width>
     <wuid>67bdec06:1675a718dc8:172c</wuid>
     <x>376</x>
     <y>119</y>
@@ -653,14 +653,14 @@ $(pv_value)</tooltip>
         <color red="0" green="0" blue="0" />
       </foreground_color>
       <graph_area_height>352</graph_area_height>
-      <graph_area_width>852</graph_area_width>
+      <graph_area_width>648</graph_area_width>
       <height>403</height>
       <horizon_profile_x_pv_name></horizon_profile_x_pv_name>
       <horizon_profile_x_pv_value />
       <horizon_profile_y_pv_name></horizon_profile_y_pv_name>
       <horizon_profile_y_pv_value />
-      <maximum>-95.0</maximum>
-      <minimum>-100.0</minimum>
+      <maximum>10.0</maximum>
+      <minimum>-120.0</minimum>
       <name>Intensity Graph</name>
       <pixel_info_pv_name></pixel_info_pv_name>
       <pixel_info_pv_value />
@@ -701,11 +701,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P)$(R)SwePts-RB</pv>
         </rule>
         <rule name="Data_Height Rule" prop_id="data_height" out_exp="true">
-          <exp bool_exp="1">
+          <exp bool_exp="pv2&gt;(pv1/pv0)">
             <value>pv1/pv0</value>
+          </exp>
+          <exp bool_exp="1">
+            <value>pv2</value>
           </exp>
           <pv trig="true">$(P)$(R)SwePts-RB</pv>
           <pv trig="true">$(P)$(R)SpecArray-Mon.NELM</pv>
+          <pv trig="true">$(P)$(R)FrameCount-Mon</pv>
         </rule>
         <rule name="Y Max Rule" prop_id="y_axis_maximum" out_exp="true">
           <exp bool_exp="1">
@@ -751,7 +755,7 @@ $(pv_value)</tooltip>
       <vertical_profile_y_pv_name></vertical_profile_y_pv_name>
       <visible>true</visible>
       <widget_type>Intensity Graph</widget_type>
-      <width>978</width>
+      <width>770</width>
       <wuid>67bdec06:1675a718dc8:3c0b</wuid>
       <x>5</x>
       <x_axis_axis_color>
@@ -825,7 +829,7 @@ $(pv_value)</tooltip>
       <widget_type>Combo</widget_type>
       <width>98</width>
       <wuid>60061164:168145a4e41:-62ce</wuid>
-      <x>795</x>
+      <x>657</x>
       <y>5</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
@@ -862,10 +866,10 @@ $(pv_value)</tooltip>
       <vertical_alignment>1</vertical_alignment>
       <visible>true</visible>
       <widget_type>Label</widget_type>
-      <width>41</width>
+      <width>52</width>
       <wrap_words>false</wrap_words>
       <wuid>1209b73a:1683ccaea36:-7db1</wuid>
-      <x>746</x>
+      <x>605</x>
       <y>11</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
@@ -917,7 +921,7 @@ $(pv_value)</tooltip>
       <width>98</width>
       <wrap_words>false</wrap_words>
       <wuid>60061164:168145a4e41:-6d6e</wuid>
-      <x>607</x>
+      <x>498</x>
       <y>7</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
@@ -954,10 +958,10 @@ $(pv_value)</tooltip>
       <vertical_alignment>1</vertical_alignment>
       <visible>true</visible>
       <widget_type>Label</widget_type>
-      <width>83</width>
+      <width>96</width>
       <wrap_words>false</wrap_words>
       <wuid>60061164:168145a4e41:-6d6d</wuid>
-      <x>518</x>
+      <x>401</x>
       <y>11</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.combo" version="1.0.0">
@@ -999,7 +1003,7 @@ $(pv_value)</tooltip>
       <widget_type>Combo</widget_type>
       <width>98</width>
       <wuid>60061164:168145a4e41:-6d71</wuid>
-      <x>385</x>
+      <x>296</x>
       <y>5</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
@@ -1036,10 +1040,10 @@ $(pv_value)</tooltip>
       <vertical_alignment>1</vertical_alignment>
       <visible>true</visible>
       <widget_type>Label</widget_type>
-      <width>75</width>
+      <width>85</width>
       <wrap_words>false</wrap_words>
       <wuid>1209b73a:1683ccaea36:-7e2e</wuid>
-      <x>305</x>
+      <x>212</x>
       <y>11</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
@@ -1096,7 +1100,7 @@ $(pv_value)</tooltip>
       <widget_type>Text Input</widget_type>
       <width>98</width>
       <wuid>60061164:168145a4e41:-6d70</wuid>
-      <x>175</x>
+      <x>107</x>
       <y>7</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
@@ -1133,10 +1137,10 @@ $(pv_value)</tooltip>
       <vertical_alignment>1</vertical_alignment>
       <visible>true</visible>
       <widget_type>Label</widget_type>
-      <width>89</width>
+      <width>103</width>
       <wrap_words>false</wrap_words>
       <wuid>60061164:168145a4e41:-6d6f</wuid>
-      <x>82</x>
+      <x>5</x>
       <y>11</y>
     </widget>
   </widget>
@@ -1220,8 +1224,8 @@ $(pv_value)</tooltip>
     <transparent>true</transparent>
     <visible>true</visible>
     <widget_type>Grouping Container</widget_type>
-    <width>999</width>
-    <wuid>67bdec06:1675a718dc8:2819</wuid>
+    <width>793</width>
+    <wuid>4ebe9bcd:16b321b8cbd:-44f1</wuid>
     <x>376</x>
     <y>626</y>
     <widget typeId="org.csstudio.opibuilder.widgets.intensityGraph" version="1.0.0">
@@ -1257,14 +1261,14 @@ $(pv_value)</tooltip>
         <color red="0" green="0" blue="0" />
       </foreground_color>
       <graph_area_height>352</graph_area_height>
-      <graph_area_width>852</graph_area_width>
+      <graph_area_width>648</graph_area_width>
       <height>403</height>
       <horizon_profile_x_pv_name></horizon_profile_x_pv_name>
       <horizon_profile_x_pv_value />
       <horizon_profile_y_pv_name></horizon_profile_y_pv_name>
       <horizon_profile_y_pv_value />
-      <maximum>-95.0</maximum>
-      <minimum>-100.0</minimum>
+      <maximum>10.0</maximum>
+      <minimum>-120.0</minimum>
       <name>Intensity Graph</name>
       <pixel_info_pv_name></pixel_info_pv_name>
       <pixel_info_pv_value />
@@ -1305,11 +1309,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P)$(R)SwePts-RB</pv>
         </rule>
         <rule name="Data_Height Rule" prop_id="data_height" out_exp="true">
-          <exp bool_exp="1">
+          <exp bool_exp="pv2&gt;(pv1/pv0)">
             <value>pv1/pv0</value>
+          </exp>
+          <exp bool_exp="1">
+            <value>pv2</value>
           </exp>
           <pv trig="true">$(P)$(R)SwePts-RB</pv>
           <pv trig="true">$(P)$(R)SpecArray-Mon.NELM</pv>
+          <pv trig="true">$(P)$(R)FrameCount-Mon</pv>
         </rule>
         <rule name="Y Max Rule" prop_id="y_axis_maximum" out_exp="true">
           <exp bool_exp="1">
@@ -1355,8 +1363,8 @@ $(pv_value)</tooltip>
       <vertical_profile_y_pv_name></vertical_profile_y_pv_name>
       <visible>true</visible>
       <widget_type>Intensity Graph</widget_type>
-      <width>978</width>
-      <wuid>67bdec06:1675a718dc8:3bfb</wuid>
+      <width>770</width>
+      <wuid>4ebe9bcd:16b321b8cbd:-44f0</wuid>
       <x>5</x>
       <x_axis_axis_color>
         <color red="0" green="0" blue="0" />
@@ -1413,7 +1421,7 @@ $(pv_value)</tooltip>
       </foreground_color>
       <height>29</height>
       <items_from_pv>true</items_from_pv>
-      <name>Combo_1</name>
+      <name>Combo</name>
       <pv_name>$(P_TUNE)$(R_TUNE)TuneXaxis-Sel</pv_name>
       <pv_value />
       <rules />
@@ -1428,9 +1436,9 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Combo</widget_type>
       <width>98</width>
-      <wuid>1209b73a:1683ccaea36:-7bd5</wuid>
-      <x>801</x>
-      <y>6</y>
+      <wuid>4ebe9bcd:16b321b8cbd:-44ef</wuid>
+      <x>657</x>
+      <y>5</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <actions hook="false" hook_all="false" />
@@ -1468,9 +1476,9 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>41</width>
       <wrap_words>false</wrap_words>
-      <wuid>1209b73a:1683ccaea36:-7bd4</wuid>
-      <x>752</x>
-      <y>12</y>
+      <wuid>4ebe9bcd:16b321b8cbd:-44ee</wuid>
+      <x>605</x>
+      <y>11</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
       <actions hook="false" hook_all="false" />
@@ -1520,9 +1528,9 @@ $(pv_value)</tooltip>
       <widget_type>Text Update</widget_type>
       <width>98</width>
       <wrap_words>false</wrap_words>
-      <wuid>1209b73a:1683ccaea36:-7bd3</wuid>
-      <x>613</x>
-      <y>8</y>
+      <wuid>4ebe9bcd:16b321b8cbd:-44ed</wuid>
+      <x>498</x>
+      <y>7</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <actions hook="false" hook_all="false" />
@@ -1544,7 +1552,7 @@ $(pv_value)</tooltip>
       </foreground_color>
       <height>17</height>
       <horizontal_alignment>1</horizontal_alignment>
-      <name>Label_5</name>
+      <name>Label_4</name>
       <rules />
       <scale_options>
         <width_scalable>true</width_scalable>
@@ -1560,9 +1568,9 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>83</width>
       <wrap_words>false</wrap_words>
-      <wuid>1209b73a:1683ccaea36:-7bd2</wuid>
-      <x>524</x>
-      <y>12</y>
+      <wuid>4ebe9bcd:16b321b8cbd:-44ec</wuid>
+      <x>401</x>
+      <y>11</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.combo" version="1.0.0">
       <actions hook="false" hook_all="false" />
@@ -1587,7 +1595,7 @@ $(pv_value)</tooltip>
       </foreground_color>
       <height>29</height>
       <items_from_pv>true</items_from_pv>
-      <name>Combo_2</name>
+      <name>Combo</name>
       <pv_name>$(P)$(R)SpecMode-Sel</pv_name>
       <pv_value />
       <rules />
@@ -1602,9 +1610,9 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Combo</widget_type>
       <width>98</width>
-      <wuid>1209b73a:1683ccaea36:-7bd1</wuid>
-      <x>391</x>
-      <y>6</y>
+      <wuid>4ebe9bcd:16b321b8cbd:-44eb</wuid>
+      <x>296</x>
+      <y>5</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <actions hook="false" hook_all="false" />
@@ -1642,9 +1650,9 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>75</width>
       <wrap_words>false</wrap_words>
-      <wuid>1209b73a:1683ccaea36:-7bd0</wuid>
-      <x>311</x>
-      <y>12</y>
+      <wuid>4ebe9bcd:16b321b8cbd:-44ea</wuid>
+      <x>212</x>
+      <y>11</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
       <actions hook="false" hook_all="false" />
@@ -1699,9 +1707,9 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Text Input</widget_type>
       <width>98</width>
-      <wuid>1209b73a:1683ccaea36:-7bcf</wuid>
-      <x>181</x>
-      <y>8</y>
+      <wuid>4ebe9bcd:16b321b8cbd:-44e9</wuid>
+      <x>107</x>
+      <y>7</y>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <actions hook="false" hook_all="false" />
@@ -1723,7 +1731,7 @@ $(pv_value)</tooltip>
       </foreground_color>
       <height>17</height>
       <horizontal_alignment>1</horizontal_alignment>
-      <name>Label_7</name>
+      <name>Label</name>
       <rules />
       <scale_options>
         <width_scalable>true</width_scalable>
@@ -1739,9 +1747,9 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>89</width>
       <wrap_words>false</wrap_words>
-      <wuid>1209b73a:1683ccaea36:-7bce</wuid>
-      <x>88</x>
-      <y>12</y>
+      <wuid>4ebe9bcd:16b321b8cbd:-44e8</wuid>
+      <x>5</x>
+      <y>11</y>
     </widget>
   </widget>
 </display>
