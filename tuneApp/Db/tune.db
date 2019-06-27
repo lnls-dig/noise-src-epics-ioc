@@ -143,16 +143,36 @@ record(mbbi, "$(P)$(R)EnblNoiseGenAmp-Sts"){
 
 record(ao, "$(P)$(R)Span-SP") {
   field(DESC, "Set measurement span")
+  field(PREC, "3")
   field(PINI, "YES")
-  field(EGU,  "Hz")
+  field(EGU,  "KHz")
+  field(FLNK, "$(P)$(R)SpanSPConvOut")
+}
+
+record(calcout, "$(P)$(R)SpanSPConvOut") {
+  field(DESC, "Span SP conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)Span-SP")
+  field(CALC, "A*1000")
+  field(OOPT, "Every Time")
   field(OUT,  "$(SPEC_ANA)FreqSpan-SP")
   field(FLNK, "$(P)$(R)Span-RB")
 }
 
 record(ai, "$(P)$(R)Span-RB") {
   field(DESC, "Get measurement span")
-  field(EGU,  "Hz")
+  field(PREC, "3")
+  field(EGU,  "KHz")
   field(INP, "$(P)$(R)Span-SP")
+  field(FLNK, "$(P)$(R)SpanRBConvOut")
+}
+
+record(calcout, "$(P)$(R)SpanRBConvOut") {
+  field(DESC, "Span RB conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)Span-RB NPP MSS")
+  field(CALC, "A*1000")
+  field(OOPT, "Every Time")
 }
 
 record(bo, "$(P)$(R)CenterFreqAuto-Sel"){
@@ -216,10 +236,20 @@ record(fanout, "$(P)$(R)CenterFreqAutoFout"){
 
 record(ao, "$(P)$(R)CenterFreq-SP") {
   field(DESC, "Set center freq")
+  field(PREC, "6")
   field(PINI, "YES")
-  field(EGU,  "Hz")
+  field(EGU,  "MHz")
   field(DOL,  "$(P)$(R)CFreqCalc.OVAL CPP MSS")
   field(OMSL, "closed_loop")
+  field(FLNK, "$(P)$(R)CFreqConvOut")
+}
+
+record(calcout, "$(P)$(R)CFreqConvOut") {
+  field(DESC, "Center Freq. conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)CenterFreq-SP")
+  field(CALC, "A*1000000")
+  field(OOPT, "Every Time")
   field(OUT,  "$(SPEC_ANA)FreqCenter-SP")
 }
 
@@ -230,6 +260,7 @@ record(ao, "$(P)$(R)CenterFreq-SP") {
 # of CarFreq-RB
 record(calcout, "$(P)$(R)CenterFreqRBCalc") {
   field(DESC, "Get frequency readback")
+  field(EGU,  "MHz")
   field(INPA, "$(SPEC_ANA)FreqCenter-RB CPP MSS")
   field(INPB, "$(P)$(R)CarFreq-RB CPP MSS")
   field(INPC, "$(P)$(R)DriveAuto-Sts CPP NMS")
@@ -237,22 +268,23 @@ record(calcout, "$(P)$(R)CenterFreqRBCalc") {
   field(LOW,  "0")
   field(LSV,  "MINOR")
   field(OOPT, "Every Time")
-  field(OCAL, "A")
+  field(OCAL, "A/1000000")
   field(DOPT, "Use OCAL")
   field(OUT,  "0")
 }
 
 record(ai, "$(P)$(R)CenterFreq-RB") {
   field(DESC, "Get center freq")
+  field(PREC, "6")
   field(INP,  "$(P)$(R)CenterFreqRBCalc.OVAL CPP MSS")
-  field(EGU,  "Hz")
+  field(EGU,  "MHz")
   field(FLNK, "$(P)$(R)RevNCalc")
 }
 
 # Center Frequency, if not in auto mode, sets RevN and Offset
 record(calcout, "$(P)$(R)RevNCalc") {
   field(DESC, "Rev. N from Center Freq.")
-  field(INPA, "$(P)$(R)CenterFreq-SP")
+  field(INPA, "$(P)$(R)CFreqConvOut")
   field(INPB, "$(P)$(R)FreqRev-Mon CPP")
   field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
   field(CALC, "C=0?((A/B)>1?FLOOR(A/B):1):0")
@@ -263,11 +295,12 @@ record(calcout, "$(P)$(R)RevNCalc") {
 
 record(calcout, "$(P)$(R)FreqOffCalc") {
   field(DESC, "Offset frequency from Center Freq.")
-  field(INPA, "$(P)$(R)CenterFreq-SP")
+  field(EGU, "KHz")
+  field(INPA, "$(P)$(R)CFreqConvOut")
   field(INPB, "$(P)$(R)FreqRev-Mon CPP")
   field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
   field(INPD, "$(P)$(R)RevNCalc")
-  field(CALC, "C=0?(A-B*D):0")
+  field(CALC, "C=0?(A-B*D)/1000:0")
   field(OOPT, "When Non-zero")
   field(OUT, "$(P)$(R)FreqOff-SP PP")
 }
@@ -306,7 +339,7 @@ record(sseq, "$(P)$(R)DriveAutoPropSseq"){
     field(STR5, "0")
     field(STR6, "$(P)$(R)NoiseCalc CPP MSS")
     field(STR7, "0")
-    field(STR8, "$(P)$(R)CenterFreq-SP CPP MS")
+    field(STR8, "$(P)$(R)CFreqConvOut CPP MS")
     field(LNK1, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
     field(LNK2, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
     field(LNK3, "$(P)$(R)CarFreq-SP.OMSL NPP NMS")
@@ -432,7 +465,7 @@ record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
 # Span meaning for Noise Generator is half of the measurement span
 record(calc, "$(P)$(R)NoiseCalc"){
   field(DESC, "Noise Span calculation to instrument")
-  field(INPA, "$(P)$(R)Span-RB CPP MSS")
+  field(INPA, "$(P)$(R)SpanRBConvOut CPP MSS")
   field(CALC, "A/2")
 }
 
@@ -626,7 +659,7 @@ record(ao, "$(P)$(R)CarFreq-SP"){
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
-  field(DOL, "$(P)$(R)CenterFreq-SP CPP MS")
+  field(DOL, "$(P)$(R)CFreqConvOut CPP MS")
   field(OMSL,"closed_loop")
   field(FLNK, "$(P)$(R)CarFreqCalc1")
 }
@@ -814,37 +847,67 @@ record(calc, "$(P)$(R)FreqRev-Mon") {
 
 record(calc, "$(P)$(R)FreqRevN-Mon") {
   field(DESC, "Monitor harmonic revolution frequency")
-  field(EGU, "Hz")
+  field(PREC, "3")
+  field(EGU, "KHz")
   field(INPA, "$(P)$(R)FreqRev-Mon CPP")
   field(INPB, "$(P)$(R)RevN-RB CPP")
-  field(CALC, "A*B")
+  field(CALC, "(A*B)/1000")
+  field(FLNK, "$(P)$(R)FreqRevNConvOut")
+}
+
+record(calc, "$(P)$(R)FreqRevNConvOut") {
+  field(DESC, "Freq. RevN conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)FreqRevN-Mon NPP MSS")
+  field(CALC, "A*1000")
+  field(OOPT, "Every Time")
 }
 
 record(ao, "$(P)$(R)FreqOff-SP") {
   field(DESC, "Set offset frequency from harmonic freq")
+  field(PREC, "3")
   field(PINI, "YES")
-  field(EGU, "Hz")
+  field(EGU, "KHz")
   field(DRVL, "0.0")
   field(DRVH, "10000000")
+  field(FLNK, "$(P)$(R)FOffSPConvOut")
+}
+
+record(calcout, "$(P)$(R)FOffSPConvOut") {
+  field(DESC, "Freq. offset SP conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)FreqOff-SP")
+  field(CALC, "A*1000")
+  field(OOPT, "Every Time")
   field(FLNK, "$(P)$(R)FreqOff-RB")
 }
 
 record(ai, "$(P)$(R)FreqOff-RB") {
   field(DESC, "Get offset frequency from harmonic freq")
-  field(EGU, "Hz")
+  field(PREC, "3")
+  field(EGU, "KHz")
   field(INP, "$(P)$(R)FreqOff-SP")
+  field(FLNK, "$(P)$(R)FOffRBConvOut")
+}
+
+record(calcout, "$(P)$(R)FOffRBConvOut") {
+  field(DESC, "Freq. offset RB conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)FreqOff-RB")
+  field(CALC, "A*1000")
+  field(OOPT, "Every Time")
 }
 
 record(calcout, "$(P)$(R)CFreqCalc") {
   field(DESC, "Monitored calculated frequency")
-  field(EGU, "Hz")
-  field(INPA, "$(P)$(R)FreqOff-RB CPP")
-  field(INPB, "$(P)$(R)FreqRevN-Mon CPP")
+  field(EGU, "MHz")
+  field(INPA, "$(P)$(R)FOffRBConvOut CPP")
+  field(INPB, "$(P)$(R)FreqRevNConvOut CPP")
   field(INPC, "$(P)$(R)CenterFreqAuto-Sts CPP")
   field(CALC, "C>0")
   field(OOPT, "When Non-zero")
   field(DOPT, "Use OCAL")
-  field(OCAL, "A+B")
+  field(OCAL, "(A+B)/1000000")
 }
 
 # Calculate Fractional Tune parameters
