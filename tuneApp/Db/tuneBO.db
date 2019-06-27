@@ -42,7 +42,7 @@ record(sseq, "$(P)$(R)InitSeqNoiseGen"){
   field(LNK3, "$(NOISE_GEN)Offset-SP PP")       # Set sanity Offset
   field(DO4,  "1000")
   field(LNK4, "$(P)$(R)Span-SP.PROC PP")        # Process span
-  field(DO5,  "OFF")
+  field(STR5,  "OFF")
   field(LNK5, "$(NOISE_GEN)SweepState-Sel PP")  # Turn sweep off
   field(FLNK, "$(P)$(R)InitSeqCarGen")
 }
