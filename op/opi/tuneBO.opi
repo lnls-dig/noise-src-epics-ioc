@@ -668,14 +668,14 @@ $(pv_value)</tooltip>
       <pv_value />
       <rgb_mode>false</rgb_mode>
       <roi_0_h_pv_value />
-      <roi_0_height_pv>$(P_TUNE)$(R_TUNE)ProfileROIHeight-SP</roi_0_height_pv>
+      <roi_0_height_pv>$(P_TUNE)$(R_TUNE)ROIHeightConv-Mon</roi_0_height_pv>
       <roi_0_title>ROI</roi_0_title>
       <roi_0_visible>true</roi_0_visible>
       <roi_0_w_pv_value />
-      <roi_0_width_pv>$(P_TUNE)$(R_TUNE)ProfileROIWidth-SP</roi_0_width_pv>
-      <roi_0_x_pv>$(P_TUNE)$(R_TUNE)ProfileROIOffsetX-SP</roi_0_x_pv>
+      <roi_0_width_pv>$(P_TUNE)$(R_TUNE)ROIWidthConv-Mon</roi_0_width_pv>
+      <roi_0_x_pv>$(P_TUNE)$(R_TUNE)ROIOffXConv-Mon</roi_0_x_pv>
       <roi_0_x_pv_value />
-      <roi_0_y_pv>$(P_TUNE)$(R_TUNE)ProfileROIOffsetY-SP</roi_0_y_pv>
+      <roi_0_y_pv>$(P_TUNE)$(R_TUNE)ROIOffYConv-Mon</roi_0_y_pv>
       <roi_0_y_pv_value />
       <roi_color>
         <color red="0" green="255" blue="255" />
@@ -1318,7 +1318,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <widget_type>Grouping Container</widget_type>
     <width>793</width>
-    <wuid>-6429f2da:16bad71992e:-70a6</wuid>
+    <wuid>-6429f2da:16bad71992e:-6f9c</wuid>
     <x>376</x>
     <y>626</y>
     <widget typeId="org.csstudio.opibuilder.widgets.intensityGraph" version="1.0.0">
@@ -1369,14 +1369,14 @@ $(pv_value)</tooltip>
       <pv_value />
       <rgb_mode>false</rgb_mode>
       <roi_0_h_pv_value />
-      <roi_0_height_pv>$(P_TUNE)$(R_TUNE)ProfileROIHeight-SP</roi_0_height_pv>
+      <roi_0_height_pv>$(P_TUNE)$(R_TUNE)ROIHeightConv-Mon</roi_0_height_pv>
       <roi_0_title>ROI</roi_0_title>
       <roi_0_visible>true</roi_0_visible>
       <roi_0_w_pv_value />
-      <roi_0_width_pv>$(P_TUNE)$(R_TUNE)ProfileROIWidth-SP</roi_0_width_pv>
-      <roi_0_x_pv>$(P_TUNE)$(R_TUNE)ProfileROIOffsetX-SP</roi_0_x_pv>
+      <roi_0_width_pv>$(P_TUNE)$(R_TUNE)ROIWidthConv-Mon</roi_0_width_pv>
+      <roi_0_x_pv>$(P_TUNE)$(R_TUNE)ROIOffXConv-Mon</roi_0_x_pv>
       <roi_0_x_pv_value />
-      <roi_0_y_pv>$(P_TUNE)$(R_TUNE)ProfileROIOffsetY-SP</roi_0_y_pv>
+      <roi_0_y_pv>$(P_TUNE)$(R_TUNE)ROIOffYConv-Mon</roi_0_y_pv>
       <roi_0_y_pv_value />
       <roi_color>
         <color red="0" green="255" blue="255" />
@@ -1467,7 +1467,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Intensity Graph</widget_type>
       <width>770</width>
-      <wuid>-6429f2da:16bad71992e:-70a5</wuid>
+      <wuid>-6429f2da:16bad71992e:-6f9b</wuid>
       <x>5</x>
       <x_axis_axis_color>
         <color red="0" green="0" blue="0" />
@@ -1539,7 +1539,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Combo</widget_type>
       <width>98</width>
-      <wuid>-6429f2da:16bad71992e:-70a4</wuid>
+      <wuid>-6429f2da:16bad71992e:-6f9a</wuid>
       <x>657</x>
       <y>5</y>
     </widget>
@@ -1579,7 +1579,7 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>41</width>
       <wrap_words>false</wrap_words>
-      <wuid>-6429f2da:16bad71992e:-70a3</wuid>
+      <wuid>-6429f2da:16bad71992e:-6f99</wuid>
       <x>605</x>
       <y>11</y>
     </widget>
@@ -1631,7 +1631,7 @@ $(pv_value)</tooltip>
       <widget_type>Text Update</widget_type>
       <width>98</width>
       <wrap_words>false</wrap_words>
-      <wuid>-6429f2da:16bad71992e:-70a2</wuid>
+      <wuid>-6429f2da:16bad71992e:-6f98</wuid>
       <x>498</x>
       <y>7</y>
     </widget>
@@ -1671,7 +1671,7 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>83</width>
       <wrap_words>false</wrap_words>
-      <wuid>-6429f2da:16bad71992e:-70a1</wuid>
+      <wuid>-6429f2da:16bad71992e:-6f97</wuid>
       <x>401</x>
       <y>11</y>
     </widget>
@@ -1713,7 +1713,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Combo</widget_type>
       <width>98</width>
-      <wuid>-6429f2da:16bad71992e:-70a0</wuid>
+      <wuid>-6429f2da:16bad71992e:-6f96</wuid>
       <x>296</x>
       <y>5</y>
     </widget>
@@ -1753,7 +1753,7 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>75</width>
       <wrap_words>false</wrap_words>
-      <wuid>-6429f2da:16bad71992e:-709f</wuid>
+      <wuid>-6429f2da:16bad71992e:-6f95</wuid>
       <x>212</x>
       <y>11</y>
     </widget>
@@ -1810,7 +1810,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Text Input</widget_type>
       <width>98</width>
-      <wuid>-6429f2da:16bad71992e:-709e</wuid>
+      <wuid>-6429f2da:16bad71992e:-6f94</wuid>
       <x>107</x>
       <y>7</y>
     </widget>
@@ -1850,7 +1850,7 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>89</width>
       <wrap_words>false</wrap_words>
-      <wuid>-6429f2da:16bad71992e:-709d</wuid>
+      <wuid>-6429f2da:16bad71992e:-6f93</wuid>
       <x>5</x>
       <y>11</y>
     </widget>
@@ -1880,7 +1880,7 @@ $(pv_value)</tooltip>
       <P>$(TUNE_BO_V_AREA)</P>
       <R>$(TUNE_BO_V_DEV)</R>
     </macros>
-    <name>ROI_V</name>
+    <name>ROI_H_1</name>
     <rules />
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -1894,7 +1894,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <widget_type>Grouping Container</widget_type>
     <width>346</width>
-    <wuid>-6429f2da:16bad71992e:-709c</wuid>
+    <wuid>-6429f2da:16bad71992e:-6f92</wuid>
     <x>1190</x>
     <y>626</y>
     <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
@@ -1933,7 +1933,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Linking Container</widget_type>
       <width>344</width>
-      <wuid>-6429f2da:16bad71992e:-709b</wuid>
+      <wuid>-6429f2da:16bad71992e:-6f91</wuid>
       <x>0</x>
       <y>0</y>
     </widget>
