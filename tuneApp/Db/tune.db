@@ -971,7 +971,7 @@ record(calcout, "$(P)$(R)ROIOffXConv-Mon") {
   field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon CPP NMS")
   field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon CPP NMS")
   field(INPD, "$(SPEC_ANA)SwePts-RB CPP NMS")
-  field(CALC, "(A>B&&A<C)?FLOOR((A-B)/(D/(C-B))):0")
+  field(CALC, "(A>B&&A<C)?FLOOR((A-B)/((C-B)/D)):0")
   field(OOPT, "Every Time")
   field(FLNK, "$(P)$(R)ROIOffsetX-RB")
 }
@@ -1030,7 +1030,7 @@ record(calcout, "$(P)$(R)ROIWidthConv-Mon") {
   field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon CPP NMS")
   field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon CPP NMS")
   field(INPD, "$(SPEC_ANA)SwePts-RB CPP NMS")
-  field(CALC, "(A<=(C-B))?FLOOR(A/(D/(C-B))):0")
+  field(CALC, "(A<=(C-B))?FLOOR(A/((C-B)/D)):0")
   field(OOPT, "Every Time")
   field(FLNK, "$(P)$(R)ROIWidth-RB")
 }
