@@ -860,7 +860,6 @@ record(calc, "$(P)$(R)FreqRevNConvOut") {
   field(EGU, "Hz")
   field(INPA, "$(P)$(R)FreqRevN-Mon NPP MSS")
   field(CALC, "A*1000")
-  field(OOPT, "Every Time")
 }
 
 record(ao, "$(P)$(R)FreqOff-SP") {
