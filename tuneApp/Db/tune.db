@@ -989,6 +989,7 @@ record(ao, "$(P)$(R)ROIOffsetY-SP")
 {
   field(DESC, "Set ROI Offset Y")
   field(PINI, "YES")
+  field(PREC, "1")
   field(SCAN, "Passive")
   field(EGU,  "ms")
   field(FLNK, "$(P)$(R)ROIOffYConv-Mon")
@@ -1010,6 +1011,7 @@ record(ai, "$(P)$(R)ROIOffsetY-RB")
 {
   field(DESC, "Get ROI Offset Y")
   field(INP,  "$(P)$(R)ROIOffsetY-SP")
+  field(PREC, "1")
   field(SCAN, "Passive")
   field(EGU,  "ms")
 }
@@ -1018,6 +1020,7 @@ record(ao, "$(P)$(R)ROIWidth-SP")
 {
   field(DESC, "Set ROI Width")
   field(PINI, "YES")
+  field(PREC, "6")
   field(SCAN, "Passive")
   field(EGU,  "MHz")
   field(FLNK, "$(P)$(R)ROIWidthConv-Mon")
@@ -1039,6 +1042,7 @@ record(ai, "$(P)$(R)ROIWidth-RB")
 {
   field(DESC, "Get ROI Width")
   field(INP,  "$(P)$(R)ROIWidth-SP")
+  field(PREC, "6")
   field(SCAN, "Passive")
   field(EGU,  "MHz")
 }
@@ -1047,6 +1051,7 @@ record(ao, "$(P)$(R)ROIHeight-SP")
 {
   field(DESC, "Set ROI Height")
   field(PINI, "YES")
+  field(PREC, "1")
   field(SCAN, "Passive")
   field(EGU,  "ms")
   field(FLNK, "$(P)$(R)ROIHeightConv-Mon")
@@ -1068,6 +1073,7 @@ record(ai, "$(P)$(R)ROIHeight-RB")
 {
   field(DESC, "Get ROI Height")
   field(INP,  "$(P)$(R)ROIHeight-SP")
+  field(PREC, "1")
   field(SCAN, "Passive")
   field(EGU,  "ms")
 }
