@@ -960,6 +960,7 @@ record(ao, "$(P)$(R)ProfileROIOffsetX-SP")
   field(DESC, "Set ROI Offset X")
   field(PINI, "YES")
   field(SCAN, "Passive")
+  field(EGU,  "MHz")
   field(FLNK, "$(P)$(R)ProfileROIOffsetX-RB")
 }
 
@@ -968,6 +969,7 @@ record(ai, "$(P)$(R)ProfileROIOffsetX-RB")
   field(DESC, "Get ROI Offset X")
   field(INP,  "$(P)$(R)ProfileROIOffsetX-SP")
   field(SCAN, "Passive")
+  field(EGU,  "MHz")
 }
 
 record(ao, "$(P)$(R)ProfileROIOffsetY-SP")
@@ -975,6 +977,7 @@ record(ao, "$(P)$(R)ProfileROIOffsetY-SP")
   field(DESC, "Set ROI Offset Y")
   field(PINI, "YES")
   field(SCAN, "Passive")
+  field(EGU,  "ms")
   field(FLNK, "$(P)$(R)ProfileROIOffsetY-RB")
 }
 
@@ -983,6 +986,7 @@ record(ai, "$(P)$(R)ProfileROIOffsetY-RB")
   field(DESC, "Get ROI Offset Y")
   field(INP,  "$(P)$(R)ProfileROIOffsetY-SP")
   field(SCAN, "Passive")
+  field(EGU,  "ms")
 }
 
 record(ao, "$(P)$(R)ProfileROIWidth-SP")
@@ -990,6 +994,7 @@ record(ao, "$(P)$(R)ProfileROIWidth-SP")
   field(DESC, "Set ROI Width")
   field(PINI, "YES")
   field(SCAN, "Passive")
+  field(EGU,  "MHz")
   field(FLNK, "$(P)$(R)ProfileROIWidth-RB")
 }
 
@@ -998,6 +1003,7 @@ record(ai, "$(P)$(R)ProfileROIWidth-RB")
   field(DESC, "Get ROI Width")
   field(INP,  "$(P)$(R)ProfileROIWidth-SP")
   field(SCAN, "Passive")
+  field(EGU,  "MHz")
 }
 
 record(ao, "$(P)$(R)ProfileROIHeight-SP")
@@ -1005,6 +1011,7 @@ record(ao, "$(P)$(R)ProfileROIHeight-SP")
   field(DESC, "Set ROI Height")
   field(PINI, "YES")
   field(SCAN, "Passive")
+  field(EGU,  "ms")
   field(FLNK, "$(P)$(R)ProfileROIHeight-RB")
 }
 
@@ -1013,6 +1020,7 @@ record(ai, "$(P)$(R)ProfileROIHeight-RB")
   field(DESC, "Get ROI Height")
   field(INP,  "$(P)$(R)ProfileROIHeight-SP")
   field(SCAN, "Passive")
+  field(EGU,  "ms")
 }
 
 ############################################################
