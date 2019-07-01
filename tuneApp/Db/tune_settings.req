@@ -32,3 +32,9 @@ $(P)$(R)DriveAuto-Sel
 
 # Enable Spec. Analyzer
 $(P)$(R)SpecAnaGetSpec-Sel
+
+# ROI
+$(P)$(R)ProfileROIOffsetX-SP
+$(P)$(R)ProfileROIOffsetY-SP
+$(P)$(R)ProfileROIWidth-SP
+$(P)$(R)ProfileROIHeight-SP
