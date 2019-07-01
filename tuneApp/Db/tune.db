@@ -961,10 +961,10 @@ record(ao, "$(P)$(R)ROIOffsetX-SP")
   field(PREC, "6")
   field(SCAN, "Passive")
   field(EGU,  "MHz")
-  field(FLNK, "$(P)$(R)ROIOffXConv-Mon")
+  field(FLNK, "$(P)$(R)ROIOffXConvD-Mon")
 }
 
-record(calcout, "$(P)$(R)ROIOffXConv-Mon") {
+record(calcout, "$(P)$(R)ROIOffXConvD-Mon") {
   field(DESC, "ROI Offset X in Graph pixels")
   field(EGU,  "pixel")
   field(INPA, "$(P)$(R)ROIOffsetX-SP")
@@ -973,7 +973,13 @@ record(calcout, "$(P)$(R)ROIOffXConv-Mon") {
   field(INPD, "$(SPEC_ANA)SwePts-RB CPP NMS")
   field(CALC, "(A>B&&A<C)?FLOOR((A-B)/((C-B)/D)):0")
   field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIOffXConv-Mon PP")
   field(FLNK, "$(P)$(R)ROIOffsetX-RB")
+}
+
+record(longout, "$(P)$(R)ROIOffXConv-Mon") {
+  field(DESC, "ROI Offset X in Graph pixels")
+  field(EGU,  "pixel")
 }
 
 record(ai, "$(P)$(R)ROIOffsetX-RB")
@@ -992,10 +998,10 @@ record(ao, "$(P)$(R)ROIOffsetY-SP")
   field(PREC, "1")
   field(SCAN, "Passive")
   field(EGU,  "ms")
-  field(FLNK, "$(P)$(R)ROIOffYConv-Mon")
+  field(FLNK, "$(P)$(R)ROIOffYConvD-Mon")
 }
 
-record(calcout, "$(P)$(R)ROIOffYConv-Mon") {
+record(calcout, "$(P)$(R)ROIOffYConvD-Mon") {
   field(DESC, "ROI Offset Y conversion")
   field(EGU,  "pixel")
   field(INPA, "$(P)$(R)ROIOffsetY-SP")
@@ -1004,7 +1010,13 @@ record(calcout, "$(P)$(R)ROIOffYConv-Mon") {
   field(INPD, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
   field(CALC, "(A>B&&A<C)?FLOOR((A-B)/(D/(C-B))):0")
   field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIOffYConv-Mon PP")
   field(FLNK, "$(P)$(R)ROIOffsetY-RB")
+}
+
+record(longout, "$(P)$(R)ROIOffYConv-Mon") {
+  field(DESC, "ROI Offset Y in Graph pixels")
+  field(EGU,  "pixel")
 }
 
 record(ai, "$(P)$(R)ROIOffsetY-RB")
@@ -1023,10 +1035,10 @@ record(ao, "$(P)$(R)ROIWidth-SP")
   field(PREC, "6")
   field(SCAN, "Passive")
   field(EGU,  "MHz")
-  field(FLNK, "$(P)$(R)ROIWidthConv-Mon")
+  field(FLNK, "$(P)$(R)ROIWidthConvD-Mon")
 }
 
-record(calcout, "$(P)$(R)ROIWidthConv-Mon") {
+record(calcout, "$(P)$(R)ROIWidthConvD-Mon") {
   field(DESC, "ROI Width in Graph pixels")
   field(EGU,  "pixel")
   field(INPA, "$(P)$(R)ROIWidth-SP")
@@ -1035,7 +1047,13 @@ record(calcout, "$(P)$(R)ROIWidthConv-Mon") {
   field(INPD, "$(SPEC_ANA)SwePts-RB CPP NMS")
   field(CALC, "(A<=(C-B))?FLOOR(A/((C-B)/D)):0")
   field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIWidthConv-Mon PP")
   field(FLNK, "$(P)$(R)ROIWidth-RB")
+}
+
+record(longout, "$(P)$(R)ROIWidthConv-Mon") {
+  field(DESC, "ROI Width in Graph pixels")
+  field(EGU,  "pixel")
 }
 
 record(ai, "$(P)$(R)ROIWidth-RB")
@@ -1054,10 +1072,10 @@ record(ao, "$(P)$(R)ROIHeight-SP")
   field(PREC, "1")
   field(SCAN, "Passive")
   field(EGU,  "ms")
-  field(FLNK, "$(P)$(R)ROIHeightConv-Mon")
+  field(FLNK, "$(P)$(R)ROIHeightConvD-Mon")
 }
 
-record(calcout, "$(P)$(R)ROIHeightConv-Mon") {
+record(calcout, "$(P)$(R)ROIHeightConvD-Mon") {
   field(DESC, "ROI Height in Graph pixels")
   field(EGU,  "pixel")
   field(INPA, "$(P)$(R)ROIHeight-SP")
@@ -1066,7 +1084,13 @@ record(calcout, "$(P)$(R)ROIHeightConv-Mon") {
   field(INPD, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
   field(CALC, "(A<=(C-B))?FLOOR((A-B)/(D/(C-B))):0")
   field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIHeightConv-Mon PP")
   field(FLNK, "$(P)$(R)ROIHeight-RB")
+}
+
+record(longout, "$(P)$(R)ROIHeightConv-Mon") {
+  field(DESC, "ROI Height in Graph pixels")
+  field(EGU,  "pixel")
 }
 
 record(ai, "$(P)$(R)ROIHeight-RB")
