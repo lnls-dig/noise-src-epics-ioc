@@ -1178,6 +1178,210 @@ record(ai, "$(P)$(R)ROIHeight-RB")
   field(EGU,  "ms")
 }
 
+# ROI Auto Settings
+
+record(calcout, "$(P)$(R)ROIOffXAC") {
+  field(DESC, "Auto ROI Offset X")
+  field(EGU, "MHz")
+  field(INPA, "$(P)$(R)SpecAnaRBW-Sts.RVAL CPP")
+  field(INPB, "$(P)$(R)CenterFreq-RB CPP")
+  field(INPC, "$(P)$(R)ROIAuto-Sts CPP")
+  field(CALC, "C>0")
+  field(OOPT, "When Non-zero")
+  field(DOPT, "Use OCAL")
+  field(OCAL, "B-(A/1000000)/2")
+}
+
+record(calcout, "$(P)$(R)ROIWdtAC") {
+  field(DESC, "Auto ROI Width")
+  field(EGU, "MHz")
+  field(INPA, "$(P)$(R)SpecAnaRBW-Sts.RVAL CPP")
+  field(INPB, "$(P)$(R)ROIAuto-Sts CPP")
+  field(CALC, "B>0")
+  field(OOPT, "When Non-zero")
+  field(DOPT, "Use OCAL")
+  field(OCAL, "A/1000000")
+}
+
+record(calcout, "$(P)$(R)ROIHgtAC") {
+  field(DESC, "Auto ROI Height")
+  field(EGU, "ms")
+  field(INPA, "$(SPEC_ANA)TimeDelta-Mon CPP NMS")
+  field(INPB, "$(P)$(R)ROIAuto-Sts CPP")
+  field(CALC, "B>0")
+  field(OOPT, "When Non-zero")
+  field(DOPT, "Use OCAL")
+  field(OCAL, "A")
+}
+
+record(bo, "$(P)$(R)ROIAuto-Sel"){
+  field(DESC, "Enable automatic ROI")
+  field(PINI, "YES")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+  field(FLNK, "$(P)$(R)ROIAuto-Sts")
+}
+
+record(bi, "$(P)$(R)ROIAuto-Sts"){
+  field(DESC, "Get automatic ROI")
+  field(INP,  "$(P)$(R)ROIAuto-Sel")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+}
+
+# For use with seq record below
+# 5=(STR1 and STR3) or 10=(STR2 and STR4)
+record(calc, "$(P)$(R)ROIAutoIdxCalc"){
+    field(DESC, "Get ROI auto propagation index")
+    field(SCAN, "Passive")
+    field(INPA, "$(P)$(R)ROIAuto-Sts.VAL CPP NMS")
+    field(CALC, "A=0?5:10")
+}
+
+# ROI Offset X
+record(sseq, "$(P)$(R)ROIAutoPropSseqOffX"){
+    field(DESC, "Get all types of ao OMSL")
+    field(PINI, "YES")
+    field(STR1, "supervisory")
+    field(STR2, "closed_loop")
+    field(STR3, "0")
+    field(STR4, "$(P)$(R)ROIOffXAC.OVAL CPP MS")
+    field(LNK1, "$(P)$(R)ROIOffsetX-SP.OMSL NPP NMS")
+    field(LNK2, "$(P)$(R)ROIOffsetX-SP.OMSL NPP NMS")
+    field(LNK3, "$(P)$(R)ROIOffsetX-SP.DOL CA NMS")
+    field(LNK4, "$(P)$(R)ROIOffsetX-SP.DOL CA NMS")
+    field(SELL, "$(P)$(R)ROIAutoIdxCalc CPP MS")
+    field(SELM, "Mask")
+    field(SELN, "1")
+    field(FLNK, "$(P)$(R)ROIAutoOffXFilter-SP")
+}
+
+# Checks if we need to Process ROI after setting
+# ROIAutoOffX to 1. This synchornizes the "Span" value
+# to the ROI even if the "Span" value didn't
+# change
+record(calcout, "$(P)$(R)ROIAutoOffXFilter-SP"){
+    field(DESC, "Set FLNK to records")
+    field(INPA, "$(P)$(R)ROIAuto-Sts NPP NMS")
+    field(CALC, "A>0")
+    field(OOPT, "When Non-zero")
+    field(OUT, "$(P)$(R)ROIAutoOffXFout.PROC PP")
+}
+
+record(fanout, "$(P)$(R)ROIAutoOffXFout"){
+    field(DESC, "Fanout center freq auto FLNK")
+    field(SELM, "All")
+    field(LNK1, "$(P)$(R)ROIOffsetX-SP")
+}
+
+# ROI Offset Y
+record(sseq, "$(P)$(R)ROIAutoPropSseqOffY"){
+    field(DESC, "Get all types of ao OMSL")
+    field(PINI, "YES")
+    field(STR1, "supervisory")
+    field(STR2, "closed_loop")
+    field(STR3, "0")
+    field(STR4, "0")
+    field(LNK1, "$(P)$(R)ROIOffsetY-SP.OMSL NPP NMS")
+    field(LNK2, "$(P)$(R)ROIOffsetY-SP.OMSL NPP NMS")
+    field(LNK3, "$(P)$(R)ROIOffsetY-SP.DOL CA NMS")
+    field(LNK4, "$(P)$(R)ROIOffsetY-SP.DOL CA NMS")
+    field(SELL, "$(P)$(R)ROIAutoIdxCalc CPP MS")
+    field(SELM, "Mask")
+    field(SELN, "1")
+    field(FLNK, "$(P)$(R)ROIAutoOffYFilter-SP")
+}
+
+# Checks if we need to Process ROI after setting
+# ROIAutoOffY to 1. This synchornizes the "Span" value
+# to the ROI even if the "Span" value didn't
+# change
+record(calcout, "$(P)$(R)ROIAutoOffYFilter-SP"){
+    field(DESC, "Set FLNK to records")
+    field(INPA, "$(P)$(R)ROIAuto-Sts NPP NMS")
+    field(CALC, "A>0")
+    field(OOPT, "When Non-zero")
+    field(OUT, "$(P)$(R)ROIAutoOffYFout.PROC PP")
+}
+
+record(fanout, "$(P)$(R)ROIAutoOffYFout"){
+    field(DESC, "Fanout center freq auto FLNK")
+    field(SELM, "All")
+    field(LNK1, "$(P)$(R)ROIOffsetY-SP")
+}
+
+# ROI Width
+record(sseq, "$(P)$(R)ROIAutoPropSseqWidth"){
+    field(DESC, "Get all types of ao OMSL")
+    field(PINI, "YES")
+    field(STR1, "supervisory")
+    field(STR2, "closed_loop")
+    field(STR3, "0")
+    field(STR4, "$(P)$(R)ROIWdtAC.OVAL CPP MS")
+    field(LNK1, "$(P)$(R)ROIWidth-SP.OMSL NPP NMS")
+    field(LNK2, "$(P)$(R)ROIWidth-SP.OMSL NPP NMS")
+    field(LNK3, "$(P)$(R)ROIWidth-SP.DOL CA NMS")
+    field(LNK4, "$(P)$(R)ROIWidth-SP.DOL CA NMS")
+    field(SELL, "$(P)$(R)ROIAutoIdxCalc CPP MS")
+    field(SELM, "Mask")
+    field(SELN, "1")
+    field(FLNK, "$(P)$(R)ROIAutoWidthFilter-SP")
+}
+
+# Checks if we need to Process ROI after setting
+# ROIAutoWidth to 1. This synchornizes the "Span" value
+# to the ROI even if the "Span" value didn't
+# change
+record(calcout, "$(P)$(R)ROIAutoWidthFilter-SP"){
+    field(DESC, "Set FLNK to records")
+    field(INPA, "$(P)$(R)ROIAuto-Sts NPP NMS")
+    field(CALC, "A>0")
+    field(OOPT, "When Non-zero")
+    field(OUT, "$(P)$(R)ROIAutoWidthFout.PROC PP")
+}
+
+record(fanout, "$(P)$(R)ROIAutoWidthFout"){
+    field(DESC, "Fanout center freq auto FLNK")
+    field(SELM, "All")
+    field(LNK1, "$(P)$(R)ROIWidth-SP")
+}
+
+# ROI Height
+record(sseq, "$(P)$(R)ROIAutoPropSseqHeight"){
+    field(DESC, "Get all types of ao OMSL")
+    field(PINI, "YES")
+    field(STR1, "supervisory")
+    field(STR2, "closed_loop")
+    field(STR3, "0")
+    field(STR4, "$(P)$(R)ROIHgtAC.OVAL CPP MS")
+    field(LNK1, "$(P)$(R)ROIHeight-SP.OMSL NPP NMS")
+    field(LNK2, "$(P)$(R)ROIHeight-SP.OMSL NPP NMS")
+    field(LNK3, "$(P)$(R)ROIHeight-SP.DOL CA NMS")
+    field(LNK4, "$(P)$(R)ROIHeight-SP.DOL CA NMS")
+    field(SELL, "$(P)$(R)ROIAutoIdxCalc CPP MS")
+    field(SELM, "Mask")
+    field(SELN, "1")
+    field(FLNK, "$(P)$(R)ROIAutoHeightFilter-SP")
+}
+
+# Checks if we need to Process ROI after setting
+# ROIAutoHeight to 1. This synchornizes the "Span" value
+# to the ROI even if the "Span" value didn't
+# change
+record(calcout, "$(P)$(R)ROIAutoHeightFilter-SP"){
+    field(DESC, "Set FLNK to records")
+    field(INPA, "$(P)$(R)ROIAuto-Sts NPP NMS")
+    field(CALC, "A>0")
+    field(OOPT, "When Non-zero")
+    field(OUT, "$(P)$(R)ROIAutoHeightFout.PROC PP")
+}
+
+record(fanout, "$(P)$(R)ROIAutoHeightFout"){
+    field(DESC, "Fanout center freq auto FLNK")
+    field(SELM, "All")
+    field(LNK1, "$(P)$(R)ROIHeight-SP")
+}
+
 ############################################################
 # AUTOSAVE
 #
