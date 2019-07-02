@@ -38,3 +38,4 @@ $(P)$(R)ROIOffsetX-SP
 $(P)$(R)ROIOffsetY-SP
 $(P)$(R)ROIWidth-SP
 $(P)$(R)ROIHeight-SP
+$(P)$(R)ROIAuto-Sel
