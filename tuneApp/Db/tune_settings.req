@@ -39,3 +39,9 @@ $(P)$(R)ROIOffsetY-SP
 $(P)$(R)ROIWidth-SP
 $(P)$(R)ROIHeight-SP
 $(P)$(R)ROIAuto-Sel
+
+# Amplifier Gain
+$(P)$(R)AmpGain-SP
+
+# Noise Generator Amplitude
+$(P)$(R)NoiseAmpl-SP
