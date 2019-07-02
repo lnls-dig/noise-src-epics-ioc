@@ -34,7 +34,7 @@ $(P)$(R)DriveAuto-Sel
 $(P)$(R)SpecAnaGetSpec-Sel
 
 # ROI
-$(P)$(R)ProfileROIOffsetX-SP
-$(P)$(R)ProfileROIOffsetY-SP
-$(P)$(R)ProfileROIWidth-SP
-$(P)$(R)ProfileROIHeight-SP
+$(P)$(R)ROIOffsetX-SP
+$(P)$(R)ROIOffsetY-SP
+$(P)$(R)ROIWidth-SP
+$(P)$(R)ROIHeight-SP
