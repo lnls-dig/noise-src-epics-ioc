@@ -491,6 +491,27 @@ record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
 #
 # Desc: Parameters to control noise generator.
 
+record(ao, "$(P)$(R)NoiseAmpl-SP") {
+  field(DESC, "Set noise power")
+  field(PINI, "YES")
+  field(EGU,  "V")
+  field(PREC, "3")
+  field(DRVL, "-10.0")
+  field(DRVH, "10.0")
+  field(LOW,  "-9.0")
+  field(HIGH, "9.0")
+  field(HSL,  "MINOR")
+  field(HSV,  "MINOR")
+  field(OUT, "$(NOISE_GEN)Ampl-SP PP")
+}
+
+record(ai, "$(P)$(R)NoiseAmpl-RB") {
+  field(DESC, "Get noise amplitude")
+  field(INP,  "$(NOISE_GEN)Ampl-RB CPP MSS")
+  field(EGU,  "V")
+  field(PREC, "3")
+}
+
 # Span meaning for Noise Generator is half of the measurement span
 record(calc, "$(P)$(R)NoiseCalc"){
   field(DESC, "Noise Span calculation to instrument")
