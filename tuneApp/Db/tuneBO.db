@@ -38,7 +38,7 @@ record(sseq, "$(P)$(R)InitSeqNoiseGen"){
   field(DLY1,  "0.5")
   field(DO2,  "0.2")
   field(LNK2, "$(NOISE_GEN)Ampl-SP PP")         # Set sanity Amplitude
-  field(DO3,  "0.2")
+  field(DO3,  "0.0")
   field(LNK3, "$(NOISE_GEN)Offset-SP PP")       # Set sanity Offset
   field(DO4,  "1000")
   field(LNK4, "$(P)$(R)Span-SP.PROC PP")        # Process span
