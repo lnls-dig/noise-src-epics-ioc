@@ -1737,46 +1737,6 @@ $(pv_value)</tooltip>
         <x>253</x>
         <y>262</y>
       </widget>
-      <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
-        <actions hook="false" hook_all="false" />
-        <auto_size>false</auto_size>
-        <background_color>
-          <color red="255" green="255" blue="255" />
-        </background_color>
-        <border_color>
-          <color red="0" green="128" blue="255" />
-        </border_color>
-        <border_style>0</border_style>
-        <border_width>1</border_width>
-        <enabled>false</enabled>
-        <font>
-          <fontdata fontName="Ubuntu" height="12" style="0" pixels="false" />
-        </font>
-        <foreground_color>
-          <color red="0" green="0" blue="0" />
-        </foreground_color>
-        <height>28</height>
-        <horizontal_alignment>0</horizontal_alignment>
-        <name>Label_23</name>
-        <rules />
-        <scale_options>
-          <width_scalable>true</width_scalable>
-          <height_scalable>true</height_scalable>
-          <keep_wh_ratio>false</keep_wh_ratio>
-        </scale_options>
-        <scripts />
-        <text>Marker Freq.</text>
-        <tooltip></tooltip>
-        <transparent>true</transparent>
-        <vertical_alignment>1</vertical_alignment>
-        <visible>true</visible>
-        <widget_type>Label</widget_type>
-        <width>90</width>
-        <wrap_words>false</wrap_words>
-        <wuid>67bdec06:1675a718dc8:-5a30</wuid>
-        <x>13</x>
-        <y>315</y>
-      </widget>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -2873,6 +2833,45 @@ $(pv_value)</tooltip>
         <x>254</x>
         <y>319</y>
       </widget>
+      <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <auto_size>false</auto_size>
+        <background_color>
+          <color red="255" green="255" blue="255" />
+        </background_color>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>false</enabled>
+        <font>
+          <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+        </font>
+        <foreground_color>
+          <color red="0" green="0" blue="0" />
+        </foreground_color>
+        <height>28</height>
+        <horizontal_alignment>0</horizontal_alignment>
+        <name>Label_23</name>
+        <rules />
+        <scale_options>
+          <width_scalable>true</width_scalable>
+          <height_scalable>true</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <text>Drive Gain</text>
+        <tooltip></tooltip>
+        <transparent>true</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Label</widget_type>
+        <width>95</width>
+        <wrap_words>false</wrap_words>
+        <wuid>67bdec06:1675a718dc8:4c2d</wuid>
+        <x>12</x>
+        <y>349</y>
       </widget>
       <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
         <actions hook="false" hook_all="false" />
@@ -2907,7 +2906,7 @@ $(pv_value)</tooltip>
         <name>Text Input_3</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name></pv_name>
+        <pv_name>$(P)$(R)AmpGain-SP</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -2959,7 +2958,7 @@ $(pv_value)</tooltip>
         <name>Text Update_10</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name></pv_name>
+        <pv_name>$(P)$(R)AmpGain-RB</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3011,7 +3010,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <text>Drive Power</text>
+        <text>Noise Ampl.</text>
         <tooltip></tooltip>
         <transparent>true</transparent>
         <vertical_alignment>1</vertical_alignment>
@@ -3056,7 +3055,7 @@ $(pv_value)</tooltip>
         <name>Text Input_3</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name></pv_name>
+        <pv_name>$(P)$(R)NoiseAmpl-SP</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3108,7 +3107,7 @@ $(pv_value)</tooltip>
         <name>Text Update_10</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name></pv_name>
+        <pv_name>$(P)$(R)NoiseAmpl-RB</pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -3126,11 +3125,11 @@ $(pv_value)</tooltip>
         <vertical_alignment>1</vertical_alignment>
         <visible>false</visible>
         <widget_type>Text Update</widget_type>
-        <width>97</width>
+        <width>110</width>
         <wrap_words>false</wrap_words>
-        <wuid>67bdec06:1675a718dc8:4c2f</wuid>
-        <x>233</x>
-        <y>386</y>
+        <wuid>-6429f2da:16bad71992e:-6431</wuid>
+        <x>230</x>
+        <y>381</y>
       </widget>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
