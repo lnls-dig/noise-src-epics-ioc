@@ -2974,13 +2974,13 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
         <transparent>false</transparent>
         <vertical_alignment>1</vertical_alignment>
-        <visible>false</visible>
+        <visible>true</visible>
         <widget_type>Text Update</widget_type>
         <width>110</width>
         <wrap_words>false</wrap_words>
         <wuid>67bdec06:1675a718dc8:4c2f</wuid>
         <x>230</x>
-        <y>354</y>
+        <y>353</y>
       </widget>
       <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
         <actions hook="false" hook_all="false" />
@@ -3123,13 +3123,13 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
         <transparent>false</transparent>
         <vertical_alignment>1</vertical_alignment>
-        <visible>false</visible>
+        <visible>true</visible>
         <widget_type>Text Update</widget_type>
         <width>110</width>
         <wrap_words>false</wrap_words>
         <wuid>-6429f2da:16bad71992e:-6431</wuid>
         <x>230</x>
-        <y>381</y>
+        <y>380</y>
       </widget>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
