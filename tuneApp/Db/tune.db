@@ -374,6 +374,31 @@ record(fanout, "$(P)$(R)DriveAutoFout"){
 }
 
 ############################################################
+# AMLIFIER CONTROL
+#
+# Desc: Parameters to amplifier.
+
+record(ao, "$(P)$(R)AmpGain-SP") {
+  field(DESC, "Set Gain Control")
+  field(DTYP, "Soft Channel")
+  field(EGU, "dB")
+  field(PREC, "2")
+  field(DRVL, "30.0")
+  field(DRVH, "49.0")
+  field(HIGH, "48.5")
+  field(HSV,  "MINOR")
+  field(PINI, "YES")
+  field(OUT, "$(AMP)Gain-SP PP")
+}
+
+record(ai, "$(P)$(R)AmpGain-RB") {
+  field(DESC, "Get Gain Control")
+  field(INP,  "$(AMP)Gain-RB CPP MSS")
+  field(EGU,  "dB")
+  field(PREC, "2")
+}
+
+############################################################
 # SPECTURM ANALYZER CONTROL
 #
 # Desc: Parameters to control spectrum analyzer.
