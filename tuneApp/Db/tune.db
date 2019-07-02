@@ -985,7 +985,7 @@ record(longout, "$(P)$(R)ROIOffXConv-Mon") {
 record(calcout, "$(P)$(R)ROIOffXConvL-Mon") {
   field(DESC, "ROI Offset X in Graph MHz")
   field(EGU,  "MHz")
-  field(INPA, "$(P)$(R)ROIOffXConv-Mon CPP NMS")
+  field(INPA, "$(P)$(R)ROIOffXConv-RB NPP NMS")
   field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon NPP NMS")
   field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon NPP NMS")
   field(INPD, "$(SPEC_ANA)SwePts-RB NPP NMS")
@@ -1034,7 +1034,7 @@ record(longout, "$(P)$(R)ROIOffYConv-Mon") {
 record(calcout, "$(P)$(R)ROIOffYConvL-Mon") {
   field(DESC, "ROI Offset Y in Graph ms")
   field(EGU,  "ms")
-  field(INPA, "$(P)$(R)ROIOffYConv-Mon CPP NMS")
+  field(INPA, "$(P)$(R)ROIOffYConv-RB NPP NMS")
   field(INPB, "0")
   field(INPC, "$(SPEC_ANA)TimeDelta-Mon NPP NMS")
   field(INPD, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
@@ -1083,7 +1083,7 @@ record(longout, "$(P)$(R)ROIWidthConv-Mon") {
 record(calcout, "$(P)$(R)ROIWidthConvL-Mon") {
   field(DESC, "ROI Width in Graph MHz")
   field(EGU,  "MHz")
-  field(INPA, "$(P)$(R)ROIWidthConv-Mon CPP NMS")
+  field(INPA, "$(P)$(R)ROIWidthConv-RB NPP NMS")
   field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon NPP NMS")
   field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon NPP NMS")
   field(INPD, "$(SPEC_ANA)SwePts-RB NPP NMS")
@@ -1132,7 +1132,7 @@ record(longout, "$(P)$(R)ROIHeightConv-Mon") {
 record(calcout, "$(P)$(R)ROIHeightConvL-Mon") {
   field(DESC, "ROI Height in Graph ms")
   field(EGU,  "ms")
-  field(INPA, "$(P)$(R)ROIHeightConv-Mon CPP NMS")
+  field(INPA, "$(P)$(R)ROIHeightConv-RB NPP NMS")
   field(INPB, "0")
   field(INPC, "$(SPEC_ANA)TimeDelta-Mon NPP NMS")
   field(INPD, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
