@@ -143,16 +143,36 @@ record(mbbi, "$(P)$(R)EnblNoiseGenAmp-Sts"){
 
 record(ao, "$(P)$(R)Span-SP") {
   field(DESC, "Set measurement span")
+  field(PREC, "3")
   field(PINI, "YES")
-  field(EGU,  "Hz")
+  field(EGU,  "KHz")
+  field(FLNK, "$(P)$(R)SpanSPConvOut")
+}
+
+record(calcout, "$(P)$(R)SpanSPConvOut") {
+  field(DESC, "Span SP conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)Span-SP")
+  field(CALC, "A*1000")
+  field(OOPT, "Every Time")
   field(OUT,  "$(SPEC_ANA)FreqSpan-SP")
   field(FLNK, "$(P)$(R)Span-RB")
 }
 
 record(ai, "$(P)$(R)Span-RB") {
   field(DESC, "Get measurement span")
-  field(EGU,  "Hz")
+  field(PREC, "3")
+  field(EGU,  "KHz")
   field(INP, "$(P)$(R)Span-SP")
+  field(FLNK, "$(P)$(R)SpanRBConvOut")
+}
+
+record(calcout, "$(P)$(R)SpanRBConvOut") {
+  field(DESC, "Span RB conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)Span-RB NPP MSS")
+  field(CALC, "A*1000")
+  field(OOPT, "Every Time")
 }
 
 record(bo, "$(P)$(R)CenterFreqAuto-Sel"){
@@ -216,10 +236,20 @@ record(fanout, "$(P)$(R)CenterFreqAutoFout"){
 
 record(ao, "$(P)$(R)CenterFreq-SP") {
   field(DESC, "Set center freq")
+  field(PREC, "6")
   field(PINI, "YES")
-  field(EGU,  "Hz")
+  field(EGU,  "MHz")
   field(DOL,  "$(P)$(R)CFreqCalc.OVAL CPP MSS")
   field(OMSL, "closed_loop")
+  field(FLNK, "$(P)$(R)CFreqConvOut")
+}
+
+record(calcout, "$(P)$(R)CFreqConvOut") {
+  field(DESC, "Center Freq. conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)CenterFreq-SP")
+  field(CALC, "A*1000000")
+  field(OOPT, "Every Time")
   field(OUT,  "$(SPEC_ANA)FreqCenter-SP")
 }
 
@@ -230,6 +260,7 @@ record(ao, "$(P)$(R)CenterFreq-SP") {
 # of CarFreq-RB
 record(calcout, "$(P)$(R)CenterFreqRBCalc") {
   field(DESC, "Get frequency readback")
+  field(EGU,  "MHz")
   field(INPA, "$(SPEC_ANA)FreqCenter-RB CPP MSS")
   field(INPB, "$(P)$(R)CarFreq-RB CPP MSS")
   field(INPC, "$(P)$(R)DriveAuto-Sts CPP NMS")
@@ -237,22 +268,23 @@ record(calcout, "$(P)$(R)CenterFreqRBCalc") {
   field(LOW,  "0")
   field(LSV,  "MINOR")
   field(OOPT, "Every Time")
-  field(OCAL, "A")
+  field(OCAL, "A/1000000")
   field(DOPT, "Use OCAL")
   field(OUT,  "0")
 }
 
 record(ai, "$(P)$(R)CenterFreq-RB") {
   field(DESC, "Get center freq")
+  field(PREC, "6")
   field(INP,  "$(P)$(R)CenterFreqRBCalc.OVAL CPP MSS")
-  field(EGU,  "Hz")
+  field(EGU,  "MHz")
   field(FLNK, "$(P)$(R)RevNCalc")
 }
 
 # Center Frequency, if not in auto mode, sets RevN and Offset
 record(calcout, "$(P)$(R)RevNCalc") {
   field(DESC, "Rev. N from Center Freq.")
-  field(INPA, "$(P)$(R)CenterFreq-SP")
+  field(INPA, "$(P)$(R)CFreqConvOut")
   field(INPB, "$(P)$(R)FreqRev-Mon CPP")
   field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
   field(CALC, "C=0?((A/B)>1?FLOOR(A/B):1):0")
@@ -263,11 +295,12 @@ record(calcout, "$(P)$(R)RevNCalc") {
 
 record(calcout, "$(P)$(R)FreqOffCalc") {
   field(DESC, "Offset frequency from Center Freq.")
-  field(INPA, "$(P)$(R)CenterFreq-SP")
+  field(EGU, "KHz")
+  field(INPA, "$(P)$(R)CFreqConvOut")
   field(INPB, "$(P)$(R)FreqRev-Mon CPP")
   field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
   field(INPD, "$(P)$(R)RevNCalc")
-  field(CALC, "C=0?(A-B*D):0")
+  field(CALC, "C=0?(A-B*D)/1000:0")
   field(OOPT, "When Non-zero")
   field(OUT, "$(P)$(R)FreqOff-SP PP")
 }
@@ -306,7 +339,7 @@ record(sseq, "$(P)$(R)DriveAutoPropSseq"){
     field(STR5, "0")
     field(STR6, "$(P)$(R)NoiseCalc CPP MSS")
     field(STR7, "0")
-    field(STR8, "$(P)$(R)CenterFreq-SP CPP MS")
+    field(STR8, "$(P)$(R)CFreqConvOut CPP MS")
     field(LNK1, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
     field(LNK2, "$(P)$(R)NoiseGenSpan-SP.OMSL NPP NMS")
     field(LNK3, "$(P)$(R)CarFreq-SP.OMSL NPP NMS")
@@ -341,12 +374,39 @@ record(fanout, "$(P)$(R)DriveAutoFout"){
 }
 
 ############################################################
+# AMLIFIER CONTROL
+#
+# Desc: Parameters to amplifier.
+
+record(ao, "$(P)$(R)AmpGain-SP") {
+  field(DESC, "Set Gain Control")
+  field(DTYP, "Soft Channel")
+  field(EGU, "dB")
+  field(PREC, "2")
+  field(DRVL, "30.0")
+  field(DRVH, "49.0")
+  field(HIGH, "48.5")
+  field(HSV,  "MINOR")
+  field(PINI, "YES")
+  field(OUT, "$(AMP)Gain-SP PP")
+}
+
+record(ai, "$(P)$(R)AmpGain-RB") {
+  field(DESC, "Get Gain Control")
+  field(INP,  "$(AMP)Gain-RB CPP MSS")
+  field(EGU,  "dB")
+  field(PREC, "2")
+}
+
+############################################################
 # SPECTURM ANALYZER CONTROL
 #
 # Desc: Parameters to control spectrum analyzer.
 
 record(mbbo, "$(P)$(R)SpecAnaRBW-Sel"){
   field(DESC, "Resolution Bandwidth")
+  field(DTYP, "Soft Channel")
+  field(NOBT, "4")
   field(PINI, "YES")
   field(ZRST, "10 Hz")
   field(ZRVL, "10")
@@ -379,6 +439,8 @@ record(mbbo, "$(P)$(R)SpecAnaRBW-Sel"){
 
 record(mbbi, "$(P)$(R)SpecAnaRBW-Sts"){
   field(DESC, "Resolution Bandwidth")
+  field(DTYP, "Soft Channel")
+  field(NOBT, "4")
   field(ZRST, "10 Hz")
   field(ZRVL, "10")
   field(ONST, "30 Hz")
@@ -429,10 +491,31 @@ record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
 #
 # Desc: Parameters to control noise generator.
 
+record(ao, "$(P)$(R)NoiseAmpl-SP") {
+  field(DESC, "Set noise power")
+  field(PINI, "YES")
+  field(EGU,  "V")
+  field(PREC, "3")
+  field(DRVL, "-10.0")
+  field(DRVH, "10.0")
+  field(LOW,  "-9.0")
+  field(HIGH, "9.0")
+  field(HSL,  "MINOR")
+  field(HSV,  "MINOR")
+  field(OUT, "$(NOISE_GEN)Ampl-SP PP")
+}
+
+record(ai, "$(P)$(R)NoiseAmpl-RB") {
+  field(DESC, "Get noise amplitude")
+  field(INP,  "$(NOISE_GEN)Ampl-RB CPP MSS")
+  field(EGU,  "V")
+  field(PREC, "3")
+}
+
 # Span meaning for Noise Generator is half of the measurement span
 record(calc, "$(P)$(R)NoiseCalc"){
   field(DESC, "Noise Span calculation to instrument")
-  field(INPA, "$(P)$(R)Span-RB CPP MSS")
+  field(INPA, "$(P)$(R)SpanRBConvOut CPP MSS")
   field(CALC, "A/2")
 }
 
@@ -626,7 +709,7 @@ record(ao, "$(P)$(R)CarFreq-SP"){
   field(DRVH, "6000000000")
   field(DRVL, "23500000")
   field(EGU, "Hz")
-  field(DOL, "$(P)$(R)CenterFreq-SP CPP MS")
+  field(DOL, "$(P)$(R)CFreqConvOut CPP MS")
   field(OMSL,"closed_loop")
   field(FLNK, "$(P)$(R)CarFreqCalc1")
 }
@@ -814,37 +897,66 @@ record(calc, "$(P)$(R)FreqRev-Mon") {
 
 record(calc, "$(P)$(R)FreqRevN-Mon") {
   field(DESC, "Monitor harmonic revolution frequency")
-  field(EGU, "Hz")
+  field(PREC, "3")
+  field(EGU, "KHz")
   field(INPA, "$(P)$(R)FreqRev-Mon CPP")
   field(INPB, "$(P)$(R)RevN-RB CPP")
-  field(CALC, "A*B")
+  field(CALC, "(A*B)/1000")
+  field(FLNK, "$(P)$(R)FreqRevNConvOut")
+}
+
+record(calc, "$(P)$(R)FreqRevNConvOut") {
+  field(DESC, "Freq. RevN conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)FreqRevN-Mon NPP MSS")
+  field(CALC, "A*1000")
 }
 
 record(ao, "$(P)$(R)FreqOff-SP") {
   field(DESC, "Set offset frequency from harmonic freq")
+  field(PREC, "3")
   field(PINI, "YES")
-  field(EGU, "Hz")
+  field(EGU, "KHz")
   field(DRVL, "0.0")
   field(DRVH, "10000000")
+  field(FLNK, "$(P)$(R)FOffSPConvOut")
+}
+
+record(calcout, "$(P)$(R)FOffSPConvOut") {
+  field(DESC, "Freq. offset SP conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)FreqOff-SP")
+  field(CALC, "A*1000")
+  field(OOPT, "Every Time")
   field(FLNK, "$(P)$(R)FreqOff-RB")
 }
 
 record(ai, "$(P)$(R)FreqOff-RB") {
   field(DESC, "Get offset frequency from harmonic freq")
-  field(EGU, "Hz")
+  field(PREC, "3")
+  field(EGU, "KHz")
   field(INP, "$(P)$(R)FreqOff-SP")
+  field(FLNK, "$(P)$(R)FOffRBConvOut")
+}
+
+record(calcout, "$(P)$(R)FOffRBConvOut") {
+  field(DESC, "Freq. offset RB conversion")
+  field(EGU, "Hz")
+  field(INPA, "$(P)$(R)FreqOff-RB")
+  field(CALC, "A*1000")
+  field(OOPT, "Every Time")
 }
 
 record(calcout, "$(P)$(R)CFreqCalc") {
   field(DESC, "Monitored calculated frequency")
-  field(EGU, "Hz")
-  field(INPA, "$(P)$(R)FreqOff-RB CPP")
-  field(INPB, "$(P)$(R)FreqRevN-Mon CPP")
+  field(EGU, "MHz")
+  field(INPA, "$(P)$(R)FOffRBConvOut CPP")
+  field(INPB, "$(P)$(R)FreqRevNConvOut CPP")
   field(INPC, "$(P)$(R)CenterFreqAuto-Sts CPP")
   field(CALC, "C>0")
   field(OOPT, "When Non-zero")
   field(DOPT, "Use OCAL")
-  field(OCAL, "A+B")
+  field(OCAL, "(A+B)/1000000")
 }
 
 # Calculate Fractional Tune parameters
@@ -884,6 +996,454 @@ record(bo, "$(P)$(R)TuneXaxis-Sel") {
   field(DESC, "Toggle Frac Tune or Frequency")
   field(ONAM, "Frac Tune")
   field(ZNAM, "Frequency")
+}
+
+############################################################
+# ROI
+#
+# Desc: Roegion of Interest.
+############################################################
+
+record(ao, "$(P)$(R)ROIOffsetX-SP")
+{
+  field(DESC, "Set ROI Offset X")
+  field(PINI, "YES")
+  field(PREC, "6")
+  field(SCAN, "Passive")
+  field(EGU,  "MHz")
+  field(FLNK, "$(P)$(R)ROIOffXConvD-Mon")
+}
+
+record(calcout, "$(P)$(R)ROIOffXConvD-Mon") {
+  field(DESC, "ROI Offset X in Graph pixels")
+  field(EGU,  "pixel")
+  field(INPA, "$(P)$(R)ROIOffsetX-SP")
+  field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon CPP NMS")
+  field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon CPP NMS")
+  field(INPD, "$(SPEC_ANA)SwePts-RB CPP NMS")
+  field(CALC, "(A<B)?0:((A>C)?D:(FLOOR((A-B)*D/(C-B))))")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIOffXConv-SP PP")
+  field(FLNK, "$(P)$(R)ROIOffsetX-RB")
+}
+
+record(longout, "$(P)$(R)ROIOffXConv-SP") {
+  field(DESC, "ROI Offset X in Graph pixels")
+  field(EGU,  "pixel")
+  field(FLNK, "$(P)$(R)ROIOffXConv-RB")
+}
+
+record(longin, "$(P)$(R)ROIOffXConv-RB") {
+  field(DESC, "ROI Offset X in Graph pixels")
+  field(INP,  "$(P)$(R)ROIOffXConv-SP")
+  field(EGU,  "pixel")
+}
+
+record(calcout, "$(P)$(R)ROIOffXConvL-Mon") {
+  field(DESC, "ROI Offset X in Graph MHz")
+  field(EGU,  "MHz")
+  field(INPA, "$(P)$(R)ROIOffXConv-RB CPP NMS")
+  field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon NPP NMS")
+  field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon NPP NMS")
+  field(INPD, "$(SPEC_ANA)SwePts-RB NPP NMS")
+  field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D+B))")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIOffsetX-SP PP")
+}
+
+record(ai, "$(P)$(R)ROIOffsetX-RB")
+{
+  field(DESC, "Get ROI Offset X")
+  field(INP,  "$(P)$(R)ROIOffsetX-SP")
+  field(PREC, "6")
+  field(SCAN, "Passive")
+  field(EGU,  "MHz")
+}
+
+record(ao, "$(P)$(R)ROIOffsetY-SP")
+{
+  field(DESC, "Set ROI Offset Y")
+  field(PINI, "YES")
+  field(PREC, "1")
+  field(SCAN, "Passive")
+  field(EGU,  "ms")
+  field(FLNK, "$(P)$(R)ROIOffYConvD-Mon")
+}
+
+record(calcout, "$(P)$(R)ROIOffYConvD-Mon") {
+  field(DESC, "ROI Offset Y conversion")
+  field(EGU,  "pixel")
+  field(INPA, "$(P)$(R)ROIOffsetY-SP")
+  field(INPB, "0")
+  field(INPC, "$(SPEC_ANA)TimeDelta-Mon NPP NMS")
+  field(INPD, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
+  field(CALC, "(A<B)?0:((A>C)?D:(FLOOR((A-B)*D/(C-B))))")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIOffYConv-SP PP")
+  field(FLNK, "$(P)$(R)ROIOffsetY-RB")
+}
+
+record(longout, "$(P)$(R)ROIOffYConv-SP") {
+  field(DESC, "ROI Offset Y in Graph pixels")
+  field(EGU,  "pixel")
+  field(FLNK, "$(P)$(R)ROIOffYConv-RB")
+}
+
+record(longin, "$(P)$(R)ROIOffYConv-RB") {
+  field(DESC, "ROI Offset Y in Graph pixels")
+  field(INP,  "$(P)$(R)ROIOffYConv-SP")
+  field(EGU,  "pixel")
+}
+
+record(calcout, "$(P)$(R)ROIOffYConvL-Mon") {
+  field(DESC, "ROI Offset Y in Graph ms")
+  field(EGU,  "ms")
+  field(INPA, "$(P)$(R)ROIOffYConv-RB CPP NMS")
+  field(INPB, "0")
+  field(INPC, "$(SPEC_ANA)TimeDelta-Mon NPP NMS")
+  field(INPD, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
+  field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D+B))")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIOffsetY-SP PP")
+}
+
+record(ai, "$(P)$(R)ROIOffsetY-RB")
+{
+  field(DESC, "Get ROI Offset Y")
+  field(INP,  "$(P)$(R)ROIOffsetY-SP")
+  field(PREC, "1")
+  field(SCAN, "Passive")
+  field(EGU,  "ms")
+}
+
+record(ao, "$(P)$(R)ROIWidth-SP")
+{
+  field(DESC, "Set ROI Width")
+  field(PINI, "YES")
+  field(PREC, "6")
+  field(SCAN, "Passive")
+  field(EGU,  "MHz")
+  field(FLNK, "$(P)$(R)ROIWidthConvD-Mon")
+}
+
+record(calcout, "$(P)$(R)ROIWidthConvD-Mon") {
+  field(DESC, "ROI Width in Graph pixels")
+  field(EGU,  "pixel")
+  field(INPA, "$(P)$(R)ROIWidth-SP")
+  field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon CPP NMS")
+  field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon CPP NMS")
+  field(INPD, "$(SPEC_ANA)SwePts-RB CPP NMS")
+  field(CALC, "(A<0)?0:((A>(C-B))?D:(FLOOR(A*D/(C-B))))")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIWidthConv-SP PP")
+  field(FLNK, "$(P)$(R)ROIWidth-RB")
+}
+
+record(longout, "$(P)$(R)ROIWidthConv-SP") {
+  field(DESC, "ROI Width in Graph pixels")
+  field(EGU,  "pixel")
+  field(FLNK, "$(P)$(R)ROIWidthConv-RB")
+}
+
+record(longin, "$(P)$(R)ROIWidthConv-RB") {
+  field(DESC, "ROI Width in Graph pixels")
+  field(INP,  "$(P)$(R)ROIWidthConv-SP")
+  field(EGU,  "pixel")
+}
+
+record(calcout, "$(P)$(R)ROIWidthConvL-Mon") {
+  field(DESC, "ROI Width in Graph MHz")
+  field(EGU,  "MHz")
+  field(INPA, "$(P)$(R)ROIWidthConv-RB CPP NMS")
+  field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon NPP NMS")
+  field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon NPP NMS")
+  field(INPD, "$(SPEC_ANA)SwePts-RB NPP NMS")
+  field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D))")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIWidth-SP PP")
+}
+
+record(ai, "$(P)$(R)ROIWidth-RB")
+{
+  field(DESC, "Get ROI Width")
+  field(INP,  "$(P)$(R)ROIWidth-SP")
+  field(PREC, "6")
+  field(SCAN, "Passive")
+  field(EGU,  "MHz")
+}
+
+record(ao, "$(P)$(R)ROIHeight-SP")
+{
+  field(DESC, "Set ROI Height")
+  field(PINI, "YES")
+  field(PREC, "1")
+  field(SCAN, "Passive")
+  field(EGU,  "ms")
+  field(FLNK, "$(P)$(R)ROIHeightConvD-Mon")
+}
+
+record(calcout, "$(P)$(R)ROIHeightConvD-Mon") {
+  field(DESC, "ROI Height in Graph pixels")
+  field(EGU,  "pixel")
+  field(INPA, "$(P)$(R)ROIHeight-SP")
+  field(INPB, "0")
+  field(INPC, "$(SPEC_ANA)TimeDelta-Mon NPP NMS")
+  field(INPD, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
+  field(CALC, "(A<0)?0:((A>(C-B))?D:(FLOOR((A-B)*D/(C-B))))")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIHeightConv-SP PP")
+  field(FLNK, "$(P)$(R)ROIHeight-RB")
+}
+
+record(longout, "$(P)$(R)ROIHeightConv-SP") {
+  field(DESC, "ROI Height in Graph pixels")
+  field(EGU,  "pixel")
+  field(FLNK, "$(P)$(R)ROIHeightConv-RB")
+}
+
+record(longin, "$(P)$(R)ROIHeightConv-RB") {
+  field(DESC, "ROI Height in Graph pixels")
+  field(INP,  "$(P)$(R)ROIHeightConv-SP")
+  field(EGU,  "pixel")
+}
+
+record(calcout, "$(P)$(R)ROIHeightConvL-Mon") {
+  field(DESC, "ROI Height in Graph ms")
+  field(EGU,  "ms")
+  field(INPA, "$(P)$(R)ROIHeightConv-RB CPP NMS")
+  field(INPB, "0")
+  field(INPC, "$(SPEC_ANA)TimeDelta-Mon NPP NMS")
+  field(INPD, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
+  field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D))")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIHeight-SP PP")
+}
+
+record(ai, "$(P)$(R)ROIHeight-RB")
+{
+  field(DESC, "Get ROI Height")
+  field(INP,  "$(P)$(R)ROIHeight-SP")
+  field(PREC, "1")
+  field(SCAN, "Passive")
+  field(EGU,  "ms")
+}
+
+# ROI Auto Settings
+
+# It should be SpecAnaRBW-Sts, but RVAL is not working
+record(calcout, "$(P)$(R)ROIOffXAC") {
+  field(DESC, "Auto ROI Offset X")
+  field(EGU, "MHz")
+  field(INPA, "$(P)$(R)SpecAnaRBW-Sel.RVAL CPP")
+  field(INPB, "$(P)$(R)CenterFreq-RB CPP")
+  field(INPC, "$(P)$(R)ROIAuto-Sts CPP")
+  field(CALC, "C>0")
+  field(OOPT, "When Non-zero")
+  field(DOPT, "Use OCAL")
+  field(OCAL, "B-(A/1000000)/2")
+}
+
+record(calcout, "$(P)$(R)ROIOffYAC") {
+  field(DESC, "Auto ROI Offset Y")
+  field(EGU, "MHz")
+  field(INPA, "0")
+  field(INPB, "0")
+  field(INPC, "$(P)$(R)ROIAuto-Sts CPP")
+  field(CALC, "C>0")
+  field(OOPT, "When Non-zero")
+  field(DOPT, "Use OCAL")
+  field(OCAL, "A")
+}
+
+# It should be SpecAnaRBW-Sts, but RVAL is not working
+record(calcout, "$(P)$(R)ROIWdtAC") {
+  field(DESC, "Auto ROI Width")
+  field(EGU, "MHz")
+  field(INPA, "$(P)$(R)SpecAnaRBW-Sel.RVAL CPP")
+  field(INPB, "$(P)$(R)ROIAuto-Sts CPP")
+  field(CALC, "B>0")
+  field(OOPT, "When Non-zero")
+  field(DOPT, "Use OCAL")
+  field(OCAL, "A/1000000")
+}
+
+record(calcout, "$(P)$(R)ROIHgtAC") {
+  field(DESC, "Auto ROI Height")
+  field(EGU, "ms")
+  field(INPA, "$(SPEC_ANA)TimeDelta-Mon CPP NMS")
+  field(INPB, "$(P)$(R)ROIAuto-Sts CPP")
+  field(CALC, "B>0")
+  field(OOPT, "When Non-zero")
+  field(DOPT, "Use OCAL")
+  field(OCAL, "A")
+}
+
+record(bo, "$(P)$(R)ROIAuto-Sel"){
+  field(DESC, "Enable automatic ROI")
+  field(PINI, "YES")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+  field(FLNK, "$(P)$(R)ROIAuto-Sts")
+}
+
+record(bi, "$(P)$(R)ROIAuto-Sts"){
+  field(DESC, "Get automatic ROI")
+  field(INP,  "$(P)$(R)ROIAuto-Sel")
+  field(ZNAM, "0")
+  field(ONAM, "1")
+}
+
+# For use with seq record below
+# 5=(STR1 and STR3) or 10=(STR2 and STR4)
+record(calc, "$(P)$(R)ROIAutoIdxCalc"){
+    field(DESC, "Get ROI auto propagation index")
+    field(SCAN, "Passive")
+    field(INPA, "$(P)$(R)ROIAuto-Sts.VAL CPP NMS")
+    field(CALC, "A=0?5:10")
+}
+
+# ROI Offset X
+record(sseq, "$(P)$(R)ROIAutoPropSseqOffX"){
+    field(DESC, "Get all types of ao OMSL")
+    field(PINI, "YES")
+    field(STR1, "supervisory")
+    field(STR2, "closed_loop")
+    field(STR3, "0")
+    field(STR4, "$(P)$(R)ROIOffXAC.OVAL CPP MS")
+    field(LNK1, "$(P)$(R)ROIOffsetX-SP.OMSL NPP NMS")
+    field(LNK2, "$(P)$(R)ROIOffsetX-SP.OMSL NPP NMS")
+    field(LNK3, "$(P)$(R)ROIOffsetX-SP.DOL CA NMS")
+    field(LNK4, "$(P)$(R)ROIOffsetX-SP.DOL CA NMS")
+    field(SELL, "$(P)$(R)ROIAutoIdxCalc CPP MS")
+    field(SELM, "Mask")
+    field(SELN, "1")
+    field(FLNK, "$(P)$(R)ROIAutoOffXFilter-SP")
+}
+
+# Checks if we need to Process ROI after setting
+# ROIAutoOffX to 1. This synchornizes the "Span" value
+# to the ROI even if the "Span" value didn't
+# change
+record(calcout, "$(P)$(R)ROIAutoOffXFilter-SP"){
+    field(DESC, "Set FLNK to records")
+    field(INPA, "$(P)$(R)ROIAuto-Sts NPP NMS")
+    field(CALC, "A>0")
+    field(OOPT, "When Non-zero")
+    field(OUT, "$(P)$(R)ROIAutoOffXFout.PROC PP")
+}
+
+record(fanout, "$(P)$(R)ROIAutoOffXFout"){
+    field(DESC, "Fanout center freq auto FLNK")
+    field(SELM, "All")
+    field(LNK1, "$(P)$(R)ROIOffsetX-SP")
+}
+
+# ROI Offset Y
+record(sseq, "$(P)$(R)ROIAutoPropSseqOffY"){
+    field(DESC, "Get all types of ao OMSL")
+    field(PINI, "YES")
+    field(STR1, "supervisory")
+    field(STR2, "closed_loop")
+    field(STR3, "0")
+    field(STR4, "$(P)$(R)ROIOffYAC.OVAL CPP MS")
+    field(LNK1, "$(P)$(R)ROIOffsetY-SP.OMSL NPP NMS")
+    field(LNK2, "$(P)$(R)ROIOffsetY-SP.OMSL NPP NMS")
+    field(LNK3, "$(P)$(R)ROIOffsetY-SP.DOL CA NMS")
+    field(LNK4, "$(P)$(R)ROIOffsetY-SP.DOL CA NMS")
+    field(SELL, "$(P)$(R)ROIAutoIdxCalc CPP MS")
+    field(SELM, "Mask")
+    field(SELN, "1")
+    field(FLNK, "$(P)$(R)ROIAutoOffYFilter-SP")
+}
+
+# Checks if we need to Process ROI after setting
+# ROIAutoOffY to 1. This synchornizes the "Span" value
+# to the ROI even if the "Span" value didn't
+# change
+record(calcout, "$(P)$(R)ROIAutoOffYFilter-SP"){
+    field(DESC, "Set FLNK to records")
+    field(INPA, "$(P)$(R)ROIAuto-Sts NPP NMS")
+    field(CALC, "A>0")
+    field(OOPT, "When Non-zero")
+    field(OUT, "$(P)$(R)ROIAutoOffYFout.PROC PP")
+}
+
+record(fanout, "$(P)$(R)ROIAutoOffYFout"){
+    field(DESC, "Fanout center freq auto FLNK")
+    field(SELM, "All")
+    field(LNK1, "$(P)$(R)ROIOffsetY-SP")
+}
+
+# ROI Width
+record(sseq, "$(P)$(R)ROIAutoPropSseqWidth"){
+    field(DESC, "Get all types of ao OMSL")
+    field(PINI, "YES")
+    field(STR1, "supervisory")
+    field(STR2, "closed_loop")
+    field(STR3, "0")
+    field(STR4, "$(P)$(R)ROIWdtAC.OVAL CPP MS")
+    field(LNK1, "$(P)$(R)ROIWidth-SP.OMSL NPP NMS")
+    field(LNK2, "$(P)$(R)ROIWidth-SP.OMSL NPP NMS")
+    field(LNK3, "$(P)$(R)ROIWidth-SP.DOL CA NMS")
+    field(LNK4, "$(P)$(R)ROIWidth-SP.DOL CA NMS")
+    field(SELL, "$(P)$(R)ROIAutoIdxCalc CPP MS")
+    field(SELM, "Mask")
+    field(SELN, "1")
+    field(FLNK, "$(P)$(R)ROIAutoWidthFilter-SP")
+}
+
+# Checks if we need to Process ROI after setting
+# ROIAutoWidth to 1. This synchornizes the "Span" value
+# to the ROI even if the "Span" value didn't
+# change
+record(calcout, "$(P)$(R)ROIAutoWidthFilter-SP"){
+    field(DESC, "Set FLNK to records")
+    field(INPA, "$(P)$(R)ROIAuto-Sts NPP NMS")
+    field(CALC, "A>0")
+    field(OOPT, "When Non-zero")
+    field(OUT, "$(P)$(R)ROIAutoWidthFout.PROC PP")
+}
+
+record(fanout, "$(P)$(R)ROIAutoWidthFout"){
+    field(DESC, "Fanout center freq auto FLNK")
+    field(SELM, "All")
+    field(LNK1, "$(P)$(R)ROIWidth-SP")
+}
+
+# ROI Height
+record(sseq, "$(P)$(R)ROIAutoPropSseqHeight"){
+    field(DESC, "Get all types of ao OMSL")
+    field(PINI, "YES")
+    field(STR1, "supervisory")
+    field(STR2, "closed_loop")
+    field(STR3, "0")
+    field(STR4, "$(P)$(R)ROIHgtAC.OVAL CPP MS")
+    field(LNK1, "$(P)$(R)ROIHeight-SP.OMSL NPP NMS")
+    field(LNK2, "$(P)$(R)ROIHeight-SP.OMSL NPP NMS")
+    field(LNK3, "$(P)$(R)ROIHeight-SP.DOL CA NMS")
+    field(LNK4, "$(P)$(R)ROIHeight-SP.DOL CA NMS")
+    field(SELL, "$(P)$(R)ROIAutoIdxCalc CPP MS")
+    field(SELM, "Mask")
+    field(SELN, "1")
+    field(FLNK, "$(P)$(R)ROIAutoHeightFilter-SP")
+}
+
+# Checks if we need to Process ROI after setting
+# ROIAutoHeight to 1. This synchornizes the "Span" value
+# to the ROI even if the "Span" value didn't
+# change
+record(calcout, "$(P)$(R)ROIAutoHeightFilter-SP"){
+    field(DESC, "Set FLNK to records")
+    field(INPA, "$(P)$(R)ROIAuto-Sts NPP NMS")
+    field(CALC, "A>0")
+    field(OOPT, "When Non-zero")
+    field(OUT, "$(P)$(R)ROIAutoHeightFout.PROC PP")
+}
+
+record(fanout, "$(P)$(R)ROIAutoHeightFout"){
+    field(DESC, "Fanout center freq auto FLNK")
+    field(SELM, "All")
+    field(LNK1, "$(P)$(R)ROIHeight-SP")
 }
 
 ############################################################
