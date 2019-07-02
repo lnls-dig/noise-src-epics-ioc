@@ -380,6 +380,8 @@ record(fanout, "$(P)$(R)DriveAutoFout"){
 
 record(mbbo, "$(P)$(R)SpecAnaRBW-Sel"){
   field(DESC, "Resolution Bandwidth")
+  field(DTYP, "Soft Channel")
+  field(NOBT, "4")
   field(PINI, "YES")
   field(ZRST, "10 Hz")
   field(ZRVL, "10")
@@ -412,6 +414,8 @@ record(mbbo, "$(P)$(R)SpecAnaRBW-Sel"){
 
 record(mbbi, "$(P)$(R)SpecAnaRBW-Sts"){
   field(DESC, "Resolution Bandwidth")
+  field(DTYP, "Soft Channel")
+  field(NOBT, "4")
   field(ZRST, "10 Hz")
   field(ZRVL, "10")
   field(ONST, "30 Hz")
@@ -1180,10 +1184,11 @@ record(ai, "$(P)$(R)ROIHeight-RB")
 
 # ROI Auto Settings
 
+# It should be SpecAnaRBW-Sts, but RVAL is not working
 record(calcout, "$(P)$(R)ROIOffXAC") {
   field(DESC, "Auto ROI Offset X")
   field(EGU, "MHz")
-  field(INPA, "$(P)$(R)SpecAnaRBW-Sts.RVAL CPP")
+  field(INPA, "$(P)$(R)SpecAnaRBW-Sel.RVAL CPP")
   field(INPB, "$(P)$(R)CenterFreq-RB CPP")
   field(INPC, "$(P)$(R)ROIAuto-Sts CPP")
   field(CALC, "C>0")
@@ -1192,10 +1197,11 @@ record(calcout, "$(P)$(R)ROIOffXAC") {
   field(OCAL, "B-(A/1000000)/2")
 }
 
+# It should be SpecAnaRBW-Sts, but RVAL is not working
 record(calcout, "$(P)$(R)ROIWdtAC") {
   field(DESC, "Auto ROI Width")
   field(EGU, "MHz")
-  field(INPA, "$(P)$(R)SpecAnaRBW-Sts.RVAL CPP")
+  field(INPA, "$(P)$(R)SpecAnaRBW-Sel.RVAL CPP")
   field(INPB, "$(P)$(R)ROIAuto-Sts CPP")
   field(CALC, "B>0")
   field(OOPT, "When Non-zero")
