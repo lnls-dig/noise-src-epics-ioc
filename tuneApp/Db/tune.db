@@ -982,6 +982,18 @@ record(longout, "$(P)$(R)ROIOffXConv-Mon") {
   field(EGU,  "pixel")
 }
 
+record(calcout, "$(P)$(R)ROIOffXConvL-Mon") {
+  field(DESC, "ROI Offset X in Graph MHz")
+  field(EGU,  "MHz")
+  field(INPA, "$(P)$(R)ROIOffXConv-Mon CPP NMS")
+  field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon NPP NMS")
+  field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon NPP NMS")
+  field(INPD, "$(SPEC_ANA)SwePts-RB NPP NMS")
+  field(CALC, "(A<=D)?A*((C-B)/D)+B:0")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIOffsetX-SP PP")
+}
+
 record(ai, "$(P)$(R)ROIOffsetX-RB")
 {
   field(DESC, "Get ROI Offset X")
@@ -1017,6 +1029,18 @@ record(calcout, "$(P)$(R)ROIOffYConvD-Mon") {
 record(longout, "$(P)$(R)ROIOffYConv-Mon") {
   field(DESC, "ROI Offset Y in Graph pixels")
   field(EGU,  "pixel")
+}
+
+record(calcout, "$(P)$(R)ROIOffYConvL-Mon") {
+  field(DESC, "ROI Offset Y in Graph ms")
+  field(EGU,  "ms")
+  field(INPA, "$(P)$(R)ROIOffYConv-Mon CPP NMS")
+  field(INPB, "0")
+  field(INPC, "$(SPEC_ANA)TimeDelta-Mon NPP NMS")
+  field(INPD, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
+  field(CALC, "(A<=D)?A*((C-B)/D)+B:0")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIOffsetY-SP PP")
 }
 
 record(ai, "$(P)$(R)ROIOffsetY-RB")
@@ -1056,6 +1080,18 @@ record(longout, "$(P)$(R)ROIWidthConv-Mon") {
   field(EGU,  "pixel")
 }
 
+record(calcout, "$(P)$(R)ROIWidthConvL-Mon") {
+  field(DESC, "ROI Width in Graph MHz")
+  field(EGU,  "MHz")
+  field(INPA, "$(P)$(R)ROIWidthConv-Mon CPP NMS")
+  field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon NPP NMS")
+  field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon NPP NMS")
+  field(INPD, "$(SPEC_ANA)SwePts-RB NPP NMS")
+  field(CALC, "(A<=D)?A*((C-B)/D):0")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIWidth-SP PP")
+}
+
 record(ai, "$(P)$(R)ROIWidth-RB")
 {
   field(DESC, "Get ROI Width")
@@ -1091,6 +1127,18 @@ record(calcout, "$(P)$(R)ROIHeightConvD-Mon") {
 record(longout, "$(P)$(R)ROIHeightConv-Mon") {
   field(DESC, "ROI Height in Graph pixels")
   field(EGU,  "pixel")
+}
+
+record(calcout, "$(P)$(R)ROIHeightConvL-Mon") {
+  field(DESC, "ROI Height in Graph ms")
+  field(EGU,  "ms")
+  field(INPA, "$(P)$(R)ROIHeightConv-Mon CPP NMS")
+  field(INPB, "0")
+  field(INPC, "$(SPEC_ANA)TimeDelta-Mon NPP NMS")
+  field(INPD, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
+  field(CALC, "(A<=D)?A*((C-B)/D):0")
+  field(OOPT, "Every Time")
+  field(OUT,  "$(P)$(R)ROIHeight-SP PP")
 }
 
 record(ai, "$(P)$(R)ROIHeight-RB")
