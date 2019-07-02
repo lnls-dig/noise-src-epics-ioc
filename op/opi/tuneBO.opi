@@ -668,14 +668,14 @@ $(pv_value)</tooltip>
       <pv_value />
       <rgb_mode>false</rgb_mode>
       <roi_0_h_pv_value />
-      <roi_0_height_pv>$(P_TUNE)$(R_TUNE)ROIHeightConv-RB</roi_0_height_pv>
+      <roi_0_height_pv>$(P_TUNE)$(R_TUNE)ROIHeightConv-SP</roi_0_height_pv>
       <roi_0_title>ROI</roi_0_title>
       <roi_0_visible>true</roi_0_visible>
       <roi_0_w_pv_value />
-      <roi_0_width_pv>$(P_TUNE)$(R_TUNE)ROIWidthConv-RB</roi_0_width_pv>
-      <roi_0_x_pv>$(P_TUNE)$(R_TUNE)ROIOffXConv-RB</roi_0_x_pv>
+      <roi_0_width_pv>$(P_TUNE)$(R_TUNE)ROIWidthConv-SP</roi_0_width_pv>
+      <roi_0_x_pv>$(P_TUNE)$(R_TUNE)ROIOffXConv-SP</roi_0_x_pv>
       <roi_0_x_pv_value />
-      <roi_0_y_pv>$(P_TUNE)$(R_TUNE)ROIOffYConv-RB</roi_0_y_pv>
+      <roi_0_y_pv>$(P_TUNE)$(R_TUNE)ROIOffYConv-SP</roi_0_y_pv>
       <roi_0_y_pv_value />
       <roi_color>
         <color red="0" green="255" blue="255" />
@@ -1369,14 +1369,14 @@ $(pv_value)</tooltip>
       <pv_value />
       <rgb_mode>false</rgb_mode>
       <roi_0_h_pv_value />
-      <roi_0_height_pv>$(P_TUNE)$(R_TUNE)ROIHeightConv-RB</roi_0_height_pv>
+      <roi_0_height_pv>$(P_TUNE)$(R_TUNE)ROIHeightConv-SP</roi_0_height_pv>
       <roi_0_title>ROI</roi_0_title>
       <roi_0_visible>true</roi_0_visible>
       <roi_0_w_pv_value />
-      <roi_0_width_pv>$(P_TUNE)$(R_TUNE)ROIWidthConv-RB</roi_0_width_pv>
-      <roi_0_x_pv>$(P_TUNE)$(R_TUNE)ROIOffXConv-RB</roi_0_x_pv>
+      <roi_0_width_pv>$(P_TUNE)$(R_TUNE)ROIWidthConv-SP</roi_0_width_pv>
+      <roi_0_x_pv>$(P_TUNE)$(R_TUNE)ROIOffXConv-SP</roi_0_x_pv>
       <roi_0_x_pv_value />
-      <roi_0_y_pv>$(P_TUNE)$(R_TUNE)ROIOffYConv-RB</roi_0_y_pv>
+      <roi_0_y_pv>$(P_TUNE)$(R_TUNE)ROIOffYConv-SP</roi_0_y_pv>
       <roi_0_y_pv_value />
       <roi_color>
         <color red="0" green="255" blue="255" />
