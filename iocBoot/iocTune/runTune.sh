@@ -35,6 +35,10 @@ if [ -z "$CARRIER_GEN" ]; then
     exit 5
 fi
 
+if [ -z "$TIM" ]; then
+    echo "\$TIM is not set, Please use -i option" >&2
+    exit 6
+fi
 
 if [ -z "$EPICS_CA_MAX_ARRAY_BYTES" ]; then
     export EPICS_CA_MAX_ARRAY_BYTES="50000000"
@@ -61,4 +65,4 @@ esac
 
 echo "Using st.cmd file: "${ST_CMD_FILE}
 
-P="$P" R="$R" SPEC_ANA="$SPEC_ANA" AMP="$AMP" NOISE_GEN="$NOISE_GEN" CARRIER_GEN="$CARRIER_GEN" "$IOC_BIN" ${ST_CMD_FILE}
+P="$P" R="$R" SPEC_ANA="$SPEC_ANA" AMP="$AMP" NOISE_GEN="$NOISE_GEN" CARRIER_GEN="$CARRIER_GEN" TIM="$TIM" "$IOC_BIN" ${ST_CMD_FILE}
