@@ -499,7 +499,7 @@ record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
 # variables from the control system.
 
 record(calcout, "$(P)$(R)SpecAnaTDeltaCalc") {
-  field(DESC, "Carrier Freq. 1 conversion")
+  field(DESC, "Timing estimated Time Delta")
   field(EGU,  "ms")
   field(INPA, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
   field(INPB, "$(TIM)NrPulses-RB CPP NMS")
@@ -513,6 +513,47 @@ record(ai, "$(P)$(R)SpecAnaTDelta-Mon") {
   field(DESC, "Timing estimated Time Delta")
   field(EGU,  "ms")
   field(PREC, "1")
+}
+
+# Time Vector
+# Assuming maximum of 1000 frames
+
+record(seq, "$(P)$(R)TimeArrayWvfSeq"){
+  field(DESC, "Get frame count seq")
+  field(PINI, "YES")
+  field(DOL1, "$(SPEC_ANA)FrameCount-Mon.VAL CPP NMS")
+  field(LNK1, "$(P)$(R)TimeArray-Mon.NELM CPP NMS")
+  field(SELM, "All")
+}
+
+record(acalcout, "$(P)$(R)TimeArrayCalc") {
+  field(DESC, "Time vector for spectrogram")
+  field(PREC, "1")
+  field(NELM, "1000")
+  field(EGU,  "ms")
+  field(INPA, "0")
+  field(INPB, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
+  field(INPC, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
+  field(CALC, "IX*(B-A)/(C-1)+A")
+  field(OUT,  "$(P)$(R)TimeArrayWvf CPP NMS")
+}
+
+record(waveform,"$(P)$(R)TimeArrayWvf") {
+  field(DESC, "Time vector for spectrogram")
+  field(PREC, "1")
+  field(EGU,  "ms")
+  field(NELM, "1000")
+  field(FTVL, "DOUBLE")
+  field(FLNK, "$(P)$(R)TimeArray-Mon")
+}
+
+record(subArray, "$(P)$(R)TimeArray-Mon") {
+  field(DESC, "Time vector for spectrogram")
+  field(PREC, "1")
+  field(EGU,  "ms")
+  field(FTVL, "DOUBLE")
+  field(MALM, "1000")
+  field(INP,  "$(P)$(R)TimeArrayWvf NPP NMS")
 }
 
 ############################################################
@@ -987,17 +1028,48 @@ record(calcout, "$(P)$(R)CFreqCalc") {
   field(OCAL, "(A+B)/1000000")
 }
 
+# Frequency/Time vectors
+#
+# Get NORD from SPEC_ANA
+record(seq, "$(P)$(R)FreqArrayWvfSeq"){
+  field(DESC, "Get NORD from waveform")
+  field(PINI, "YES")
+  field(DOL1, "$(SPEC_ANA)Trace-Mon.VAL CPP NMS")
+  field(DOL2, "$(SPEC_ANA)Trace-Mon.NORD NPP NMS")
+  field(DOL3, "$(SPEC_ANA)Trace-Mon.NORD NPP NMS")
+  field(LNK1, "")
+  field(LNK2, "$(P)$(R)TuneFracArray-Mon.NELM CPP NMS")
+  field(LNK3, "$(P)$(R)FreqArray-Mon.NELM CPP NMS")
+  field(SELM, "All")
+}
+
 # Calculate Fractional Tune parameters
-record(acalcout, "$(P)$(R)TuneFracArray-Mon") {
+record(acalcout, "$(P)$(R)TuneFracArrayCalc") {
   field(DESC, "Fractional Tune Array")
   field(PREC, "3")
   field(NELM, "32001")
-  field(EGU, "Hz")
   field(INAA, "$(SPEC_ANA)FreqArray-Mon.AVAL CPP")
   field(INPA, "$(P)$(R)RFFreq-Mon CPP NMS")
   field(INPB, "$(P)$(R)H-RB CPP NMS")
   field(INPC, "$(P)$(R)RevN-RB CPP NMS")
   field(CALC, "AA*B/A-C")
+  field(OUT,  "$(P)$(R)TuneFracArrayWvf CPP NMS")
+}
+
+record(waveform,"$(P)$(R)TuneFracArrayWvf") {
+  field(DESC, "Fractional Tune Array")
+  field(PREC, "3")
+  field(NELM, "32001")
+  field(FTVL, "DOUBLE")
+  field(FLNK, "$(P)$(R)TuneFracArray-Mon")
+}
+
+record(subArray, "$(P)$(R)TuneFracArray-Mon") {
+  field(DESC, "Fractional Tune Array")
+  field(PREC, "3")
+  field(FTVL, "DOUBLE")
+  field(MALM, "32001")
+  field(INP,  "$(P)$(R)TuneFracArrayWvf NPP NMS")
 }
 
 record(calc, "$(P)$(R)TuneFracStart-Mon") {
@@ -1018,6 +1090,25 @@ record(calc, "$(P)$(R)TuneFracStop-Mon") {
   field(INPC, "$(P)$(R)H-RB CPP NMS")
   field(INPD, "$(P)$(R)RevN-RB CPP NMS")
   field(CALC, "A*C/B-D")
+}
+
+record(waveform,"$(P)$(R)FreqArrayWvf") {
+  field(DESC, "Frequency Array")
+  field(PREC, "3")
+  field(EGU,  "MHz")
+  field(FTVL, "DOUBLE")
+  field(NELM, "32001")
+  field(INP,  "$(SPEC_ANA)FreqArray-Mon.AVAL CPP NMS")
+  field(FLNK, "$(P)$(R)FreqArray-Mon")
+}
+
+record(subArray, "$(P)$(R)FreqArray-Mon") {
+  field(DESC, "Frequency Array")
+  field(PREC, "3")
+  field(FTVL, "DOUBLE")
+  field(MALM, "32001")
+  field(EGU,  "MHz")
+  field(INP,  "$(P)$(R)FreqArrayWvf NPP NMS")
 }
 
 record(bo, "$(P)$(R)TuneXaxis-Sel") {
