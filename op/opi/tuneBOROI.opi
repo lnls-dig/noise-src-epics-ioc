@@ -924,7 +924,7 @@ $(pv_value)</tooltip>
       <on_label>ON</on_label>
       <password></password>
       <push_action_index>0</push_action_index>
-      <pv_name>loc://$(P)$(R)ROIEnbl-Sel</pv_name>
+      <pv_name>loc://$(P)$(R)ROIEnbl-Sel(1)</pv_name>
       <pv_value />
       <released_action_index>0</released_action_index>
       <rules />
