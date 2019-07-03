@@ -10,8 +10,8 @@ dbLoadDatabase("$(TOP)/dbd/tune.dbd",0,0)
 tune_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
-dbLoadRecords("${TOP}/db/tune.db", "P=$(P), R=$(R), SPEC_ANA=$(SPEC_ANA), AMP=$(AMP), NOISE_GEN=$(NOISE_GEN), CARRIER_GEN=$(CARRIER_GEN)")
-dbLoadRecords("${TOP}/db/tuneBO.db", "P=$(P), R=$(R), SPEC_ANA=$(SPEC_ANA), AMP=$(AMP), NOISE_GEN=$(NOISE_GEN), CARRIER_GEN=$(CARRIER_GEN)")
+dbLoadRecords("${TOP}/db/tune.db", "P=$(P), R=$(R), SPEC_ANA=$(SPEC_ANA), AMP=$(AMP), NOISE_GEN=$(NOISE_GEN), CARRIER_GEN=$(CARRIER_GEN), TIM=$(TIM)")
+dbLoadRecords("${TOP}/db/tuneBO.db", "P=$(P), R=$(R), SPEC_ANA=$(SPEC_ANA), AMP=$(AMP), NOISE_GEN=$(NOISE_GEN), CARRIER_GEN=$(CARRIER_GEN), TIM=$(TIM)")
 
 < save_restore.cmd
 

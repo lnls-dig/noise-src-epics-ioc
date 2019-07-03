@@ -25,7 +25,7 @@ In order to run the IOC, from the top level directory, run:
 
 ```sh
 $ cd iocBoot/iocTune &&
-$ ./runTune.sh -d "DEVICE_TYPE" -n "NOISE_GEN" -c "CARRIER_GEN" -s "TUNE_PROC" -a "AMPLIFIER" -P "PREFIX_AREA" -R "PREFIX_DEV"
+$ ./runTune.sh -d "DEVICE_TYPE" -n "NOISE_GEN" -c "CARRIER_GEN" -s "TUNE_PROC" -a "AMPLIFIER" -i "TIMING" -P "PREFIX_AREA" -R "PREFIX_DEV"
 ```
 
 where `NOISE_GEN`, `CARRIEN_GEN`, `TUNE_PROC` and `AMPLIFIER`
@@ -37,6 +37,7 @@ The options that you can specify (after `./runTune.sh`) are:
 - `-c CARRIER_GEN`: PV prefix of the Carrier Frequency Generator IOC (required)
 - `-s TUNE_PROC`: PV prefix of the Tune Processor IOC (required)
 - `-a AMPLIFIER`: PV prefix of the Amplifier IOC (required)
+- `-i TIMING`: PV prefix of the Timing IOC (required)
 - `-d DEVICE_TYPE`: device type, Storage Ring (SI) or Booster (BO) (required)
 - `-P PREFIX1`: the value of the EPICS `$(P)` macro used to prefix the PV names
 - `-R PREFIX2`: the value of the EPICS `$(R)` macro used to prefix the PV names
@@ -46,7 +47,7 @@ which enables the IOC to be controlled by the system. In order to
 run the IOC with procServ, instead of the previous command, run:
 
 ```sh
-$ ./runProcServ.sh -t "TELNET_PORT" -d "MACHINE_TYPE" -n "NOISE_GEN" -c "CARRIER_GEN" -s "TUNE_PROC" -a "AMPLIFIER" -P "PREFIX1" -R "PREFIX2"
+$ ./runProcServ.sh -t "TELNET_PORT" -d "MACHINE_TYPE" -n "NOISE_GEN" -c "CARRIER_GEN" -s "TUNE_PROC" -a "AMPLIFIER" -i "TIMING" -P "PREFIX1" -R "PREFIX2"
 ```
 
 where `TELNET_PORT` is the telnet port through which the IOC shell
