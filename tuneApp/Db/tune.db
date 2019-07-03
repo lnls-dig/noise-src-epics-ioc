@@ -500,7 +500,6 @@ record(ao, "$(P)$(R)NoiseAmpl-SP") {
   field(DRVH, "10.0")
   field(LOW,  "-9.0")
   field(HIGH, "9.0")
-  field(HSL,  "MINOR")
   field(HSV,  "MINOR")
   field(OUT, "$(NOISE_GEN)Ampl-SP PP")
 }
