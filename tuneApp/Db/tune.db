@@ -631,7 +631,6 @@ record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src1Freq-SP PP")
-  field(FLNK, "$(P)$(R)CarSrc1FreqConvIn")
 }
 
 record(calcout, "$(P)$(R)CarSrc1FreqConvIn"){
@@ -665,7 +664,6 @@ record(calcout, "$(P)$(R)CarSrc2FreqConvOut") {
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src2Freq-SP PP")
-  field(FLNK, "$(P)$(R)CarSrc2FreqConvIn")
 }
 
 record(calcout, "$(P)$(R)CarSrc2FreqConvIn"){
