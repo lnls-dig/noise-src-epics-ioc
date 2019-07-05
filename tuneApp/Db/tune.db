@@ -637,7 +637,7 @@ record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
 record(calcout, "$(P)$(R)CarSrc1FreqConvIn"){
   field(DESC, "Get Carrier Gen Freq. 1")
   field(EGU, "MHz")
-  field(INPA, "$(CARRIER_GEN)Src1Freq-RB CA MMS")
+  field(INPA, "$(CARRIER_GEN)Src1Freq-RB CA MSS")
   field(CALC, "A*1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(P)$(R)CarSrc1Freq-RB PP MSS")
