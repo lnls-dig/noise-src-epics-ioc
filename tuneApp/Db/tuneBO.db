@@ -40,7 +40,7 @@ record(sseq, "$(P)$(R)InitSeqNoiseGen"){
   field(LNK2, "$(NOISE_GEN)Ampl-SP PP")         # Set sanity Amplitude
   field(DO3,  "0.0")
   field(LNK3, "$(NOISE_GEN)Offset-SP PP")       # Set sanity Offset
-  field(DO4,  "1000")
+  field(DO4,  "1")
   field(LNK4, "$(P)$(R)Span-SP.PROC PP")        # Process span
   field(STR5,  "OFF")
   field(LNK5, "$(NOISE_GEN)SweepState-Sel PP")  # Turn sweep off
@@ -84,8 +84,8 @@ record(sseq, "$(P)$(R)InitSeqSpecAna"){
   field(LNK3, "$(SPEC_ANA)EnblSweTimeAuto-Sel PP")     # Set Time Coupling
   field(STR4, "ON")
   field(LNK4, "$(SPEC_ANA)EnblAttAuto-Sel PP")         # Enable Ref. Level Att.
-  field(STR5, "300 kHz")
-  field(LNK5, "$(SPEC_ANA)Rbw-Sel PP")                 # Resolution bandwidth
+  field(DO5, "1")
+  field(LNK5, "$(P)$(R)SpecAnaRBW-Sel.PROC PP")        # Resolution bandwidth
   field(DLY5,  "0.5")
   field(STR6, "ON")
   field(LNK6, "$(P)$(R)SpecAnaGetSpec-Sel PP")         # Turn acquisition on
