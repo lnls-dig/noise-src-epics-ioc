@@ -441,7 +441,7 @@ record(mbbo, "$(P)$(R)SpecAnaRBW-Sel"){
   field(ELVL, "3000000")
   field(TVST, "10 MHz")
   field(TVVL, "10000000")
-  field(OUT, "$(SPEC_ANA)Rbw-Sel PP")
+  field(OUT, "$(SPEC_ANA)Rbw-Sel CPP")
 }
 
 record(mbbi, "$(P)$(R)SpecAnaRBW-Sts"){
