@@ -581,11 +581,30 @@ record(ai, "$(P)$(R)NoiseAmpl-RB") {
   field(PREC, "3")
 }
 
-# Span meaning for Noise Generator is half of the measurement span
+# Carrier Source accuracy is 2ppm from datasheet
+record(ao, "$(P)$(R)CarSrcAcc-SP") {
+  field(DESC, "Set carrier accuracy")
+  field(PINI, "YES")
+  field(EGU,  "ppm")
+  field(VAL,  "2")
+  field(FLNK, "$(P)$(R)CarSrcAcc-RB")
+}
+
+record(ai, "$(P)$(R)CarSrcAcc-RB") {
+  field(DESC, "Get carrier accuracy")
+  field(INP,  "$(P)$(R)CarSrcAcc-SP NPP NMS")
+  field(EGU,  "ppm")
+}
+
+# Span meaning for Noise Generator is half of the measurement span.
+# Add the carrier generator accuracy to increase the bandwidth so we are
+# sure to only be seeing the excited bandwidth at the spectrum analyzer.
 record(calc, "$(P)$(R)NoiseCalc"){
   field(DESC, "Noise Span calculation to instrument")
   field(INPA, "$(P)$(R)SpanRBConvOut CPP MSS")
-  field(CALC, "A/2")
+  field(INPB, "$(P)$(R)CarSrcAcc-RB CPP MSS")
+  field(INPC, "$(P)$(R)CarFreq-RB CPP MSS")
+  field(CALC, "A/2+C*B/1000000")
 }
 
 record(ao, "$(P)$(R)NoiseGenSpan-SP"){
