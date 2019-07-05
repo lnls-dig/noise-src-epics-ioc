@@ -84,8 +84,8 @@ record(sseq, "$(P)$(R)InitSeqSpecAna"){
   field(LNK3, "$(SPEC_ANA)EnblSweTimeAuto-Sel PP")     # Set Time Coupling
   field(STR4, "ON")
   field(LNK4, "$(SPEC_ANA)EnblAttAuto-Sel PP")         # Enable Ref. Level Att.
-  field(STR5, "300 kHz")
-  field(LNK5, "$(SPEC_ANA)Rbw-Sel PP")                 # Resolution bandwidth
+  field(DO5, "1")
+  field(LNK5, "$(P)$(R)SpecAnaRBW-Sel.PROC PP")        # Resolution bandwidth
   field(DLY5,  "0.5")
   field(STR6, "ON")
   field(LNK6, "$(P)$(R)SpecAnaGetSpec-Sel PP")         # Turn acquisition on
