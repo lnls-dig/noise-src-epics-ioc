@@ -572,6 +572,37 @@ record(ao, "$(P)$(R)NoiseAmpl-SP") {
   field(HIGH, "9.0")
   field(HSV,  "MINOR")
   field(OUT, "$(NOISE_GEN)Ampl-SP PP")
+  field(FLNK, "$(P)$(R)NoiseWfmFunction-Sel")
+}
+
+# Always set funtion to "Noise" as we don't need it
+record(mbbo, "$(P)$(R)NoiseWfmFunction-Sel") {
+    field(DESC, "Select Noise waveform function")
+    field(ZRST, "Sine")
+    field(ONST, "Square")
+    field(TWST, "Triangle")
+    field(THST, "Ramp")
+    field(FRST, "Pulse")
+    field(FVST, "Pseudo-random Bit Stream")
+    field(SXST, "Noise")
+    field(SVST, "Arbitrary")
+    field(EIST, "DC")
+    field(VAL,  "Noise")
+    field(OUT, "$(NOISE_GEN)WfmFunction-Sel PP")
+}
+
+record(mbbi, "$(P)$(R)NoiseWfmFunction-Sts") {
+    field(DESC, "Read Noise waveform function")
+    field(ZRST, "Sine")
+    field(ONST, "Square")
+    field(TWST, "Triangle")
+    field(THST, "Ramp")
+    field(FRST, "Pulse")
+    field(FVST, "Pseudo-random Bit Stream")
+    field(SXST, "Noise")
+    field(SVST, "Arbitrary")
+    field(EIST, "DC")
+    field(INP, "$(NOISE_GEN)WfmFunction-Sts CPP MSS")
 }
 
 record(ai, "$(P)$(R)NoiseAmpl-RB") {
