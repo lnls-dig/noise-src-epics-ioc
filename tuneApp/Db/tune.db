@@ -650,6 +650,21 @@ record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src1Freq-SP PP")
+  field(FLNK, "$(P)$(R)CarSrc1FreqOff-SP")
+}
+
+# Always set offset to 0 as we don't need it
+record(ao, "$(P)$(R)CarSrc1FreqOff-SP"){
+  field(DESC, "Set Carrier Gen Freq. Off 1")
+  field(EGU, "MHz")
+  field(OUT, "$(CARRIER_GEN)Src1FreqOffset-SP PP")
+  field(VAL, "0")
+}
+
+record(ai, "$(P)$(R)CarSrc1FreqOff-RB"){
+  field(DESC, "Get Carrier Gen Freq. Off 1")
+  field(EGU, "MHz")
+  field(INP, "$(CARRIER_GEN)Src1FreqOffset-RB CPP MSS")
 }
 
 record(calcout, "$(P)$(R)CarSrc1FreqConvIn"){
@@ -683,6 +698,21 @@ record(calcout, "$(P)$(R)CarSrc2FreqConvOut") {
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src2Freq-SP PP")
+  field(FLNK, "$(P)$(R)CarSrc2FreqOff-SP")
+}
+
+# Always set offset to 0 as we don't need it
+record(ao, "$(P)$(R)CarSrc2FreqOff-SP"){
+  field(DESC, "Set Carrier Gen Freq. Off 2")
+  field(EGU, "MHz")
+  field(OUT, "$(CARRIER_GEN)Src2FreqOffset-SP PP")
+  field(VAL, "0")
+}
+
+record(ai, "$(P)$(R)CarSrc2FreqOff-RB"){
+  field(DESC, "Get Carrier Gen Freq. Off 2")
+  field(EGU, "MHz")
+  field(INP, "$(CARRIER_GEN)Src2FreqOffset-RB CPP MSS")
 }
 
 record(calcout, "$(P)$(R)CarSrc2FreqConvIn"){
