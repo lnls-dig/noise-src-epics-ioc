@@ -572,6 +572,37 @@ record(ao, "$(P)$(R)NoiseAmpl-SP") {
   field(HIGH, "9.0")
   field(HSV,  "MINOR")
   field(OUT, "$(NOISE_GEN)Ampl-SP PP")
+  field(FLNK, "$(P)$(R)NoiseWfmFunction-Sel")
+}
+
+# Always set funtion to "Noise" as we don't need it
+record(mbbo, "$(P)$(R)NoiseWfmFunction-Sel") {
+    field(DESC, "Select Noise waveform function")
+    field(ZRST, "Sine")
+    field(ONST, "Square")
+    field(TWST, "Triangle")
+    field(THST, "Ramp")
+    field(FRST, "Pulse")
+    field(FVST, "Pseudo-random Bit Stream")
+    field(SXST, "Noise")
+    field(SVST, "Arbitrary")
+    field(EIST, "DC")
+    field(VAL,  "Noise")
+    field(OUT, "$(NOISE_GEN)WfmFunction-Sel PP")
+}
+
+record(mbbi, "$(P)$(R)NoiseWfmFunction-Sts") {
+    field(DESC, "Read Noise waveform function")
+    field(ZRST, "Sine")
+    field(ONST, "Square")
+    field(TWST, "Triangle")
+    field(THST, "Ramp")
+    field(FRST, "Pulse")
+    field(FVST, "Pseudo-random Bit Stream")
+    field(SXST, "Noise")
+    field(SVST, "Arbitrary")
+    field(EIST, "DC")
+    field(INP, "$(NOISE_GEN)WfmFunction-Sts CPP MSS")
 }
 
 record(ai, "$(P)$(R)NoiseAmpl-RB") {
@@ -650,6 +681,21 @@ record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src1Freq-SP PP")
+  field(FLNK, "$(P)$(R)CarSrc1FreqOff-SP")
+}
+
+# Always set offset to 0 as we don't need it
+record(ao, "$(P)$(R)CarSrc1FreqOff-SP"){
+  field(DESC, "Set Carrier Gen Freq. Off 1")
+  field(EGU, "MHz")
+  field(OUT, "$(CARRIER_GEN)Src1FreqOffset-SP PP")
+  field(VAL, "0")
+}
+
+record(ai, "$(P)$(R)CarSrc1FreqOff-RB"){
+  field(DESC, "Get Carrier Gen Freq. Off 1")
+  field(EGU, "MHz")
+  field(INP, "$(CARRIER_GEN)Src1FreqOffset-RB CPP MSS")
 }
 
 record(calcout, "$(P)$(R)CarSrc1FreqConvIn"){
@@ -683,6 +729,21 @@ record(calcout, "$(P)$(R)CarSrc2FreqConvOut") {
   field(CALC, "A/1000000")
   field(OOPT, "Every Time")
   field(OUT,  "$(CARRIER_GEN)Src2Freq-SP PP")
+  field(FLNK, "$(P)$(R)CarSrc2FreqOff-SP")
+}
+
+# Always set offset to 0 as we don't need it
+record(ao, "$(P)$(R)CarSrc2FreqOff-SP"){
+  field(DESC, "Set Carrier Gen Freq. Off 2")
+  field(EGU, "MHz")
+  field(OUT, "$(CARRIER_GEN)Src2FreqOffset-SP PP")
+  field(VAL, "0")
+}
+
+record(ai, "$(P)$(R)CarSrc2FreqOff-RB"){
+  field(DESC, "Get Carrier Gen Freq. Off 2")
+  field(EGU, "MHz")
+  field(INP, "$(CARRIER_GEN)Src2FreqOffset-RB CPP MSS")
 }
 
 record(calcout, "$(P)$(R)CarSrc2FreqConvIn"){
@@ -714,7 +775,7 @@ record(bo, "$(P)$(R)CarSrc1En-Sel"){
 record(calc, "$(P)$(R)CarSrc1EnCalcOut"){
   field(DESC, "Enable Carrier Gen Source 1")
   field(INPA, "$(P)$(R)CarSrc1En-Sel")
-  field(CALC, "A=0?3:12")                         # A=0? Link 1, 2 : Link 3, 4
+  field(CALC, "A=0?7:56")                         # A=0? Link 1, 2, 3 : Link 4, 5, 6
   field(FLNK, "$(P)$(R)CarSrc1EnSeq")
 }
 
@@ -726,10 +787,14 @@ record(seq, "$(P)$(R)CarSrc1EnSeq") {
   field(LNK1, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
   field(DO2, "0")
   field(LNK2, "$(CARRIER_GEN)Src1EnblBuffAmp-Sel PP")
-  field(DO3, "1")
-  field(LNK3, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
+  field(DO3, "-60")
+  field(LNK3, "$(CARRIER_GEN)Src1Pwr-SP PP")
   field(DO4, "1")
-  field(LNK4, "$(CARRIER_GEN)Src1EnblBuffAmp-Sel PP")
+  field(LNK4, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
+  field(DO5, "1")
+  field(LNK5, "$(CARRIER_GEN)Src1EnblBuffAmp-Sel PP")
+  field(DO6, "-10")
+  field(LNK6, "$(CARRIER_GEN)Src1Pwr-SP PP")
 }
 
 record(calcout, "$(P)$(R)CarSrc1EnCalcIn"){
@@ -756,7 +821,7 @@ record(bo, "$(P)$(R)CarSrc2En-Sel"){
 record(calc, "$(P)$(R)CarSrc2EnCalcOut"){
   field(DESC, "Enable Carrier Gen Source 2")
   field(INPA, "$(P)$(R)CarSrc2En-Sel")
-  field(CALC, "A=0?3:12")                         # A=0? Link 1, 2 : Link 3, 4
+  field(CALC, "A=0?7:56")                         # A=0? Link 1, 2, 3 : Link 4, 5, 6
   field(FLNK, "$(P)$(R)CarSrc2EnSeq")
 }
 
@@ -768,10 +833,14 @@ record(seq, "$(P)$(R)CarSrc2EnSeq") {
   field(LNK1, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
   field(DO2, "0")
   field(LNK2, "$(CARRIER_GEN)Src2EnblBuffAmp-Sel PP")
-  field(DO3, "1")
-  field(LNK3, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
+  field(DO3, "-60")
+  field(LNK3, "$(CARRIER_GEN)Src2Pwr-SP PP")
   field(DO4, "1")
-  field(LNK4, "$(CARRIER_GEN)Src2EnblBuffAmp-Sel PP")
+  field(LNK4, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
+  field(DO5, "1")
+  field(LNK5, "$(CARRIER_GEN)Src2EnblBuffAmp-Sel PP")
+  field(DO6, "-10")
+  field(LNK6, "$(CARRIER_GEN)Src2Pwr-SP PP")
 }
 
 record(calcout, "$(P)$(R)CarSrc2EnCalcIn"){
