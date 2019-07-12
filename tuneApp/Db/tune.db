@@ -11,57 +11,57 @@
 # Corresponding Noise Generator
 
 record(stringout, "$(P)$(R)NoiseGen-Cte"){
-  field(DESC, "Corresponding Noise Generator")
-  field(VAL, "$(NOISE_GEN)")
+    field(DESC, "Corresponding Noise Generator")
+    field(VAL, "$(NOISE_GEN)")
 }
 
 # Corresponding Carrier Freq Generator
 
 record(stringout, "$(P)$(R)CarrierGen-Cte"){
-  field(DESC, "Corresponding Carrier Freq Generator")
-  field(VAL, "$(CARRIER_GEN)")
+    field(DESC, "Corresponding Carrier Freq Generator")
+    field(VAL, "$(CARRIER_GEN)")
 }
 
 # Corresponding Spectrum Analyzer Freq Generator
 
 record(stringout, "$(P)$(R)SpecAna-Cte"){
-  field(DESC, "Corresponding Spectrum Analyzer")
-  field(VAL, "$(SPEC_ANA)")
+    field(DESC, "Corresponding Spectrum Analyzer")
+    field(VAL, "$(SPEC_ANA)")
 }
 
 # Corresponding Amplifier
 
 record(stringout, "$(P)$(R)Amp-Cte"){
-  field(DESC, "Corresponding Amplifier")
-  field(VAL, "$(AMP)")
+    field(DESC, "Corresponding Amplifier")
+    field(VAL, "$(AMP)")
 }
 
 # Corresponding Timing
 
 record(stringout, "$(P)$(R)Timing-Cte"){
-  field(DESC, "Corresponding Timing Source")
-  field(VAL, "$(TIM)")
+    field(DESC, "Corresponding Timing Source")
+    field(VAL, "$(TIM)")
 }
 
 # Carrier generator source 1 status
 
 record(calcout, "$(P)$(R)CarrierGenSrcCalc"){
-  field(DESC, "Carrier gen src status calc")
-  field(INPA, "$(P)$(R)CarSrc1En-Sts CPP")
-  field(INPB, "$(P)$(R)CarSrc2En-Sts CPP")
-  field(INPC, "$(P)$(R)CarFreq-RB CPP")
-  field(INPD, "$(P)$(R)CarFreqThold-RB CPP")
-  field(INPE, "$(P)$(R)EnblNoiseGenAmp-Sts CPP")
-  field(CALC, "E=0&&A=0&&B=0?0:(C<D&&(B>0||A=0)?3:(C>=D&&(B=0||A>0)?3:(A>0?1:2)))")
-  field(OUT, "$(P)$(R)CarrierGenSrc-Mon PP")
+    field(DESC, "Carrier gen src status calc")
+    field(INPA, "$(P)$(R)CarSrc1En-Sts CPP")
+    field(INPB, "$(P)$(R)CarSrc2En-Sts CPP")
+    field(INPC, "$(P)$(R)CarFreq-RB CPP")
+    field(INPD, "$(P)$(R)CarFreqThold-RB CPP")
+    field(INPE, "$(P)$(R)EnblNoiseGenAmp-Sts CPP")
+    field(CALC, "E=0&&A=0&&B=0?0:(C<D&&(B>0||A=0)?3:(C>=D&&(B=0||A>0)?3:(A>0?1:2)))")
+    field(OUT, "$(P)$(R)CarrierGenSrc-Mon PP")
 }
 
 record(mbbi, "$(P)$(R)CarrierGenSrc-Mon"){
-  field(ZRST, "None")
-  field(ONST, "Src 1")
-  field(TWST, "Src 2")
-  field(THST, "Src misconfig")
-  field(THSV, "MINOR")
+    field(ZRST, "None")
+    field(ONST, "Src 1")
+    field(TWST, "Src 2")
+    field(THST, "Src misconfig")
+    field(THSV, "MINOR")
 }
 
 ############################################################
@@ -72,129 +72,129 @@ record(mbbi, "$(P)$(R)CarrierGenSrc-Mon"){
 # Enable
 
 record(bo, "$(P)$(R)Enbl-Sel"){
-  field(DESC, "Enable excitation sources")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-  field(FLNK, "$(P)$(R)EnblExctCalc")
+    field(DESC, "Enable excitation sources")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(P)$(R)EnblExctCalc")
 }
 
 record(calcout, "$(P)$(R)EnblMonCalc"){
-  field(DESC, "Noise Generator Calc enable status")
-  field(INPA, "$(P)$(R)CarSrc1En-Sts CPP")
-  field(INPB, "$(P)$(R)CarSrc2En-Srs CPP")
-  field(INPC, "$(NOISE_GEN)ChanOut-Sts CPP")
-  field(CALC, "(A||B)&&C?3:(C>0?1:(A||B?2:0))")
-  field(OUT, "$(P)$(R)EnblNoiseGenAmp-Sts PP")
+    field(DESC, "Noise Generator Calc enable status")
+    field(INPA, "$(P)$(R)CarSrc1En-Sts CPP")
+    field(INPB, "$(P)$(R)CarSrc2En-Srs CPP")
+    field(INPC, "$(NOISE_GEN)ChanOut-Sts CPP")
+    field(CALC, "(A||B)&&C?3:(C>0?1:(A||B?2:0))")
+    field(OUT, "$(P)$(R)EnblNoiseGenAmp-Sts PP")
 }
 
 ## Convert to 0 or 1
 #
 record(calcout, "$(P)$(R)EnblNoiseGenMonCalc"){
-  field(DESC, "Amplifier calc enable status")
-  field(INPA, "$(NOISE_GEN)ChanOut-Sts CPP")
-  field(CALC, "A>0?1:0")
-  field(OUT, "$(P)$(R)EnblNoiseGen-Sts PP")
+    field(DESC, "Amplifier calc enable status")
+    field(INPA, "$(NOISE_GEN)ChanOut-Sts CPP")
+    field(CALC, "A>0?1:0")
+    field(OUT, "$(P)$(R)EnblNoiseGen-Sts PP")
 }
 
 record(bi, "$(P)$(R)EnblNoiseGen-Sts"){
-  field(DESC, "Enable amplifier status")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+    field(DESC, "Enable amplifier status")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
 }
 
 record(calcout, "$(P)$(R)EnblCarrierGenMonCalc"){
-  field(DESC, "Carrier calc enable status")
-  field(INPA, "$(P)$(R)CarSrc1En-Sts CPP")
-  field(INPB, "$(P)$(R)CarSrc2En-Sts CPP")
-  field(CALC, "(A||B)?1:0")
-  field(OUT, "$(P)$(R)EnblCarrierGen-Sts PP")
+    field(DESC, "Carrier calc enable status")
+    field(INPA, "$(P)$(R)CarSrc1En-Sts CPP")
+    field(INPB, "$(P)$(R)CarSrc2En-Sts CPP")
+    field(CALC, "(A||B)?1:0")
+    field(OUT, "$(P)$(R)EnblCarrierGen-Sts PP")
 }
 
 record(bi, "$(P)$(R)EnblCarrierGen-Sts"){
-  field(DESC, "Enable carrier generator status")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+    field(DESC, "Enable carrier generator status")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
 }
 
 record(calcout, "$(P)$(R)EnblAmpMonCalc"){
-  field(DESC, "Amplifier calc enable status")
-  field(INPA, "$(AMP)Enbl-Sts CPP")
-  field(CALC, "A>0?1:0")
-  field(OUT, "$(P)$(R)EnblAmp-Sts PP")
+    field(DESC, "Amplifier calc enable status")
+    field(INPA, "$(AMP)Enbl-Sts CPP")
+    field(CALC, "A>0?1:0")
+    field(OUT, "$(P)$(R)EnblAmp-Sts PP")
 }
 
 record(bi, "$(P)$(R)EnblAmp-Sts"){
-  field(DESC, "Enable amplifier status")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+    field(DESC, "Enable amplifier status")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
 }
 
 ## Instruments status
 record(calc, "$(P)$(R)Enbl-Sts"){
-  field(DESC, "Instrument bitmask status")
-  field(INPA, "$(P)$(R)EnblNoiseGen-Sts CPP")
-  field(INPB, "$(P)$(R)EnblCarrierGen-Sts CPP")
-  field(INPC, "$(P)$(R)EnblAmp-Sts CPP")
-  field(CALC, "((A&1)<<2)|((B&1)<<1)|(C&1)")
+    field(DESC, "Instrument bitmask status")
+    field(INPA, "$(P)$(R)EnblNoiseGen-Sts CPP")
+    field(INPB, "$(P)$(R)EnblCarrierGen-Sts CPP")
+    field(INPC, "$(P)$(R)EnblAmp-Sts CPP")
+    field(CALC, "((A&1)<<2)|((B&1)<<1)|(C&1)")
 }
 
 record(mbbi, "$(P)$(R)EnblNoiseGenAmp-Sts"){
-  field(DESC, "Enable noise source status")
-  field(ZRST, "Off")
-  field(ONST, "Noise gen only")
-  field(ONSV, "MINOR")                       # noise gen only = minor alarm
-  field(TWST, "Carrier gen only")
-  field(TWSV, "MINOR")                       # carrier gen only = minor alarm
-  field(THST, "On")
+    field(DESC, "Enable noise source status")
+    field(ZRST, "Off")
+    field(ONST, "Noise gen only")
+    field(ONSV, "MINOR")                       # noise gen only = minor alarm
+    field(TWST, "Carrier gen only")
+    field(TWSV, "MINOR")                       # carrier gen only = minor alarm
+    field(THST, "On")
 }
 
 record(ao, "$(P)$(R)Span-SP") {
-  field(DESC, "Set measurement span")
-  field(PREC, "3")
-  field(PINI, "YES")
-  field(EGU,  "KHz")
-  field(FLNK, "$(P)$(R)SpanSPConvOut")
+    field(DESC, "Set measurement span")
+    field(PREC, "3")
+    field(PINI, "YES")
+    field(EGU,  "KHz")
+    field(FLNK, "$(P)$(R)SpanSPConvOut")
 }
 
 record(calcout, "$(P)$(R)SpanSPConvOut") {
-  field(DESC, "Span SP conversion")
-  field(EGU, "Hz")
-  field(INPA, "$(P)$(R)Span-SP")
-  field(CALC, "A*1000")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(SPEC_ANA)FreqSpan-SP")
-  field(FLNK, "$(P)$(R)Span-RB")
+    field(DESC, "Span SP conversion")
+    field(EGU, "Hz")
+    field(INPA, "$(P)$(R)Span-SP")
+    field(CALC, "A*1000")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(SPEC_ANA)FreqSpan-SP")
+    field(FLNK, "$(P)$(R)Span-RB")
 }
 
 record(ai, "$(P)$(R)Span-RB") {
-  field(DESC, "Get measurement span")
-  field(PREC, "3")
-  field(EGU,  "KHz")
-  field(INP, "$(P)$(R)Span-SP")
-  field(FLNK, "$(P)$(R)SpanRBConvOut")
+    field(DESC, "Get measurement span")
+    field(PREC, "3")
+    field(EGU,  "KHz")
+    field(INP, "$(P)$(R)Span-SP")
+    field(FLNK, "$(P)$(R)SpanRBConvOut")
 }
 
 record(calcout, "$(P)$(R)SpanRBConvOut") {
-  field(DESC, "Span RB conversion")
-  field(EGU, "Hz")
-  field(INPA, "$(P)$(R)Span-RB NPP MSS")
-  field(CALC, "A*1000")
-  field(OOPT, "Every Time")
+    field(DESC, "Span RB conversion")
+    field(EGU, "Hz")
+    field(INPA, "$(P)$(R)Span-RB NPP MSS")
+    field(CALC, "A*1000")
+    field(OOPT, "Every Time")
 }
 
 record(bo, "$(P)$(R)CenterFreqAuto-Sel"){
-  field(DESC, "Enable automatic drive")
-  field(PINI, "YES")
-  field(ZNAM, "0")
-  field(ONAM, "1")
-  field(FLNK, "$(P)$(R)CenterFreqAuto-Sts")
+    field(DESC, "Enable automatic drive")
+    field(PINI, "YES")
+    field(ZNAM, "0")
+    field(ONAM, "1")
+    field(FLNK, "$(P)$(R)CenterFreqAuto-Sts")
 }
 
 record(bi, "$(P)$(R)CenterFreqAuto-Sts"){
-  field(DESC, "Get automatic center freq")
-  field(INP,  "$(P)$(R)CenterFreqAuto-Sel")
-  field(ZNAM, "0")
-  field(ONAM, "1")
+    field(DESC, "Get automatic center freq")
+    field(INP,  "$(P)$(R)CenterFreqAuto-Sel")
+    field(ZNAM, "0")
+    field(ONAM, "1")
 }
 
 # For use with seq record below
@@ -242,22 +242,22 @@ record(fanout, "$(P)$(R)CenterFreqAutoFout"){
 }
 
 record(ao, "$(P)$(R)CenterFreq-SP") {
-  field(DESC, "Set center freq")
-  field(PREC, "6")
-  field(PINI, "YES")
-  field(EGU,  "MHz")
-  field(DOL,  "$(P)$(R)CFreqCalc.OVAL CPP MSS")
-  field(OMSL, "closed_loop")
-  field(FLNK, "$(P)$(R)CFreqConvOut")
+    field(DESC, "Set center freq")
+    field(PREC, "6")
+    field(PINI, "YES")
+    field(EGU,  "MHz")
+    field(DOL,  "$(P)$(R)CFreqCalc.OVAL CPP MSS")
+    field(OMSL, "closed_loop")
+    field(FLNK, "$(P)$(R)CFreqConvOut")
 }
 
 record(calcout, "$(P)$(R)CFreqConvOut") {
-  field(DESC, "Center Freq. conversion")
-  field(EGU, "Hz")
-  field(INPA, "$(P)$(R)CenterFreq-SP")
-  field(CALC, "A*1000000")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(SPEC_ANA)FreqCenter-SP")
+    field(DESC, "Center Freq. conversion")
+    field(EGU, "Hz")
+    field(INPA, "$(P)$(R)CenterFreq-SP")
+    field(CALC, "A*1000000")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(SPEC_ANA)FreqCenter-SP")
 }
 
 # Gets frequency either from spectrum analyzer
@@ -266,65 +266,65 @@ record(calcout, "$(P)$(R)CFreqConvOut") {
 # but that's just because we compared an old value
 # of CarFreq-RB
 record(calcout, "$(P)$(R)CenterFreqRBCalc") {
-  field(DESC, "Get frequency readback")
-  field(EGU,  "MHz")
-  field(INPA, "$(SPEC_ANA)FreqCenter-RB CPP MSS")
-  field(INPB, "$(P)$(R)CarFreq-RB CPP MSS")
-  field(INPC, "$(P)$(R)DriveAuto-Sts CPP NMS")
-  field(CALC, "C=0?1:(ABS(A-B)<=0.1?1:0)")
-  field(LOW,  "0")
-  field(LSV,  "MINOR")
-  field(OOPT, "Every Time")
-  field(OCAL, "A/1000000")
-  field(DOPT, "Use OCAL")
-  field(OUT,  "0")
+    field(DESC, "Get frequency readback")
+    field(EGU,  "MHz")
+    field(INPA, "$(SPEC_ANA)FreqCenter-RB CPP MSS")
+    field(INPB, "$(P)$(R)CarFreq-RB CPP MSS")
+    field(INPC, "$(P)$(R)DriveAuto-Sts CPP NMS")
+    field(CALC, "C=0?1:(ABS(A-B)<=0.1?1:0)")
+    field(LOW,  "0")
+    field(LSV,  "MINOR")
+    field(OOPT, "Every Time")
+    field(OCAL, "A/1000000")
+    field(DOPT, "Use OCAL")
+    field(OUT,  "0")
 }
 
 record(ai, "$(P)$(R)CenterFreq-RB") {
-  field(DESC, "Get center freq")
-  field(PREC, "6")
-  field(INP,  "$(P)$(R)CenterFreqRBCalc.OVAL CPP MSS")
-  field(EGU,  "MHz")
-  field(FLNK, "$(P)$(R)RevNCalc")
+    field(DESC, "Get center freq")
+    field(PREC, "6")
+    field(INP,  "$(P)$(R)CenterFreqRBCalc.OVAL CPP MSS")
+    field(EGU,  "MHz")
+    field(FLNK, "$(P)$(R)RevNCalc")
 }
 
 # Center Frequency, if not in auto mode, sets RevN and Offset
 record(calcout, "$(P)$(R)RevNCalc") {
-  field(DESC, "Rev. N from Center Freq.")
-  field(INPA, "$(P)$(R)CFreqConvOut")
-  field(INPB, "$(P)$(R)FreqRev-Mon CPP")
-  field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
-  field(CALC, "C=0?((A/B)>1?FLOOR(A/B):1):0")
-  field(OOPT, "When Non-zero")
-  field(OUT, "$(P)$(R)RevN-SP PP")
-  field(FLNK, "$(P)$(R)FreqOffCalc")
+    field(DESC, "Rev. N from Center Freq.")
+    field(INPA, "$(P)$(R)CFreqConvOut")
+    field(INPB, "$(P)$(R)FreqRev-Mon CPP")
+    field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
+    field(CALC, "C=0?((A/B)>1?FLOOR(A/B):1):0")
+    field(OOPT, "When Non-zero")
+    field(OUT, "$(P)$(R)RevN-SP PP")
+    field(FLNK, "$(P)$(R)FreqOffCalc")
 }
 
 record(calcout, "$(P)$(R)FreqOffCalc") {
-  field(DESC, "Offset frequency from Center Freq.")
-  field(EGU, "KHz")
-  field(INPA, "$(P)$(R)CFreqConvOut")
-  field(INPB, "$(P)$(R)FreqRev-Mon CPP")
-  field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
-  field(INPD, "$(P)$(R)RevNCalc")
-  field(CALC, "C=0?(A-B*D)/1000:0")
-  field(OOPT, "When Non-zero")
-  field(OUT, "$(P)$(R)FreqOff-SP PP")
+    field(DESC, "Offset frequency from Center Freq.")
+    field(EGU, "KHz")
+    field(INPA, "$(P)$(R)CFreqConvOut")
+    field(INPB, "$(P)$(R)FreqRev-Mon CPP")
+    field(INPC, "$(P)$(R)CenterFreqAuto-Sts NPP")
+    field(INPD, "$(P)$(R)RevNCalc")
+    field(CALC, "C=0?(A-B*D)/1000:0")
+    field(OOPT, "When Non-zero")
+    field(OUT, "$(P)$(R)FreqOff-SP PP")
 }
 
 record(bo, "$(P)$(R)DriveAuto-Sel"){
-  field(DESC, "Enable automatic drive")
-  field(PINI, "YES")
-  field(ZNAM, "0")
-  field(ONAM, "1")
-  field(FLNK, "$(P)$(R)DriveAuto-Sts")
+    field(DESC, "Enable automatic drive")
+    field(PINI, "YES")
+    field(ZNAM, "0")
+    field(ONAM, "1")
+    field(FLNK, "$(P)$(R)DriveAuto-Sts")
 }
 
 record(bi, "$(P)$(R)DriveAuto-Sts"){
-  field(DESC, "Get automatic drive")
-  field(INP,  "$(P)$(R)DriveAuto-Sel")
-  field(ZNAM, "0")
-  field(ONAM, "1")
+    field(DESC, "Get automatic drive")
+    field(INP,  "$(P)$(R)DriveAuto-Sel")
+    field(ZNAM, "0")
+    field(ONAM, "1")
 }
 
 # For use with seq record below
@@ -386,23 +386,23 @@ record(fanout, "$(P)$(R)DriveAutoFout"){
 # Desc: Parameters to amplifier.
 
 record(ao, "$(P)$(R)AmpGain-SP") {
-  field(DESC, "Set Gain Control")
-  field(DTYP, "Soft Channel")
-  field(EGU, "dB")
-  field(PREC, "2")
-  field(DRVL, "30.0")
-  field(DRVH, "49.0")
-  field(HIGH, "48.5")
-  field(HSV,  "MINOR")
-  field(PINI, "YES")
-  field(OUT, "$(AMP)Gain-SP PP")
+    field(DESC, "Set Gain Control")
+    field(DTYP, "Soft Channel")
+    field(EGU, "dB")
+    field(PREC, "2")
+    field(DRVL, "30.0")
+    field(DRVH, "49.0")
+    field(HIGH, "48.5")
+    field(HSV,  "MINOR")
+    field(PINI, "YES")
+    field(OUT, "$(AMP)Gain-SP PP")
 }
 
 record(ai, "$(P)$(R)AmpGain-RB") {
-  field(DESC, "Get Gain Control")
-  field(INP,  "$(AMP)Gain-RB CPP MSS")
-  field(EGU,  "dB")
-  field(PREC, "2")
+    field(DESC, "Get Gain Control")
+    field(INP,  "$(AMP)Gain-RB CPP MSS")
+    field(EGU,  "dB")
+    field(PREC, "2")
 }
 
 ############################################################
@@ -411,86 +411,86 @@ record(ai, "$(P)$(R)AmpGain-RB") {
 # Desc: Parameters to control spectrum analyzer.
 
 record(mbbo, "$(P)$(R)SpecAnaRBW-Sel"){
-  field(DESC, "Resolution Bandwidth")
-  field(DTYP, "Soft Channel")
-  field(NOBT, "4")
-  field(PINI, "YES")
-  field(ZRST, "10 Hz")
-  field(ZRVL, "10")
-  field(ONST, "30 Hz")
-  field(ONVL, "30")
-  field(TWST, "100 Hz")
-  field(TWVL, "100")
-  field(THST, "300 Hz")
-  field(THVL, "300")
-  field(FRST, "1 kHz")
-  field(FRVL, "1000")
-  field(FVST, "3 kHz")
-  field(FVVL, "3000")
-  field(SXST, "10 kHz")
-  field(SXVL, "10000")
-  field(SVST, "30 kHz")
-  field(SVVL, "30000")
-  field(EIST, "100 kHz")
-  field(EIVL, "100000")
-  field(NIST, "300 kHz")
-  field(NIVL, "300000")
-  field(TEST, "1 MHz")
-  field(TEVL, "1000000")
-  field(ELST, "3 MHz")
-  field(ELVL, "3000000")
-  field(TVST, "10 MHz")
-  field(TVVL, "10000000")
-  field(OUT, "$(SPEC_ANA)Rbw-Sel CPP")
+    field(DESC, "Resolution Bandwidth")
+    field(DTYP, "Soft Channel")
+    field(NOBT, "4")
+    field(PINI, "YES")
+    field(ZRST, "10 Hz")
+    field(ZRVL, "10")
+    field(ONST, "30 Hz")
+    field(ONVL, "30")
+    field(TWST, "100 Hz")
+    field(TWVL, "100")
+    field(THST, "300 Hz")
+    field(THVL, "300")
+    field(FRST, "1 kHz")
+    field(FRVL, "1000")
+    field(FVST, "3 kHz")
+    field(FVVL, "3000")
+    field(SXST, "10 kHz")
+    field(SXVL, "10000")
+    field(SVST, "30 kHz")
+    field(SVVL, "30000")
+    field(EIST, "100 kHz")
+    field(EIVL, "100000")
+    field(NIST, "300 kHz")
+    field(NIVL, "300000")
+    field(TEST, "1 MHz")
+    field(TEVL, "1000000")
+    field(ELST, "3 MHz")
+    field(ELVL, "3000000")
+    field(TVST, "10 MHz")
+    field(TVVL, "10000000")
+    field(OUT, "$(SPEC_ANA)Rbw-Sel CPP")
 }
 
 record(mbbi, "$(P)$(R)SpecAnaRBW-Sts"){
-  field(DESC, "Resolution Bandwidth")
-  field(DTYP, "Soft Channel")
-  field(NOBT, "4")
-  field(ZRST, "10 Hz")
-  field(ZRVL, "10")
-  field(ONST, "30 Hz")
-  field(ONVL, "30")
-  field(TWST, "100 Hz")
-  field(TWVL, "100")
-  field(THST, "300 Hz")
-  field(THVL, "300")
-  field(FRST, "1 kHz")
-  field(FRVL, "1000")
-  field(FVST, "3 kHz")
-  field(FVVL, "3000")
-  field(SXST, "10 kHz")
-  field(SXVL, "10000")
-  field(SVST, "30 kHz")
-  field(SVVL, "30000")
-  field(EIST, "100 kHz")
-  field(EIVL, "100000")
-  field(NIST, "300 kHz")
-  field(NIVL, "300000")
-  field(TEST, "1 MHz")
-  field(TEVL, "1000000")
-  field(ELST, "3 MHz")
-  field(ELVL, "3000000")
-  field(TVST, "10 MHz")
-  field(TVVL, "10000000")
-  field(INP, "$(SPEC_ANA)Rbw-Sts CPP")
+    field(DESC, "Resolution Bandwidth")
+    field(DTYP, "Soft Channel")
+    field(NOBT, "4")
+    field(ZRST, "10 Hz")
+    field(ZRVL, "10")
+    field(ONST, "30 Hz")
+    field(ONVL, "30")
+    field(TWST, "100 Hz")
+    field(TWVL, "100")
+    field(THST, "300 Hz")
+    field(THVL, "300")
+    field(FRST, "1 kHz")
+    field(FRVL, "1000")
+    field(FVST, "3 kHz")
+    field(FVVL, "3000")
+    field(SXST, "10 kHz")
+    field(SXVL, "10000")
+    field(SVST, "30 kHz")
+    field(SVVL, "30000")
+    field(EIST, "100 kHz")
+    field(EIVL, "100000")
+    field(NIST, "300 kHz")
+    field(NIVL, "300000")
+    field(TEST, "1 MHz")
+    field(TEVL, "1000000")
+    field(ELST, "3 MHz")
+    field(ELVL, "3000000")
+    field(TVST, "10 MHz")
+    field(TVVL, "10000000")
+    field(INP, "$(SPEC_ANA)Rbw-Sts CPP")
 }
 
 record(bo, "$(P)$(R)SpecAnaGetSpec-Sel"){
-  field(DESC, "Set enable spec. analyzer status")
-  field(PINI, "YES")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  field(OUT,  "$(SPEC_ANA)GetSpectrum-Sel PP")
-  field(FLNK, "$(P)$(R)SpecAnaGetSpec-Sts")
+    field(DESC, "Set enable spec. analyzer status")
+    field(PINI, "YES")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(OUT,  "$(SPEC_ANA)GetSpectrum-Sel PP")
+    field(FLNK, "$(P)$(R)SpecAnaGetSpec-Sts")
 }
 
 record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
-  field(DESC, "Get enable spec. analyzer status")
-  field(INP,  "$(SPEC_ANA)GetSpectrum-Sts CPP")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
+    field(DESC, "Get enable spec. analyzer status")
+    field(INP,  "$(SPEC_ANA)GetSpectrum-Sts CPP")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
 }
 
 # The TimeDelta PV from SPEC_ANA has an intrinsic jitter,
@@ -499,61 +499,61 @@ record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
 # variables from the control system.
 
 record(calcout, "$(P)$(R)SpecAnaTDeltaCalc") {
-  field(DESC, "Timing estimated Time Delta")
-  field(EGU,  "ms")
-  field(INPA, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
-  field(INPB, "$(TIM)NrPulses-RB CPP NMS")
-  field(INPC, "$(TIM)Duration-RB CPP NMS")
-  field(CALC, "A*(C/1000)/B")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)SpecAnaTDelta-Mon PP")
+    field(DESC, "Timing estimated Time Delta")
+    field(EGU,  "ms")
+    field(INPA, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
+    field(INPB, "$(TIM)NrPulses-RB CPP NMS")
+    field(INPC, "$(TIM)Duration-RB CPP NMS")
+    field(CALC, "A*(C/1000)/B")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)SpecAnaTDelta-Mon PP")
 }
 
 record(ai, "$(P)$(R)SpecAnaTDelta-Mon") {
-  field(DESC, "Timing estimated Time Delta")
-  field(EGU,  "ms")
-  field(PREC, "1")
+    field(DESC, "Timing estimated Time Delta")
+    field(EGU,  "ms")
+    field(PREC, "1")
 }
 
 # Time Vector
 # Assuming maximum of 1000 frames
 
 record(seq, "$(P)$(R)TimeArrayWvfSeq"){
-  field(DESC, "Get frame count seq")
-  field(PINI, "YES")
-  field(DOL1, "$(SPEC_ANA)FrameCount-Mon.VAL CPP NMS")
-  field(LNK1, "$(P)$(R)TimeArray-Mon.NELM CPP NMS")
-  field(SELM, "All")
+    field(DESC, "Get frame count seq")
+    field(PINI, "YES")
+    field(DOL1, "$(SPEC_ANA)FrameCount-Mon.VAL CPP NMS")
+    field(LNK1, "$(P)$(R)TimeArray-Mon.NELM CPP NMS")
+    field(SELM, "All")
 }
 
 record(acalcout, "$(P)$(R)TimeArrayCalc") {
-  field(DESC, "Time vector for spectrogram")
-  field(PREC, "1")
-  field(NELM, "1000")
-  field(EGU,  "ms")
-  field(INPA, "0")
-  field(INPB, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
-  field(INPC, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
-  field(CALC, "IX*(B-A)/(C-1)+A")
-  field(OUT,  "$(P)$(R)TimeArrayWvf CPP NMS")
+    field(DESC, "Time vector for spectrogram")
+    field(PREC, "1")
+    field(NELM, "1000")
+    field(EGU,  "ms")
+    field(INPA, "0")
+    field(INPB, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
+    field(INPC, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
+    field(CALC, "IX*(B-A)/(C-1)+A")
+    field(OUT,  "$(P)$(R)TimeArrayWvf CPP NMS")
 }
 
 record(waveform,"$(P)$(R)TimeArrayWvf") {
-  field(DESC, "Time vector for spectrogram")
-  field(PREC, "1")
-  field(EGU,  "ms")
-  field(NELM, "1000")
-  field(FTVL, "DOUBLE")
-  field(FLNK, "$(P)$(R)TimeArray-Mon")
+    field(DESC, "Time vector for spectrogram")
+    field(PREC, "1")
+    field(EGU,  "ms")
+    field(NELM, "1000")
+    field(FTVL, "DOUBLE")
+    field(FLNK, "$(P)$(R)TimeArray-Mon")
 }
 
 record(subArray, "$(P)$(R)TimeArray-Mon") {
-  field(DESC, "Time vector for spectrogram")
-  field(PREC, "1")
-  field(EGU,  "ms")
-  field(FTVL, "DOUBLE")
-  field(MALM, "1000")
-  field(INP,  "$(P)$(R)TimeArrayWvf NPP NMS")
+    field(DESC, "Time vector for spectrogram")
+    field(PREC, "1")
+    field(EGU,  "ms")
+    field(FTVL, "DOUBLE")
+    field(MALM, "1000")
+    field(INP,  "$(P)$(R)TimeArrayWvf NPP NMS")
 }
 
 ############################################################
@@ -562,17 +562,17 @@ record(subArray, "$(P)$(R)TimeArray-Mon") {
 # Desc: Parameters to control noise generator.
 
 record(ao, "$(P)$(R)NoiseAmpl-SP") {
-  field(DESC, "Set noise power")
-  field(PINI, "YES")
-  field(EGU,  "V")
-  field(PREC, "3")
-  field(DRVL, "-10.0")
-  field(DRVH, "10.0")
-  field(LOW,  "-9.0")
-  field(HIGH, "9.0")
-  field(HSV,  "MINOR")
-  field(OUT, "$(NOISE_GEN)Ampl-SP PP")
-  field(FLNK, "$(P)$(R)NoiseWfmFunction-Sel")
+    field(DESC, "Set noise power")
+    field(PINI, "YES")
+    field(EGU,  "V")
+    field(PREC, "3")
+    field(DRVL, "-10.0")
+    field(DRVH, "10.0")
+    field(LOW,  "-9.0")
+    field(HIGH, "9.0")
+    field(HSV,  "MINOR")
+    field(OUT, "$(NOISE_GEN)Ampl-SP PP")
+    field(FLNK, "$(P)$(R)NoiseWfmFunction-Sel")
 }
 
 # Always set funtion to "Noise" as we don't need it
@@ -610,69 +610,69 @@ record(mbbi, "$(P)$(R)NoiseWfmFunction-Sts") {
 
 # Always set sweep to "OFF" as we don't need it
 record(bo, "$(P)$(R)NoiseSweepState-Sel") {
-  field(DESC, "Set sweep state")
-  field(DTYP, "Soft Channel")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  field(VAL,  "OFF")
-  field(OUT, "$(NOISE_GEN)SweepState-Sel PP")
+    field(DESC, "Set sweep state")
+    field(DTYP, "Soft Channel")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(VAL,  "OFF")
+    field(OUT, "$(NOISE_GEN)SweepState-Sel PP")
 }
 
 record(bi, "$(P)$(R)NoiseSweepState-Sts") {
-  field(DESC, "Get sweep state")
-  field(DTYP, "Soft Channel")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  field(INP, "$(NOISE_GEN)SweepState-Sts CPP MSS")
+    field(DESC, "Get sweep state")
+    field(DTYP, "Soft Channel")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(INP, "$(NOISE_GEN)SweepState-Sts CPP MSS")
 }
 
 record(ai, "$(P)$(R)NoiseAmpl-RB") {
-  field(DESC, "Get noise amplitude")
-  field(INP,  "$(NOISE_GEN)Ampl-RB CPP MSS")
-  field(EGU,  "V")
-  field(PREC, "3")
+    field(DESC, "Get noise amplitude")
+    field(INP,  "$(NOISE_GEN)Ampl-RB CPP MSS")
+    field(EGU,  "V")
+    field(PREC, "3")
 }
 
 # Carrier Source accuracy is 2ppm from datasheet
 record(ao, "$(P)$(R)CarSrcAcc-SP") {
-  field(DESC, "Set carrier accuracy")
-  field(PINI, "YES")
-  field(EGU,  "ppm")
-  field(VAL,  "2")
-  field(FLNK, "$(P)$(R)CarSrcAcc-RB")
+    field(DESC, "Set carrier accuracy")
+    field(PINI, "YES")
+    field(EGU,  "ppm")
+    field(VAL,  "2")
+    field(FLNK, "$(P)$(R)CarSrcAcc-RB")
 }
 
 record(ai, "$(P)$(R)CarSrcAcc-RB") {
-  field(DESC, "Get carrier accuracy")
-  field(INP,  "$(P)$(R)CarSrcAcc-SP NPP NMS")
-  field(EGU,  "ppm")
+    field(DESC, "Get carrier accuracy")
+    field(INP,  "$(P)$(R)CarSrcAcc-SP NPP NMS")
+    field(EGU,  "ppm")
 }
 
 # Span meaning for Noise Generator is half of the measurement span.
 # Add the carrier generator accuracy to increase the bandwidth so we are
 # sure to only be seeing the excited bandwidth at the spectrum analyzer.
 record(calc, "$(P)$(R)NoiseCalc"){
-  field(DESC, "Noise Span calculation to instrument")
-  field(INPA, "$(P)$(R)SpanRBConvOut CPP MSS")
-  field(INPB, "$(P)$(R)CarSrcAcc-RB CPP MSS")
-  field(INPC, "$(P)$(R)CarFreq-RB CPP MSS")
-  field(CALC, "A/2+C*B/1000000")
+    field(DESC, "Noise Span calculation to instrument")
+    field(INPA, "$(P)$(R)SpanRBConvOut CPP MSS")
+    field(INPB, "$(P)$(R)CarSrcAcc-RB CPP MSS")
+    field(INPC, "$(P)$(R)CarFreq-RB CPP MSS")
+    field(CALC, "A/2+C*B/1000000")
 }
 
 record(ao, "$(P)$(R)NoiseGenSpan-SP"){
-  field(DESC, "Noise span")
-  field(DRVH, "20000000")
-  field(DRVL, "0.001")
-  field(EGU, "Hz")
-  field(DOL, "$(P)$(R)NoiseCalc CPP MSS")
-  field(OMSL,"closed_loop")
-  field(OUT, "$(NOISE_GEN)NoiseBw-SP PP")
+    field(DESC, "Noise span")
+    field(DRVH, "20000000")
+    field(DRVL, "0.001")
+    field(EGU, "Hz")
+    field(DOL, "$(P)$(R)NoiseCalc CPP MSS")
+    field(OMSL,"closed_loop")
+    field(OUT, "$(NOISE_GEN)NoiseBw-SP PP")
 }
 
 record(ai, "$(P)$(R)NoiseGenSpan-RB"){
-  field(DESC, "Noise span RB")
-  field(EGU, "Hz")
-  field(INP, "$(NOISE_GEN)NoiseBw-RB CPP")
+    field(DESC, "Noise span RB")
+    field(EGU, "Hz")
+    field(INP, "$(NOISE_GEN)NoiseBw-RB CPP")
 }
 
 ############################################################
@@ -687,99 +687,99 @@ record(ai, "$(P)$(R)NoiseGenSpan-RB"){
 # Generator works in MHz but we work in Hz
 
 record(ao, "$(P)$(R)CarSrc1Freq-SP"){
-  field(DESC, "Set Carrier Gen Freq. 1")
-  field(PINI, "YES")
-  field(DRVH, "6000000000")
-  field(DRVL, "23500000")
-  field(EGU, "Hz")
-  field(FLNK, "$(P)$(R)CarSrc1FreqConvOut")
+    field(DESC, "Set Carrier Gen Freq. 1")
+    field(PINI, "YES")
+    field(DRVH, "6000000000")
+    field(DRVL, "23500000")
+    field(EGU, "Hz")
+    field(FLNK, "$(P)$(R)CarSrc1FreqConvOut")
 }
 
 record(calcout, "$(P)$(R)CarSrc1FreqConvOut") {
-  field(DESC, "Carrier Freq. 1 conversion")
-  field(EGU, "MHz")
-  field(INPA, "$(P)$(R)CarSrc1Freq-SP")
-  field(CALC, "A/1000000")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(CARRIER_GEN)Src1Freq-SP PP")
-  field(FLNK, "$(P)$(R)CarSrc1FreqOff-SP")
+    field(DESC, "Carrier Freq. 1 conversion")
+    field(EGU, "MHz")
+    field(INPA, "$(P)$(R)CarSrc1Freq-SP")
+    field(CALC, "A/1000000")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(CARRIER_GEN)Src1Freq-SP PP")
+    field(FLNK, "$(P)$(R)CarSrc1FreqOff-SP")
 }
 
 # Always set offset to 0 as we don't need it
 record(ao, "$(P)$(R)CarSrc1FreqOff-SP"){
-  field(DESC, "Set Carrier Gen Freq. Off 1")
-  field(EGU, "MHz")
-  field(OUT, "$(CARRIER_GEN)Src1FreqOffset-SP PP")
-  field(VAL, "0")
+    field(DESC, "Set Carrier Gen Freq. Off 1")
+    field(EGU, "MHz")
+    field(OUT, "$(CARRIER_GEN)Src1FreqOffset-SP PP")
+    field(VAL, "0")
 }
 
 record(ai, "$(P)$(R)CarSrc1FreqOff-RB"){
-  field(DESC, "Get Carrier Gen Freq. Off 1")
-  field(EGU, "MHz")
-  field(INP, "$(CARRIER_GEN)Src1FreqOffset-RB CPP MSS")
+    field(DESC, "Get Carrier Gen Freq. Off 1")
+    field(EGU, "MHz")
+    field(INP, "$(CARRIER_GEN)Src1FreqOffset-RB CPP MSS")
 }
 
 record(calcout, "$(P)$(R)CarSrc1FreqConvIn"){
-  field(DESC, "Get Carrier Gen Freq. 1")
-  field(EGU, "MHz")
-  field(INPA, "$(CARRIER_GEN)Src1Freq-RB CPP MSS")
-  field(CALC, "A*1000000")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)CarSrc1Freq-RB PP MSS")
+    field(DESC, "Get Carrier Gen Freq. 1")
+    field(EGU, "MHz")
+    field(INPA, "$(CARRIER_GEN)Src1Freq-RB CPP MSS")
+    field(CALC, "A*1000000")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)CarSrc1Freq-RB PP MSS")
 }
 
 record(ai, "$(P)$(R)CarSrc1Freq-RB"){
-  field(DESC, "Get Carrier Gen Freq. 1")
-  field(INP,  "$(P)$(R)CarSrc1FreqConvIn")
-  field(EGU, "Hz")
+    field(DESC, "Get Carrier Gen Freq. 1")
+    field(INP,  "$(P)$(R)CarSrc1FreqConvIn")
+    field(EGU, "Hz")
 }
 
 record(ao, "$(P)$(R)CarSrc2Freq-SP"){
-  field(DESC, "Set Carrier Gen Freq. 2")
-  field(PINI, "YES")
-  field(DRVH, "6000000000")
-  field(DRVL, "23500000")
-  field(EGU, "Hz")
-  field(FLNK, "$(P)$(R)CarSrc2FreqConvOut")
+    field(DESC, "Set Carrier Gen Freq. 2")
+    field(PINI, "YES")
+    field(DRVH, "6000000000")
+    field(DRVL, "23500000")
+    field(EGU, "Hz")
+    field(FLNK, "$(P)$(R)CarSrc2FreqConvOut")
 }
 
 record(calcout, "$(P)$(R)CarSrc2FreqConvOut") {
-  field(DESC, "Carrier Freq. 2 conversion")
-  field(EGU, "MHz")
-  field(INPA, "$(P)$(R)CarSrc2Freq-SP")
-  field(CALC, "A/1000000")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(CARRIER_GEN)Src2Freq-SP PP")
-  field(FLNK, "$(P)$(R)CarSrc2FreqOff-SP")
+    field(DESC, "Carrier Freq. 2 conversion")
+    field(EGU, "MHz")
+    field(INPA, "$(P)$(R)CarSrc2Freq-SP")
+    field(CALC, "A/1000000")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(CARRIER_GEN)Src2Freq-SP PP")
+    field(FLNK, "$(P)$(R)CarSrc2FreqOff-SP")
 }
 
 # Always set offset to 0 as we don't need it
 record(ao, "$(P)$(R)CarSrc2FreqOff-SP"){
-  field(DESC, "Set Carrier Gen Freq. Off 2")
-  field(EGU, "MHz")
-  field(OUT, "$(CARRIER_GEN)Src2FreqOffset-SP PP")
-  field(VAL, "0")
+    field(DESC, "Set Carrier Gen Freq. Off 2")
+    field(EGU, "MHz")
+    field(OUT, "$(CARRIER_GEN)Src2FreqOffset-SP PP")
+    field(VAL, "0")
 }
 
 record(ai, "$(P)$(R)CarSrc2FreqOff-RB"){
-  field(DESC, "Get Carrier Gen Freq. Off 2")
-  field(EGU, "MHz")
-  field(INP, "$(CARRIER_GEN)Src2FreqOffset-RB CPP MSS")
+    field(DESC, "Get Carrier Gen Freq. Off 2")
+    field(EGU, "MHz")
+    field(INP, "$(CARRIER_GEN)Src2FreqOffset-RB CPP MSS")
 }
 
 record(calcout, "$(P)$(R)CarSrc2FreqConvIn"){
-  field(DESC, "Get Carrier Gen Freq. 2")
-  field(EGU, "MHz")
-  field(INPA, "$(CARRIER_GEN)Src2Freq-RB CPP MSS")
-  field(CALC, "A*1000000")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)CarSrc2Freq-RB PP MSS")
+    field(DESC, "Get Carrier Gen Freq. 2")
+    field(EGU, "MHz")
+    field(INPA, "$(CARRIER_GEN)Src2Freq-RB CPP MSS")
+    field(CALC, "A*1000000")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)CarSrc2Freq-RB PP MSS")
 }
 
 record(ai, "$(P)$(R)CarSrc2Freq-RB"){
-  field(DESC, "Get Carrier Gen Freq. 2")
-  field(INP,  "$(P)$(R)CarSrc2FreqConvIn")
-  field(EGU, "Hz")
+    field(DESC, "Get Carrier Gen Freq. 2")
+    field(INP,  "$(P)$(R)CarSrc2FreqConvIn")
+    field(EGU, "Hz")
 }
 
 ###########
@@ -787,206 +787,206 @@ record(ai, "$(P)$(R)CarSrc2Freq-RB"){
 ##########
 
 record(bo, "$(P)$(R)CarSrc1En-Sel"){
-  field(DESC, "Enable Carrier Gen Source 1")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-  field(FLNK, "$(P)$(R)CarSrc1EnCalcOut")
+    field(DESC, "Enable Carrier Gen Source 1")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(P)$(R)CarSrc1EnCalcOut")
 }
 
 record(calc, "$(P)$(R)CarSrc1EnCalcOut"){
-  field(DESC, "Enable Carrier Gen Source 1")
-  field(INPA, "$(P)$(R)CarSrc1En-Sel")
-  field(CALC, "A=0?7:56")                         # A=0? Link 1, 2, 3 : Link 4, 5, 6
-  field(FLNK, "$(P)$(R)CarSrc1EnSeq")
+    field(DESC, "Enable Carrier Gen Source 1")
+    field(INPA, "$(P)$(R)CarSrc1En-Sel")
+    field(CALC, "A=0?7:56")                         # A=0? Link 1, 2, 3 : Link 4, 5, 6
+    field(FLNK, "$(P)$(R)CarSrc1EnSeq")
 }
 
 record(seq, "$(P)$(R)CarSrc1EnSeq") {
-  field(DESC, "Enable Carrier Gen Source 1")
-  field(SELM, "Mask")
-  field(SELL, "$(P)$(R)CarSrc1EnCalcOut")
-  field(DO1, "0")
-  field(LNK1, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
-  field(DO2, "0")
-  field(LNK2, "$(CARRIER_GEN)Src1EnblBuffAmp-Sel PP")
-  field(DO3, "-60")
-  field(LNK3, "$(CARRIER_GEN)Src1Pwr-SP PP")
-  field(DO4, "1")
-  field(LNK4, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
-  field(DO5, "1")
-  field(LNK5, "$(CARRIER_GEN)Src1EnblBuffAmp-Sel PP")
-  field(DO6, "-10")
-  field(LNK6, "$(CARRIER_GEN)Src1Pwr-SP PP")
+    field(DESC, "Enable Carrier Gen Source 1")
+    field(SELM, "Mask")
+    field(SELL, "$(P)$(R)CarSrc1EnCalcOut")
+    field(DO1, "0")
+    field(LNK1, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
+    field(DO2, "0")
+    field(LNK2, "$(CARRIER_GEN)Src1EnblBuffAmp-Sel PP")
+    field(DO3, "-60")
+    field(LNK3, "$(CARRIER_GEN)Src1Pwr-SP PP")
+    field(DO4, "1")
+    field(LNK4, "$(CARRIER_GEN)Src1PwrOn-Sel PP")
+    field(DO5, "1")
+    field(LNK5, "$(CARRIER_GEN)Src1EnblBuffAmp-Sel PP")
+    field(DO6, "-10")
+    field(LNK6, "$(CARRIER_GEN)Src1Pwr-SP PP")
 }
 
 record(calcout, "$(P)$(R)CarSrc1EnCalcIn"){
-  field(DESC, "Get Carrier Gen Source 1 status")
-  field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP MSS")
-  field(INPB, "$(CARRIER_GEN)Src1EnblBuffAmp-Sts CPP MSS")
-  field(CALC, "A=1&&B=1?1:0")
-  field(OUT,  "$(P)$(R)CarSrc1En-Sts PP")
+    field(DESC, "Get Carrier Gen Source 1 status")
+    field(INPA, "$(CARRIER_GEN)Src1PwrOn-Sts CPP MSS")
+    field(INPB, "$(CARRIER_GEN)Src1EnblBuffAmp-Sts CPP MSS")
+    field(CALC, "A=1&&B=1?1:0")
+    field(OUT,  "$(P)$(R)CarSrc1En-Sts PP")
 }
 
 record(bi, "$(P)$(R)CarSrc1En-Sts"){
-  field(DESC, "Get Carrier Gen Source 1 Status")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+    field(DESC, "Get Carrier Gen Source 1 Status")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
 }
 
 record(bo, "$(P)$(R)CarSrc2En-Sel"){
-  field(DESC, "Enable Carrier Gen Source 2")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-  field(FLNK, "$(P)$(R)CarSrc2EnCalcOut")
+    field(DESC, "Enable Carrier Gen Source 2")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(P)$(R)CarSrc2EnCalcOut")
 }
 
 record(calc, "$(P)$(R)CarSrc2EnCalcOut"){
-  field(DESC, "Enable Carrier Gen Source 2")
-  field(INPA, "$(P)$(R)CarSrc2En-Sel")
-  field(CALC, "A=0?7:56")                         # A=0? Link 1, 2, 3 : Link 4, 5, 6
-  field(FLNK, "$(P)$(R)CarSrc2EnSeq")
+    field(DESC, "Enable Carrier Gen Source 2")
+    field(INPA, "$(P)$(R)CarSrc2En-Sel")
+    field(CALC, "A=0?7:56")                         # A=0? Link 1, 2, 3 : Link 4, 5, 6
+    field(FLNK, "$(P)$(R)CarSrc2EnSeq")
 }
 
 record(seq, "$(P)$(R)CarSrc2EnSeq") {
-  field(DESC, "Enable Carrier Gen Source 2")
-  field(SELM, "Mask")
-  field(SELL, "$(P)$(R)CarSrc2EnCalcOut")
-  field(DO1, "0")
-  field(LNK1, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
-  field(DO2, "0")
-  field(LNK2, "$(CARRIER_GEN)Src2EnblBuffAmp-Sel PP")
-  field(DO3, "-60")
-  field(LNK3, "$(CARRIER_GEN)Src2Pwr-SP PP")
-  field(DO4, "1")
-  field(LNK4, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
-  field(DO5, "1")
-  field(LNK5, "$(CARRIER_GEN)Src2EnblBuffAmp-Sel PP")
-  field(DO6, "-10")
-  field(LNK6, "$(CARRIER_GEN)Src2Pwr-SP PP")
+    field(DESC, "Enable Carrier Gen Source 2")
+    field(SELM, "Mask")
+    field(SELL, "$(P)$(R)CarSrc2EnCalcOut")
+    field(DO1, "0")
+    field(LNK1, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
+    field(DO2, "0")
+    field(LNK2, "$(CARRIER_GEN)Src2EnblBuffAmp-Sel PP")
+    field(DO3, "-60")
+    field(LNK3, "$(CARRIER_GEN)Src2Pwr-SP PP")
+    field(DO4, "1")
+    field(LNK4, "$(CARRIER_GEN)Src2PwrOn-Sel PP")
+    field(DO5, "1")
+    field(LNK5, "$(CARRIER_GEN)Src2EnblBuffAmp-Sel PP")
+    field(DO6, "-10")
+    field(LNK6, "$(CARRIER_GEN)Src2Pwr-SP PP")
 }
 
 record(calcout, "$(P)$(R)CarSrc2EnCalcIn"){
-  field(DESC, "Get Carrier Gen Source 2 status")
-  field(INPA, "$(CARRIER_GEN)Src2PwrOn-Sts CPP MSS")
-  field(INPB, "$(CARRIER_GEN)Src2EnblBuffAmp-Sts CPP MSS")
-  field(CALC, "A=1&&B=1?1:0")
-  field(OUT,  "$(P)$(R)CarSrc2En-Sts PP")
+    field(DESC, "Get Carrier Gen Source 2 status")
+    field(INPA, "$(CARRIER_GEN)Src2PwrOn-Sts CPP MSS")
+    field(INPB, "$(CARRIER_GEN)Src2EnblBuffAmp-Sts CPP MSS")
+    field(CALC, "A=1&&B=1?1:0")
+    field(OUT,  "$(P)$(R)CarSrc2En-Sts PP")
 }
 
 record(bi, "$(P)$(R)CarSrc2En-Sts"){
-  field(DESC, "Get Carrier Gen Source 2 Status")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+    field(DESC, "Get Carrier Gen Source 2 Status")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
 }
 
 ############################################################
 
 record(ao, "$(P)$(R)CarFreq-SP"){
-  field(DESC, "Noise center freq")
-  field(DRVH, "6000000000")
-  field(DRVL, "23500000")
-  field(EGU, "Hz")
-  field(DOL, "$(P)$(R)CFreqConvOut CPP MS")
-  field(OMSL,"closed_loop")
-  field(FLNK, "$(P)$(R)CarFreqCalc1")
+    field(DESC, "Noise center freq")
+    field(DRVH, "6000000000")
+    field(DRVL, "23500000")
+    field(EGU, "Hz")
+    field(DOL, "$(P)$(R)CFreqConvOut CPP MS")
+    field(OMSL,"closed_loop")
+    field(FLNK, "$(P)$(R)CarFreqCalc1")
 }
 
 record(calcout, "$(P)$(R)CarFreqCalc1"){
-  field(DESC, "Calc for selecting carrier output src")
-  field(INPA, "$(P)$(R)CarFreq-SP")
-  field(INPB, "$(P)$(R)CarFreqThold-RB")
-  field(CALC, "A<B?19:44")             # A<B ? links 1,2,5 : links 3,4,6
-  field(FLNK, "$(P)$(R)CarFreqSeq1")
+    field(DESC, "Calc for selecting carrier output src")
+    field(INPA, "$(P)$(R)CarFreq-SP")
+    field(INPB, "$(P)$(R)CarFreqThold-RB")
+    field(CALC, "A<B?19:44")             # A<B ? links 1,2,5 : links 3,4,6
+    field(FLNK, "$(P)$(R)CarFreqSeq1")
 }
 
 # Don't disable sources unnecessarilly, just set
 # the frequency on correct carrier gen channel
 record(seq, "$(P)$(R)CarFreqSeq1"){
-  field(DESC, "Select carrier output src")
-  field(SELM, "Mask")
-  field(SELL, "$(P)$(R)CarFreqCalc1")
-  field(DO1, "0")
-  field(LNK1, "$(P)$(R)CarSrc2En-Sel PP")   # Disable src 2 &
-  field(DOL2, "$(P)$(R)CarFreq-SP")
-  field(LNK2, "$(P)$(R)CarSrc1Freq-SP PP")   # Set src 1 freq;
-  field(DO3, "0")
-  field(LNK3, "$(P)$(R)CarSrc1En-Sel PP")   # Disable src 1 &
-  field(DOL4, "$(P)$(R)CarFreq-SP")
-  field(LNK4, "$(P)$(R)CarSrc2Freq-SP PP")   # Set src 2 freq;
-  field(DO5, "1")
-  field(LNK5, "$(P)$(R)CarSrc1En-Sel PP")   # Wait a while so values are settled in the carrier gen, then Enable src 1
-  field(DLY5, "0.5")
-  field(DO6, "1")
-  field(LNK6, "$(P)$(R)CarSrc2En-Sel PP")   # Wait a while so values are settled in the carrier gen, then Enable src 2
-  field(DLY6, "0.5")
+    field(DESC, "Select carrier output src")
+    field(SELM, "Mask")
+    field(SELL, "$(P)$(R)CarFreqCalc1")
+    field(DO1, "0")
+    field(LNK1, "$(P)$(R)CarSrc2En-Sel PP")   # Disable src 2 &
+    field(DOL2, "$(P)$(R)CarFreq-SP")
+    field(LNK2, "$(P)$(R)CarSrc1Freq-SP PP")   # Set src 1 freq;
+    field(DO3, "0")
+    field(LNK3, "$(P)$(R)CarSrc1En-Sel PP")   # Disable src 1 &
+    field(DOL4, "$(P)$(R)CarFreq-SP")
+    field(LNK4, "$(P)$(R)CarSrc2Freq-SP PP")   # Set src 2 freq;
+    field(DO5, "1")
+    field(LNK5, "$(P)$(R)CarSrc1En-Sel PP")   # Wait a while so values are settled in the carrier gen, then Enable src 1
+    field(DLY5, "0.5")
+    field(DO6, "1")
+    field(LNK6, "$(P)$(R)CarSrc2En-Sel PP")   # Wait a while so values are settled in the carrier gen, then Enable src 2
+    field(DLY6, "0.5")
 }
 
 record(calcout, "$(P)$(R)FreqSrcMonCalc"){
-  field(DESC, "Get center freq value")
-  field(INPA, "$(P)$(R)CarSrc1Freq-RB CPP MSS")
-  field(INPB, "$(P)$(R)CarSrc2Freq-RB CPP MSS")
-  field(INPC, "$(P)$(R)CarSrc1En-Sts CPP")
-  field(INPD, "$(P)$(R)CarSrc2En-Sts CPP")
-  field(CALC, "C>0||D>0")
-  field(OOPT, "When Non-zero")
-  field(DOPT, "Use OCAL")
-  field(OCAL, "C>0?A:B")
-  field(OUT, "$(P)$(R)CarFreq-RB PP MSS")
+    field(DESC, "Get center freq value")
+    field(INPA, "$(P)$(R)CarSrc1Freq-RB CPP MSS")
+    field(INPB, "$(P)$(R)CarSrc2Freq-RB CPP MSS")
+    field(INPC, "$(P)$(R)CarSrc1En-Sts CPP")
+    field(INPD, "$(P)$(R)CarSrc2En-Sts CPP")
+    field(CALC, "C>0||D>0")
+    field(OOPT, "When Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "C>0?A:B")
+    field(OUT, "$(P)$(R)CarFreq-RB PP MSS")
 }
 
 record(ai, "$(P)$(R)CarFreq-RB"){
-  field(DESC, "Noise center freq RB")
-  field(EGU, "Hz")
+    field(DESC, "Noise center freq RB")
+    field(EGU, "Hz")
 }
 
 # Center Frequency Threshold
 # (used for changing source used)
 
 record(ao, "$(P)$(R)CarFreqThold-SP"){
-  field(DESC, "Freq threshold for changing source")
-  field(PINI, "YES")
-  field(DRVH, "6000000000")
-  field(DRVL, "23500000")
-  field(EGU, "Hz")
-  field(FLNK, "$(P)$(R)CarFreqThold-RB")
-  field(VAL, "255000000")
+    field(DESC, "Freq threshold for changing source")
+    field(PINI, "YES")
+    field(DRVH, "6000000000")
+    field(DRVL, "23500000")
+    field(EGU, "Hz")
+    field(FLNK, "$(P)$(R)CarFreqThold-RB")
+    field(VAL, "255000000")
 }
 
 record(ai, "$(P)$(R)CarFreqThold-RB"){
-  field(DESC, "Freq threshold for changing source RB")
-  field(EGU, "Hz")
-  field(INP, "$(P)$(R)CarFreqThold-SP")
+    field(DESC, "Freq threshold for changing source RB")
+    field(EGU, "Hz")
+    field(INP, "$(P)$(R)CarFreqThold-SP")
 }
 
 # C=0? link 1, 2, 3, 4 : C=1: A<B ? link 6, 7, 8 : links 5, 7, 8
 record(calcout, "$(P)$(R)EnblExctCalc"){
-  field(DESC, "Enable/Disable excitation sources")
-  field(INPA, "$(P)$(R)CarFreq-SP")
-  field(INPB, "$(P)$(R)CarFreqThold-RB")
-  field(INPC, "$(P)$(R)Enbl-Sel")
-  field(CALC, "C=0?15:(A<B?224:208)")
-  field(FLNK, "$(P)$(R)EnblCarNoiseSrcSeq")
+    field(DESC, "Enable/Disable excitation sources")
+    field(INPA, "$(P)$(R)CarFreq-SP")
+    field(INPB, "$(P)$(R)CarFreqThold-RB")
+    field(INPC, "$(P)$(R)Enbl-Sel")
+    field(CALC, "C=0?15:(A<B?224:208)")
+    field(FLNK, "$(P)$(R)EnblCarNoiseSrcSeq")
 }
 
 record(seq, "$(P)$(R)EnblCarNoiseSrcSeq"){
-  field(DESC, "Select carrier output src")
-  field(SELM, "Mask")
-  field(SELL, "$(P)$(R)EnblExctCalc")
-  field(DO1, "0")
-  field(LNK1, "$(P)$(R)CarSrc2En-Sel PP")      # Disable src 2 &
-  field(DO2, "0")
-  field(LNK2, "$(P)$(R)CarSrc1En-Sel PP")      # Disable src 1 &
-  field(DO3, "0")
-  field(LNK3, "$(NOISE_GEN)ChanOut-Sel PP")      # Disable noise generator;
-  field(DO4, "0")
-  field(LNK4, "$(AMP)Enbl-Sel PP")               # Disable amplifier;
-  field(DO5, "1")
-  field(LNK5, "$(P)$(R)CarSrc2En-Sel PP")      # Enable src 2 &
-  field(DO6, "1")
-  field(LNK6, "$(P)$(R)CarSrc1En-Sel PP")      # Enable src 1 &
-  field(DO7, "1")
-  field(LNK7, "$(NOISE_GEN)ChanOut-Sel PP")      # Enable noise generator;
-  field(DO8, "1")
-  field(LNK8, "$(AMP)Enbl-Sel PP")               # Enable amplifier;
+    field(DESC, "Select carrier output src")
+    field(SELM, "Mask")
+    field(SELL, "$(P)$(R)EnblExctCalc")
+    field(DO1, "0")
+    field(LNK1, "$(P)$(R)CarSrc2En-Sel PP")      # Disable src 2 &
+    field(DO2, "0")
+    field(LNK2, "$(P)$(R)CarSrc1En-Sel PP")      # Disable src 1 &
+    field(DO3, "0")
+    field(LNK3, "$(NOISE_GEN)ChanOut-Sel PP")      # Disable noise generator;
+    field(DO4, "0")
+    field(LNK4, "$(AMP)Enbl-Sel PP")               # Disable amplifier;
+    field(DO5, "1")
+    field(LNK5, "$(P)$(R)CarSrc2En-Sel PP")      # Enable src 2 &
+    field(DO6, "1")
+    field(LNK6, "$(P)$(R)CarSrc1En-Sel PP")      # Enable src 1 &
+    field(DO7, "1")
+    field(LNK7, "$(NOISE_GEN)ChanOut-Sel PP")      # Enable noise generator;
+    field(DO8, "1")
+    field(LNK8, "$(AMP)Enbl-Sel PP")               # Enable amplifier;
 }
 
 ############################################################
@@ -997,53 +997,53 @@ record(seq, "$(P)$(R)EnblCarNoiseSrcSeq"){
 # Select machine
 
 record(mbbo, "$(P)$(R)Machine-Sel") {
-  field(DESC, "Select Booster or Storage Ring")
-  field(PINI, "YES")
-  field(ZRST, "BO")
-  field(ZRVL, "0")
-  field(ONST, "SI")
-  field(ONVL, "1")
-  field(FLNK, "$(P)$(R)Machine-Sts")
+    field(DESC, "Select Booster or Storage Ring")
+    field(PINI, "YES")
+    field(ZRST, "BO")
+    field(ZRVL, "0")
+    field(ONST, "SI")
+    field(ONVL, "1")
+    field(FLNK, "$(P)$(R)Machine-Sts")
 }
 
 record(mbbi, "$(P)$(R)Machine-Sts") {
-  field(DESC, "Get Booster or Storage Ring")
-  field(INP,  "$(P)$(R)Machine-Sel")
-  field(ZRST, "BO")
-  field(ZRVL, "0")
-  field(ONST, "SI")
-  field(ONVL, "1")
+    field(DESC, "Get Booster or Storage Ring")
+    field(INP,  "$(P)$(R)Machine-Sel")
+    field(ZRST, "BO")
+    field(ZRVL, "0")
+    field(ONST, "SI")
+    field(ONVL, "1")
 }
 
 record(longin, "$(P)$(R)BOH-Cte") {
-  field(DESC, "Booster RF Harmonic Number")
-  field(PINI, "YES")
-  field(VAL, "828")
+    field(DESC, "Booster RF Harmonic Number")
+    field(PINI, "YES")
+    field(VAL, "828")
 }
 
 record(longin, "$(P)$(R)SIH-Cte") {
-  field(DESC, "Storage Ring RF Harmonic Number")
-  field(PINI, "YES")
-  field(VAL, "864")
+    field(DESC, "Storage Ring RF Harmonic Number")
+    field(PINI, "YES")
+    field(VAL, "864")
 }
 
 # Calculate harmonic number
 
 record(calc, "$(P)$(R)H-RB") {
-  field(INPA, "$(P)$(R)Machine-Sts CPP")
-  field(INPB, "$(P)$(R)BOH-Cte CPP")
-  field(INPC, "$(P)$(R)SIH-Cte CPP")
-  field(CALC, "A=0?B:C")
+    field(INPA, "$(P)$(R)Machine-Sts CPP")
+    field(INPB, "$(P)$(R)BOH-Cte CPP")
+    field(INPC, "$(P)$(R)SIH-Cte CPP")
+    field(CALC, "A=0?B:C")
 }
 
 # RF Frequency
 # The value is fetched from another IOC or given by the user
 
 record(ai, "$(P)$(R)RFFreq-Mon") {
-  field(DESC, "RF Frequency")
-  field(PINI, "YES")
-  field(EGU, "Hz")
-  field(VAL, "499658000")
+    field(DESC, "RF Frequency")
+    field(PINI, "YES")
+    field(EGU, "Hz")
+    field(VAL, "499658000")
 }
 
 # Define which revolution harmonic will be analized
@@ -1051,177 +1051,177 @@ record(ai, "$(P)$(R)RFFreq-Mon") {
 # The harmonic frequency may then be used as the Center Frequency
 
 record(ao, "$(P)$(R)RevN-SP") {
-  field(DESC, "Set revolution harmonic")
-  field(PINI, "YES")
-  field(DRVL, "1")
-  field(DRVH, "100000000")
-  field(FLNK, "$(P)$(R)RevN-RB")
+    field(DESC, "Set revolution harmonic")
+    field(PINI, "YES")
+    field(DRVL, "1")
+    field(DRVH, "100000000")
+    field(FLNK, "$(P)$(R)RevN-RB")
 }
 
 record(ai, "$(P)$(R)RevN-RB") {
-  field(DESC, "Get revolution harmonic")
-  field(INP, "$(P)$(R)RevN-SP")
+    field(DESC, "Get revolution harmonic")
+    field(INP, "$(P)$(R)RevN-SP")
 }
 
 record(calc, "$(P)$(R)FreqRev-Mon") {
-  field(DESC, "Monitor revolution frequency")
-  field(EGU, "Hz")
-  field(INPA, "$(P)$(R)H-RB CPP")
-  field(INPB, "$(P)$(R)RFFreq-Mon CPP")
-  field(CALC, "B/A")
+    field(DESC, "Monitor revolution frequency")
+    field(EGU, "Hz")
+    field(INPA, "$(P)$(R)H-RB CPP")
+    field(INPB, "$(P)$(R)RFFreq-Mon CPP")
+    field(CALC, "B/A")
 }
 
 record(calc, "$(P)$(R)FreqRevN-Mon") {
-  field(DESC, "Monitor harmonic revolution frequency")
-  field(PREC, "3")
-  field(EGU, "KHz")
-  field(INPA, "$(P)$(R)FreqRev-Mon CPP")
-  field(INPB, "$(P)$(R)RevN-RB CPP")
-  field(CALC, "(A*B)/1000")
-  field(FLNK, "$(P)$(R)FreqRevNConvOut")
+    field(DESC, "Monitor harmonic revolution frequency")
+    field(PREC, "3")
+    field(EGU, "KHz")
+    field(INPA, "$(P)$(R)FreqRev-Mon CPP")
+    field(INPB, "$(P)$(R)RevN-RB CPP")
+    field(CALC, "(A*B)/1000")
+    field(FLNK, "$(P)$(R)FreqRevNConvOut")
 }
 
 record(calc, "$(P)$(R)FreqRevNConvOut") {
-  field(DESC, "Freq. RevN conversion")
-  field(EGU, "Hz")
-  field(INPA, "$(P)$(R)FreqRevN-Mon NPP MSS")
-  field(CALC, "A*1000")
+    field(DESC, "Freq. RevN conversion")
+    field(EGU, "Hz")
+    field(INPA, "$(P)$(R)FreqRevN-Mon NPP MSS")
+    field(CALC, "A*1000")
 }
 
 record(ao, "$(P)$(R)FreqOff-SP") {
-  field(DESC, "Set offset frequency from harmonic freq")
-  field(PREC, "3")
-  field(PINI, "YES")
-  field(EGU, "KHz")
-  field(DRVL, "0.0")
-  field(DRVH, "10000000")
-  field(FLNK, "$(P)$(R)FOffSPConvOut")
+    field(DESC, "Set offset frequency from harmonic freq")
+    field(PREC, "3")
+    field(PINI, "YES")
+    field(EGU, "KHz")
+    field(DRVL, "0.0")
+    field(DRVH, "10000000")
+    field(FLNK, "$(P)$(R)FOffSPConvOut")
 }
 
 record(calcout, "$(P)$(R)FOffSPConvOut") {
-  field(DESC, "Freq. offset SP conversion")
-  field(EGU, "Hz")
-  field(INPA, "$(P)$(R)FreqOff-SP")
-  field(CALC, "A*1000")
-  field(OOPT, "Every Time")
-  field(FLNK, "$(P)$(R)FreqOff-RB")
+    field(DESC, "Freq. offset SP conversion")
+    field(EGU, "Hz")
+    field(INPA, "$(P)$(R)FreqOff-SP")
+    field(CALC, "A*1000")
+    field(OOPT, "Every Time")
+    field(FLNK, "$(P)$(R)FreqOff-RB")
 }
 
 record(ai, "$(P)$(R)FreqOff-RB") {
-  field(DESC, "Get offset frequency from harmonic freq")
-  field(PREC, "3")
-  field(EGU, "KHz")
-  field(INP, "$(P)$(R)FreqOff-SP")
-  field(FLNK, "$(P)$(R)FOffRBConvOut")
+    field(DESC, "Get offset frequency from harmonic freq")
+    field(PREC, "3")
+    field(EGU, "KHz")
+    field(INP, "$(P)$(R)FreqOff-SP")
+    field(FLNK, "$(P)$(R)FOffRBConvOut")
 }
 
 record(calcout, "$(P)$(R)FOffRBConvOut") {
-  field(DESC, "Freq. offset RB conversion")
-  field(EGU, "Hz")
-  field(INPA, "$(P)$(R)FreqOff-RB")
-  field(CALC, "A*1000")
-  field(OOPT, "Every Time")
+    field(DESC, "Freq. offset RB conversion")
+    field(EGU, "Hz")
+    field(INPA, "$(P)$(R)FreqOff-RB")
+    field(CALC, "A*1000")
+    field(OOPT, "Every Time")
 }
 
 record(calcout, "$(P)$(R)CFreqCalc") {
-  field(DESC, "Monitored calculated frequency")
-  field(EGU, "MHz")
-  field(INPA, "$(P)$(R)FOffRBConvOut CPP")
-  field(INPB, "$(P)$(R)FreqRevNConvOut CPP")
-  field(INPC, "$(P)$(R)CenterFreqAuto-Sts CPP")
-  field(CALC, "C>0")
-  field(OOPT, "When Non-zero")
-  field(DOPT, "Use OCAL")
-  field(OCAL, "(A+B)/1000000")
+    field(DESC, "Monitored calculated frequency")
+    field(EGU, "MHz")
+    field(INPA, "$(P)$(R)FOffRBConvOut CPP")
+    field(INPB, "$(P)$(R)FreqRevNConvOut CPP")
+    field(INPC, "$(P)$(R)CenterFreqAuto-Sts CPP")
+    field(CALC, "C>0")
+    field(OOPT, "When Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "(A+B)/1000000")
 }
 
 # Frequency/Time vectors
 #
 # Get NORD from SPEC_ANA
 record(seq, "$(P)$(R)FreqArrayWvfSeq"){
-  field(DESC, "Get NORD from waveform")
-  field(PINI, "YES")
-  field(DOL1, "$(SPEC_ANA)Trace-Mon.VAL CPP NMS")
-  field(DOL2, "$(SPEC_ANA)Trace-Mon.NORD NPP NMS")
-  field(DOL3, "$(SPEC_ANA)Trace-Mon.NORD NPP NMS")
-  field(LNK1, "")
-  field(LNK2, "$(P)$(R)TuneFracArray-Mon.NELM CPP NMS")
-  field(LNK3, "$(P)$(R)FreqArray-Mon.NELM CPP NMS")
-  field(SELM, "All")
+    field(DESC, "Get NORD from waveform")
+    field(PINI, "YES")
+    field(DOL1, "$(SPEC_ANA)Trace-Mon.VAL CPP NMS")
+    field(DOL2, "$(SPEC_ANA)Trace-Mon.NORD NPP NMS")
+    field(DOL3, "$(SPEC_ANA)Trace-Mon.NORD NPP NMS")
+    field(LNK1, "")
+    field(LNK2, "$(P)$(R)TuneFracArray-Mon.NELM CPP NMS")
+    field(LNK3, "$(P)$(R)FreqArray-Mon.NELM CPP NMS")
+    field(SELM, "All")
 }
 
 # Calculate Fractional Tune parameters
 record(acalcout, "$(P)$(R)TuneFracArrayCalc") {
-  field(DESC, "Fractional Tune Array")
-  field(PREC, "3")
-  field(NELM, "32001")
-  field(INAA, "$(SPEC_ANA)FreqArray-Mon.AVAL CPP")
-  field(INPA, "$(P)$(R)RFFreq-Mon CPP NMS")
-  field(INPB, "$(P)$(R)H-RB CPP NMS")
-  field(INPC, "$(P)$(R)RevN-RB CPP NMS")
-  field(CALC, "AA*B/(A/1000000)-C")
-  field(OUT,  "$(P)$(R)TuneFracArrayWvf CPP NMS")
+    field(DESC, "Fractional Tune Array")
+    field(PREC, "3")
+    field(NELM, "32001")
+    field(INAA, "$(SPEC_ANA)FreqArray-Mon.AVAL CPP")
+    field(INPA, "$(P)$(R)RFFreq-Mon CPP NMS")
+    field(INPB, "$(P)$(R)H-RB CPP NMS")
+    field(INPC, "$(P)$(R)RevN-RB CPP NMS")
+    field(CALC, "AA*B/(A/1000000)-C")
+    field(OUT,  "$(P)$(R)TuneFracArrayWvf CPP NMS")
 }
 
 record(waveform,"$(P)$(R)TuneFracArrayWvf") {
-  field(DESC, "Fractional Tune Array")
-  field(PREC, "3")
-  field(NELM, "32001")
-  field(FTVL, "DOUBLE")
-  field(FLNK, "$(P)$(R)TuneFracArray-Mon")
+    field(DESC, "Fractional Tune Array")
+    field(PREC, "3")
+    field(NELM, "32001")
+    field(FTVL, "DOUBLE")
+    field(FLNK, "$(P)$(R)TuneFracArray-Mon")
 }
 
 record(subArray, "$(P)$(R)TuneFracArray-Mon") {
-  field(DESC, "Fractional Tune Array")
-  field(PREC, "3")
-  field(FTVL, "DOUBLE")
-  field(MALM, "32001")
-  field(INP,  "$(P)$(R)TuneFracArrayWvf NPP NMS")
+    field(DESC, "Fractional Tune Array")
+    field(PREC, "3")
+    field(FTVL, "DOUBLE")
+    field(MALM, "32001")
+    field(INP,  "$(P)$(R)TuneFracArrayWvf NPP NMS")
 }
 
 record(calc, "$(P)$(R)TuneFracStart-Mon") {
-  field(DESC, "Fractional Tune start number")
-  field(PREC, "3")
-  field(INPA, "$(SPEC_ANA)FreqStart-RB CPP NMS")
-  field(INPB, "$(P)$(R)RFFreq-Mon CPP NMS")
-  field(INPC, "$(P)$(R)H-RB CPP NMS")
-  field(INPD, "$(P)$(R)RevN-RB CPP NMS")
-  field(CALC, "A*C/B-D")
+    field(DESC, "Fractional Tune start number")
+    field(PREC, "3")
+    field(INPA, "$(SPEC_ANA)FreqStart-RB CPP NMS")
+    field(INPB, "$(P)$(R)RFFreq-Mon CPP NMS")
+    field(INPC, "$(P)$(R)H-RB CPP NMS")
+    field(INPD, "$(P)$(R)RevN-RB CPP NMS")
+    field(CALC, "A*C/B-D")
 }
 
 record(calc, "$(P)$(R)TuneFracStop-Mon") {
-  field(DESC, "Fractional Tune stop number")
-  field(PREC, "3")
-  field(INPA, "$(SPEC_ANA)FreqStop-RB CPP NMS")
-  field(INPB, "$(P)$(R)RFFreq-Mon CPP NMS")
-  field(INPC, "$(P)$(R)H-RB CPP NMS")
-  field(INPD, "$(P)$(R)RevN-RB CPP NMS")
-  field(CALC, "A*C/B-D")
+    field(DESC, "Fractional Tune stop number")
+    field(PREC, "3")
+    field(INPA, "$(SPEC_ANA)FreqStop-RB CPP NMS")
+    field(INPB, "$(P)$(R)RFFreq-Mon CPP NMS")
+    field(INPC, "$(P)$(R)H-RB CPP NMS")
+    field(INPD, "$(P)$(R)RevN-RB CPP NMS")
+    field(CALC, "A*C/B-D")
 }
 
 record(waveform,"$(P)$(R)FreqArrayWvf") {
-  field(DESC, "Frequency Array")
-  field(PREC, "3")
-  field(EGU,  "MHz")
-  field(FTVL, "DOUBLE")
-  field(NELM, "32001")
-  field(INP,  "$(SPEC_ANA)FreqArray-Mon.AVAL CPP NMS")
-  field(FLNK, "$(P)$(R)FreqArray-Mon")
+    field(DESC, "Frequency Array")
+    field(PREC, "3")
+    field(EGU,  "MHz")
+    field(FTVL, "DOUBLE")
+    field(NELM, "32001")
+    field(INP,  "$(SPEC_ANA)FreqArray-Mon.AVAL CPP NMS")
+    field(FLNK, "$(P)$(R)FreqArray-Mon")
 }
 
 record(subArray, "$(P)$(R)FreqArray-Mon") {
-  field(DESC, "Frequency Array")
-  field(PREC, "3")
-  field(FTVL, "DOUBLE")
-  field(MALM, "32001")
-  field(EGU,  "MHz")
-  field(INP,  "$(P)$(R)FreqArrayWvf NPP NMS")
+    field(DESC, "Frequency Array")
+    field(PREC, "3")
+    field(FTVL, "DOUBLE")
+    field(MALM, "32001")
+    field(EGU,  "MHz")
+    field(INP,  "$(P)$(R)FreqArrayWvf NPP NMS")
 }
 
 record(bo, "$(P)$(R)TuneXaxis-Sel") {
-  field(DESC, "Toggle Frac Tune or Frequency")
-  field(ONAM, "Frac Tune")
-  field(ZNAM, "Frequency")
+    field(DESC, "Toggle Frac Tune or Frequency")
+    field(ONAM, "Frac Tune")
+    field(ZNAM, "Frequency")
 }
 
 ############################################################
@@ -1232,291 +1232,291 @@ record(bo, "$(P)$(R)TuneXaxis-Sel") {
 
 record(ao, "$(P)$(R)ROIOffsetX-SP")
 {
-  field(DESC, "Set ROI Offset X")
-  field(PINI, "YES")
-  field(PREC, "6")
-  field(SCAN, "Passive")
-  field(EGU,  "MHz")
-  field(FLNK, "$(P)$(R)ROIOffXConvD-Mon")
+    field(DESC, "Set ROI Offset X")
+    field(PINI, "YES")
+    field(PREC, "6")
+    field(SCAN, "Passive")
+    field(EGU,  "MHz")
+    field(FLNK, "$(P)$(R)ROIOffXConvD-Mon")
 }
 
 record(calcout, "$(P)$(R)ROIOffXConvD-Mon") {
-  field(DESC, "ROI Offset X in Graph pixels")
-  field(EGU,  "pixel")
-  field(INPA, "$(P)$(R)ROIOffsetX-SP")
-  field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon CPP NMS")
-  field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon CPP NMS")
-  field(INPD, "$(SPEC_ANA)SwePts-RB CPP NMS")
-  field(CALC, "(A<B)?0:((A>C)?D:(FLOOR((A-B)*D/(C-B))))")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)ROIOffXConv-SP PP")
-  field(FLNK, "$(P)$(R)ROIOffsetX-RB")
+    field(DESC, "ROI Offset X in Graph pixels")
+    field(EGU,  "pixel")
+    field(INPA, "$(P)$(R)ROIOffsetX-SP")
+    field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon CPP NMS")
+    field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon CPP NMS")
+    field(INPD, "$(SPEC_ANA)SwePts-RB CPP NMS")
+    field(CALC, "(A<B)?0:((A>C)?D:(FLOOR((A-B)*D/(C-B))))")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)ROIOffXConv-SP PP")
+    field(FLNK, "$(P)$(R)ROIOffsetX-RB")
 }
 
 record(longout, "$(P)$(R)ROIOffXConv-SP") {
-  field(DESC, "ROI Offset X in Graph pixels")
-  field(EGU,  "pixel")
-  field(FLNK, "$(P)$(R)ROIOffXConv-RB")
+    field(DESC, "ROI Offset X in Graph pixels")
+    field(EGU,  "pixel")
+    field(FLNK, "$(P)$(R)ROIOffXConv-RB")
 }
 
 record(longin, "$(P)$(R)ROIOffXConv-RB") {
-  field(DESC, "ROI Offset X in Graph pixels")
-  field(INP,  "$(P)$(R)ROIOffXConv-SP")
-  field(EGU,  "pixel")
+    field(DESC, "ROI Offset X in Graph pixels")
+    field(INP,  "$(P)$(R)ROIOffXConv-SP")
+    field(EGU,  "pixel")
 }
 
 record(calcout, "$(P)$(R)ROIOffXConvL-Mon") {
-  field(DESC, "ROI Offset X in Graph MHz")
-  field(EGU,  "MHz")
-  field(INPA, "$(P)$(R)ROIOffXConv-RB CPP NMS")
-  field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon NPP NMS")
-  field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon NPP NMS")
-  field(INPD, "$(SPEC_ANA)SwePts-RB NPP NMS")
-  field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D+B))")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)ROIOffsetX-SP PP")
+    field(DESC, "ROI Offset X in Graph MHz")
+    field(EGU,  "MHz")
+    field(INPA, "$(P)$(R)ROIOffXConv-RB CPP NMS")
+    field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon NPP NMS")
+    field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon NPP NMS")
+    field(INPD, "$(SPEC_ANA)SwePts-RB NPP NMS")
+    field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D+B))")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)ROIOffsetX-SP PP")
 }
 
 record(ai, "$(P)$(R)ROIOffsetX-RB")
 {
-  field(DESC, "Get ROI Offset X")
-  field(INP,  "$(P)$(R)ROIOffsetX-SP")
-  field(PREC, "6")
-  field(SCAN, "Passive")
-  field(EGU,  "MHz")
+    field(DESC, "Get ROI Offset X")
+    field(INP,  "$(P)$(R)ROIOffsetX-SP")
+    field(PREC, "6")
+    field(SCAN, "Passive")
+    field(EGU,  "MHz")
 }
 
 record(ao, "$(P)$(R)ROIOffsetY-SP")
 {
-  field(DESC, "Set ROI Offset Y")
-  field(PINI, "YES")
-  field(PREC, "1")
-  field(SCAN, "Passive")
-  field(EGU,  "ms")
-  field(FLNK, "$(P)$(R)ROIOffYConvD-Mon")
+    field(DESC, "Set ROI Offset Y")
+    field(PINI, "YES")
+    field(PREC, "1")
+    field(SCAN, "Passive")
+    field(EGU,  "ms")
+    field(FLNK, "$(P)$(R)ROIOffYConvD-Mon")
 }
 
 record(calcout, "$(P)$(R)ROIOffYConvD-Mon") {
-  field(DESC, "ROI Offset Y conversion")
-  field(EGU,  "pixel")
-  field(INPA, "$(P)$(R)ROIOffsetY-SP")
-  field(INPB, "0")
-  field(INPC, "$(P)$(R)SpecAnaTDelta-Mon NPP NMS")
-  field(INPD, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
-  field(CALC, "(A<B)?0:((A>C)?D:(FLOOR((A-B)*D/(C-B))))")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)ROIOffYConv-SP PP")
-  field(FLNK, "$(P)$(R)ROIOffsetY-RB")
+    field(DESC, "ROI Offset Y conversion")
+    field(EGU,  "pixel")
+    field(INPA, "$(P)$(R)ROIOffsetY-SP")
+    field(INPB, "0")
+    field(INPC, "$(P)$(R)SpecAnaTDelta-Mon NPP NMS")
+    field(INPD, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
+    field(CALC, "(A<B)?0:((A>C)?D:(FLOOR((A-B)*D/(C-B))))")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)ROIOffYConv-SP PP")
+    field(FLNK, "$(P)$(R)ROIOffsetY-RB")
 }
 
 record(longout, "$(P)$(R)ROIOffYConv-SP") {
-  field(DESC, "ROI Offset Y in Graph pixels")
-  field(EGU,  "pixel")
-  field(FLNK, "$(P)$(R)ROIOffYConv-RB")
+    field(DESC, "ROI Offset Y in Graph pixels")
+    field(EGU,  "pixel")
+    field(FLNK, "$(P)$(R)ROIOffYConv-RB")
 }
 
 record(longin, "$(P)$(R)ROIOffYConv-RB") {
-  field(DESC, "ROI Offset Y in Graph pixels")
-  field(INP,  "$(P)$(R)ROIOffYConv-SP")
-  field(EGU,  "pixel")
+    field(DESC, "ROI Offset Y in Graph pixels")
+    field(INP,  "$(P)$(R)ROIOffYConv-SP")
+    field(EGU,  "pixel")
 }
 
 record(calcout, "$(P)$(R)ROIOffYConvL-Mon") {
-  field(DESC, "ROI Offset Y in Graph ms")
-  field(EGU,  "ms")
-  field(INPA, "$(P)$(R)ROIOffYConv-RB CPP NMS")
-  field(INPB, "0")
-  field(INPC, "$(P)$(R)SpecAnaTDelta-Mon NPP NMS")
-  field(INPD, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
-  field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D+B))")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)ROIOffsetY-SP PP")
+    field(DESC, "ROI Offset Y in Graph ms")
+    field(EGU,  "ms")
+    field(INPA, "$(P)$(R)ROIOffYConv-RB CPP NMS")
+    field(INPB, "0")
+    field(INPC, "$(P)$(R)SpecAnaTDelta-Mon NPP NMS")
+    field(INPD, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
+    field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D+B))")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)ROIOffsetY-SP PP")
 }
 
 record(ai, "$(P)$(R)ROIOffsetY-RB")
 {
-  field(DESC, "Get ROI Offset Y")
-  field(INP,  "$(P)$(R)ROIOffsetY-SP")
-  field(PREC, "1")
-  field(SCAN, "Passive")
-  field(EGU,  "ms")
+    field(DESC, "Get ROI Offset Y")
+    field(INP,  "$(P)$(R)ROIOffsetY-SP")
+    field(PREC, "1")
+    field(SCAN, "Passive")
+    field(EGU,  "ms")
 }
 
 record(ao, "$(P)$(R)ROIWidth-SP")
 {
-  field(DESC, "Set ROI Width")
-  field(PINI, "YES")
-  field(PREC, "6")
-  field(SCAN, "Passive")
-  field(EGU,  "MHz")
-  field(FLNK, "$(P)$(R)ROIWidthConvD-Mon")
+    field(DESC, "Set ROI Width")
+    field(PINI, "YES")
+    field(PREC, "6")
+    field(SCAN, "Passive")
+    field(EGU,  "MHz")
+    field(FLNK, "$(P)$(R)ROIWidthConvD-Mon")
 }
 
 record(calcout, "$(P)$(R)ROIWidthConvD-Mon") {
-  field(DESC, "ROI Width in Graph pixels")
-  field(EGU,  "pixel")
-  field(INPA, "$(P)$(R)ROIWidth-SP")
-  field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon CPP NMS")
-  field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon CPP NMS")
-  field(INPD, "$(SPEC_ANA)SwePts-RB CPP NMS")
-  field(CALC, "(A<0)?0:((A>(C-B))?D:(FLOOR(A*D/(C-B))))")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)ROIWidthConv-SP PP")
-  field(FLNK, "$(P)$(R)ROIWidth-RB")
+    field(DESC, "ROI Width in Graph pixels")
+    field(EGU,  "pixel")
+    field(INPA, "$(P)$(R)ROIWidth-SP")
+    field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon CPP NMS")
+    field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon CPP NMS")
+    field(INPD, "$(SPEC_ANA)SwePts-RB CPP NMS")
+    field(CALC, "(A<0)?0:((A>(C-B))?D:(FLOOR(A*D/(C-B))))")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)ROIWidthConv-SP PP")
+    field(FLNK, "$(P)$(R)ROIWidth-RB")
 }
 
 record(longout, "$(P)$(R)ROIWidthConv-SP") {
-  field(DESC, "ROI Width in Graph pixels")
-  field(EGU,  "pixel")
-  field(FLNK, "$(P)$(R)ROIWidthConv-RB")
+    field(DESC, "ROI Width in Graph pixels")
+    field(EGU,  "pixel")
+    field(FLNK, "$(P)$(R)ROIWidthConv-RB")
 }
 
 record(longin, "$(P)$(R)ROIWidthConv-RB") {
-  field(DESC, "ROI Width in Graph pixels")
-  field(INP,  "$(P)$(R)ROIWidthConv-SP")
-  field(EGU,  "pixel")
+    field(DESC, "ROI Width in Graph pixels")
+    field(INP,  "$(P)$(R)ROIWidthConv-SP")
+    field(EGU,  "pixel")
 }
 
 record(calcout, "$(P)$(R)ROIWidthConvL-Mon") {
-  field(DESC, "ROI Width in Graph MHz")
-  field(EGU,  "MHz")
-  field(INPA, "$(P)$(R)ROIWidthConv-RB CPP NMS")
-  field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon NPP NMS")
-  field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon NPP NMS")
-  field(INPD, "$(SPEC_ANA)SwePts-RB NPP NMS")
-  field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D))")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)ROIWidth-SP PP")
+    field(DESC, "ROI Width in Graph MHz")
+    field(EGU,  "MHz")
+    field(INPA, "$(P)$(R)ROIWidthConv-RB CPP NMS")
+    field(INPB, "$(SPEC_ANA)FreqStartDisp-Mon NPP NMS")
+    field(INPC, "$(SPEC_ANA)FreqStopDisp-Mon NPP NMS")
+    field(INPD, "$(SPEC_ANA)SwePts-RB NPP NMS")
+    field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D))")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)ROIWidth-SP PP")
 }
 
 record(ai, "$(P)$(R)ROIWidth-RB")
 {
-  field(DESC, "Get ROI Width")
-  field(INP,  "$(P)$(R)ROIWidth-SP")
-  field(PREC, "6")
-  field(SCAN, "Passive")
-  field(EGU,  "MHz")
+    field(DESC, "Get ROI Width")
+    field(INP,  "$(P)$(R)ROIWidth-SP")
+    field(PREC, "6")
+    field(SCAN, "Passive")
+    field(EGU,  "MHz")
 }
 
 record(ao, "$(P)$(R)ROIHeight-SP")
 {
-  field(DESC, "Set ROI Height")
-  field(PINI, "YES")
-  field(PREC, "1")
-  field(SCAN, "Passive")
-  field(EGU,  "ms")
-  field(FLNK, "$(P)$(R)ROIHeightConvD-Mon")
+    field(DESC, "Set ROI Height")
+    field(PINI, "YES")
+    field(PREC, "1")
+    field(SCAN, "Passive")
+    field(EGU,  "ms")
+    field(FLNK, "$(P)$(R)ROIHeightConvD-Mon")
 }
 
 record(calcout, "$(P)$(R)ROIHeightConvD-Mon") {
-  field(DESC, "ROI Height in Graph pixels")
-  field(EGU,  "pixel")
-  field(INPA, "$(P)$(R)ROIHeight-SP")
-  field(INPB, "0")
-  field(INPC, "$(P)$(R)SpecAnaTDelta-Mon NPP NMS")
-  field(INPD, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
-  field(CALC, "(A<0)?0:((A>(C-B))?D:(FLOOR((A-B)*D/(C-B))))")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)ROIHeightConv-SP PP")
-  field(FLNK, "$(P)$(R)ROIHeight-RB")
+    field(DESC, "ROI Height in Graph pixels")
+    field(EGU,  "pixel")
+    field(INPA, "$(P)$(R)ROIHeight-SP")
+    field(INPB, "0")
+    field(INPC, "$(P)$(R)SpecAnaTDelta-Mon NPP NMS")
+    field(INPD, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
+    field(CALC, "(A<0)?0:((A>(C-B))?D:(FLOOR((A-B)*D/(C-B))))")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)ROIHeightConv-SP PP")
+    field(FLNK, "$(P)$(R)ROIHeight-RB")
 }
 
 record(longout, "$(P)$(R)ROIHeightConv-SP") {
-  field(DESC, "ROI Height in Graph pixels")
-  field(EGU,  "pixel")
-  field(FLNK, "$(P)$(R)ROIHeightConv-RB")
+    field(DESC, "ROI Height in Graph pixels")
+    field(EGU,  "pixel")
+    field(FLNK, "$(P)$(R)ROIHeightConv-RB")
 }
 
 record(longin, "$(P)$(R)ROIHeightConv-RB") {
-  field(DESC, "ROI Height in Graph pixels")
-  field(INP,  "$(P)$(R)ROIHeightConv-SP")
-  field(EGU,  "pixel")
+    field(DESC, "ROI Height in Graph pixels")
+    field(INP,  "$(P)$(R)ROIHeightConv-SP")
+    field(EGU,  "pixel")
 }
 
 record(calcout, "$(P)$(R)ROIHeightConvL-Mon") {
-  field(DESC, "ROI Height in Graph ms")
-  field(EGU,  "ms")
-  field(INPA, "$(P)$(R)ROIHeightConv-RB CPP NMS")
-  field(INPB, "0")
-  field(INPC, "$(P)$(R)SpecAnaTDelta-Mon NPP NMS")
-  field(INPD, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
-  field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D))")
-  field(OOPT, "Every Time")
-  field(OUT,  "$(P)$(R)ROIHeight-SP PP")
+    field(DESC, "ROI Height in Graph ms")
+    field(EGU,  "ms")
+    field(INPA, "$(P)$(R)ROIHeightConv-RB CPP NMS")
+    field(INPB, "0")
+    field(INPC, "$(P)$(R)SpecAnaTDelta-Mon NPP NMS")
+    field(INPD, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
+    field(CALC, "(A<0)?B:((A>D)?C:(A*(C-B)/D))")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)ROIHeight-SP PP")
 }
 
 record(ai, "$(P)$(R)ROIHeight-RB")
 {
-  field(DESC, "Get ROI Height")
-  field(INP,  "$(P)$(R)ROIHeight-SP")
-  field(PREC, "1")
-  field(SCAN, "Passive")
-  field(EGU,  "ms")
+    field(DESC, "Get ROI Height")
+    field(INP,  "$(P)$(R)ROIHeight-SP")
+    field(PREC, "1")
+    field(SCAN, "Passive")
+    field(EGU,  "ms")
 }
 
 # ROI Auto Settings
 
 # It should be SpecAnaRBW-Sts, but RVAL is not working
 record(calcout, "$(P)$(R)ROIOffXAC") {
-  field(DESC, "Auto ROI Offset X")
-  field(EGU, "MHz")
-  field(INPA, "$(P)$(R)SpecAnaRBW-Sel.RVAL CPP")
-  field(INPB, "$(P)$(R)CenterFreq-RB CPP")
-  field(INPC, "$(P)$(R)ROIAuto-Sts CPP")
-  field(CALC, "C>0")
-  field(OOPT, "When Non-zero")
-  field(DOPT, "Use OCAL")
-  field(OCAL, "B-(A/1000000)/2")
+    field(DESC, "Auto ROI Offset X")
+    field(EGU, "MHz")
+    field(INPA, "$(P)$(R)SpecAnaRBW-Sel.RVAL CPP")
+    field(INPB, "$(P)$(R)CenterFreq-RB CPP")
+    field(INPC, "$(P)$(R)ROIAuto-Sts CPP")
+    field(CALC, "C>0")
+    field(OOPT, "When Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "B-(A/1000000)/2")
 }
 
 record(calcout, "$(P)$(R)ROIOffYAC") {
-  field(DESC, "Auto ROI Offset Y")
-  field(EGU, "MHz")
-  field(INPA, "0")
-  field(INPB, "0")
-  field(INPC, "$(P)$(R)ROIAuto-Sts CPP")
-  field(CALC, "C>0")
-  field(OOPT, "When Non-zero")
-  field(DOPT, "Use OCAL")
-  field(OCAL, "A")
+    field(DESC, "Auto ROI Offset Y")
+    field(EGU, "MHz")
+    field(INPA, "0")
+    field(INPB, "0")
+    field(INPC, "$(P)$(R)ROIAuto-Sts CPP")
+    field(CALC, "C>0")
+    field(OOPT, "When Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "A")
 }
 
 # It should be SpecAnaRBW-Sts, but RVAL is not working
 record(calcout, "$(P)$(R)ROIWdtAC") {
-  field(DESC, "Auto ROI Width")
-  field(EGU, "MHz")
-  field(INPA, "$(P)$(R)SpecAnaRBW-Sel.RVAL CPP")
-  field(INPB, "$(P)$(R)ROIAuto-Sts CPP")
-  field(CALC, "B>0")
-  field(OOPT, "When Non-zero")
-  field(DOPT, "Use OCAL")
-  field(OCAL, "A/1000000")
+    field(DESC, "Auto ROI Width")
+    field(EGU, "MHz")
+    field(INPA, "$(P)$(R)SpecAnaRBW-Sel.RVAL CPP")
+    field(INPB, "$(P)$(R)ROIAuto-Sts CPP")
+    field(CALC, "B>0")
+    field(OOPT, "When Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "A/1000000")
 }
 
 record(calcout, "$(P)$(R)ROIHgtAC") {
-  field(DESC, "Auto ROI Height")
-  field(EGU, "ms")
-  field(INPA, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
-  field(INPB, "$(P)$(R)ROIAuto-Sts CPP")
-  field(CALC, "B>0")
-  field(OOPT, "When Non-zero")
-  field(DOPT, "Use OCAL")
-  field(OCAL, "A")
+    field(DESC, "Auto ROI Height")
+    field(EGU, "ms")
+    field(INPA, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
+    field(INPB, "$(P)$(R)ROIAuto-Sts CPP")
+    field(CALC, "B>0")
+    field(OOPT, "When Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "A")
 }
 
 record(bo, "$(P)$(R)ROIAuto-Sel"){
-  field(DESC, "Enable automatic ROI")
-  field(PINI, "YES")
-  field(ZNAM, "0")
-  field(ONAM, "1")
-  field(FLNK, "$(P)$(R)ROIAuto-Sts")
+    field(DESC, "Enable automatic ROI")
+    field(PINI, "YES")
+    field(ZNAM, "0")
+    field(ONAM, "1")
+    field(FLNK, "$(P)$(R)ROIAuto-Sts")
 }
 
 record(bi, "$(P)$(R)ROIAuto-Sts"){
-  field(DESC, "Get automatic ROI")
-  field(INP,  "$(P)$(R)ROIAuto-Sel")
-  field(ZNAM, "0")
-  field(ONAM, "1")
+    field(DESC, "Get automatic ROI")
+    field(INP,  "$(P)$(R)ROIAuto-Sel")
+    field(ZNAM, "0")
+    field(ONAM, "1")
 }
 
 # For use with seq record below
@@ -1678,9 +1678,9 @@ record(fanout, "$(P)$(R)ROIAutoHeightFout"){
 # Desc: autosave.
 
 record(bo, "$(P)$(R)Save-Cmd"){
-  field(DESC, "Manual 'Save Settings' command")
-  field(MASK, "1")
-  field(ZNAM, "Dsbl")
-  field(ONAM, "Enbl")
-  field(HIGH, "1")
+    field(DESC, "Manual 'Save Settings' command")
+    field(MASK, "1")
+    field(ZNAM, "Dsbl")
+    field(ONAM, "Enbl")
+    field(HIGH, "1")
 }
