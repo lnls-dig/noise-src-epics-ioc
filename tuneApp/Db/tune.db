@@ -589,6 +589,7 @@ record(mbbo, "$(P)$(R)NoiseWfmFunction-Sel") {
     field(SVST, "Arbitrary")
     field(EIST, "DC")
     field(VAL,  "Noise")
+    field(FLNK, "$(P)$(R)NoiseSweepState-Sel")
     field(OUT, "$(NOISE_GEN)WfmFunction-Sel PP")
 }
 
@@ -605,6 +606,24 @@ record(mbbi, "$(P)$(R)NoiseWfmFunction-Sts") {
     field(SVST, "Arbitrary")
     field(EIST, "DC")
     field(INP, "$(NOISE_GEN)WfmFunction-Sts CPP MSS")
+}
+
+# Always set sweep to "OFF" as we don't need it
+record(bo, "$(P)$(R)NoiseSweepState-Sel") {
+  field(DESC, "Set sweep state")
+  field(DTYP, "Soft Channel")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(VAL,  "OFF")
+  field(OUT, "$(NOISE_GEN)SweepState-Sel PP")
+}
+
+record(bi, "$(P)$(R)NoiseSweepState-Sts") {
+  field(DESC, "Get sweep state")
+  field(DTYP, "Soft Channel")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  field(INP, "$(NOISE_GEN)SweepState-Sts CPP MSS")
 }
 
 record(ai, "$(P)$(R)NoiseAmpl-RB") {
