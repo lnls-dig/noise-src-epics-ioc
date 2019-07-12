@@ -578,6 +578,7 @@ record(ao, "$(P)$(R)NoiseAmpl-SP") {
 # Always set funtion to "Noise" as we don't need it
 record(mbbo, "$(P)$(R)NoiseWfmFunction-Sel") {
     field(DESC, "Select Noise waveform function")
+    field(DTYP, "Soft Channel")
     field(ZRST, "Sine")
     field(ONST, "Square")
     field(TWST, "Triangle")
@@ -593,6 +594,7 @@ record(mbbo, "$(P)$(R)NoiseWfmFunction-Sel") {
 
 record(mbbi, "$(P)$(R)NoiseWfmFunction-Sts") {
     field(DESC, "Read Noise waveform function")
+    field(DTYP, "Soft Channel")
     field(ZRST, "Sine")
     field(ONST, "Square")
     field(TWST, "Triangle")
