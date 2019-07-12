@@ -588,7 +588,7 @@ record(mbbo, "$(P)$(R)NoiseWfmFunction-Sel") {
     field(SXST, "Noise")
     field(SVST, "Arbitrary")
     field(EIST, "DC")
-    field(VAL,  "Noise")
+    field(VAL,  "6")
     field(FLNK, "$(P)$(R)NoiseSweepState-Sel")
     field(OUT, "$(NOISE_GEN)WfmFunction-Sel PP")
 }
@@ -614,7 +614,7 @@ record(bo, "$(P)$(R)NoiseSweepState-Sel") {
     field(DTYP, "Soft Channel")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
-    field(VAL,  "OFF")
+    field(VAL,  "0")
     field(OUT, "$(NOISE_GEN)SweepState-Sel PP")
 }
 
