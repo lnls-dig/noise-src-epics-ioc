@@ -532,7 +532,7 @@ record(acalcout, "$(P)$(R)TimeArrayCalc") {
     field(INPA, "0")
     field(INPB, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
     field(INPC, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
-    field(CALC, "IX*(B-A)/(C-1)+A")
+    field(CALC, "(C<2)?IX*(B-A)+A:IX*(B-A)/(C-1)+A")
     field(OUT,  "$(P)$(R)TimeArrayWvf CPP NMS")
 }
 
