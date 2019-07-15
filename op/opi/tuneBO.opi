@@ -582,7 +582,7 @@ $(pv_value)</tooltip>
       <color red="255" green="202" blue="130" />
     </background_color>
     <border_color>
-      <color red="192" green="192" blue="192" />
+      <color red="255" green="202" blue="130" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
@@ -1215,7 +1215,7 @@ $(pv_value)</tooltip>
       <color red="255" green="202" blue="130" />
     </background_color>
     <border_color>
-      <color red="192" green="192" blue="192" />
+      <color red="255" green="202" blue="130" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
@@ -1298,7 +1298,7 @@ $(pv_value)</tooltip>
       <color red="255" green="202" blue="130" />
     </background_color>
     <border_color>
-      <color red="192" green="192" blue="192" />
+      <color red="255" green="202" blue="130" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
@@ -1381,7 +1381,7 @@ $(pv_value)</tooltip>
       <color red="121" green="196" blue="255" />
     </background_color>
     <border_color>
-      <color red="192" green="192" blue="192" />
+      <color red="121" green="196" blue="255" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
@@ -1464,7 +1464,7 @@ $(pv_value)</tooltip>
       <color red="121" green="196" blue="255" />
     </background_color>
     <border_color>
-      <color red="192" green="192" blue="192" />
+      <color red="121" green="196" blue="255" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
@@ -1547,7 +1547,7 @@ $(pv_value)</tooltip>
       <color red="121" green="196" blue="255" />
     </background_color>
     <border_color>
-      <color red="192" green="192" blue="192" />
+      <color red="121" green="196" blue="255" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
