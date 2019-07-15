@@ -65,7 +65,7 @@
     <scripts />
     <show_scrollbar>false</show_scrollbar>
     <tooltip></tooltip>
-    <transparent>false</transparent>
+    <transparent>true</transparent>
     <visible>true</visible>
     <widget_type>Grouping Container</widget_type>
     <width>343</width>
