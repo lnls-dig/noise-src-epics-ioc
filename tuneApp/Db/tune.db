@@ -501,10 +501,8 @@ record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
 record(calcout, "$(P)$(R)SpecAnaTDeltaCalc") {
     field(DESC, "Timing estimated Time Delta")
     field(EGU,  "ms")
-    field(INPA, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
-    field(INPB, "$(TIM)NrPulses-RB CPP NMS")
-    field(INPC, "$(TIM)Duration-RB CPP NMS")
-    field(CALC, "A*(C/1000)/B")
+    field(INPA, "$(TIM)Duration-RB CPP NMS")
+    field(CALC, "A/1000")
     field(OOPT, "Every Time")
     field(OUT,  "$(P)$(R)SpecAnaTDelta-Mon PP")
 }
