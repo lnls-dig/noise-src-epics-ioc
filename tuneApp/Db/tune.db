@@ -1333,7 +1333,7 @@ record(calcout, "$(P)$(R)ROIOffYConvD-Mon") {
     field(INPC, "$(P)$(R)SpecAnaTEnd-Mon CPP NMS")
     field(INPD, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
     field(INPE, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
-    field(CALC, "(A<B)?0:((A>D)?E:(FLOOR((A-B)*E/D)))")
+    field(CALC, "(A<B)?0:((A>D)?E:(FLOOR((D-(A-B))*E/D)))")
     field(OOPT, "Every Time")
     field(OUT,  "$(P)$(R)ROIOffYConv-SP PP")
     field(FLNK, "$(P)$(R)ROIOffsetY-RB")
@@ -1359,7 +1359,7 @@ record(calcout, "$(P)$(R)ROIOffYConvL-Mon") {
     field(INPC, "$(P)$(R)SpecAnaTEnd-Mon NPP NMS")
     field(INPD, "$(P)$(R)SpecAnaTDelta-Mon NPP NMS")
     field(INPE, "$(SPEC_ANA)FrameCount-Mon NPP NMS")
-    field(CALC, "(A<0)?B:((A>E)?C:(A*D/E+B))")
+    field(CALC, "(A<0)?B:((A>E)?C:((E-A)*D/E+B))")
     field(OOPT, "Every Time")
     field(OUT,  "$(P)$(R)ROIOffsetY-SP PP")
 }
