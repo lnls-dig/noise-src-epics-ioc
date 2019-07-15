@@ -529,6 +529,21 @@ record(ai, "$(P)$(R)SpecAnaTDelta-Mon") {
     field(PREC, "1")
 }
 
+record(calc, "$(P)$(R)SpecAnaTEnd-Mon") {
+    field(DESC, "Timing estimated Time End")
+    field(EGU,  "ms")
+    field(INPA, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
+    field(INPB, "$(P)$(R)SpecAnaTOff-Mon CPP NMS")
+    field(CALC, "A+B")
+}
+
+record(calc, "$(P)$(R)SpecAnaTBeg-Mon") {
+    field(DESC, "Timing estimated Time Beg")
+    field(EGU,  "ms")
+    field(INPA, "$(P)$(R)SpecAnaTOff-Mon CPP NMS")
+    field(CALC, "A")
+}
+
 # Time Vector
 # Assuming maximum of 1000 frames
 
