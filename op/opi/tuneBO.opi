@@ -160,7 +160,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <scripts />
     <tab_0_background_color>
-      <color red="255" green="255" blue="255" />
+      <color red="255" green="202" blue="130" />
     </tab_0_background_color>
     <tab_0_enabled>true</tab_0_enabled>
     <tab_0_font>
@@ -172,7 +172,7 @@ $(pv_value)</tooltip>
     <tab_0_icon_path></tab_0_icon_path>
     <tab_0_title>Horizontal</tab_0_title>
     <tab_1_background_color>
-      <color red="255" green="255" blue="255" />
+      <color red="121" green="196" blue="255" />
     </tab_1_background_color>
     <tab_1_enabled>true</tab_1_enabled>
     <tab_1_font>
@@ -225,7 +225,7 @@ $(pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>false</visible>
+      <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
       <width>343</width>
       <wuid>67bdec06:1675a718dc8:-3d3e</wuid>
@@ -234,7 +234,7 @@ $(pv_value)</tooltip>
       <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <background_color>
-          <color red="240" green="240" blue="240" />
+          <color red="255" green="202" blue="130" />
         </background_color>
         <border_color>
           <color red="0" green="128" blue="255" />
@@ -324,7 +324,7 @@ $(pv_value)</tooltip>
         <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
           <actions hook="false" hook_all="false" />
           <background_color>
-            <color red="240" green="240" blue="240" />
+            <color red="255" green="202" blue="130" />
           </background_color>
           <border_color>
             <color red="0" green="128" blue="255" />
@@ -397,7 +397,7 @@ $(pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>true</visible>
+      <visible>false</visible>
       <widget_type>Grouping Container</widget_type>
       <width>343</width>
       <wuid>67bdec06:1675a718dc8:-3cee</wuid>
@@ -406,7 +406,7 @@ $(pv_value)</tooltip>
       <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <background_color>
-          <color red="240" green="240" blue="240" />
+          <color red="121" green="196" blue="255" />
         </background_color>
         <border_color>
           <color red="0" green="128" blue="255" />
@@ -456,7 +456,7 @@ $(pv_value)</tooltip>
         <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
           <actions hook="false" hook_all="false" />
           <background_color>
-            <color red="240" green="240" blue="240" />
+            <color red="121" green="196" blue="255" />
           </background_color>
           <border_color>
             <color red="0" green="128" blue="255" />
