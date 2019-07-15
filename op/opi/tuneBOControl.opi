@@ -65,7 +65,7 @@
     <scripts />
     <show_scrollbar>false</show_scrollbar>
     <tooltip></tooltip>
-    <transparent>false</transparent>
+    <transparent>true</transparent>
     <visible>true</visible>
     <widget_type>Grouping Container</widget_type>
     <width>343</width>
@@ -105,7 +105,7 @@
       <scripts />
       <show_scrollbar>false</show_scrollbar>
       <tooltip></tooltip>
-      <transparent>false</transparent>
+      <transparent>true</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
       <width>343</width>
@@ -162,7 +162,7 @@
         <scripts />
         <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-        <transparent>false</transparent>
+        <transparent>true</transparent>
         <visible>true</visible>
         <widget_type>Rectangle</widget_type>
         <width>343</width>
@@ -1170,7 +1170,7 @@ $(pv_value)</tooltip>
       <scripts />
       <show_scrollbar>false</show_scrollbar>
       <tooltip></tooltip>
-      <transparent>false</transparent>
+      <transparent>true</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
       <width>343</width>
@@ -1201,7 +1201,7 @@ $(pv_value)</tooltip>
         </fg_gradient_color>
         <fill_level>0.0</fill_level>
         <font>
-          <fontdata fontName="Ubuntu" height="12" style="0" pixels="false" />
+          <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
         </font>
         <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
         <foreground_color>
@@ -1227,7 +1227,7 @@ $(pv_value)</tooltip>
         <scripts />
         <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-        <transparent>false</transparent>
+        <transparent>true</transparent>
         <visible>true</visible>
         <widget_type>Rectangle</widget_type>
         <width>343</width>
@@ -1982,7 +1982,7 @@ $(pv_value)</tooltip>
         <actions hook="false" hook_all="false" />
         <auto_size>false</auto_size>
         <background_color>
-          <color red="255" green="255" blue="255" />
+          <color red="196" green="196" blue="196" />
         </background_color>
         <border_color>
           <color red="0" green="0" blue="0" />
@@ -2008,7 +2008,7 @@ $(pv_value)</tooltip>
         <scripts />
         <text>Frf/h*n</text>
         <tooltip></tooltip>
-        <transparent>true</transparent>
+        <transparent>false</transparent>
         <vertical_alignment>1</vertical_alignment>
         <visible>true</visible>
         <widget_type>Label</widget_type>
@@ -3165,7 +3165,7 @@ $(pv_value)</tooltip>
       <scripts />
       <show_scrollbar>false</show_scrollbar>
       <tooltip></tooltip>
-      <transparent>false</transparent>
+      <transparent>true</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
       <width>343</width>
@@ -3196,7 +3196,7 @@ $(pv_value)</tooltip>
         </fg_gradient_color>
         <fill_level>0.0</fill_level>
         <font>
-          <fontdata fontName="Ubuntu" height="12" style="0" pixels="false" />
+          <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
         </font>
         <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
         <foreground_color>
@@ -3222,7 +3222,7 @@ $(pv_value)</tooltip>
         <scripts />
         <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-        <transparent>false</transparent>
+        <transparent>true</transparent>
         <visible>true</visible>
         <widget_type>Rectangle</widget_type>
         <width>343</width>
@@ -3580,7 +3580,7 @@ $(pv_value)</tooltip>
       <scripts />
       <show_scrollbar>false</show_scrollbar>
       <tooltip></tooltip>
-      <transparent>false</transparent>
+      <transparent>true</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
       <width>343</width>
@@ -3637,7 +3637,7 @@ $(pv_value)</tooltip>
         <scripts />
         <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-        <transparent>false</transparent>
+        <transparent>true</transparent>
         <visible>true</visible>
         <widget_type>Rectangle</widget_type>
         <width>343</width>

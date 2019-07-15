@@ -493,6 +493,22 @@ record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
     field(ONAM, "ON")
 }
 
+# Timing delay event offset
+record(calcout, "$(P)$(R)SpecAnaTOffCalc") {
+    field(DESC, "Timing start spec. offset")
+    field(EGU,  "ms")
+    field(INPA, "$(TIM)Delay-RB CPP NMS")
+    field(CALC, "A/1000")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)SpecAnaTOff-Mon PP")
+}
+
+record(ai, "$(P)$(R)SpecAnaTOff-Mon") {
+    field(DESC, "Timing start spec. offset")
+    field(EGU,  "ms")
+    field(PREC, "1")
+}
+
 # The TimeDelta PV from SPEC_ANA has an intrinsic jitter,
 # as it's caluclated by the IOC. We can, however use an
 # heuristic to have a more precise timestamp using timing
@@ -501,10 +517,8 @@ record(bi, "$(P)$(R)SpecAnaGetSpec-Sts"){
 record(calcout, "$(P)$(R)SpecAnaTDeltaCalc") {
     field(DESC, "Timing estimated Time Delta")
     field(EGU,  "ms")
-    field(INPA, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
-    field(INPB, "$(TIM)NrPulses-RB CPP NMS")
-    field(INPC, "$(TIM)Duration-RB CPP NMS")
-    field(CALC, "A*(C/1000)/B")
+    field(INPA, "$(TIM)Duration-RB CPP NMS")
+    field(CALC, "A/1000")
     field(OOPT, "Every Time")
     field(OUT,  "$(P)$(R)SpecAnaTDelta-Mon PP")
 }
@@ -513,6 +527,21 @@ record(ai, "$(P)$(R)SpecAnaTDelta-Mon") {
     field(DESC, "Timing estimated Time Delta")
     field(EGU,  "ms")
     field(PREC, "1")
+}
+
+record(calc, "$(P)$(R)SpecAnaTEnd-Mon") {
+    field(DESC, "Timing estimated Time End")
+    field(EGU,  "ms")
+    field(INPA, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
+    field(INPB, "$(P)$(R)SpecAnaTOff-Mon CPP NMS")
+    field(CALC, "A+B")
+}
+
+record(calc, "$(P)$(R)SpecAnaTBeg-Mon") {
+    field(DESC, "Timing estimated Time Beg")
+    field(EGU,  "ms")
+    field(INPA, "$(P)$(R)SpecAnaTOff-Mon CPP NMS")
+    field(CALC, "A")
 }
 
 # Time Vector
@@ -531,10 +560,10 @@ record(acalcout, "$(P)$(R)TimeArrayCalc") {
     field(PREC, "1")
     field(NELM, "1000")
     field(EGU,  "ms")
-    field(INPA, "0")
+    field(INPA, "$(P)$(R)SpecAnaTOff-Mon CPP NMS")
     field(INPB, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
     field(INPC, "$(SPEC_ANA)FrameCount-Mon CPP NMS")
-    field(CALC, "IX*(B-A)/(C-1)+A")
+    field(CALC, "(C<2)?IX*(B-A)+A:IX*(B-A)/(C-1)+A")
     field(OUT,  "$(P)$(R)TimeArrayWvf CPP NMS")
 }
 
