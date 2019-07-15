@@ -721,11 +721,17 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P)$(R)SpecArray-Mon.NELM</pv>
           <pv trig="true">$(P)$(R)FrameCount-Mon</pv>
         </rule>
+        <rule name="Y Min Rule" prop_id="y_axis_minimum" out_exp="true">
+          <exp bool_exp="1">
+            <value>pv0</value>
+          </exp>
+          <pv trig="true">$(P_TUNE)$(R_TUNE)SpecAnaTBeg-Mon</pv>
+        </rule>
         <rule name="Y Max Rule" prop_id="y_axis_maximum" out_exp="true">
           <exp bool_exp="1">
             <value>pv0</value>
           </exp>
-          <pv trig="true">$(P_TUNE)$(R_TUNE)SpecAnaTDelta-Mon</pv>
+          <pv trig="true">$(P_TUNE)$(R_TUNE)SpecAnaTEnd-Mon</pv>
         </rule>
         <rule name="Max Rule" prop_id="maximum" out_exp="true">
           <exp bool_exp="1">
@@ -1576,7 +1582,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <widget_type>Grouping Container</widget_type>
     <width>793</width>
-    <wuid>-6429f2da:16bad71992e:-4afe</wuid>
+    <wuid>-3d984b22:16bdc33cd3e:-5e56</wuid>
     <x>376</x>
     <y>626</y>
     <widget typeId="org.csstudio.opibuilder.widgets.intensityGraph" version="1.0.0">
@@ -1680,11 +1686,17 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P)$(R)SpecArray-Mon.NELM</pv>
           <pv trig="true">$(P)$(R)FrameCount-Mon</pv>
         </rule>
+        <rule name="Y Min Rule" prop_id="y_axis_minimum" out_exp="true">
+          <exp bool_exp="1">
+            <value>pv0</value>
+          </exp>
+          <pv trig="true">$(P_TUNE)$(R_TUNE)SpecAnaTBeg-Mon</pv>
+        </rule>
         <rule name="Y Max Rule" prop_id="y_axis_maximum" out_exp="true">
           <exp bool_exp="1">
             <value>pv0</value>
           </exp>
-          <pv trig="true">$(P_TUNE)$(R_TUNE)SpecAnaTDelta-Mon</pv>
+          <pv trig="true">$(P_TUNE)$(R_TUNE)SpecAnaTEnd-Mon</pv>
         </rule>
         <rule name="Max Rule" prop_id="maximum" out_exp="true">
           <exp bool_exp="1">
@@ -1734,7 +1746,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Intensity Graph</widget_type>
       <width>770</width>
-      <wuid>-6429f2da:16bad71992e:-4afd</wuid>
+      <wuid>-3d984b22:16bdc33cd3e:-5e55</wuid>
       <x>5</x>
       <x_axis_axis_color>
         <color red="0" green="0" blue="0" />
@@ -1806,7 +1818,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Combo</widget_type>
       <width>98</width>
-      <wuid>-6429f2da:16bad71992e:-4afc</wuid>
+      <wuid>-3d984b22:16bdc33cd3e:-5e54</wuid>
       <x>657</x>
       <y>5</y>
     </widget>
@@ -1846,7 +1858,7 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>41</width>
       <wrap_words>false</wrap_words>
-      <wuid>-6429f2da:16bad71992e:-4afb</wuid>
+      <wuid>-3d984b22:16bdc33cd3e:-5e53</wuid>
       <x>605</x>
       <y>11</y>
     </widget>
@@ -1898,7 +1910,7 @@ $(pv_value)</tooltip>
       <widget_type>Text Update</widget_type>
       <width>98</width>
       <wrap_words>false</wrap_words>
-      <wuid>-6429f2da:16bad71992e:-4afa</wuid>
+      <wuid>-3d984b22:16bdc33cd3e:-5e52</wuid>
       <x>498</x>
       <y>7</y>
     </widget>
@@ -1938,7 +1950,7 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>83</width>
       <wrap_words>false</wrap_words>
-      <wuid>-6429f2da:16bad71992e:-4af9</wuid>
+      <wuid>-3d984b22:16bdc33cd3e:-5e51</wuid>
       <x>401</x>
       <y>11</y>
     </widget>
@@ -1980,7 +1992,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Combo</widget_type>
       <width>98</width>
-      <wuid>-6429f2da:16bad71992e:-4af8</wuid>
+      <wuid>-3d984b22:16bdc33cd3e:-5e50</wuid>
       <x>296</x>
       <y>5</y>
     </widget>
@@ -2020,7 +2032,7 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>75</width>
       <wrap_words>false</wrap_words>
-      <wuid>-6429f2da:16bad71992e:-4af7</wuid>
+      <wuid>-3d984b22:16bdc33cd3e:-5e4f</wuid>
       <x>212</x>
       <y>11</y>
     </widget>
@@ -2077,7 +2089,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <widget_type>Text Input</widget_type>
       <width>98</width>
-      <wuid>-6429f2da:16bad71992e:-4af6</wuid>
+      <wuid>-3d984b22:16bdc33cd3e:-5e4e</wuid>
       <x>107</x>
       <y>7</y>
     </widget>
@@ -2117,7 +2129,7 @@ $(pv_value)</tooltip>
       <widget_type>Label</widget_type>
       <width>89</width>
       <wrap_words>false</wrap_words>
-      <wuid>-6429f2da:16bad71992e:-4af5</wuid>
+      <wuid>-3d984b22:16bdc33cd3e:-5e4d</wuid>
       <x>5</x>
       <y>11</y>
     </widget>
