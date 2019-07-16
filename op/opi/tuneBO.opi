@@ -134,7 +134,7 @@ $(pv_value)</tooltip>
     <actions hook="false" hook_all="false" />
     <active_tab>0</active_tab>
     <background_color>
-      <color red="240" green="240" blue="240" />
+      <color red="192" green="192" blue="192" />
     </background_color>
     <border_color>
       <color red="0" green="128" blue="255" />
@@ -160,7 +160,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <scripts />
     <tab_0_background_color>
-      <color red="255" green="202" blue="130" />
+      <color red="134" green="181" blue="217" />
     </tab_0_background_color>
     <tab_0_enabled>true</tab_0_enabled>
     <tab_0_font>
@@ -172,7 +172,7 @@ $(pv_value)</tooltip>
     <tab_0_icon_path></tab_0_icon_path>
     <tab_0_title>Horizontal</tab_0_title>
     <tab_1_background_color>
-      <color red="121" green="196" blue="255" />
+      <color red="216" green="134" blue="134" />
     </tab_1_background_color>
     <tab_1_enabled>true</tab_1_enabled>
     <tab_1_font>
@@ -234,7 +234,7 @@ $(pv_value)</tooltip>
       <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <background_color>
-          <color red="255" green="202" blue="130" />
+          <color red="134" green="181" blue="217" />
         </background_color>
         <border_color>
           <color red="0" green="128" blue="255" />
@@ -324,10 +324,10 @@ $(pv_value)</tooltip>
         <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
           <actions hook="false" hook_all="false" />
           <background_color>
-            <color red="255" green="202" blue="130" />
+            <color red="134" green="181" blue="217" />
           </background_color>
           <border_color>
-            <color red="0" green="128" blue="255" />
+            <color red="134" green="181" blue="217" />
           </border_color>
           <border_style>3</border_style>
           <border_width>1</border_width>
@@ -406,7 +406,7 @@ $(pv_value)</tooltip>
       <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <background_color>
-          <color red="121" green="196" blue="255" />
+          <color red="216" green="134" blue="134" />
         </background_color>
         <border_color>
           <color red="0" green="128" blue="255" />
@@ -456,7 +456,7 @@ $(pv_value)</tooltip>
         <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
           <actions hook="false" hook_all="false" />
           <background_color>
-            <color red="121" green="196" blue="255" />
+            <color red="216" green="134" blue="134" />
           </background_color>
           <border_color>
             <color red="0" green="128" blue="255" />
@@ -579,10 +579,10 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <actions hook="false" hook_all="false" />
     <background_color>
-      <color red="255" green="202" blue="130" />
+      <color red="134" green="181" blue="217" />
     </background_color>
     <border_color>
-      <color red="255" green="202" blue="130" />
+      <color red="134" green="181" blue="217" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
@@ -1212,10 +1212,10 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <actions hook="false" hook_all="false" />
     <background_color>
-      <color red="255" green="202" blue="130" />
+      <color red="134" green="181" blue="217" />
     </background_color>
     <border_color>
-      <color red="255" green="202" blue="130" />
+      <color red="134" green="181" blue="217" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
@@ -1254,10 +1254,10 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="255" green="202" blue="130" />
+        <color red="134" green="181" blue="217" />
       </background_color>
       <border_color>
-        <color red="0" green="128" blue="255" />
+        <color red="134" green="181" blue="217" />
       </border_color>
       <border_style>0</border_style>
       <border_width>0</border_width>
@@ -1295,10 +1295,10 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <actions hook="false" hook_all="false" />
     <background_color>
-      <color red="255" green="202" blue="130" />
+      <color red="134" green="181" blue="217" />
     </background_color>
     <border_color>
-      <color red="255" green="202" blue="130" />
+      <color red="134" green="181" blue="217" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
@@ -1337,10 +1337,10 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="255" green="202" blue="130" />
+        <color red="134" green="181" blue="217" />
       </background_color>
       <border_color>
-        <color red="0" green="128" blue="255" />
+        <color red="134" green="181" blue="217" />
       </border_color>
       <border_style>0</border_style>
       <border_width>0</border_width>
@@ -1378,10 +1378,10 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <actions hook="false" hook_all="false" />
     <background_color>
-      <color red="121" green="196" blue="255" />
+      <color red="216" green="134" blue="134" />
     </background_color>
     <border_color>
-      <color red="121" green="196" blue="255" />
+      <color red="216" green="134" blue="134" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
@@ -1420,10 +1420,10 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="121" green="196" blue="255" />
+        <color red="216" green="134" blue="134" />
       </background_color>
       <border_color>
-        <color red="0" green="128" blue="255" />
+        <color red="216" green="134" blue="134" />
       </border_color>
       <border_style>0</border_style>
       <border_width>0</border_width>
@@ -1461,10 +1461,10 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <actions hook="false" hook_all="false" />
     <background_color>
-      <color red="121" green="196" blue="255" />
+      <color red="216" green="134" blue="134" />
     </background_color>
     <border_color>
-      <color red="121" green="196" blue="255" />
+      <color red="216" green="134" blue="134" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
@@ -1503,10 +1503,10 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="121" green="196" blue="255" />
+        <color red="216" green="134" blue="134" />
       </background_color>
       <border_color>
-        <color red="0" green="128" blue="255" />
+        <color red="216" green="134" blue="134" />
       </border_color>
       <border_style>0</border_style>
       <border_width>0</border_width>
@@ -1544,10 +1544,10 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <actions hook="false" hook_all="false" />
     <background_color>
-      <color red="121" green="196" blue="255" />
+      <color red="216" green="134" blue="134" />
     </background_color>
     <border_color>
-      <color red="121" green="196" blue="255" />
+      <color red="216" green="134" blue="134" />
     </border_color>
     <border_style>14</border_style>
     <border_width>2</border_width>
