@@ -1215,7 +1215,7 @@ record(calc, "$(P)$(R)TuneFracStart-Mon") {
     field(INPB, "$(P)$(R)RFFreq-Mon CPP NMS")
     field(INPC, "$(P)$(R)H-RB CPP NMS")
     field(INPD, "$(P)$(R)RevN-RB CPP NMS")
-    field(CALC, "E:=A/(B/C);F:=FLOOR(E);E-F")
+    field(CALC, "A/(B/C)")
 }
 
 record(calc, "$(P)$(R)TuneFracStop-Mon") {
@@ -1225,7 +1225,7 @@ record(calc, "$(P)$(R)TuneFracStop-Mon") {
     field(INPB, "$(P)$(R)RFFreq-Mon CPP NMS")
     field(INPC, "$(P)$(R)H-RB CPP NMS")
     field(INPD, "$(P)$(R)RevN-RB CPP NMS")
-    field(CALC, "E:=A/(B/C);F:=FLOOR(E);E-F")
+    field(CALC, "A/(B/C)")
 }
 
 record(waveform,"$(P)$(R)FreqArrayWvf") {
