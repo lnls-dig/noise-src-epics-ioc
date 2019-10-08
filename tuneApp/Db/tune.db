@@ -1186,7 +1186,7 @@ record(acalcout, "$(P)$(R)TuneFracArrayCalc") {
     field(INPA, "$(P)$(R)RFFreq-Mon CPP NMS")
     field(INPB, "$(P)$(R)H-RB CPP NMS")
     field(INPC, "$(P)$(R)RevN-RB CPP NMS")
-    field(CALC, "BB:=AA/(A/1000000/B);CC:=FLOOR(BB);0.5-ABS(BB-CC-0.5)")
+    field(CALC, "AA/(A/1000000/B)")
     field(OUT,  "$(P)$(R)TuneFracArrayWvf CPP NMS")
 }
 
