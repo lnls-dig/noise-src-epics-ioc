@@ -1,0 +1,2 @@
+file "tune_settings.req",                  P=$(P),  R=$(R)
+file "tuneBO_settings.req",                P=$(P),  R=$(R)
