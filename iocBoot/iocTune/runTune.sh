@@ -25,18 +25,18 @@ if [ -z "$AMP" ]; then
     exit 3
 fi
 
-if [ -z "$NOISE_GEN" ]; then
-    echo "\$NOISE_GEN is not set, Please use -n option" >&2
+if [ "$DEVICE_TYPE" = "BO" ] && [ -z "$NOISE_GEN" ]; then
+    echo "\$NOISE_GEN is not set and device type is BO, Please use -n option" >&2
     exit 4
 fi
 
-if [ -z "$CARRIER_GEN" ]; then
-    echo "\$CARRIER_GEN is not set, Please use -c option" >&2
+if [ "$DEVICE_TYPE" = "BO" ] && [ -z "$CARRIER_GEN" ]; then
+    echo "\$CARRIER_GEN is not set and device type is BO, Please use -c option" >&2
     exit 5
 fi
 
-if [ -z "$TIM" ]; then
-    echo "\$TIM is not set, Please use -i option" >&2
+if [ "$DEVICE_TYPE" = "BO" ] && [ -z "$TIM" ]; then
+    echo "\$TIM is not set and device type is BO, Please use -i option" >&2
     exit 6
 fi
 
