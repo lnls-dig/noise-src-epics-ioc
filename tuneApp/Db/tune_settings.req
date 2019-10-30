@@ -9,9 +9,6 @@ $(P)$(R)Span-SP
 # Center Freq
 $(P)$(R)CenterFreq-SP
 
-# Center Freq Threshold
-$(P)$(R)CarFreqThold-SP
-
 # Offset
 $(P)$(R)FreqOff-SP
 
@@ -27,9 +24,6 @@ $(P)$(R)CenterFreqAuto-Sel
 # Spec Analyzer RBW
 $(P)$(R)SpecAnaRBW-Sel
 
-# Autoatic drive selection
-$(P)$(R)DriveAuto-Sel
-
 # Enable Spec. Analyzer
 $(P)$(R)SpecAnaGetSpec-Sel
 
@@ -42,6 +36,3 @@ $(P)$(R)ROIAuto-Sel
 
 # Amplifier Gain
 $(P)$(R)AmpGain-SP
-
-# Noise Generator Amplitude
-$(P)$(R)NoiseAmpl-SP

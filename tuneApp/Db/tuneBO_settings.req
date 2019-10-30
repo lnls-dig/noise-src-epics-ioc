@@ -1,0 +1,10 @@
+# This file specifies which PVs of the corresponding database should be saved.
+
+# Center Freq Threshold
+$(P)$(R)CarFreqThold-SP
+
+# Autoatic drive selection
+$(P)$(R)DriveAuto-Sel
+
+# Noise Generator Amplitude
+$(P)$(R)NoiseAmpl-SP
