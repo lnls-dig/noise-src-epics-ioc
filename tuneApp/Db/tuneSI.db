@@ -31,11 +31,11 @@ record(calcout, "$(P)$(R)CenterFreqRBCalc") {
     field(OUT,  "0")
 }
 
-# C=0? Link 1: C=1: Link 2
+# C=0? Link 1, Link 2 : C=1: Link 3, Link 4
 record(calcout, "$(P)$(R)EnblExctCalc"){
     field(DESC, "Enable/Disable excitation sources")
     field(INPA, "$(P)$(R)Enbl-Sel")
-    field(CALC, "A=0?1:2")
+    field(CALC, "A=0?3:12")
     field(FLNK, "$(P)$(R)EnblCarNoiseSrcSeq")
 }
 
@@ -45,8 +45,12 @@ record(seq, "$(P)$(R)EnblCarNoiseSrcSeq"){
     field(SELL, "$(P)$(R)EnblExctCalc")
     field(DO1, "0")
     field(LNK1, "$(AMP)Enbl-Sel PP")               # Disable amplifier;
-    field(DO2, "1")
-    field(LNK2, "$(AMP)Enbl-Sel PP")               # Enable amplifier;
+    field(DO2, "0")
+    field(LNK2, "$(P)$(R)SpecAnaTrkGen-Sel PP")    # Disble tracking genrator;
+    field(DO3, "1")
+    field(LNK3, "$(AMP)Enbl-Sel PP")               # Enable amplifier;
+    field(DO4, "1")
+    field(LNK4, "$(P)$(R)SpecAnaTrkGen-Sel PP")    # Enable tracking generator;
 }
 
 ############################################################
