@@ -513,8 +513,8 @@ record(calcout, "$(P)$(R)CFreqCalc") {
 record(seq, "$(P)$(R)FreqArrayWvfSeq"){
     field(DESC, "Get NORD from waveform")
     field(PINI, "YES")
-    field(DOL1, "$(SPEC_ANA)Trace-Mon.NORD CPP NMS")
-    field(DOL2, "$(SPEC_ANA)Trace-Mon.NORD NPP NMS")
+    field(DOL1, "$(SPEC_ANA)TraceLen-Mon CPP NMS")
+    field(DOL2, "$(SPEC_ANA)TraceLen-Mon NPP NMS")
     field(LNK1, "$(P)$(R)TuneFracArray-Mon.NELM CPP NMS")
     field(LNK2, "$(P)$(R)FreqArray-Mon.NELM CPP NMS")
     field(SELM, "All")
