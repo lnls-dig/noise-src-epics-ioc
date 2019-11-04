@@ -36,3 +36,15 @@ $(P)$(R)ROIAuto-Sel
 
 # Amplifier Gain
 $(P)$(R)AmpGain-SP
+
+# RFfreq-Mon
+$(P)$(R)RFFreq-Mon
+$(P)$(R)RFFreq-Mon.INP
+
+# SI H number
+$(P)$(R)SIH-Cte
+$(P)$(R)SIH-Cte.INP
+
+# BO H number
+$(P)$(R)BOH-Cte
+$(P)$(R)BOH-Cte.INP
