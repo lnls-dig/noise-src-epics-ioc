@@ -2452,7 +2452,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -2464,7 +2464,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -2602,7 +2602,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -2614,7 +2614,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -2752,7 +2752,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -2764,7 +2764,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -2902,7 +2902,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -2914,7 +2914,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -3052,7 +3052,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -3064,7 +3064,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -3145,7 +3145,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -3157,7 +3157,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -3238,7 +3238,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -3250,7 +3250,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -3331,7 +3331,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -3343,7 +3343,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -4416,7 +4416,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -4428,7 +4428,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -4577,7 +4577,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -4589,7 +4589,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -5290,7 +5290,7 @@ $(pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>true</visible>
+      <visible>false</visible>
       <widget_type>Grouping Container</widget_type>
       <width>776</width>
       <wuid>-1312dc05:16e135bc9d7:5697</wuid>
@@ -5315,7 +5315,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -5327,7 +5327,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -5476,7 +5476,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -5488,7 +5488,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -5637,7 +5637,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -5649,7 +5649,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -5730,7 +5730,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -5742,7 +5742,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -5823,7 +5823,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -5835,7 +5835,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -5916,7 +5916,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -5928,7 +5928,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -6009,7 +6009,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -6021,7 +6021,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -6102,7 +6102,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -6114,7 +6114,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -6195,7 +6195,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -6207,7 +6207,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -6288,7 +6288,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -6300,7 +6300,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -6381,7 +6381,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -6393,7 +6393,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -6542,7 +6542,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -6554,7 +6554,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -6703,7 +6703,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -6715,7 +6715,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -6864,7 +6864,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -6876,7 +6876,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -7014,7 +7014,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -7026,7 +7026,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -7175,7 +7175,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -7187,7 +7187,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -7366,7 +7366,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -7378,7 +7378,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -7516,7 +7516,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -7528,7 +7528,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -7609,7 +7609,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -7621,7 +7621,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -7759,7 +7759,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -7771,7 +7771,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -7909,7 +7909,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -7921,7 +7921,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -8002,7 +8002,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -8014,7 +8014,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -8095,7 +8095,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -8107,7 +8107,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -8245,7 +8245,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -8257,7 +8257,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -9826,7 +9826,7 @@ $(pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>false</visible>
+      <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
       <width>776</width>
       <wuid>-1312dc05:16e135bc9d7:56e4</wuid>
@@ -9851,7 +9851,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -9863,7 +9863,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -9944,7 +9944,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -9956,7 +9956,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -10037,7 +10037,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -10049,7 +10049,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -10130,7 +10130,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -10142,7 +10142,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -10223,7 +10223,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -10235,7 +10235,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -10316,7 +10316,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -10328,7 +10328,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -10409,7 +10409,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -10421,7 +10421,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -10502,7 +10502,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -10514,7 +10514,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -10595,7 +10595,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -10607,7 +10607,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -10756,7 +10756,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -10768,7 +10768,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -10917,7 +10917,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -10929,7 +10929,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -11078,7 +11078,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -11090,7 +11090,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -11778,7 +11778,7 @@ $(pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>true</visible>
+      <visible>false</visible>
       <widget_type>Grouping Container</widget_type>
       <width>776</width>
       <wuid>-1312dc05:16e135bc9d7:66e6</wuid>
@@ -11803,7 +11803,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -11815,7 +11815,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -11953,7 +11953,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -11965,7 +11965,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -12103,7 +12103,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -12115,7 +12115,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -12253,7 +12253,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -12265,7 +12265,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -12403,7 +12403,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -12415,7 +12415,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -12496,7 +12496,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -12508,7 +12508,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -12589,7 +12589,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -12601,7 +12601,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -12682,7 +12682,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -12694,7 +12694,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -13767,7 +13767,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -13779,7 +13779,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -13928,7 +13928,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -13940,7 +13940,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -14666,7 +14666,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -14678,7 +14678,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -14827,7 +14827,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -14839,7 +14839,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -14988,7 +14988,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -15000,7 +15000,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -15081,7 +15081,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -15093,7 +15093,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -15174,7 +15174,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -15186,7 +15186,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -15267,7 +15267,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -15279,7 +15279,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -15360,7 +15360,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -15372,7 +15372,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -15453,7 +15453,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -15465,7 +15465,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -15546,7 +15546,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -15558,7 +15558,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -15639,7 +15639,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -15651,7 +15651,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -15732,7 +15732,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -15744,7 +15744,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -15893,7 +15893,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -15905,7 +15905,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -16054,7 +16054,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -16066,7 +16066,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -16215,7 +16215,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -16227,7 +16227,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -16365,7 +16365,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -16377,7 +16377,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -16526,7 +16526,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -16538,7 +16538,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -16717,7 +16717,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -16729,7 +16729,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -16867,7 +16867,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -16879,7 +16879,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -16960,7 +16960,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -16972,7 +16972,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -17110,7 +17110,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -17122,7 +17122,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -17260,7 +17260,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -17272,7 +17272,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -17353,7 +17353,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -17365,7 +17365,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -17446,7 +17446,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>97</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -17458,7 +17458,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -17596,7 +17596,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -17608,7 +17608,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -19177,7 +19177,7 @@ $(pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>false</visible>
+      <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
       <width>776</width>
       <wuid>-1312dc05:16e135bc9d7:6770</wuid>
@@ -19202,7 +19202,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -19214,7 +19214,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -19295,7 +19295,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -19307,7 +19307,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -19388,7 +19388,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -19400,7 +19400,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -19481,7 +19481,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -19493,7 +19493,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -19574,7 +19574,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -19586,7 +19586,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -19667,7 +19667,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -19679,7 +19679,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -19760,7 +19760,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -19772,7 +19772,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -19853,7 +19853,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>65</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -19865,7 +19865,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -19946,7 +19946,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -19958,7 +19958,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -20107,7 +20107,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -20119,7 +20119,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -20268,7 +20268,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -20280,7 +20280,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
@@ -20429,7 +20429,7 @@ $(pv_value)</tooltip>
           <color red="192" green="192" blue="192" />
         </foreground_color>
         <height>57</height>
-        <lock_children>false</lock_children>
+        <lock_children>true</lock_children>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -20441,7 +20441,7 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_scrollbar>true</show_scrollbar>
+        <show_scrollbar>false</show_scrollbar>
         <tooltip></tooltip>
         <transparent>false</transparent>
         <visible>true</visible>
