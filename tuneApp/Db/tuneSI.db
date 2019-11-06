@@ -71,6 +71,24 @@ record(ai, "$(P)$(R)SpecAnaRBW-Sts"){
     field(INP, "$(SPEC_ANA)Rbw-Sts CPP")
 }
 
+record(ai, "$(P)$(R)TuneFreq-Mon") {
+    field(DESC, "Get tune value in Hz")
+    field(PREC, "3")
+    field(EGU, "Hz")
+    field(INP, "$(SPEC_ANA)MarkX1-RB CPP")
+    field(FLNK, "$(P)$(R)TuneFrac-Mon")
+}
+
+record(calc, "$(P)$(R)TuneFrac-Mon") {
+    field(DESC, "Get fraction tune value")
+    field(PREC, "3")
+    field(INPA, "$(P)$(R)TuneFreq-Mon NPP")
+    field(INPB, "$(P)$(R)RFFreq-Mon CPP NMS")
+    field(INPC, "$(P)$(R)H-RB CPP NMS")
+#    field(CALC, "A/(B/C)")
+    field(CALC, "D:=A/(B/C);E:=FLOOR(D);0.5-ABS(D-E-0.5)")
+}
+
 # INITIALIZATION
 #
 # Desc: Initialization of devices.
