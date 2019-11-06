@@ -117,6 +117,10 @@ record(sseq, "$(P)$(R)InitSeqSpecAna"){
     field(LNK2, "$(SPEC_ANA)EnblSweTimeAuto-Sel PP")     # Set Time Coupling
     field(STR3, "ON")
     field(LNK3, "$(SPEC_ANA)EnblAttAuto-Sel PP")         # Enable Ref. Level Att.
+    field(STR4, "ON")
+    field(LNK4, "$(SPEC_ANA)EnblMark1-Sel PP")           # Marker 1
+    field(STR5, "ON")
+    field(LNK5, "$(SPEC_ANA)EnblMaxAuto1-Sel PP")        # Marker 1 Max Peak Aearch
     field(FLNK, "$(P)$(R)InitSeqEnbl")
 }
 
