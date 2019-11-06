@@ -272,6 +272,58 @@ record(mbbi, "$(P)$(R)SpecAnaRBW-Sts"){
     field(INP, "$(SPEC_ANA)Rbw-Sts CPP")
 }
 
+# Timing delay event offset
+record(calcout, "$(P)$(R)SpecAnaTOffCalc") {
+    field(DESC, "Timing start spec. offset")
+    field(EGU,  "ms")
+    field(INPA, "$(TIM)Delay-RB CPP NMS")
+    field(CALC, "A/1000")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)SpecAnaTOff-Mon PP")
+}
+
+record(ai, "$(P)$(R)SpecAnaTOff-Mon") {
+    field(DESC, "Timing start spec. offset")
+    field(EGU,  "ms")
+    field(PREC, "1")
+}
+
+# The TimeDelta PV from SPEC_ANA has an intrinsic jitter,
+# as it's caluclated by the IOC. We can, however use an
+# heuristic to have a more precise timestamp using timing
+# variables from the control system.
+
+record(calcout, "$(P)$(R)SpecAnaTDeltaCalc") {
+    field(DESC, "Timing estimated Time Delta")
+    field(EGU,  "ms")
+    field(INPA, "$(TIM)Duration-RB CPP NMS")
+    field(CALC, "A/1000")
+    field(OOPT, "Every Time")
+    field(OUT,  "$(P)$(R)SpecAnaTDelta-Mon PP")
+}
+
+record(ai, "$(P)$(R)SpecAnaTDelta-Mon") {
+    field(DESC, "Timing estimated Time Delta")
+    field(EGU,  "ms")
+    field(PREC, "1")
+}
+
+record(calc, "$(P)$(R)SpecAnaTEnd-Mon") {
+    field(DESC, "Timing estimated Time End")
+    field(EGU,  "ms")
+    field(INPA, "$(P)$(R)SpecAnaTDelta-Mon CPP NMS")
+    field(INPB, "$(P)$(R)SpecAnaTOff-Mon CPP NMS")
+    field(CALC, "A+B")
+}
+
+record(calc, "$(P)$(R)SpecAnaTBeg-Mon") {
+    field(DESC, "Timing estimated Time Beg")
+    field(EGU,  "ms")
+    field(INPA, "$(P)$(R)SpecAnaTOff-Mon CPP NMS")
+    field(CALC, "A")
+}
+
+
 ############################################################
 # WHITE NOISE CONTROL
 #
